@@ -791,6 +791,164 @@ APP_DATA.c1 = {
         { q: "Choose the correct sentence.", options: ["I see you point but disagree.", "I see your point, but I disagree.", "I see your point but I am disagree.", "I see your point, but disagreeing."], answer: 1 },
         { type: "tf", q: "Good arguments should be supported by evidence and examples, not just opinion.", answer: true }
       ]
+    },
+    {
+      id: "c1-m6",
+      title: "Collocations Avançadas",
+      subtitle: "Combinações naturais de palavras que soam autênticas",
+      lesson: {
+        intro: "Collocations são combinações de palavras que 'soam certas' juntas para falantes nativos, mesmo quando não seguem uma regra lógica clara. Dominar collocations é essencial para soar natural.",
+        sections: [
+          {
+            heading: "O Que São Collocations?",
+            text: "Certas palavras naturalmente 'combinam' com outras — trocar uma palavra por um sinônimo pode soar estranho, mesmo estando gramaticalmente correto.",
+            examples: [
+              { en: "make a decision (não 'do a decision')", pt: "tomar uma decisão" },
+              { en: "heavy rain (não 'strong rain')", pt: "chuva forte" }
+            ]
+          },
+          {
+            heading: "Collocations com Verbos",
+            text: "Verbos como 'make', 'do', 'take' e 'have' combinam com substantivos específicos.",
+            examples: [
+              { en: "make an effort / make a mistake", pt: "fazer um esforço / cometer um erro" },
+              { en: "take a break / take responsibility", pt: "fazer uma pausa / assumir responsabilidade" }
+            ]
+          },
+          {
+            heading: "Collocations com Adjetivos",
+            text: "Adjetivos também têm parceiros naturais que intensificam o significado.",
+            examples: [
+              { en: "deeply concerned / bitterly disappointed", pt: "profundamente preocupado / amargamente desapontado" },
+              { en: "strictly forbidden / highly unlikely", pt: "estritamente proibido / altamente improvável" }
+            ]
+          }
+        ]
+      },
+      vocabulary: [
+        { word: "Make an effort", phonetic: "/meɪk ən ˈɛfərt/", translation: "Fazer um esforço", example: "She made a real effort to improve.", exampleTranslation: "Ela fez um esforço real para melhorar." },
+        { word: "Take responsibility", phonetic: "/teɪk rɪˌspɒnsəˈbɪləti/", translation: "Assumir responsabilidade", example: "He took responsibility for the mistake.", exampleTranslation: "Ele assumiu a responsabilidade pelo erro." },
+        { word: "Heavy rain", phonetic: "/ˈhɛvi reɪn/", translation: "Chuva forte", example: "There was heavy rain last night.", exampleTranslation: "Houve chuva forte ontem à noite." },
+        { word: "Deeply concerned", phonetic: "/ˈdiːpli kənˈsɜːrnd/", translation: "Profundamente preocupado", example: "We are deeply concerned about the results.", exampleTranslation: "Estamos profundamente preocupados com os resultados." },
+        { word: "Strictly forbidden", phonetic: "/ˈstrɪktli fərˈbɪdən/", translation: "Estritamente proibido", example: "Smoking is strictly forbidden here.", exampleTranslation: "Fumar é estritamente proibido aqui." },
+        { word: "Highly unlikely", phonetic: "/ˈhaɪli ənˈlaɪkli/", translation: "Altamente improvável", example: "It's highly unlikely to happen.", exampleTranslation: "É altamente improvável que aconteça." },
+        { word: "Reach an agreement", phonetic: "/riːtʃ ən əˈɡriːmənt/", translation: "Chegar a um acordo", example: "They finally reached an agreement.", exampleTranslation: "Eles finalmente chegaram a um acordo." },
+        { word: "Raise awareness", phonetic: "/reɪz əˈwɛrnəs/", translation: "Aumentar a conscientização", example: "The campaign aims to raise awareness.", exampleTranslation: "A campanha visa aumentar a conscientização." },
+        { word: "Bitterly disappointed", phonetic: "/ˈbɪtərli ˌdɪsəˈpɔɪntɪd/", translation: "Amargamente desapontado", example: "I was bitterly disappointed by the result.", exampleTranslation: "Fiquei amargamente desapontado com o resultado." },
+        { word: "Pay attention", phonetic: "/peɪ əˈtɛnʃən/", translation: "Prestar atenção", example: "Please pay attention to the details.", exampleTranslation: "Por favor, preste atenção aos detalhes." }
+      ],
+      grammar: {
+        title: "Verbos Coletores: Make, Do, Take, Have",
+        explanation: "Estes quatro verbos formam collocations com substantivos específicos que não seguem uma lógica de tradução direta.",
+        table: {
+          headers: ["Verbo", "Collocations comuns"],
+          rows: [
+            ["Make", "make a decision, make an effort, make a mistake, make progress"],
+            ["Do", "do homework, do business, do a favor, do research"],
+            ["Take", "take responsibility, take a break, take a risk, take advantage"],
+            ["Have", "have a conversation, have an experience, have a look, have fun"]
+          ]
+        },
+        correct: ["She made a difficult decision.", "He did his homework.", "They took a big risk.", "We had a great conversation."],
+        incorrect: ["She did a difficult decision.", "He made his homework.", "They did a big risk.", "We made a great conversation."]
+      },
+      listening: [
+        {
+          title: "A Concerned Conversation",
+          accent: "american",
+          transcript: "A: I'm deeply concerned about the project deadline. B: I understand. Let's make an effort to finish early. A: Agreed. We should also take responsibility for the delays so far. B: True. If we pay attention to details now, it's highly unlikely we'll have more problems.",
+          questions: [
+            { q: "How does speaker A feel about the deadline?", options: ["Excited", "Deeply concerned", "Indifferent", "Confident"], answer: 1 },
+            { q: "What do they agree to do?", options: ["Give up", "Make an effort to finish early", "Ignore the problem", "Blame someone else"], answer: 1 },
+            { q: "What does B say is highly unlikely?", options: ["Success", "More problems if they pay attention", "Finishing on time", "Nothing"], answer: 1 }
+          ]
+        }
+      ],
+      reading: [
+        {
+          title: "The Power of Natural Word Combinations",
+          text: "Native speakers often use word combinations, or collocations, without thinking twice. A learner might say 'do a mistake,' but a native speaker would say 'make a mistake.' Similarly, we say 'heavy rain,' not 'strong rain,' and 'deeply concerned,' not 'strongly concerned.' Learning collocations as whole chunks, rather than individual words, is one of the most effective ways to sound more natural and fluent.",
+          questions: [
+            { q: "What might a learner incorrectly say?", options: ["Make a mistake", "Do a mistake", "Take a mistake", "Have a mistake"], answer: 1 },
+            { q: "What is the correct collocation for rain?", options: ["Strong rain", "Heavy rain", "Big rain", "Hard rain"], answer: 1 },
+            { q: "What is one of the most effective ways to sound natural, according to the text?", options: ["Learning individual words only", "Learning collocations as whole chunks", "Avoiding new words", "Speaking slowly"], answer: 1 }
+          ]
+        }
+      ],
+      writing: [
+        { prompt: "Escreva 4 frases usando collocations diferentes com make, do, take e have.", minWords: 20, modelAnswer: "I need to make a decision soon. She always does her homework early. He took a big risk last year. We had a wonderful conversation yesterday." },
+        { prompt: "Escreva um parágrafo curto sobre uma preocupação atual, usando pelo menos 2 collocations desta lição (deeply concerned, highly unlikely, etc.).", minWords: 25, modelAnswer: "I am deeply concerned about climate change. It's highly unlikely that the problem will solve itself. We need to raise awareness and make an effort to change our habits." }
+      ],
+      speaking: [
+        { phrase: "She made a difficult decision.", tip: "'Make a decision' é fixo — nunca diga 'do a decision'." },
+        { phrase: "We are deeply concerned about the results.", tip: "'Deeply' intensifica 'concerned' — combinação natural e fixa." },
+        { phrase: "It's highly unlikely to happen.", tip: "'Highly unlikely' é mais natural que 'very unlikely' em contextos formais." },
+        { phrase: "They finally reached an agreement.", tip: "'Reach an agreement' é mais natural que 'arrive at an agreement'." },
+        { phrase: "Please pay attention to the details.", tip: "'Pay attention' é fixo — nunca 'give attention' neste sentido." }
+      ],
+      exercises: {
+        fillBlanks: [
+          { text: "She ___ a difficult decision. (make, não do)", answer: "made" },
+          { text: "He ___ his homework every day. (do)", answer: "does" },
+          { text: "They took a big ___. (risco)", answer: "risk" },
+          { text: "We are deeply ___ about the results. (preocupados)", answer: "concerned" },
+          { text: "It's highly ___ to happen. (improvável)", answer: "unlikely" }
+        ],
+        matching: [
+          { left: "Make a decision", right: "Tomar uma decisão" },
+          { left: "Take responsibility", right: "Assumir responsabilidade" },
+          { left: "Heavy rain", right: "Chuva forte" },
+          { left: "Pay attention", right: "Prestar atenção" },
+          { left: "Raise awareness", right: "Aumentar a conscientização" },
+          { left: "Reach an agreement", right: "Chegar a um acordo" }
+        ],
+        ordering: [
+          { words: ["decision", "made", "difficult", "She", "a"], answer: "She made a difficult decision" },
+          { words: ["responsibility", "took", "the", "He", "mistake", "for"], answer: "He took responsibility for the mistake" },
+          { words: ["concerned", "are", "deeply", "We", "results", "about", "the"], answer: "We are deeply concerned about the results" },
+          { words: ["unlikely", "It's", "happen", "highly", "to"], answer: "It's highly unlikely to happen" },
+          { words: ["attention", "pay", "Please", "details", "the", "to"], answer: "Please pay attention to the details" }
+        ],
+        translation: [
+          { direction: "pt-en", text: "Ela tomou uma decisão difícil.", answer: "She made a difficult decision." },
+          { direction: "pt-en", text: "Estamos profundamente preocupados com os resultados.", answer: "We are deeply concerned about the results." },
+          { direction: "pt-en", text: "É altamente improvável que aconteça.", answer: "It's highly unlikely to happen." },
+          { direction: "en-pt", text: "They finally reached an agreement.", answer: "Eles finalmente chegaram a um acordo." },
+          { direction: "en-pt", text: "Please pay attention to the details.", answer: "Por favor, preste atenção aos detalhes." },
+          { direction: "en-pt", text: "Smoking is strictly forbidden here.", answer: "Fumar é estritamente proibido aqui." }
+        ],
+        dictation: [
+          { audioText: "She made a difficult decision.", answer: "She made a difficult decision." },
+          { audioText: "We are deeply concerned about the results.", answer: "We are deeply concerned about the results." },
+          { audioText: "Please pay attention to the details.", answer: "Please pay attention to the details." }
+        ],
+        dialogue: [
+          {
+            title: "Discussing a Problem",
+            lines: [
+              { speaker: "Marta", text: "I'm deeply concerned about this issue." },
+              { speaker: "user", prompt: "Diga que devem fazer um esforço para resolver:", options: ["We should make an effort to solve it.", "We should do an effort to solve it.", "We should take an effort to solve it."], answer: 0 },
+              { speaker: "Marta", text: "Agreed. Do you think we'll reach an agreement soon?" },
+              { speaker: "user", prompt: "Diga que é altamente improvável por agora:", options: ["It's highly unlikely for now.", "It's heavy rain for now.", "It's strictly forbidden for now."], answer: 0 },
+              { speaker: "Marta", text: "I see your point." }
+            ]
+          }
+        ]
+      },
+      quiz: [
+        { q: "Choose the correct collocation.", options: ["Do a decision", "Make a decision", "Take a decision", "Have a decision"], answer: 1 },
+        { q: "Choose the correct collocation.", options: ["Do homework", "Make homework", "Take homework", "Have homework"], answer: 0 },
+        { type: "tf", q: "'Heavy rain' is the natural collocation, not 'strong rain'.", answer: true },
+        { q: "Choose the correct collocation.", options: ["Take responsibility", "Make responsibility", "Do responsibility", "Have responsibility"], answer: 0 },
+        { type: "short", q: "Complete: 'We are deeply ___ about the results.' (preocupados)", answer: ["concerned"] },
+        { q: "'Raise awareness' means:", options: ["Diminuir a atenção", "Aumentar a conscientização", "Ignorar o problema", "Esconder informação"], answer: 1 },
+        { type: "tf", q: "'Pay attention' can also be correctly said as 'give attention' in every context.", answer: false, explanation: "'Pay attention' é a collocation fixa e natural; 'give attention' não é comum no mesmo sentido." },
+        { q: "Choose the correct sentence.", options: ["They did a big risk.", "They took a big risk.", "They made a big risk.", "They had a big risk."], answer: 1 },
+        { q: "'Bitterly disappointed' means:", options: ["Levemente feliz", "Amargamente desapontado", "Moderadamente satisfeito", "Extremamente animado"], answer: 1 },
+        { type: "short", q: "Complete: 'It's highly ___ to happen.' (improvável)", answer: ["unlikely"] },
+        { q: "Choose the correct sentence.", options: ["We made a great conversation.", "We had a great conversation.", "We did a great conversation.", "We took a great conversation."], answer: 1 },
+        { type: "tf", q: "Collocations should be learned as individual words rather than whole chunks.", answer: false, explanation: "É mais eficaz aprender collocations como blocos inteiros, não palavra por palavra." }
+      ]
     }
   ],
   finalTest: {

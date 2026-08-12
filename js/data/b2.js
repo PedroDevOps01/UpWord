@@ -788,6 +788,163 @@ APP_DATA.b2 = {
         { q: "'Well-being' means:", options: ["Doença", "Bem-estar", "Tratamento", "Sintoma"], answer: 1 },
         { type: "tf", q: "'Researcher' means 'paciente'.", answer: false, explanation: "'Researcher' significa 'pesquisador'; 'paciente' é 'patient'." }
       ]
+    },
+    {
+      id: "b2-m6",
+      title: "Gerúndio e Infinitivo",
+      subtitle: "Padrões verbais: verbo + gerúndio vs. verbo + infinitivo",
+      lesson: {
+        intro: "Alguns verbos em inglês são seguidos por gerúndio (-ing), outros por infinitivo (to + verbo), e alguns aceitam ambos com mudança de sentido. Vamos organizar essas regras.",
+        sections: [
+          {
+            heading: "Verbos Seguidos por Gerúndio",
+            text: "Verbos como 'enjoy', 'avoid', 'suggest' e 'finish' são sempre seguidos por gerúndio.",
+            examples: [
+              { en: "I enjoy reading before bed.", pt: "Eu gosto de ler antes de dormir." },
+              { en: "She avoided answering the question.", pt: "Ela evitou responder à pergunta." }
+            ]
+          },
+          {
+            heading: "Verbos Seguidos por Infinitivo",
+            text: "Verbos como 'want', 'decide', 'need' e 'promise' são seguidos por infinitivo (to + verbo).",
+            examples: [
+              { en: "I want to travel next year.", pt: "Eu quero viajar ano que vem." },
+              { en: "She decided to change jobs.", pt: "Ela decidiu mudar de emprego." }
+            ]
+          },
+          {
+            heading: "Verbos que Mudam de Sentido",
+            text: "Alguns verbos, como 'stop', 'remember' e 'try', mudam de significado dependendo se são seguidos por gerúndio ou infinitivo.",
+            examples: [
+              { en: "I stopped smoking.", pt: "Eu parei de fumar. (abandonei o hábito)" },
+              { en: "I stopped to smoke.", pt: "Eu parei [o que estava fazendo] para fumar." }
+            ]
+          }
+        ]
+      },
+      vocabulary: [
+        { word: "Avoid", phonetic: "/əˈvɔɪd/", translation: "Evitar", example: "I avoid eating late at night.", exampleTranslation: "Eu evito comer tarde da noite." },
+        { word: "Suggest", phonetic: "/səˈdʒɛst/", translation: "Sugerir", example: "I suggest checking the schedule first.", exampleTranslation: "Eu sugiro verificar o horário primeiro." },
+        { word: "Decide", phonetic: "/dɪˈsaɪd/", translation: "Decidir", example: "We decided to move to another city.", exampleTranslation: "Nós decidimos nos mudar para outra cidade." },
+        { word: "Promise", phonetic: "/ˈprɒmɪs/", translation: "Prometer", example: "He promised to call me back.", exampleTranslation: "Ele prometeu me ligar de volta." },
+        { word: "Consider", phonetic: "/kənˈsɪdər/", translation: "Considerar", example: "I'm considering changing careers.", exampleTranslation: "Estou considerando mudar de carreira." },
+        { word: "Afford", phonetic: "/əˈfɔːrd/", translation: "Poder pagar/se dar ao luxo", example: "We can't afford to travel this year.", exampleTranslation: "Nós não podemos nos dar ao luxo de viajar este ano." },
+        { word: "Postpone", phonetic: "/poʊstˈpoʊn/", translation: "Adiar", example: "We postponed meeting until next week.", exampleTranslation: "Adiamos a reunião até a próxima semana." },
+        { word: "Manage", phonetic: "/ˈmænɪdʒ/", translation: "Conseguir/Administrar", example: "She managed to finish on time.", exampleTranslation: "Ela conseguiu terminar a tempo." },
+        { word: "Mind", phonetic: "/maɪnd/", translation: "Importar-se/Ter objeção", example: "Would you mind closing the door?", exampleTranslation: "Você se importaria de fechar a porta?" },
+        { word: "Regret", phonetic: "/rɪˈɡrɛt/", translation: "Arrepender-se", example: "I regret not studying more.", exampleTranslation: "Eu me arrependo de não ter estudado mais." }
+      ],
+      grammar: {
+        title: "Verbo + Gerúndio vs. Verbo + Infinitivo",
+        explanation: "Não há uma regra fonética simples — o melhor é memorizar os grupos mais comuns de verbos.",
+        table: {
+          headers: ["Grupo", "Verbos comuns", "Exemplo"],
+          rows: [
+            ["+ Gerúndio", "enjoy, avoid, suggest, finish, consider, mind", "I enjoy traveling."],
+            ["+ Infinitivo", "want, decide, need, promise, afford, manage", "I want to travel."],
+            ["Ambos (sentido diferente)", "stop, remember, try", "I stopped to rest. / I stopped resting."]
+          ]
+        },
+        correct: ["I enjoy traveling.", "I want to travel.", "I stopped smoking last year."],
+        incorrect: ["I enjoy to travel.", "I want traveling.", "I stopped to smoke last year."]
+      },
+      listening: [
+        {
+          title: "Making Decisions",
+          accent: "british",
+          transcript: "A: I've decided to change careers. B: Really? What made you consider doing that? A: I avoid admitting it, but I don't enjoy working in finance anymore. B: I understand. Have you managed to find something new yet? A: Not yet, but I promise to let you know when I do.",
+          questions: [
+            { q: "What did the speaker decide?", options: ["To stay in finance", "To change careers", "To travel", "To retire"], answer: 1 },
+            { q: "What does the speaker avoid admitting?", options: ["That they are rich", "That they don't enjoy their job anymore", "That they are lazy", "Nothing"], answer: 1 },
+            { q: "What does the speaker promise?", options: ["To quit immediately", "To let their friend know when they find something", "To stay in finance", "Nothing"], answer: 1 }
+          ]
+        }
+      ],
+      reading: [
+        {
+          title: "Changing Habits",
+          text: "Many people decide to change their habits at the beginning of the year. Some try to exercise more, while others consider eating healthier food. It's easy to suggest making big changes, but it's harder to actually manage to keep them. Experts recommend avoiding drastic changes and instead promise yourself small, realistic goals. This way, you're more likely to succeed without giving up.",
+          questions: [
+            { q: "When do many people decide to change habits?", options: ["Middle of the year", "Beginning of the year", "End of the year", "Never"], answer: 1 },
+            { q: "What is harder than suggesting changes, according to the text?", options: ["Talking about changes", "Actually keeping them", "Writing them down", "Nothing"], answer: 1 },
+            { q: "What do experts recommend?", options: ["Drastic changes", "Small, realistic goals", "No goals at all", "Giving up quickly"], answer: 1 }
+          ]
+        }
+      ],
+      writing: [
+        { prompt: "Escreva 4 frases usando verbos diferentes seguidos de gerúndio ou infinitivo (enjoy, want, avoid, decide).", minWords: 20, modelAnswer: "I enjoy reading before bed. I want to travel more this year. I avoid eating late at night. I decided to learn a new skill." },
+        { prompt: "Escreva sobre uma decisão importante que você tomou, usando 'decide to' e 'promise to'.", minWords: 20, modelAnswer: "Last year, I decided to change my career. I promised myself to work harder and learn new skills every day." }
+      ],
+      speaking: [
+        { phrase: "I enjoy traveling.", tip: "'Enjoy' é sempre seguido de gerúndio, nunca 'to'." },
+        { phrase: "I want to travel next year.", tip: "'Want' é sempre seguido de infinitivo." },
+        { phrase: "I stopped smoking last year.", tip: "'Stop + gerúndio' significa abandonar um hábito." },
+        { phrase: "We can't afford to travel this year.", tip: "'Afford' é seguido de infinitivo." },
+        { phrase: "Would you mind closing the door?", tip: "'Mind' é sempre seguido de gerúndio, mesmo sendo um pedido educado." }
+      ],
+      exercises: {
+        fillBlanks: [
+          { text: "I enjoy ___ (travel). (gerúndio)", answer: "traveling" },
+          { text: "I want ___ (travel) next year. (infinitivo)", answer: "to travel" },
+          { text: "She decided ___ (change) jobs. (infinitivo)", answer: "to change" },
+          { text: "I avoid ___ (eat) late at night. (gerúndio)", answer: "eating" },
+          { text: "He promised ___ (call) me back. (infinitivo)", answer: "to call" }
+        ],
+        matching: [
+          { left: "Avoid", right: "Evitar" },
+          { left: "Suggest", right: "Sugerir" },
+          { left: "Promise", right: "Prometer" },
+          { left: "Afford", right: "Poder pagar" },
+          { left: "Postpone", right: "Adiar" },
+          { left: "Regret", right: "Arrepender-se" }
+        ],
+        ordering: [
+          { words: ["traveling", "enjoy", "I"], answer: "I enjoy traveling" },
+          { words: ["travel", "want", "to", "I", "year", "next"], answer: "I want to travel next year" },
+          { words: ["jobs", "decided", "change", "She", "to"], answer: "She decided to change jobs" },
+          { words: ["eating", "avoid", "night", "I", "late", "at"], answer: "I avoid eating late at night" },
+          { words: ["back", "promised", "call", "He", "me", "to"], answer: "He promised to call me back" }
+        ],
+        translation: [
+          { direction: "pt-en", text: "Eu gosto de viajar.", answer: "I enjoy traveling." },
+          { direction: "pt-en", text: "Eu quero viajar ano que vem.", answer: "I want to travel next year." },
+          { direction: "pt-en", text: "Ela decidiu mudar de emprego.", answer: "She decided to change jobs." },
+          { direction: "en-pt", text: "I avoid eating late at night.", answer: "Eu evito comer tarde da noite." },
+          { direction: "en-pt", text: "He promised to call me back.", answer: "Ele prometeu me ligar de volta." },
+          { direction: "en-pt", text: "We can't afford to travel this year.", answer: "Nós não podemos nos dar ao luxo de viajar este ano." }
+        ],
+        dictation: [
+          { audioText: "I enjoy traveling.", answer: "I enjoy traveling." },
+          { audioText: "I want to travel next year.", answer: "I want to travel next year." },
+          { audioText: "She decided to change jobs.", answer: "She decided to change jobs." }
+        ],
+        dialogue: [
+          {
+            title: "Talking About Plans",
+            lines: [
+              { speaker: "Rui", text: "What do you want to do this weekend?" },
+              { speaker: "user", prompt: "Diga que você gosta de caminhar no parque:", options: ["I enjoy walking in the park.", "I want walking in the park.", "I decided walking in the park."], answer: 0 },
+              { speaker: "Rui", text: "Nice! Have you considered joining a hiking group?" },
+              { speaker: "user", prompt: "Diga que você está considerando isso:", options: ["I'm considering it.", "I avoid it.", "I promise it."], answer: 0 },
+              { speaker: "Rui", text: "You should! It's a lot of fun." }
+            ]
+          }
+        ]
+      },
+      quiz: [
+        { q: "Choose the correct sentence.", options: ["I enjoy to travel.", "I enjoy traveling.", "I enjoy travel.", "I enjoying travel."], answer: 1 },
+        { q: "Choose the correct sentence.", options: ["I want traveling.", "I want to travel.", "I want travel.", "I wanting to travel."], answer: 1 },
+        { type: "tf", q: "'Avoid' is followed by the gerund (-ing).", answer: true },
+        { q: "Choose the correct sentence.", options: ["She decided change jobs.", "She decided to change jobs.", "She decided changing jobs.", "She decided change to jobs."], answer: 1 },
+        { type: "short", q: "Complete: 'He promised ___ call me back.' (to)", answer: ["to"] },
+        { q: "'Postpone' means:", options: ["Cancelar", "Adiar", "Confirmar", "Lembrar"], answer: 1 },
+        { type: "tf", q: "'Mind' is followed by the infinitive (to + verb).", answer: false, explanation: "'Mind' é seguido por gerúndio (-ing), como em 'Would you mind closing the door?'." },
+        { q: "Choose the correct sentence.", options: ["We can't afford traveling this year.", "We can't afford to travel this year.", "We can't afford travel this year.", "We can't afford to traveling this year."], answer: 1 },
+        { q: "'Regret' means:", options: ["Comemorar", "Arrepender-se", "Esquecer", "Ignorar"], answer: 1 },
+        { type: "short", q: "Complete: 'I ___ (avoid) eating late.' (gerúndio)", answer: ["avoid eating"] },
+        { q: "Choose the sentence meaning 'parei de fumar' (abandoning a habit).", options: ["I stopped to smoke.", "I stopped smoking.", "I stop smoke.", "I stopping smoke."], answer: 1 },
+        { type: "tf", q: "Some verbs change meaning depending on whether they're followed by gerund or infinitive.", answer: true }
+      ]
     }
   ],
   finalTest: {

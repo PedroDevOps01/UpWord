@@ -35,7 +35,8 @@ Views.level = (function () {
       finalBlock =
         '<div class="module-item final-test-item ' + (finalUnlocked ? '' : 'is-locked') + '">' +
           (finalUnlocked
-            ? '<a class="btn btn-primary" href="#/level/' + levelId + '/test">' + Icon('trophy', { size: 16 }) + (finalDone ? ' Refazer prova final' : ' Fazer prova final') + '</a>'
+            ? '<a class="btn btn-primary" href="#/level/' + levelId + '/test">' + Icon('trophy', { size: 16 }) + (finalDone ? ' Refazer prova final' : ' Fazer prova final') + '</a>' +
+              (finalDone ? '<button type="button" class="btn btn-secondary" id="cert-btn">' + Icon('download', { size: 15 }) + ' Baixar certificado</button>' : '')
             : '<span class="muted">' + Icon('lock', { size: 14 }) + ' Conclua todos os módulos para desbloquear a prova final</span>') +
         '</div>';
     }
@@ -49,6 +50,13 @@ Views.level = (function () {
         '<div class="module-list">' + moduleItems + '</div>' +
         finalBlock +
       '</section>';
+
+    var certBtn = document.getElementById('cert-btn');
+    if (certBtn) {
+      certBtn.addEventListener('click', function () {
+        Certificate.generate(level);
+      });
+    }
   }
 
   function renderFinalTest(container, levelId) {
@@ -60,6 +68,7 @@ Views.level = (function () {
     }
     var nextIndex = APP_DATA.getLevelIndex(levelId) + 1;
     var nextLevel = APP_DATA.levels[nextIndex];
+    var modules = APP_DATA.getModules(levelId);
 
     Views.quiz.render(container, {
       title: 'Prova final — ' + level.code + ' ' + level.name,
@@ -72,7 +81,9 @@ Views.level = (function () {
       nextHash: nextLevel ? '/level/' + nextLevel.id : null,
       nextLabel: nextLevel ? 'Subir para o nível ' + nextLevel.code : null,
       onComplete: function (score, total) {
-        return Storage.completeFinal(levelId, score, total);
+        var result = Storage.completeFinal(levelId, score, total);
+        if (result.passed) Storage.checkNoRetryBadge(levelId, modules);
+        return result;
       }
     });
   }

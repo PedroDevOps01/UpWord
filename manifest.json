@@ -1,0 +1,16 @@
+{
+  "name": "UpWord — Suba no inglês, uma palavra por vez",
+  "short_name": "UpWord",
+  "description": "Trilha gratuita e sem cadastro para subir no inglês do A1 ao C2.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F6F7F4",
+  "theme_color": "#1E8C82",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

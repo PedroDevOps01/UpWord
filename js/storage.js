@@ -1,6 +1,7 @@
 var Storage = (function () {
   var KEY = 'englishpath_progress_v1';
   var LEITNER_INTERVAL_DAYS = [0, 1, 2, 4, 8, 16, 32];
+  var STREAK_MILESTONES = [3, 7, 30, 100];
 
   function defaultState() {
     return {
@@ -11,7 +12,9 @@ var Storage = (function () {
       badges: [],
       flashcards: {},
       placementResult: null,
-      lastVisited: null
+      lastVisited: null,
+      streak: { count: 0, lastDate: null },
+      prefs: { theme: 'light', fontSize: 'md' }
     };
   }
 
@@ -24,6 +27,8 @@ var Storage = (function () {
       for (var k in def) {
         if (!(k in parsed)) parsed[k] = def[k];
       }
+      if (!parsed.streak) parsed.streak = def.streak;
+      if (!parsed.prefs) parsed.prefs = def.prefs;
       return parsed;
     } catch (e) {
       return defaultState();
@@ -69,9 +74,39 @@ var Storage = (function () {
     return modules.every(function (m) { return isModuleCompleted(m.id); });
   }
 
+  function addBadge(badge) {
+    if (state.badges.indexOf(badge) === -1) {
+      state.badges.push(badge);
+      return true;
+    }
+    return false;
+  }
+
+  function dateOnly(d) {
+    return d.toISOString().slice(0, 10);
+  }
+
+  function touchStreak() {
+    var today = dateOnly(new Date());
+    if (state.streak.lastDate === today) return;
+    var yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    if (state.streak.lastDate === dateOnly(yesterday)) {
+      state.streak.count += 1;
+    } else {
+      state.streak.count = 1;
+    }
+    state.streak.lastDate = today;
+    STREAK_MILESTONES.forEach(function (n) {
+      if (state.streak.count >= n) addBadge('streak-' + n);
+    });
+    persist();
+  }
+
   function completeModule(moduleId, quizScore, quizTotal) {
     var passed = moduleThreshold(quizScore, quizTotal);
     if (passed) {
+      touchStreak();
       var isNew = !state.completedModules[moduleId];
       state.completedModules[moduleId] = {
         completedAt: new Date().toISOString(),
@@ -82,9 +117,9 @@ var Storage = (function () {
       if (isNew) {
         earnedPoints = 10 + Math.round((quizScore / quizTotal) * 20);
         state.points += earnedPoints;
-        var badge = moduleId + '-badge';
-        if (state.badges.indexOf(badge) === -1) state.badges.push(badge);
+        addBadge(moduleId + '-badge');
       }
+      if (quizScore === quizTotal) addBadge('perfect-' + moduleId);
       persist();
       return { passed: true, isNew: isNew, earnedPoints: earnedPoints };
     }
@@ -95,6 +130,7 @@ var Storage = (function () {
   function completeFinal(levelId, quizScore, quizTotal) {
     var passed = moduleThreshold(quizScore, quizTotal);
     if (passed) {
+      touchStreak();
       var isNew = !state.completedFinals[levelId];
       state.completedFinals[levelId] = {
         completedAt: new Date().toISOString(),
@@ -105,14 +141,25 @@ var Storage = (function () {
       if (isNew) {
         earnedPoints = 50;
         state.points += earnedPoints;
-        var badge = levelId + '-champion-badge';
-        if (state.badges.indexOf(badge) === -1) state.badges.push(badge);
+        addBadge(levelId + '-champion-badge');
       }
       persist();
       return { passed: true, isNew: isNew, earnedPoints: earnedPoints };
     }
     persist();
     return { passed: false, isNew: false, earnedPoints: 0 };
+  }
+
+  function checkNoRetryBadge(levelId, modules) {
+    var allFirstTry = modules.length > 0 && modules.every(function (m) {
+      var attempts = state.quizHistory.filter(function (h) { return h.refId === m.id; });
+      return attempts.length === 1 && (attempts[0].score / attempts[0].total) >= 0.6;
+    });
+    if (allFirstTry) {
+      addBadge('no-retry-' + levelId);
+      persist();
+    }
+    return allFirstTry;
   }
 
   function recordQuizAttempt(entry) {
@@ -136,6 +183,7 @@ var Storage = (function () {
   }
 
   function reviewFlashcard(word, wasCorrect) {
+    touchStreak();
     var card = getFlashcard(word);
     card.seen += 1;
     if (wasCorrect) {
@@ -164,6 +212,34 @@ var Storage = (function () {
     persist();
   }
 
+  function getPref(key) {
+    return state.prefs[key];
+  }
+
+  function setPref(key, value) {
+    state.prefs[key] = value;
+    persist();
+  }
+
+  function exportProgress() {
+    return JSON.stringify(state, null, 2);
+  }
+
+  function importProgress(json) {
+    try {
+      var parsed = JSON.parse(json);
+      var def = defaultState();
+      for (var k in def) {
+        if (!(k in parsed)) parsed[k] = def[k];
+      }
+      state = parsed;
+      persist();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   function resetAll() {
     state = defaultState();
     persist();
@@ -178,6 +254,7 @@ var Storage = (function () {
     isFinalUnlocked: isFinalUnlocked,
     completeModule: completeModule,
     completeFinal: completeFinal,
+    checkNoRetryBadge: checkNoRetryBadge,
     recordQuizAttempt: recordQuizAttempt,
     getQuizHistory: getQuizHistory,
     setPlacementResult: setPlacementResult,
@@ -185,6 +262,11 @@ var Storage = (function () {
     reviewFlashcard: reviewFlashcard,
     isCardDue: isCardDue,
     setLastVisited: setLastVisited,
+    getPref: getPref,
+    setPref: setPref,
+    touchStreak: touchStreak,
+    exportProgress: exportProgress,
+    importProgress: importProgress,
     resetAll: resetAll
   };
 })();

@@ -6,10 +6,15 @@
 <title>UpWord — Suba no inglês, uma palavra por vez</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E8C82'/%3E%3Crect x='10' y='40' width='9' height='14' rx='2' fill='%23F6F7F4'/%3E%3Crect x='23' y='30' width='9' height='24' rx='2' fill='%23F6F7F4'/%3E%3Crect x='36' y='18' width='9' height='36' rx='2' fill='%23F6F7F4'/%3E%3Crect x='49' y='8' width='9' height='46' rx='2' fill='%23E8A33D'/%3E%3C/svg%3E">
 <meta name="description" content="UpWord — plataforma gratuita e sem cadastro para subir no inglês do A1 ao C2, um degrau por vez.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#F6F7F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10141F" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="css/style.css">
+<script src="js/storage.js"></script>
+<script src="js/prefs.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#app">Ir para o conteúdo</a>
@@ -29,6 +34,11 @@
       <a href="#/">Minha trilha</a>
       <a href="#/placement">Nivelamento</a>
       <a href="#/flashcards">Flashcards</a>
+      <span class="prefs-controls">
+        <button type="button" class="icon-toggle-btn font-size-btn" data-dir="dec" aria-label="Diminuir tamanho do texto">A-</button>
+        <button type="button" class="icon-toggle-btn font-size-btn" data-dir="inc" aria-label="Aumentar tamanho do texto">A+</button>
+        <button type="button" class="icon-toggle-btn" id="theme-toggle-btn" aria-label="Alternar tema claro/escuro">🌙</button>
+      </span>
       <span class="points-pill" id="points-pill"><span aria-hidden="true">★</span> 0 pts</span>
     </nav>
   </header>
@@ -40,6 +50,8 @@
   </footer>
 
   <script src="js/icons.js"></script>
+  <script src="js/achievements.js"></script>
+  <script src="js/certificate.js"></script>
   <script src="js/data/levels.js"></script>
   <script src="js/data/placementQuiz.js"></script>
   <script src="js/data/a1.js"></script>
@@ -48,8 +60,8 @@
   <script src="js/data/b2.js"></script>
   <script src="js/data/c1.js"></script>
   <script src="js/data/c2.js"></script>
+  <script src="js/data/electives.js"></script>
 
-  <script src="js/storage.js"></script>
   <script src="js/speech.js"></script>
 
   <script src="js/render/home.js"></script>
@@ -61,5 +73,12 @@
   <script src="js/render/flashcards.js"></script>
 
   <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function () { /* offline support unavailable, app still works online */ });
+      });
+    }
+  </script>
 </body>
 </html>

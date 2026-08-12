@@ -786,6 +786,163 @@ APP_DATA.c2 = {
         { q: "Choose the correct sentence.", options: ["She gave an eloquent speech.", "She gave a eloquent speech.", "She give an eloquent speech.", "She gave an eloquently speech."], answer: 0 },
         { type: "tf", q: "True fluency includes understanding subtext, tone, and intention, not just literal meaning.", answer: true }
       ]
+    },
+    {
+      id: "c2-m6",
+      title: "Referências Culturais e Alusões",
+      subtitle: "Entendendo alusões e referências culturais em inglês nativo",
+      lesson: {
+        intro: "Falantes nativos frequentemente fazem alusões — referências indiretas a histórias, personagens ou eventos culturais — que exigem conhecimento compartilhado para serem entendidas. Vamos explorar esse último nível de fluência cultural.",
+        sections: [
+          {
+            heading: "O Que É uma Alusão?",
+            text: "Uma alusão é uma referência breve e indireta a algo (uma obra, pessoa, evento) sem explicá-la totalmente — espera-se que o ouvinte já saiba o contexto.",
+            examples: [
+              { en: "His ambition was his Achilles' heel.", pt: "Referência à mitologia grega: um ponto fraco fatal apesar da força geral." },
+              { en: "That plan is a real Pandora's box.", pt: "Referência a algo que, uma vez iniciado, libera problemas incontroláveis." }
+            ]
+          },
+          {
+            heading: "Referências Literárias e Bíblicas Comuns",
+            text: "Muitas expressões do inglês cotidiano vêm de Shakespeare, da Bíblia ou de contos populares, mesmo que o falante não perceba a origem.",
+            examples: [
+              { en: "It was a Romeo and Juliet situation.", pt: "Referência a um amor proibido/trágico (Shakespeare)." },
+              { en: "He acted like a Good Samaritan.", pt: "Referência bíblica: alguém que ajuda um estranho desinteressadamente." }
+            ]
+          },
+          {
+            heading: "Referências Pop e Contemporâneas",
+            text: "Filmes, séries e eventos históricos também geram alusões amplamente reconhecidas.",
+            examples: [
+              { en: "This is starting to feel like Groundhog Day.", pt: "Referência ao filme: uma situação que se repete indefinidamente." },
+              { en: "That was their Big Brother moment.", pt: "Referência a vigilância excessiva (livro '1984', de Orwell)." }
+            ]
+          }
+        ]
+      },
+      vocabulary: [
+        { word: "Allusion", phonetic: "/əˈluːʒən/", translation: "Alusão", example: "The speech was full of literary allusions.", exampleTranslation: "O discurso estava repleto de alusões literárias." },
+        { word: "Achilles' heel", phonetic: "/əˈkɪliːz hiːl/", translation: "Calcanhar de Aquiles (ponto fraco)", example: "Public speaking is his Achilles' heel.", exampleTranslation: "Falar em público é o calcanhar de Aquiles dele." },
+        { word: "Pandora's box", phonetic: "/pænˈdɔːrəz bɒks/", translation: "Caixa de Pandora", example: "Opening that topic was a Pandora's box.", exampleTranslation: "Abrir aquele assunto foi uma caixa de Pandora." },
+        { word: "Good Samaritan", phonetic: "/ɡʊd səˈmærɪtən/", translation: "Bom samaritano", example: "A Good Samaritan helped the injured man.", exampleTranslation: "Um bom samaritano ajudou o homem ferido." },
+        { word: "Catch-22", phonetic: "/kætʃ twɛnti tuː/", translation: "Situação sem saída/paradoxal", example: "It's a catch-22: you need experience to get a job, but a job to get experience.", exampleTranslation: "É uma situação sem saída: você precisa de experiência para conseguir um emprego, mas de um emprego para ganhar experiência." },
+        { word: "Orwellian", phonetic: "/ɔːrˈwɛliən/", translation: "Orwelliano (vigilância/controle excessivo)", example: "The surveillance felt very Orwellian.", exampleTranslation: "A vigilância parecia muito orwelliana." },
+        { word: "Cinderella story", phonetic: "/ˌsɪndəˈrɛlə ˈstɔːri/", translation: "História de Cinderela (ascensão inesperada)", example: "His rise to fame was a real Cinderella story.", exampleTranslation: "Sua ascensão à fama foi uma verdadeira história de Cinderela." },
+        { word: "David and Goliath", phonetic: "/ˈdeɪvɪd ənd ɡəˈlaɪəθ/", translation: "Davi e Goliath (o pequeno contra o grande)", example: "It was a David and Goliath battle in court.", exampleTranslation: "Foi uma batalha de Davi contra Goliath no tribunal." },
+        { word: "Shared context", phonetic: "/ʃɛrd ˈkɒntɛkst/", translation: "Contexto compartilhado", example: "Allusions rely on shared cultural context.", exampleTranslation: "Alusões dependem de contexto cultural compartilhado." },
+        { word: "Reference", phonetic: "/ˈrɛfrəns/", translation: "Referência", example: "That's a reference to a famous movie.", exampleTranslation: "Essa é uma referência a um filme famoso." }
+      ],
+      grammar: {
+        title: "Estrutura das Alusões em Frases",
+        explanation: "Alusões geralmente funcionam como substantivos ou comparações dentro da frase, sem necessidade de explicação adicional para quem compartilha o contexto cultural.",
+        table: {
+          headers: ["Estrutura", "Exemplo"],
+          rows: [
+            ["Substantivo direto", "His ambition was his Achilles' heel."],
+            ["Comparação com 'like/a'", "This feels like Groundhog Day. / It was a real Cinderella story."],
+            ["Adjetivo derivado", "The surveillance felt Orwellian."]
+          ]
+        },
+        correct: ["Her ambition was her Achilles' heel.", "This situation is a real catch-22.", "The surveillance felt Orwellian."],
+        incorrect: ["Her ambition was her Achilles heel foot.", "This situation is a real catch twenty-two situation problem."]
+      },
+      listening: [
+        {
+          title: "A Cultural Conversation",
+          accent: "british",
+          transcript: "A: The new policy feels very Orwellian, don't you think? B: Definitely. It's a real catch-22 — they say it protects privacy, but it does the opposite. A: True. Honestly, ambition seems to be this company's Achilles' heel. They keep opening Pandora's boxes they can't close.",
+          questions: [
+            { q: "What does speaker A compare the policy to?", options: ["A fairy tale", "Something Orwellian", "A sports event", "A cooking show"], answer: 1 },
+            { q: "What contradiction does B mention?", options: ["No contradiction", "A catch-22 about privacy", "A math problem", "A weather issue"], answer: 1 },
+            { q: "What is described as the company's Achilles' heel?", options: ["Their budget", "Their ambition", "Their location", "Their employees"], answer: 1 }
+          ]
+        }
+      ],
+      reading: [
+        {
+          title: "Why Allusions Matter",
+          text: "Understanding allusions is often the final barrier between advanced and near-native fluency. A phrase like 'that's their Achilles' heel' assumes you know the Greek myth; 'a real catch-22' assumes familiarity with Joseph Heller's novel. Without this shared cultural context, entire layers of meaning simply disappear. Native speakers rarely explain these references — they trust that the listener already shares the context, which is exactly why mastering them signals true fluency.",
+          questions: [
+            { q: "What is often the final barrier to near-native fluency?", options: ["Grammar rules", "Understanding allusions", "Vocabulary size", "Pronunciation"], answer: 1 },
+            { q: "What does 'a real catch-22' assume?", options: ["Nothing specific", "Familiarity with Joseph Heller's novel", "Knowledge of Greek mythology", "Knowledge of the Bible"], answer: 1 },
+            { q: "Why do native speakers rarely explain these references?", options: ["They forget them", "They trust the listener shares the context", "They don't understand them either", "It's illegal to explain them"], answer: 1 }
+          ]
+        }
+      ],
+      writing: [
+        { prompt: "Escreva 3 frases usando alusões diferentes desta lição (Achilles' heel, catch-22, Orwellian, etc.), explicando o contexto entre parênteses.", minWords: 25, modelAnswer: "His pride is his Achilles' heel (his one weakness). This job situation is a catch-22 (no way to win). The new rules feel Orwellian (excessive control)." },
+        { prompt: "Escolha uma alusão desta lição e explique, em suas palavras, de onde ela vem e o que significa hoje.", minWords: 25, modelAnswer: "'Achilles' heel' comes from Greek mythology, where the hero Achilles was invincible except for his heel. Today, it means someone's one weakness despite overall strength." }
+      ],
+      speaking: [
+        { phrase: "His ambition was his Achilles' heel.", tip: "'Achilles' tem o acento na segunda sílaba: a-KIL-eez." },
+        { phrase: "This is a real catch-22.", tip: "Diga o número como 'twenty-two', não 'two two'." },
+        { phrase: "The surveillance felt very Orwellian.", tip: "'Orwellian' vem do nome do autor George Orwell, com sufixo '-ian'." },
+        { phrase: "That's a classic Cinderella story.", tip: "Fale com entonação de reconhecimento/familiaridade cultural." },
+        { phrase: "Opening that topic was a Pandora's box.", tip: "'Pandora's' tem apóstrofo — não esqueça na escrita." }
+      ],
+      exercises: {
+        fillBlanks: [
+          { text: "His ambition was his ___' heel. (ponto fraco mitológico)", answer: "Achilles" },
+          { text: "This situation is a real catch-___. (número)", answer: "22" },
+          { text: "The surveillance felt very ___. (nome do autor + sufixo)", answer: "Orwellian" },
+          { text: "A ___ Samaritan helped the injured man.", answer: "Good" },
+          { text: "Opening that topic was a ___'s box. (mitologia grega)", answer: "Pandora" }
+        ],
+        matching: [
+          { left: "Allusion", right: "Alusão" },
+          { left: "Achilles' heel", right: "Calcanhar de Aquiles" },
+          { left: "Catch-22", right: "Situação sem saída" },
+          { left: "Orwellian", right: "Orwelliano" },
+          { left: "Reference", right: "Referência" },
+          { left: "Shared context", right: "Contexto compartilhado" }
+        ],
+        ordering: [
+          { words: ["heel", "was", "ambition", "His", "Achilles'", "his"], answer: "His ambition was his Achilles' heel" },
+          { words: ["catch-22", "real", "This", "a", "is"], answer: "This is a real catch-22" },
+          { words: ["Orwellian", "felt", "surveillance", "The", "very"], answer: "The surveillance felt very Orwellian" },
+          { words: ["box", "was", "topic", "that", "Opening", "a", "Pandora's"], answer: "Opening that topic was a Pandora's box" },
+          { words: ["story", "was", "rise", "real", "His", "a", "Cinderella"], answer: "His rise was a real Cinderella story" }
+        ],
+        translation: [
+          { direction: "pt-en", text: "A ambição dele era o calcanhar de Aquiles dele.", answer: "His ambition was his Achilles' heel." },
+          { direction: "pt-en", text: "Esta é uma situação sem saída real.", answer: "This is a real catch-22." },
+          { direction: "pt-en", text: "A vigilância parecia muito orwelliana.", answer: "The surveillance felt very Orwellian." },
+          { direction: "en-pt", text: "A Good Samaritan helped the injured man.", answer: "Um bom samaritano ajudou o homem ferido." },
+          { direction: "en-pt", text: "Allusions rely on shared cultural context.", answer: "Alusões dependem de contexto cultural compartilhado." },
+          { direction: "en-pt", text: "It was a David and Goliath battle.", answer: "Foi uma batalha de Davi contra Goliath." }
+        ],
+        dictation: [
+          { audioText: "His ambition was his Achilles' heel.", answer: "His ambition was his Achilles' heel." },
+          { audioText: "This is a real catch-22.", answer: "This is a real catch-22." },
+          { audioText: "The surveillance felt very Orwellian.", answer: "The surveillance felt very Orwellian." }
+        ],
+        dialogue: [
+          {
+            title: "Discussing Company Culture",
+            lines: [
+              { speaker: "Leo", text: "Don't you think this company's ambition is a bit much?" },
+              { speaker: "user", prompt: "Diga que é o calcanhar de Aquiles deles:", options: ["It's their Achilles' heel.", "It's their Pandora's box.", "It's their Cinderella story."], answer: 0 },
+              { speaker: "Leo", text: "Exactly. And this new policy feels so controlling." },
+              { speaker: "user", prompt: "Diga que parece orwelliano:", options: ["It feels Orwellian.", "It feels like a catch-22.", "It feels like a Good Samaritan."], answer: 0 },
+              { speaker: "Leo", text: "Couldn't agree more." }
+            ]
+          }
+        ]
+      },
+      quiz: [
+        { q: "'Achilles' heel' means:", options: ["Um ponto forte", "Um ponto fraco apesar da força geral", "Uma vitória total", "Um segredo"], answer: 1 },
+        { q: "'Catch-22' refers to:", options: ["Uma vitória fácil", "Uma situação sem saída/paradoxal", "Um herói", "Uma festa"], answer: 1 },
+        { type: "tf", q: "'Orwellian' refers to excessive government surveillance/control, from George Orwell's work.", answer: true },
+        { q: "'Pandora's box' means:", options: ["Um presente maravilhoso", "Algo que libera problemas incontroláveis ao ser aberto", "Uma caixa vazia", "Um cofre seguro"], answer: 1 },
+        { type: "short", q: "Complete: 'A Good ___ helped the injured man.' (bom samaritano)", answer: ["Samaritan"] },
+        { q: "'Allusion' means:", options: ["Ilusão óptica", "Referência breve e indireta", "Mentira", "Explicação detalhada"], answer: 1 },
+        { type: "tf", q: "Allusions are always explained in detail by the speaker.", answer: false, explanation: "Alusões dependem de contexto compartilhado; o falante geralmente não as explica." },
+        { q: "'David and Goliath' refers to:", options: ["Dois amigos iguais", "O pequeno enfrentando o grande", "Uma dupla cômica", "Um erro histórico"], answer: 1 },
+        { q: "'Cinderella story' refers to:", options: ["Uma queda repentina", "Uma ascensão inesperada ao sucesso", "Uma tragédia", "Uma vingança"], answer: 1 },
+        { type: "short", q: "Complete: 'This situation is a real catch-___.' (número)", answer: ["22"] },
+        { q: "Choose the correct sentence.", options: ["His ambition was his Achilles heel foot.", "His ambition was his Achilles' heel.", "His ambition was his heel Achilles.", "His ambition was Achilles' his heel."], answer: 1 },
+        { type: "tf", q: "Understanding allusions requires shared cultural knowledge, not just vocabulary.", answer: true }
+      ]
     }
   ],
   finalTest: {

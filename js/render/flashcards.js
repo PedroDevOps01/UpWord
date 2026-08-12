@@ -26,7 +26,14 @@ Views.flashcards = function (container, levelId) {
     return a;
   }
 
+  function priority(card) {
+    var fc = Storage.getFlashcard(card.word);
+    var missRatio = fc.seen > 0 ? 1 - (fc.correct / fc.seen) : 0.5;
+    return fc.box * 10 - missRatio * 5;
+  }
+
   var due = shuffle(pool.filter(function (v) { return Storage.isCardDue(v.word); }));
+  due.sort(function (a, b) { return priority(a) - priority(b); });
   var totalDue = due.length;
   var index = 0;
   var revealed = false;

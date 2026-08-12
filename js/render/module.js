@@ -150,6 +150,7 @@ Views.module = (function () {
       return (
         '<div class="reading-card">' +
           '<h3>' + item.title + '</h3>' +
+          '<button type="button" class="btn btn-secondary btn-play-reading" data-text="' + item.text.replace(/"/g, '&quot;') + '">' + Icon('sound', { size: 15 }) + ' Ouvir texto completo</button>' +
           '<div class="reading-text">' + item.text + '</div>' +
           questions +
         '</div>'
@@ -205,6 +206,14 @@ Views.module = (function () {
       root.querySelectorAll('.btn-play-audio').forEach(function (btn) {
         btn.addEventListener('click', function () {
           Speech.speak(btn.getAttribute('data-text'), btn.getAttribute('data-accent'));
+        });
+      });
+    }
+
+    if (tab === 'reading') {
+      root.querySelectorAll('.btn-play-reading').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          Speech.speak(btn.getAttribute('data-text'), 'american');
         });
       });
     }

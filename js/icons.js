@@ -12,7 +12,11 @@ var Icon = (function () {
     book: '<path d="M4 5.5A2 2 0 0 1 6 4h6v16H6a2 2 0 0 1-2-2v-12.5z"/><path d="M20 5.5A2 2 0 0 0 18 4h-6v16h6a2 2 0 0 0 2-2v-12.5z"/>',
     pencil: '<path d="M4 20l1-4L16 5l3 3L8 19l-4 1z"/><path d="M14 7l3 3"/>',
     close: '<path d="M6 6l12 12M18 6L6 18"/>',
-    sparkle: '<path d="M12 3v4M12 17v4M4.5 12h4M15.5 12h4M6.5 6.5l2.8 2.8M14.7 14.7l2.8 2.8M17.5 6.5l-2.8 2.8M9.3 14.7l-2.8 2.8"/>'
+    sparkle: '<path d="M12 3v4M12 17v4M4.5 12h4M15.5 12h4M6.5 6.5l2.8 2.8M14.7 14.7l2.8 2.8M17.5 6.5l-2.8 2.8M9.3 14.7l-2.8 2.8"/>',
+    flame: '<path d="M12 3c1 3-3 4-3 7a3 3 0 0 0 6 0c0-1.5-1-2-1-3 1.5 1 3 3 3 6a5 5 0 0 1-10 0c0-4 2-6 5-10z"/>',
+    download: '<path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 20h16"/>',
+    upload: '<path d="M12 21V9"/><path d="M7 14l5-5 5 5"/><path d="M4 20h16"/>',
+    moduleIcon: '<path d="M4 5.5A2 2 0 0 1 6 4h6v16H6a2 2 0 0 1-2-2v-12.5z"/><path d="M20 5.5A2 2 0 0 0 18 4h-6v16h6a2 2 0 0 0 2-2v-12.5z"/>'
   };
 
   function render(name, opts) {

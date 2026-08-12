@@ -796,6 +796,165 @@ APP_DATA.a1 = {
         { q: "Choose the correct plural question.", options: ["How much apples do you have?", "How many apples do you have?", "How much apple you have?", "How many apple do you have?"], answer: 1 },
         { type: "tf", q: "'Water' is countable, so we say 'a water'.", answer: false, explanation: "'Water' é incontável; usamos 'some water' ou 'a glass of water'." }
       ]
+    },
+    {
+      id: "a1-m6",
+      title: "Que Horas São?",
+      subtitle: "Dizer a hora e preposições de tempo (at, in, on)",
+      lesson: {
+        intro: "Neste módulo extra, vamos aprender a dizer e perguntar a hora, falar sobre nossa rotina com horários específicos, e usar as preposições de tempo 'at', 'in' e 'on'.",
+        sections: [
+          {
+            heading: "Perguntando e Dizendo a Hora",
+            text: "Usamos 'What time is it?' para perguntar a hora e 'It's...' para responder.",
+            examples: [
+              { en: "What time is it?", pt: "Que horas são?" },
+              { en: "It's three o'clock.", pt: "São três horas." },
+              { en: "It's half past seven.", pt: "São sete e meia." }
+            ]
+          },
+          {
+            heading: "Preposições de Tempo: At, In, On",
+            text: "Usamos 'at' com horários exatos, 'in' com partes do dia/meses/anos, e 'on' com dias da semana e datas.",
+            examples: [
+              { en: "I wake up at seven.", pt: "Eu me levanto às sete." },
+              { en: "I study in the morning.", pt: "Eu estudo de manhã." },
+              { en: "I have class on Monday.", pt: "Eu tenho aula na segunda-feira." }
+            ]
+          },
+          {
+            heading: "Minha Rotina com Horários",
+            text: "Combine verbos de rotina com horários para descrever seu dia com detalhes.",
+            examples: [
+              { en: "I have lunch at noon.", pt: "Eu almoço ao meio-dia." },
+              { en: "I go to bed at eleven at night.", pt: "Eu vou dormir às onze da noite." }
+            ]
+          }
+        ]
+      },
+      vocabulary: [
+        { word: "O'clock", phonetic: "/əˈklɒk/", translation: "Em ponto", example: "It's five o'clock.", exampleTranslation: "São cinco horas em ponto." },
+        { word: "Half past", phonetic: "/hæf pæst/", translation: "E meia", example: "It's half past two.", exampleTranslation: "São duas e meia." },
+        { word: "Quarter past", phonetic: "/ˈkwɔːrtər pæst/", translation: "E quinze", example: "It's quarter past six.", exampleTranslation: "São seis e quinze." },
+        { word: "Quarter to", phonetic: "/ˈkwɔːrtər tuː/", translation: "Quinze para", example: "It's quarter to nine.", exampleTranslation: "São quinze para as nove." },
+        { word: "Noon", phonetic: "/nuːn/", translation: "Meio-dia", example: "We eat lunch at noon.", exampleTranslation: "Almoçamos ao meio-dia." },
+        { word: "Midnight", phonetic: "/ˈmɪdnaɪt/", translation: "Meia-noite", example: "The party ends at midnight.", exampleTranslation: "A festa termina à meia-noite." },
+        { word: "Morning", phonetic: "/ˈmɔːrnɪŋ/", translation: "Manhã", example: "I exercise in the morning.", exampleTranslation: "Eu me exercito de manhã." },
+        { word: "Afternoon", phonetic: "/ˌæftərˈnuːn/", translation: "Tarde", example: "I work in the afternoon.", exampleTranslation: "Eu trabalho de tarde." },
+        { word: "Schedule", phonetic: "/ˈskɛdʒuːl/", translation: "Horário/Agenda", example: "What's your schedule like today?", exampleTranslation: "Como é sua agenda hoje?" },
+        { word: "Early/Late", phonetic: "/ˈɜːrli/leɪt/", translation: "Cedo/Tarde (atrasado)", example: "I don't like to arrive late.", exampleTranslation: "Eu não gosto de chegar atrasado." }
+      ],
+      grammar: {
+        title: "Preposições de Tempo: At, In, On",
+        explanation: "A escolha certa da preposição depende do tipo de tempo mencionado.",
+        table: {
+          headers: ["Preposição", "Uso", "Exemplo"],
+          rows: [
+            ["At", "Horários exatos", "at seven o'clock, at noon, at midnight"],
+            ["In", "Partes do dia, meses, anos", "in the morning, in July, in 2024"],
+            ["On", "Dias da semana, datas", "on Monday, on my birthday"]
+          ]
+        },
+        correct: ["I wake up at seven.", "I study in the morning.", "I have class on Monday."],
+        incorrect: ["I wake up in seven.", "I study on the morning.", "I have class at Monday."]
+      },
+      listening: [
+        {
+          title: "What Time Is It?",
+          accent: "american",
+          transcript: "A: Excuse me, what time is it? B: It's quarter past four. A: Thank you! Do you know what time the museum closes? B: I think it closes at five thirty, so you still have time. A: Great, thank you so much!",
+          questions: [
+            { q: "What time is it in the conversation?", options: ["Four o'clock", "Quarter past four", "Half past four", "Quarter to four"], answer: 1 },
+            { q: "What time does the museum close?", options: ["Five o'clock", "Five fifteen", "Five thirty", "Six o'clock"], answer: 2 },
+            { q: "Does the person have time to visit?", options: ["Yes", "No", "The museum is closed", "Unknown"], answer: 0 }
+          ]
+        }
+      ],
+      reading: [
+        {
+          title: "My Weekday Schedule",
+          text: "On weekdays, my schedule is always the same. I wake up at six thirty and have breakfast at seven. I go to work at eight and have lunch at noon. In the afternoon, I usually have meetings. I get home at six in the evening and have dinner at seven thirty. I go to bed at eleven at night. On weekends, my schedule is much more relaxed!",
+          questions: [
+            { q: "What time does the writer wake up?", options: ["Six o'clock", "Six thirty", "Seven o'clock", "Seven thirty"], answer: 1 },
+            { q: "When does the writer usually have meetings?", options: ["In the morning", "At noon", "In the afternoon", "At night"], answer: 2 },
+            { q: "How is the writer's schedule on weekends?", options: ["The same", "More relaxed", "Busier", "Unknown"], answer: 1 }
+          ]
+        }
+      ],
+      writing: [
+        { prompt: "Escreva sua rotina de um dia da semana com horários específicos, usando at/in/on.", minWords: 25, modelAnswer: "I wake up at seven. In the morning, I study English. I have lunch at noon. On Fridays, I meet my friends in the evening." },
+        { prompt: "Escreva um pequeno diálogo perguntando e respondendo que horas são.", minWords: 15, modelAnswer: "A: What time is it? B: It's half past three. A: Thank you!" }
+      ],
+      speaking: [
+        { phrase: "What time is it?", tip: "Entoação de pergunta simples, sobe levemente no final." },
+        { phrase: "It's half past seven.", tip: "'Half past' é usado para 'e meia', sempre depois da hora cheia." },
+        { phrase: "I wake up at seven o'clock.", tip: "'O'clock' só é usado com horas exatas (não com 'half past' ou 'quarter to')." },
+        { phrase: "I have lunch at noon.", tip: "'Noon' e 'midnight' não usam 'o'clock' junto." },
+        { phrase: "My schedule is very busy today.", tip: "'Schedule' pode ser pronunciado /ˈskɛdʒuːl/ ou /ˈʃɛdjuːl/." }
+      ],
+      exercises: {
+        fillBlanks: [
+          { text: "What ___ is it? (hora)", answer: "time" },
+          { text: "I wake up ___ seven. (preposição)", answer: "at" },
+          { text: "I study ___ the morning. (preposição)", answer: "in" },
+          { text: "I have class ___ Monday. (preposição)", answer: "on" },
+          { text: "It's ___ past three. (e meia)", answer: "half" }
+        ],
+        matching: [
+          { left: "Noon", right: "Meio-dia" },
+          { left: "Midnight", right: "Meia-noite" },
+          { left: "Schedule", right: "Horário/Agenda" },
+          { left: "Morning", right: "Manhã" },
+          { left: "Afternoon", right: "Tarde" },
+          { left: "Early", right: "Cedo" }
+        ],
+        ordering: [
+          { words: ["time", "is", "What", "it?"], answer: "What time is it?" },
+          { words: ["seven", "up", "wake", "I", "at"], answer: "I wake up at seven" },
+          { words: ["morning", "study", "I", "the", "in"], answer: "I study in the morning" },
+          { words: ["Monday", "class", "have", "I", "on"], answer: "I have class on Monday" },
+          { words: ["noon", "lunch", "have", "I", "at"], answer: "I have lunch at noon" }
+        ],
+        translation: [
+          { direction: "pt-en", text: "Que horas são?", answer: "What time is it?" },
+          { direction: "pt-en", text: "Eu me levanto às sete.", answer: "I wake up at seven." },
+          { direction: "pt-en", text: "São sete e meia.", answer: "It's half past seven." },
+          { direction: "en-pt", text: "I have class on Monday.", answer: "Eu tenho aula na segunda-feira." },
+          { direction: "en-pt", text: "I study in the morning.", answer: "Eu estudo de manhã." },
+          { direction: "en-pt", text: "The party ends at midnight.", answer: "A festa termina à meia-noite." }
+        ],
+        dictation: [
+          { audioText: "What time is it?", answer: "What time is it?" },
+          { audioText: "I wake up at seven.", answer: "I wake up at seven." },
+          { audioText: "It's half past seven.", answer: "It's half past seven." }
+        ],
+        dialogue: [
+          {
+            title: "Asking the Time",
+            lines: [
+              { speaker: "Ana", text: "Excuse me, what time is it?" },
+              { speaker: "user", prompt: "Diga que são quinze para as nove:", options: ["It's quarter to nine.", "It's nine o'clock.", "It's midnight."], answer: 0 },
+              { speaker: "Ana", text: "Thanks! Do you know when the store opens?" },
+              { speaker: "user", prompt: "Diga que abre às nove:", options: ["It opens at nine.", "It opens in nine.", "It opens on nine."], answer: 0 },
+              { speaker: "Ana", text: "Perfect, thank you!" }
+            ]
+          }
+        ]
+      },
+      quiz: [
+        { q: "Choose the correct preposition: 'I wake up ___ seven.'", options: ["in", "on", "at", "to"], answer: 2 },
+        { q: "Choose the correct preposition: 'I study ___ the morning.'", options: ["at", "in", "on", "for"], answer: 1 },
+        { type: "tf", q: "'On' is used with days of the week.", answer: true },
+        { q: "'Half past seven' means:", options: ["7:00", "7:15", "7:30", "7:45"], answer: 2 },
+        { type: "short", q: "Complete: 'What ___ is it?' (hora)", answer: ["time"] },
+        { q: "'Noon' means:", options: ["Meia-noite", "Meio-dia", "Manhã", "Tarde"], answer: 1 },
+        { type: "tf", q: "'O'clock' can be used with 'half past three'.", answer: false, explanation: "'O'clock' só é usado com horas exatas, como 'three o'clock'." },
+        { q: "Choose the correct preposition: 'I have class ___ Monday.'", options: ["at", "in", "on", "for"], answer: 2 },
+        { q: "'Schedule' means:", options: ["Horário/Agenda", "Relógio", "Calendário", "Despertador"], answer: 0 },
+        { type: "short", q: "Complete: 'It's ___ to nine.' (quinze para)", answer: ["quarter"] },
+        { q: "Choose the correct sentence.", options: ["I wake up in seven.", "I wake up at seven.", "I wake up on seven.", "I wake up for seven."], answer: 1 },
+        { type: "tf", q: "'Midnight' means twelve o'clock at night.", answer: true }
+      ]
     }
   ],
   finalTest: {

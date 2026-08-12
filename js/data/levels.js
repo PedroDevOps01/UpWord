@@ -57,8 +57,10 @@ APP_DATA.levels = [
   }
 ];
 
+APP_DATA.electives = APP_DATA.electives || [];
+
 APP_DATA.getLevel = function (id) {
-  return APP_DATA.levels.find(function (l) { return l.id === id; });
+  return APP_DATA.levels.concat(APP_DATA.electives).find(function (l) { return l.id === id; });
 };
 
 APP_DATA.getLevelIndex = function (id) {

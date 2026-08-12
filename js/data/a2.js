@@ -789,6 +789,164 @@ APP_DATA.a2 = {
         { q: "Choose the correct sentence.", options: ["He is more short than me.", "He is shorter than me.", "He is the shorter than me.", "He shorter than me."], answer: 1 },
         { type: "tf", q: "'Similar' means 'diferente'.", answer: false, explanation: "'Similar' significa 'parecido'; 'diferente' é 'different'." }
       ]
+    },
+    {
+      id: "a2-m6",
+      title: "Habilidades e Permissão",
+      subtitle: "Can, could e be able to para habilidade e pedidos",
+      lesson: {
+        intro: "Vamos aprender a falar sobre habilidades (o que você sabe/consegue fazer) e a pedir permissão educadamente usando 'can', 'could' e 'be able to'.",
+        sections: [
+          {
+            heading: "Can para Habilidade no Presente",
+            text: "Usamos 'can' para dizer o que alguém sabe ou consegue fazer agora.",
+            examples: [
+              { en: "I can swim very well.", pt: "Eu sei nadar muito bem." },
+              { en: "She can speak three languages.", pt: "Ela sabe falar três idiomas." }
+            ]
+          },
+          {
+            heading: "Could para Habilidade no Passado",
+            text: "Usamos 'could' para habilidades que alguém tinha no passado.",
+            examples: [
+              { en: "When I was young, I could run very fast.", pt: "Quando eu era jovem, eu conseguia correr muito rápido." },
+              { en: "I couldn't swim when I was five.", pt: "Eu não sabia nadar quando eu tinha cinco anos." }
+            ]
+          },
+          {
+            heading: "Pedindo Permissão",
+            text: "Usamos 'can', 'could' e 'may' para pedir permissão, do mais informal ao mais formal.",
+            examples: [
+              { en: "Can I open the window?", pt: "Posso abrir a janela? (informal)" },
+              { en: "Could I ask you a question?", pt: "Eu poderia te fazer uma pergunta? (mais educado)" }
+            ]
+          }
+        ]
+      },
+      vocabulary: [
+        { word: "Ability", phonetic: "/əˈbɪləti/", translation: "Habilidade", example: "Swimming is a useful ability.", exampleTranslation: "Nadar é uma habilidade útil." },
+        { word: "Permission", phonetic: "/pərˈmɪʃən/", translation: "Permissão", example: "You need permission to enter.", exampleTranslation: "Você precisa de permissão para entrar." },
+        { word: "Allowed", phonetic: "/əˈlaʊd/", translation: "Permitido(a)", example: "Smoking is not allowed here.", exampleTranslation: "Fumar não é permitido aqui." },
+        { word: "Able to", phonetic: "/ˈeɪbəl tuː/", translation: "Capaz de", example: "I am able to solve this problem.", exampleTranslation: "Eu sou capaz de resolver este problema." },
+        { word: "Skill", phonetic: "/skɪl/", translation: "Habilidade/Competência", example: "Cooking is a great skill.", exampleTranslation: "Cozinhar é uma ótima habilidade." },
+        { word: "Fluently", phonetic: "/ˈfluːəntli/", translation: "Fluentemente", example: "She speaks English fluently.", exampleTranslation: "Ela fala inglês fluentemente." },
+        { word: "Instrument", phonetic: "/ˈɪnstrəmənt/", translation: "Instrumento", example: "Can you play an instrument?", exampleTranslation: "Você sabe tocar um instrumento?" },
+        { word: "Request", phonetic: "/rɪˈkwɛst/", translation: "Pedido/Solicitar", example: "I have a small request.", exampleTranslation: "Eu tenho um pequeno pedido." },
+        { word: "Borrow", phonetic: "/ˈbɒroʊ/", translation: "Pegar emprestado", example: "Could I borrow your pen?", exampleTranslation: "Eu poderia pegar sua caneta emprestada?" },
+        { word: "Manage to", phonetic: "/ˈmænɪdʒ tuː/", translation: "Conseguir (fazer algo difícil)", example: "I managed to finish on time.", exampleTranslation: "Eu consegui terminar a tempo." }
+      ],
+      grammar: {
+        title: "Can / Could / Be able to",
+        explanation: "'Can' e 'could' são modais (não mudam de forma); 'be able to' pode ser usado em todos os tempos verbais, incluindo futuro.",
+        table: {
+          headers: ["Modal", "Tempo", "Exemplo"],
+          rows: [
+            ["Can", "Presente", "I can swim."],
+            ["Could", "Passado", "I could swim when I was six."],
+            ["Will be able to", "Futuro", "I will be able to swim after lessons."],
+            ["Have been able to", "Present Perfect", "I have been able to swim since I was six."]
+          ]
+        },
+        correct: ["I can speak English.", "I could swim when I was young.", "I will be able to help tomorrow."],
+        incorrect: ["I can to speak English.", "I could to swim when I was young.", "I will can help tomorrow."]
+      },
+      listening: [
+        {
+          title: "Talking About Skills",
+          accent: "british",
+          transcript: "A: Can you play any instruments? B: Yes, I can play the guitar. I could play a little piano too when I was younger, but I've forgotten most of it. A: That's impressive! Could you teach me guitar sometime? B: Sure, I'd be happy to!",
+          questions: [
+            { q: "What instrument can B play?", options: ["Piano", "Guitar", "Violin", "Drums"], answer: 1 },
+            { q: "What could B play when younger?", options: ["Guitar", "Drums", "A little piano", "Nothing"], answer: 2 },
+            { q: "What does A ask B?", options: ["To borrow money", "To teach guitar", "To buy an instrument", "To sing"], answer: 1 }
+          ]
+        }
+      ],
+      reading: [
+        {
+          title: "Learning New Skills",
+          text: "When I was a child, I couldn't do many things — I couldn't cook, drive, or speak a foreign language. Now, as an adult, I am able to do all of these things. I can cook simple meals, I can drive a car, and I can speak English fairly well. I believe anyone is able to learn new skills with enough practice and patience.",
+          questions: [
+            { q: "What couldn't the writer do as a child?", options: ["Nothing", "Cook, drive, speak a foreign language", "Only cook", "Only drive"], answer: 1 },
+            { q: "What can the writer do now?", options: ["Nothing new", "Cook, drive, and speak English", "Only speak English", "Only cook"], answer: 1 },
+            { q: "What does the writer believe?", options: ["Skills can't be learned", "Anyone can learn new skills with practice", "Only children can learn", "Learning is impossible"], answer: 1 }
+          ]
+        }
+      ],
+      writing: [
+        { prompt: "Escreva 3 frases sobre coisas que você sabe fazer hoje (can) e 2 que você conseguia fazer quando criança (could).", minWords: 20, modelAnswer: "I can cook well. I can drive a car. I can speak two languages. When I was a child, I could climb trees easily. I could also run very fast." },
+        { prompt: "Escreva um pequeno diálogo pedindo permissão educadamente para algo (usando could/may).", minWords: 15, modelAnswer: "A: Could I borrow your pen, please? B: Sure, here you go. A: Thank you so much!" }
+      ],
+      speaking: [
+        { phrase: "I can speak two languages.", tip: "'Can' geralmente é pronunciado rápido e sem ênfase: /kən/." },
+        { phrase: "I could swim when I was young.", tip: "'Could' tem o 'l' silencioso: /kʊd/." },
+        { phrase: "Could I ask you a question?", tip: "Frase muito útil e educada para começar um pedido." },
+        { phrase: "She plays the guitar fluently.", tip: "'Fluently' tem acento na primeira sílaba: FLU-ent-ly." },
+        { phrase: "I managed to finish on time.", tip: "'Managed' tem acento na primeira sílaba: MAN-aged." }
+      ],
+      exercises: {
+        fillBlanks: [
+          { text: "I ___ speak two languages. (habilidade presente)", answer: "can" },
+          { text: "When I was young, I ___ run very fast. (habilidade passada)", answer: "could" },
+          { text: "___ I ask you a question? (pedido educado)", answer: "Could" },
+          { text: "I ___ (be able to) help tomorrow. (futuro)", answer: "will be able to" },
+          { text: "Smoking is not ___ here. (permitido)", answer: "allowed" }
+        ],
+        matching: [
+          { left: "Ability", right: "Habilidade" },
+          { left: "Permission", right: "Permissão" },
+          { left: "Allowed", right: "Permitido(a)" },
+          { left: "Skill", right: "Habilidade/Competência" },
+          { left: "Borrow", right: "Pegar emprestado" },
+          { left: "Fluently", right: "Fluentemente" }
+        ],
+        ordering: [
+          { words: ["speak", "can", "languages", "I", "two"], answer: "I can speak two languages" },
+          { words: ["young", "could", "I", "was", "swim", "when", "I"], answer: "I could swim when I was young" },
+          { words: ["ask", "Could", "you", "question", "a", "I?"], answer: "Could I ask you a question?" },
+          { words: ["guitar", "plays", "the", "She", "fluently"], answer: "She plays the guitar fluently" },
+          { words: ["finish", "managed", "to", "I", "time", "on"], answer: "I managed to finish on time" }
+        ],
+        translation: [
+          { direction: "pt-en", text: "Eu sei falar dois idiomas.", answer: "I can speak two languages." },
+          { direction: "pt-en", text: "Quando eu era jovem, eu sabia nadar.", answer: "When I was young, I could swim." },
+          { direction: "pt-en", text: "Eu poderia te fazer uma pergunta?", answer: "Could I ask you a question?" },
+          { direction: "en-pt", text: "Smoking is not allowed here.", answer: "Fumar não é permitido aqui." },
+          { direction: "en-pt", text: "I will be able to help tomorrow.", answer: "Eu vou conseguir ajudar amanhã." },
+          { direction: "en-pt", text: "She speaks English fluently.", answer: "Ela fala inglês fluentemente." }
+        ],
+        dictation: [
+          { audioText: "I can speak two languages.", answer: "I can speak two languages." },
+          { audioText: "Could I ask you a question?", answer: "Could I ask you a question?" },
+          { audioText: "Smoking is not allowed here.", answer: "Smoking is not allowed here." }
+        ],
+        dialogue: [
+          {
+            title: "Asking for Permission",
+            lines: [
+              { speaker: "Colleague", text: "Could I borrow your pen for a moment?" },
+              { speaker: "user", prompt: "Diga que sim, claro:", options: ["Sure, here you go.", "No, I can't swim.", "I could play piano."], answer: 0 },
+              { speaker: "Colleague", text: "Thanks! By the way, can you speak Spanish?" },
+              { speaker: "user", prompt: "Diga que sim, você fala um pouco:", options: ["Yes, I can speak a little.", "Yes, I am allowed.", "No, I borrowed it."], answer: 0 },
+              { speaker: "Colleague", text: "That's great!" }
+            ]
+          }
+        ]
+      },
+      quiz: [
+        { q: "Choose the correct sentence for present ability.", options: ["I can to swim.", "I can swim.", "I cans swim.", "I canning swim."], answer: 1 },
+        { q: "Choose the correct sentence for past ability.", options: ["I could swim when I was young.", "I can swim when I was young.", "I could to swim when I was young.", "I able swim when I was young."], answer: 0 },
+        { type: "tf", q: "'Could' is used for future ability.", answer: false, explanation: "'Could' é usado para habilidade no passado; para o futuro usamos 'will be able to'." },
+        { q: "Choose the most polite request.", options: ["Give me your pen.", "Can I have your pen?", "Could I borrow your pen, please?", "Pen now."], answer: 2 },
+        { type: "short", q: "Complete: 'I ___ speak two languages.' (habilidade presente)", answer: ["can"] },
+        { q: "'Allowed' means:", options: ["Proibido", "Permitido", "Impossível", "Difícil"], answer: 1 },
+        { type: "tf", q: "'Be able to' can be used in the future tense, unlike 'can'.", answer: true },
+        { q: "Choose the correct sentence.", options: ["I will can help tomorrow.", "I will be able to help tomorrow.", "I will able to help tomorrow.", "I can help tomorrow future."], answer: 1 },
+        { q: "'Skill' means:", options: ["Erro", "Habilidade/Competência", "Permissão", "Pedido"], answer: 1 },
+        { type: "short", q: "Complete: 'Could I ___ your pen?' (pegar emprestado)", answer: ["borrow"] },
+        { q: "Choose the correct sentence.", options: ["She speak English fluently.", "She speaks English fluently.", "She speaking English fluently.", "She to speak English fluently."], answer: 1 },
+        { type: "tf", q: "'Manage to' means to succeed in doing something difficult.", answer: true }
+      ]
     }
   ],
   finalTest: {

@@ -632,3 +632,74 @@ a.module-item:hover { text-decoration: none; border-color: var(--level-color); t
   .quiz-q-text { font-size: 1.05rem; }
   .result-score { font-size: 1.7rem; }
 }
+
+/* ============================================================
+   PREFS — font size + dark theme
+   ============================================================ */
+html { font-size: var(--base-font-size, 16px); }
+:root[data-font-size="sm"] { --base-font-size: 15px; }
+:root[data-font-size="md"] { --base-font-size: 16px; }
+:root[data-font-size="lg"] { --base-font-size: 18px; }
+:root[data-font-size="xl"] { --base-font-size: 20px; }
+
+.prefs-controls { display: inline-flex; align-items: center; gap: 4px; }
+.icon-toggle-btn {
+  background: var(--cloud-tint); border: none; border-radius: var(--radius-sm);
+  padding: 5px 9px; cursor: pointer; font-size: 0.82rem; font-weight: 700; color: var(--ink);
+  font-family: var(--font-mono); line-height: 1;
+}
+.icon-toggle-btn:hover { background: var(--teal-tint); color: var(--teal-dark); }
+#theme-toggle-btn { font-size: 1rem; font-family: var(--font-body); }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #EDEFF2; --mist: #10141F; --surface: #181D2B;
+    --teal: #35B3A6; --teal-dark: #6BDCCF; --teal-tint: #10322E;
+    --amber: #F0B25A; --amber-dark: #F5C878; --amber-tint: #2E2410;
+    --cloud: #97A2B8; --cloud-tint: #1E2433; --border: #2A3040;
+    --moss: #4FBE84; --moss-tint: #12291C; --coral: #F17567; --coral-tint: #331613;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #EDEFF2; --mist: #10141F; --surface: #181D2B;
+  --teal: #35B3A6; --teal-dark: #6BDCCF; --teal-tint: #10322E;
+  --amber: #F0B25A; --amber-dark: #F5C878; --amber-tint: #2E2410;
+  --cloud: #97A2B8; --cloud-tint: #1E2433; --border: #2A3040;
+  --moss: #4FBE84; --moss-tint: #12291C; --coral: #F17567; --coral-tint: #331613;
+}
+:root[data-theme="dark"] .btn-primary { color: #0B1520; }
+:root[data-theme="dark"] .quiz-option input, :root[data-theme="dark"] .option-row input { accent-color: var(--teal); }
+
+/* ============================================================
+   Home extras — streak, achievements, dashboard, electives, data
+   ============================================================ */
+.achievements-panel, .dashboard-panel, .electives-panel, .data-panel {
+  margin-top: var(--sp-6);
+}
+.achievements-panel h2, .dashboard-panel h2, .electives-panel h2, .data-panel h2 { text-align: center; }
+.badge-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); justify-content: center; margin-top: var(--sp-3); }
+.badge-chip {
+  display: inline-flex; align-items: center; gap: 6px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-pill); padding: 6px 14px; font-size: 0.85rem; font-weight: 600;
+}
+.badge-chip .icon { color: var(--amber-dark); }
+
+.weak-list { max-width: 560px; margin: var(--sp-3) auto 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.weak-item {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3);
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: var(--sp-3) var(--sp-4);
+}
+.weak-item-score { font-family: var(--font-mono); font-weight: 700; color: var(--coral); flex-shrink: 0; }
+.weak-item-score.is-ok { color: var(--moss); }
+
+.elective-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--sp-3); margin-top: var(--sp-3); }
+.elective-card {
+  display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: var(--sp-4); color: var(--ink); border-left: 5px solid var(--level-color);
+}
+.elective-card:hover { text-decoration: none; box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.elective-card h3 { margin-bottom: 2px; }
+.elective-card p { margin: 0; color: var(--cloud); font-size: 0.9rem; }
+
+.data-actions { display: flex; justify-content: center; gap: var(--sp-3); flex-wrap: wrap; margin-top: var(--sp-3); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }

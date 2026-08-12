@@ -786,6 +786,163 @@ APP_DATA.b1 = {
         { q: "Choose the correct sentence.", options: ["She looks her brother after.", "She looks after her brother.", "She after looks her brother.", "She looks after brother her."], answer: 1 },
         { type: "tf", q: "'Look after' can be separated by the object, like 'look the children after'.", answer: false, explanation: "'Look after' é inseparável — o objeto sempre vem depois da expressão completa." }
       ]
+    },
+    {
+      id: "b1-m6",
+      title: "Descrevendo com Detalhes",
+      subtitle: "Orações relativas com who, which e that",
+      lesson: {
+        intro: "Orações relativas nos permitem dar mais informações sobre pessoas, coisas e lugares em uma única frase, tornando sua fala mais natural e sofisticada.",
+        sections: [
+          {
+            heading: "Who para Pessoas",
+            text: "Usamos 'who' para adicionar informação sobre pessoas.",
+            examples: [
+              { en: "The woman who lives next door is a doctor.", pt: "A mulher que mora ao lado é médica." },
+              { en: "I have a friend who speaks four languages.", pt: "Eu tenho um amigo que fala quatro idiomas." }
+            ]
+          },
+          {
+            heading: "Which para Coisas",
+            text: "Usamos 'which' para adicionar informação sobre objetos, animais e ideias.",
+            examples: [
+              { en: "The book which I'm reading is fascinating.", pt: "O livro que estou lendo é fascinante." },
+              { en: "This is the car which I bought last year.", pt: "Este é o carro que eu comprei ano passado." }
+            ]
+          },
+          {
+            heading: "That para Pessoas ou Coisas",
+            text: "'That' pode substituir 'who' ou 'which' em orações relativas restritivas (informação essencial), especialmente na fala informal.",
+            examples: [
+              { en: "The man that called you is my boss.", pt: "O homem que te ligou é meu chefe." },
+              { en: "This is the movie that everyone is talking about.", pt: "Este é o filme que todo mundo está falando." }
+            ]
+          }
+        ]
+      },
+      vocabulary: [
+        { word: "Neighbor", phonetic: "/ˈneɪbər/", translation: "Vizinho(a)", example: "My neighbor who lives upstairs is very kind.", exampleTranslation: "Meu vizinho que mora no andar de cima é muito gentil." },
+        { word: "Describe", phonetic: "/dɪˈskraɪb/", translation: "Descrever", example: "Can you describe the person who helped you?", exampleTranslation: "Você pode descrever a pessoa que te ajudou?" },
+        { word: "Fascinating", phonetic: "/ˈfæsəneɪtɪŋ/", translation: "Fascinante", example: "The book which I'm reading is fascinating.", exampleTranslation: "O livro que estou lendo é fascinante." },
+        { word: "Author", phonetic: "/ˈɔːθər/", translation: "Autor(a)", example: "The author who wrote this book is famous.", exampleTranslation: "O autor que escreveu este livro é famoso." },
+        { word: "Nearby", phonetic: "/nɪrˈbaɪ/", translation: "Próximo/Nas proximidades", example: "There's a café nearby that I love.", exampleTranslation: "Há um café nas proximidades que eu amo." },
+        { word: "Owner", phonetic: "/ˈoʊnər/", translation: "Proprietário(a)", example: "The owner who runs this shop is friendly.", exampleTranslation: "O proprietário que administra esta loja é simpático." },
+        { word: "Belong", phonetic: "/bɪˈlɒŋ/", translation: "Pertencer", example: "This is the bag which belongs to my sister.", exampleTranslation: "Esta é a bolsa que pertence à minha irmã." },
+        { word: "Recommend", phonetic: "/ˌrɛkəˈmɛnd/", translation: "Recomendar", example: "The restaurant that you recommended was great.", exampleTranslation: "O restaurante que você recomendou foi ótimo." },
+        { word: "Colleague", phonetic: "/ˈkɒliːɡ/", translation: "Colega de trabalho", example: "My colleague who sits next to me is very helpful.", exampleTranslation: "Meu colega que se senta ao meu lado é muito prestativo." },
+        { word: "Memorable", phonetic: "/ˈmɛmərəbəl/", translation: "Memorável", example: "It was a trip that I will never forget.", exampleTranslation: "Foi uma viagem que eu nunca vou esquecer." }
+      ],
+      grammar: {
+        title: "Orações Relativas: Who, Which, That",
+        explanation: "'Who' para pessoas, 'which' para coisas, 'that' pode substituir ambos em orações restritivas (informação essencial para identificar o substantivo).",
+        table: {
+          headers: ["Pronome", "Usado para", "Exemplo"],
+          rows: [
+            ["Who", "Pessoas", "The man who called is my boss."],
+            ["Which", "Coisas/animais", "The car which I bought is red."],
+            ["That", "Pessoas ou coisas (informal/restritivo)", "The book that I read was great."]
+          ]
+        },
+        correct: ["The woman who lives next door is a doctor.", "This is the book which I bought.", "The man that called you is my boss."],
+        incorrect: ["The woman which lives next door is a doctor.", "This is the book who I bought.", "The man, that called you, is my boss."]
+      },
+      listening: [
+        {
+          title: "Describing People",
+          accent: "american",
+          transcript: "A: Do you know the woman who just walked in? B: Yes, that's my colleague who works in marketing. She's the one who organized last year's conference, the one that everyone loved. A: Oh, I remember! It was an event that people still talk about.",
+          questions: [
+            { q: "Who is the woman?", options: ["A stranger", "A's sister", "B's colleague", "The manager"], answer: 2 },
+            { q: "What did the woman organize?", options: ["A party", "Last year's conference", "A wedding", "A trip"], answer: 1 },
+            { q: "How do people feel about the event?", options: ["They forgot it", "They still talk about it", "They disliked it", "They ignore it"], answer: 1 }
+          ]
+        }
+      ],
+      reading: [
+        {
+          title: "A City Worth Visiting",
+          text: "I recently visited a city that completely surprised me. The people who live there are incredibly friendly, and the food which they serve in local restaurants is amazing. I met a local guide who showed me hidden spots that most tourists never see. It was a trip that I will never forget, and it's a place which I definitely want to visit again.",
+          questions: [
+            { q: "How did the writer feel about the people?", options: ["They were unfriendly", "They were incredibly friendly", "They were indifferent", "Unknown"], answer: 1 },
+            { q: "Who showed the writer hidden spots?", options: ["A stranger", "A local guide", "A tourist", "No one"], answer: 1 },
+            { q: "Does the writer want to return?", options: ["No, never", "Yes, definitely", "Maybe", "They didn't say"], answer: 1 }
+          ]
+        }
+      ],
+      writing: [
+        { prompt: "Escreva 3 frases descrevendo pessoas que você conhece usando orações relativas com 'who'.", minWords: 20, modelAnswer: "I have a friend who lives in Canada. My neighbor who has a dog is very friendly. My colleague who sits next to me helps me a lot." },
+        { prompt: "Escreva sobre um lugar ou objeto especial usando 'which' ou 'that'.", minWords: 15, modelAnswer: "This is the necklace which my grandmother gave me. It's an object that means a lot to me." }
+      ],
+      speaking: [
+        { phrase: "The woman who lives next door is a doctor.", tip: "'Who' aqui liga a informação sem pausa — fale a frase toda de forma contínua." },
+        { phrase: "This is the book which I bought.", tip: "'Which' é usado quase sempre para coisas, não pessoas." },
+        { phrase: "The man that called you is my boss.", tip: "'That' em orações restritivas nunca tem vírgula antes." },
+        { phrase: "It was a trip that I will never forget.", tip: "'Forget' tem acento na segunda sílaba: for-GET." },
+        { phrase: "My colleague who sits next to me is helpful.", tip: "'Colleague' se pronuncia /ˈkɒliːɡ/, terminando em som de 'g', não 'gue'." }
+      ],
+      exercises: {
+        fillBlanks: [
+          { text: "The woman ___ lives next door is a doctor. (pessoa)", answer: "who" },
+          { text: "This is the book ___ I bought. (coisa)", answer: "which" },
+          { text: "The man ___ called you is my boss. (pessoa ou coisa, informal)", answer: "that" },
+          { text: "I have a friend ___ speaks four languages.", answer: "who" },
+          { text: "The restaurant ___ you recommended was great.", answer: "that" }
+        ],
+        matching: [
+          { left: "Neighbor", right: "Vizinho(a)" },
+          { left: "Author", right: "Autor(a)" },
+          { left: "Owner", right: "Proprietário(a)" },
+          { left: "Colleague", right: "Colega de trabalho" },
+          { left: "Recommend", right: "Recomendar" },
+          { left: "Memorable", right: "Memorável" }
+        ],
+        ordering: [
+          { words: ["who", "woman", "The", "door", "lives", "next", "is", "a", "doctor"], answer: "The woman who lives next door is a doctor" },
+          { words: ["book", "is", "This", "bought", "I", "which", "the"], answer: "This is the book which I bought" },
+          { words: ["boss", "man", "The", "called", "that", "you", "is", "my"], answer: "The man that called you is my boss" },
+          { words: ["friend", "have", "who", "I", "languages", "speaks", "four", "a"], answer: "I have a friend who speaks four languages" },
+          { words: ["forget", "was", "It", "never", "trip", "will", "that", "I", "a"], answer: "It was a trip that I will never forget" }
+        ],
+        translation: [
+          { direction: "pt-en", text: "A mulher que mora ao lado é médica.", answer: "The woman who lives next door is a doctor." },
+          { direction: "pt-en", text: "Este é o livro que eu comprei.", answer: "This is the book which I bought." },
+          { direction: "pt-en", text: "O homem que te ligou é meu chefe.", answer: "The man that called you is my boss." },
+          { direction: "en-pt", text: "I have a friend who speaks four languages.", answer: "Eu tenho um amigo que fala quatro idiomas." },
+          { direction: "en-pt", text: "It was a trip that I will never forget.", answer: "Foi uma viagem que eu nunca vou esquecer." },
+          { direction: "en-pt", text: "The restaurant that you recommended was great.", answer: "O restaurante que você recomendou foi ótimo." }
+        ],
+        dictation: [
+          { audioText: "The woman who lives next door is a doctor.", answer: "The woman who lives next door is a doctor." },
+          { audioText: "This is the book which I bought.", answer: "This is the book which I bought." },
+          { audioText: "The man that called you is my boss.", answer: "The man that called you is my boss." }
+        ],
+        dialogue: [
+          {
+            title: "Talking About People",
+            lines: [
+              { speaker: "Sara", text: "Who is the man who just left?" },
+              { speaker: "user", prompt: "Diga que é o colega que trabalha em marketing:", options: ["That's the colleague who works in marketing.", "That's the book which I bought.", "That's a trip I loved."], answer: 0 },
+              { speaker: "Sara", text: "Oh nice! Is he the one who organized the event?" },
+              { speaker: "user", prompt: "Diga que sim, é ele:", options: ["Yes, that's him.", "No, that's the neighbor.", "Yes, that's the author."], answer: 0 },
+              { speaker: "Sara", text: "Cool, I'd like to meet him." }
+            ]
+          }
+        ]
+      },
+      quiz: [
+        { q: "Choose the correct relative pronoun: 'The woman ___ called is my sister.'", options: ["which", "who", "whose", "whom"], answer: 1 },
+        { q: "Choose the correct relative pronoun: 'This is the car ___ I bought.'", options: ["who", "which", "whom", "whose"], answer: 1 },
+        { type: "tf", q: "'That' can replace both 'who' and 'which' in restrictive clauses.", answer: true },
+        { q: "Choose the correct sentence.", options: ["The book who I read was great.", "The book which I read was great.", "The book whom I read was great.", "The book whose I read was great."], answer: 1 },
+        { type: "short", q: "Complete: 'I have a friend ___ speaks four languages.' (who)", answer: ["who"] },
+        { q: "'Neighbor' means:", options: ["Autor", "Vizinho(a)", "Proprietário", "Colega"], answer: 1 },
+        { type: "tf", q: "Restrictive relative clauses with 'that' use a comma before 'that'.", answer: false, explanation: "Orações restritivas com 'that' nunca usam vírgula." },
+        { q: "'Recommend' means:", options: ["Esquecer", "Recomendar", "Pertencer", "Descrever"], answer: 1 },
+        { q: "Choose the correct sentence.", options: ["The man that called you is my boss.", "The man, that called you, is my boss.", "The man that called you, is my boss.", "The man that, called you is my boss."], answer: 0 },
+        { type: "short", q: "Complete: 'It was a trip that I will never ___.' (esquecer)", answer: ["forget"] },
+        { q: "'Memorable' means:", options: ["Esquecível", "Memorável", "Comum", "Chato"], answer: 1 },
+        { type: "tf", q: "'Which' is typically used for people, not things.", answer: false, explanation: "'Which' é usado para coisas/animais; 'who' é usado para pessoas." }
+      ]
     }
   ],
   finalTest: {
