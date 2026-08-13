@@ -15,10 +15,11 @@ Views.level = (function () {
       var markerIcon = completed ? Icon('check', { size: 18 }) : (unlocked ? Icon('flag', { size: 18 }) : Icon('lock', { size: 16 }));
       var classes = 'module-item' + (completed ? ' is-completed' : '') + (!unlocked ? ' is-locked' : '');
 
+      var sessionSummary = Storage.getModuleSessionSummary(m.id);
       var body =
         '<span class="module-step-marker">' + markerIcon + '</span>' +
         '<div class="module-item-body">' +
-          '<h3>' + (i + 1) + '. ' + m.title + '</h3>' +
+          '<h3>' + (i + 1) + '. ' + m.title + (unlocked ? ' <span class="module-item-session-count">' + sessionSummary.done + '/' + sessionSummary.total + '</span>' : '') + '</h3>' +
           '<p>' + m.subtitle + '</p>' +
           (!unlocked ? '<span class="muted">Conclua o módulo anterior para desbloquear</span>' : '') +
         '</div>';

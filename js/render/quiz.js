@@ -160,6 +160,24 @@ Views.quiz = (function () {
       Storage.recordQuizAttempt({ refId: opts.refId, type: opts.type, score: state.score, total: total, timeSeconds: elapsedSeconds });
       var completionInfo = opts.onComplete ? opts.onComplete(state.score, total) : null;
 
+      var SKILL_LABELS = { vocabulary: 'Vocabulário', grammar: 'Gramática', register: 'Registro', collocation: 'Collocation', inference: 'Inferência', reading: 'Reading', listening: 'Listening', writing: 'Writing', speaking: 'Speaking' };
+      var bySkill = {};
+      questions.forEach(function (q, i) {
+        if (!q.skill) return;
+        if (!bySkill[q.skill]) bySkill[q.skill] = { correct: 0, total: 0 };
+        bySkill[q.skill].total++;
+        if (state.results[i]) bySkill[q.skill].correct++;
+      });
+      var skillKeys = Object.keys(bySkill);
+      var skillBreakdownHtml = skillKeys.length >= 2
+        ? '<div class="placement-skill-breakdown"><h3>Resultado por habilidade</h3><ul class="placement-skill-list">' +
+            skillKeys.map(function (skill) {
+              var s = bySkill[skill];
+              return '<li><span>' + (SKILL_LABELS[skill] || skill) + '</span><span>' + s.correct + '/' + s.total + '</span></li>';
+            }).join('') +
+          '</ul></div>'
+        : '';
+
       var wrongIndexes = state.results.reduce(function (acc, ok, i) { if (ok === false) acc.push(i); return acc; }, []);
       var wrongListHtml = '';
       if (wrongIndexes.length) {
@@ -190,6 +208,7 @@ Views.quiz = (function () {
             '<p>' + (passed ? 'Muito bem! Você subiu mais um degrau.' : 'Quase lá — revise o conteúdo e tente de novo.') + '</p>' +
             (completionInfo && completionInfo.earnedPoints ? '<p class="fb-ok">' + Icon('star', { size: 15 }) + ' +' + completionInfo.earnedPoints + ' pontos</p>' : '') +
             '<p class="muted">Tempo: ' + elapsedSeconds + 's</p>' +
+            skillBreakdownHtml +
             '<div class="result-actions">' +
               '<button class="btn btn-secondary" id="quiz-retry-btn">Revisar quiz</button>' +
               '<a class="btn btn-secondary" href="#' + opts.backHash + '">' + (opts.backLabel || 'Voltar') + '</a>' +

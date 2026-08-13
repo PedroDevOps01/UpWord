@@ -6,6 +6,10 @@ APP_DATA.b2 = {
       id: "b2-m1",
       title: "Voz Passiva",
       subtitle: "Voz passiva no presente e no passado",
+      objective: "Ao final, o aluno consegue formar e usar a voz passiva no presente e no passado para descrever ações, processos e fatos sem focar em quem os pratica.",
+      prerequisites: ["b1-m6"],
+      masteryEvidence: "Domínio demonstrado por pelo menos 60% de acerto no quiz, revisão da atividade de writing concluída, tentativa de speaking registrada e as 9 sessões do módulo completas.",
+      levelCefrNote: "Compatível com as expectativas de compreensão e produção do nível B2 do CEFR (Common European Framework of Reference) — não é uma certificação oficial.",
       lesson: {
         intro: "Vamos aprender a voz passiva, usada quando o foco está na ação ou no objeto, não em quem a pratica — muito comum em notícias e textos formais.",
         sections: [
@@ -166,6 +170,9 @@ APP_DATA.b2 = {
       id: "b2-m2",
       title: "Discurso Indireto",
       subtitle: "Reported Speech: afirmações e perguntas",
+      objective: "Ao final, o aluno consegue relatar o que outras pessoas disseram ou perguntaram usando discurso indireto, aplicando corretamente a mudança de tempos verbais e a ordem das perguntas relatadas.",
+      prerequisites: ["b2-m1"],
+      masteryEvidence: "Domínio demonstrado por pelo menos 60% de acerto no quiz, revisão da atividade de writing concluída, tentativa de speaking registrada e as 9 sessões do módulo completas.",
       lesson: {
         intro: "O discurso indireto é usado para relatar o que alguém disse, sem citar as palavras exatas. Isso geralmente muda o tempo verbal e os pronomes.",
         sections: [
@@ -324,6 +331,9 @@ APP_DATA.b2 = {
       id: "b2-m3",
       title: "Condicionais Avançados",
       subtitle: "Terceiro condicional e condicionais mistos",
+      objective: "Ao final, o aluno consegue formar o terceiro condicional e condicionais mistos para falar sobre situações hipotéticas do passado e suas consequências, reais ou imaginadas, no passado ou no presente.",
+      prerequisites: ["b2-m2"],
+      masteryEvidence: "Domínio demonstrado por pelo menos 60% de acerto no quiz, revisão da atividade de writing concluída, tentativa de speaking registrada e as 9 sessões do módulo completas.",
       lesson: {
         intro: "Vamos além dos condicionais básicos: o terceiro condicional fala sobre o passado que não aconteceu, e os condicionais mistos combinam tempos diferentes.",
         sections: [
@@ -481,6 +491,9 @@ APP_DATA.b2 = {
       id: "b2-m4",
       title: "Mundo do Trabalho",
       subtitle: "Vocabulário profissional, entrevistas de emprego e modais de obrigação",
+      objective: "Ao final, o aluno consegue usar vocabulário do mundo do trabalho e os modais must, have to e should para expressar obrigação e dar conselhos em contextos profissionais, como entrevistas de emprego.",
+      prerequisites: ["b2-m3"],
+      masteryEvidence: "Domínio demonstrado por pelo menos 60% de acerto no quiz, revisão da atividade de writing concluída, tentativa de speaking registrada e as 9 sessões do módulo completas.",
       lesson: {
         intro: "Vamos explorar o vocabulário do mundo do trabalho, como se sair bem em uma entrevista de emprego, e os modais de obrigação: must, have to e should.",
         sections: [
@@ -639,6 +652,9 @@ APP_DATA.b2 = {
       id: "b2-m5",
       title: "Saúde e Tecnologia",
       subtitle: "Vocabulário de saúde e tecnologia, leitura de textos jornalísticos",
+      objective: "Ao final, o aluno consegue compreender textos jornalísticos sobre saúde e tecnologia, reconhecendo o uso combinado de voz passiva e discurso indireto, além de empregar vocabulário da área.",
+      prerequisites: ["b2-m4", "b2-m1", "b2-m2"],
+      masteryEvidence: "Domínio demonstrado por pelo menos 60% de acerto no quiz, revisão da atividade de writing concluída, tentativa de speaking registrada e as 9 sessões do módulo completas.",
       lesson: {
         intro: "Neste último módulo do B2, vamos expandir seu vocabulário sobre saúde e tecnologia, e praticar a leitura de textos no estilo jornalístico.",
         sections: [
@@ -796,6 +812,9 @@ APP_DATA.b2 = {
       id: "b2-m6",
       title: "Gerúndio e Infinitivo",
       subtitle: "Padrões verbais: verbo + gerúndio vs. verbo + infinitivo",
+      objective: "Ao final, o aluno consegue escolher corretamente entre gerúndio e infinitivo depois de diferentes verbos, incluindo casos em que a escolha muda o significado da frase.",
+      prerequisites: ["b2-m5"],
+      masteryEvidence: "Domínio demonstrado por pelo menos 60% de acerto no quiz, revisão da atividade de writing concluída, tentativa de speaking registrada e as 9 sessões do módulo completas.",
       lesson: {
         intro: "Alguns verbos em inglês são seguidos por gerúndio (-ing), outros por infinitivo (to + verbo), e alguns aceitam ambos com mudança de sentido. Vamos organizar essas regras.",
         sections: [

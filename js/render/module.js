@@ -12,6 +12,29 @@ Views.module = (function () {
     { key: 'exercises', label: '✅ Exercícios' }
   ];
 
+  var SESSION_LABELS = {
+    lesson: 'Aula', vocabulary: 'Vocabulário', grammar: 'Gramática', listening: 'Listening',
+    reading: 'Reading', writing: 'Writing', speaking: 'Speaking', exercises: 'Exercícios', quiz: 'Quiz'
+  };
+
+  // Progresso visual das 9 sessões do módulo (8 abas + quiz), com contador,
+  // pontos por sessão e indicação explícita do próximo passo.
+  function sessionProgressHtml(moduleId, activeTab) {
+    var summary = Storage.getModuleSessionSummary(moduleId);
+    var dots = summary.sessions.map(function (s) {
+      var cls = 'session-dot' + (s.done ? ' is-done' : '') + (s.key === activeTab ? ' is-current' : '');
+      return '<span class="' + cls + '" title="' + SESSION_LABELS[s.key] + (s.done ? ' — concluída' : ' — pendente') + '"></span>';
+    }).join('');
+    var nextText = summary.next ? ('Próximo passo: ' + SESSION_LABELS[summary.next.key]) : 'Todas as sessões concluídas! 🎉';
+    return (
+      '<div class="module-session-progress" aria-label="Progresso das sessões deste módulo">' +
+        '<span class="module-session-count">' + summary.done + '/' + summary.total + ' sessões</span>' +
+        '<span class="module-session-dots">' + dots + '</span>' +
+        '<span class="module-session-next muted">' + nextText + '</span>' +
+      '</div>'
+    );
+  }
+
   function tabNav(levelId, moduleId, activeTab) {
     return '<nav class="module-tabs" aria-label="Abas do módulo">' + TABS.map(function (t, i) {
       var active = t.key === activeTab ? ' is-active' : '';
@@ -98,43 +121,68 @@ Views.module = (function () {
     );
   }
 
+  // Campos opcionais mais ricos (collocations, word family, sinônimos,
+  // antônimos, erro comum) só aparecem quando o item de vocabulário os
+  // define — itens simples continuam com o card enxuto de sempre.
+  function renderVocabExtra(v) {
+    var lines = '';
+    if (v.collocations && v.collocations.length) lines += '<div class="vocab-extra-line"><strong>Collocations:</strong> ' + v.collocations.join(', ') + '</div>';
+    if (v.wordFamily && v.wordFamily.length) lines += '<div class="vocab-extra-line"><strong>Word family:</strong> ' + v.wordFamily.join(', ') + '</div>';
+    if (v.synonyms && v.synonyms.length) lines += '<div class="vocab-extra-line"><strong>Sinônimos:</strong> ' + v.synonyms.join(', ') + '</div>';
+    if (v.antonyms && v.antonyms.length) lines += '<div class="vocab-extra-line"><strong>Antônimos:</strong> ' + v.antonyms.join(', ') + '</div>';
+    if (v.commonError) lines += '<div class="vocab-extra-line vocab-common-error"><strong>Erro comum:</strong> ' + v.commonError + '</div>';
+    return lines;
+  }
+
   function renderVocabulary(module) {
     var cards = module.vocabulary.map(function (v) {
       return (
         '<div class="vocab-card">' +
-          '<div class="vocab-word">' + v.word + ' <span class="vocab-phonetic">' + v.phonetic + '</span> ' + accentButtons(v.word) + '</div>' +
-          '<div class="vocab-translation">' + v.translation + '</div>' +
+          '<div class="vocab-word">' + v.word + (v.partOfSpeech ? ' <span class="vocab-pos">' + v.partOfSpeech + '</span>' : '') + ' <span class="vocab-phonetic">' + v.phonetic + '</span> ' + accentButtons(v.word) + '</div>' +
+          '<div class="vocab-translation">' + v.translation + (v.register ? ' <span class="vocab-register">' + v.register + '</span>' : '') + '</div>' +
           '<div class="vocab-example">"' + v.example + '" <span class="muted">— ' + v.exampleTranslation + '</span></div>' +
+          renderVocabExtra(v) +
         '</div>'
       );
     }).join('');
     return '<div class="tab-content"><div class="vocab-grid">' + cards + '</div></div>';
   }
 
+  // Além do tópico principal de gramática (module.grammar), qualquer seção
+  // da Aula que já traga uma tabela formal (ex.: "There is / There are" em
+  // A1-M3, que convive com "This/That/These/Those" no mesmo módulo) aparece
+  // aqui também — mesma fonte de dados, sem duplicar conteúdo, encontrável
+  // tanto em Aula quanto em Gramática.
+  function renderGrammarExtrasFromLesson(module) {
+    var sections = (module.lesson && module.lesson.sections) || [];
+    var extras = sections.filter(function (s) { return s.table; });
+    if (!extras.length) return '';
+    return extras.map(function (s) {
+      return (
+        '<div class="lesson-section grammar-extra-topic">' +
+          '<h3>' + s.heading + '</h3>' +
+          renderSectionTable(s) +
+          renderSectionCompare(s) +
+        '</div>'
+      );
+    }).join('');
+  }
+
   function renderGrammar(module) {
     var g = module.grammar;
-    var tableHtml = '';
-    if (g.table) {
-      tableHtml =
-        '<table class="grammar-table"><thead><tr>' +
-          g.table.headers.map(function (h) { return '<th>' + h + '</th>'; }).join('') +
-        '</tr></thead><tbody>' +
-        g.table.rows.map(function (row) {
-          return '<tr>' + row.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>';
-        }).join('') +
-        '</tbody></table>';
-    }
     var correct = (g.correct || []).map(function (s) { return '<li class="fb-ok">✔ ' + s + '</li>'; }).join('');
     var incorrect = (g.incorrect || []).map(function (s) { return '<li class="fb-bad">✘ ' + s + '</li>'; }).join('');
     return (
       '<div class="tab-content">' +
         '<h3>' + g.title + '</h3>' +
         '<p>' + g.explanation + '</p>' +
-        tableHtml +
+        renderSectionTable(g) +
         '<div class="grammar-compare">' +
           '<div><h4>Certo</h4><ul class="plain-list">' + correct + '</ul></div>' +
           '<div><h4>Errado</h4><ul class="plain-list">' + incorrect + '</ul></div>' +
         '</div>' +
+        renderGrammarExtrasFromLesson(module) +
+        '<a class="btn-text-link" href="#/grammar">Ver referência gramatical de todos os níveis</a>' +
       '</div>'
     );
   }
@@ -319,6 +367,8 @@ Views.module = (function () {
         '<a class="back-link" href="#/level/' + levelId + '">' + Icon('chevronLeft', { size: 16 }) + ' ' + level.code + ' — ' + level.name + '</a>' +
         '<h1>' + module.title + '</h1>' +
         '<p class="muted">' + module.subtitle + '</p>' +
+        (module.objective ? '<p class="module-objective">' + Icon('flag', { size: 14 }) + ' ' + module.objective + '</p>' : '') +
+        sessionProgressHtml(moduleId, tab) +
         tabNav(levelId, moduleId, tab) +
         contentHtml +
         '<div class="module-footer-actions">' +

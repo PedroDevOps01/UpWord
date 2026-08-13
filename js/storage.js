@@ -350,6 +350,20 @@ var Storage = (function () {
     persist();
   }
 
+  // As 9 sessões de um módulo: as 8 abas de conteúdo + o quiz do módulo
+  // (cuja conclusão já é rastreada por completedModules, não por sessionProgress).
+  var MODULE_SESSION_KEYS = ['lesson', 'vocabulary', 'grammar', 'listening', 'reading', 'writing', 'speaking', 'exercises', 'quiz'];
+
+  function getModuleSessionSummary(moduleId) {
+    var sessions = MODULE_SESSION_KEYS.map(function (key) {
+      var done = key === 'quiz' ? isModuleCompleted(moduleId) : isSessionCompleted(moduleId, key);
+      return { key: key, done: done };
+    });
+    var doneCount = sessions.filter(function (s) { return s.done; }).length;
+    var next = sessions.filter(function (s) { return !s.done; })[0] || null;
+    return { sessions: sessions, done: doneCount, total: MODULE_SESSION_KEYS.length, next: next };
+  }
+
   function exportProgress() {
     return JSON.stringify(state, null, 2);
   }
@@ -429,6 +443,7 @@ var Storage = (function () {
     markSpeakingAttempt: markSpeakingAttempt,
     isSessionCompleted: isSessionCompleted,
     markSessionCompleted: markSessionCompleted,
+    getModuleSessionSummary: getModuleSessionSummary,
     touchStreak: touchStreak,
     exportProgress: exportProgress,
     importProgress: importProgress,

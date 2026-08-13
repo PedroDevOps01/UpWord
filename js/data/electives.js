@@ -33,6 +33,9 @@ APP_DATA.travel = {
       id: "travel-m1",
       title: "Na Viagem",
       subtitle: "Check-in, imigração e hospedagem",
+      objective: "Ao final, o aluno consegue se comunicar em situações comuns de viagem, como check-in de hotel, aeroporto e pedidos educados de ajuda.",
+      prerequisites: ["a2-m6"],
+      masteryEvidence: "Confirmado por quiz com pelo menos 60% de acertos, exercício de writing revisado, prática de speaking realizada e as 9 sessões do módulo concluídas.",
       lesson: {
         intro: "Viajar para um país de língua inglesa fica muito mais tranquilo quando você domina as frases essenciais do aeroporto ao hotel. Vamos praticar as situações mais comuns.",
         sections: [
@@ -199,6 +202,9 @@ APP_DATA.interview = {
       id: "interview-m1",
       title: "Entrevista de Emprego em Inglês",
       subtitle: "Frases essenciais para se destacar na entrevista",
+      objective: "Ao final, o aluno consegue responder com confiança às perguntas mais comuns de uma entrevista de emprego em inglês, falando sobre pontos fortes, fracos e experiência profissional usando o present perfect.",
+      prerequisites: ["a2-m6"],
+      masteryEvidence: "Confirmado por quiz com pelo menos 60% de acertos, exercício de writing revisado, prática de speaking realizada e as 9 sessões do módulo concluídas.",
       lesson: {
         intro: "Uma entrevista de emprego em inglês pode ser decisiva na sua carreira. Vamos praticar as perguntas mais comuns e como respondê-las com confiança.",
         sections: [
@@ -365,6 +371,9 @@ APP_DATA.business = {
       id: "business-m1",
       title: "Business English no Dia a Dia",
       subtitle: "E-mails, reuniões e conversas profissionais",
+      objective: "Ao final, o aluno consegue escrever e-mails profissionais e participar de reuniões de negócios em inglês, usando vocabulário corporativo e linguagem formal apropriada.",
+      prerequisites: ["b1-m6"],
+      masteryEvidence: "Confirmado por quiz com pelo menos 60% de acertos, exercício de writing revisado, prática de speaking realizada e as 9 sessões do módulo concluídas.",
       lesson: {
         intro: "O inglês corporativo tem suas próprias expressões e formalidades. Vamos aprender a escrever e-mails profissionais e participar de reuniões com confiança.",
         sections: [

@@ -46,10 +46,22 @@ function words(text) {
 
 var SLUG_RE = /^[a-z0-9-]+$/;
 
+// Metadado opcional usado pela revisão adaptativa e pelo progresso por
+// habilidade (seções 9 e 10 do prompt de expansão) — quando presente, tem
+// que vir de um vocabulário fechado para não virar lixo de dados.
+var VALID_SKILLS = ['vocabulary', 'grammar', 'reading', 'listening', 'register', 'inference', 'collocation', 'writing', 'speaking'];
+var VALID_DIFFICULTIES = ['easy', 'medium', 'hard'];
+
 function checkQuizQuestion(refLabel, q, index) {
   var where = refLabel + ' pergunta #' + (index + 1);
   if (!q.explanation || !String(q.explanation).trim()) {
     err(where + ': sem "explanation".');
+  }
+  if (q.skill && VALID_SKILLS.indexOf(q.skill) === -1) {
+    err(where + ': "skill" inválido (' + q.skill + '). Use um de: ' + VALID_SKILLS.join(', ') + '.');
+  }
+  if (q.difficulty && VALID_DIFFICULTIES.indexOf(q.difficulty) === -1) {
+    err(where + ': "difficulty" inválido (' + q.difficulty + '). Use um de: ' + VALID_DIFFICULTIES.join(', ') + '.');
   }
   if (q.type === 'tf') {
     if (typeof q.answer !== 'boolean') err(where + ': tipo "tf" com "answer" que não é booleano.');
@@ -109,6 +121,16 @@ function checkModule(levelId, module, moduleIndex) {
     if (!vocabWordToModules[v.word]) vocabWordToModules[v.word] = [];
     vocabWordToModules[v.word].push(refLabel);
   });
+
+  // Meta documentada (prompt de expansão C1/C2): 25-30 itens de vocabulário
+  // e 24-30 perguntas de quiz por módulo nesses dois níveis, para sair do
+  // "molde" raso dos níveis iniciais.
+  if (levelId === 'c1' || levelId === 'c2') {
+    var vocabCount = (module.vocabulary || []).length;
+    var quizCount = (module.quiz || []).length;
+    if (vocabCount < 25) err(refLabel + ': tem ' + vocabCount + ' itens de vocabulário, abaixo da meta de 25-30 para C1/C2.');
+    if (quizCount < 24) err(refLabel + ': tem ' + quizCount + ' perguntas de quiz, abaixo da meta de 24-30 para C1/C2.');
+  }
 
   (module.listening || []).forEach(function (item, i) {
     var where = refLabel + ' listening #' + (i + 1);
@@ -174,6 +196,9 @@ if (repeatedWords.length) {
   var where = 'Nivelamento pergunta #' + (i + 1);
   if (typeof q.answer !== 'number' || !q.options || q.answer < 0 || q.answer >= q.options.length) {
     err(where + ': "answer" fora do intervalo de "options".');
+  }
+  if (q.skill && VALID_SKILLS.indexOf(q.skill) === -1) {
+    err(where + ': "skill" inválido (' + q.skill + ').');
   }
 });
 

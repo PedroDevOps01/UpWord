@@ -93,12 +93,14 @@ Views.home = function (container) {
   var dashboardHtml = '';
   if (Storage.state.quizHistory.length > 0) {
     var best = {};
+    var attempts = {};
     Storage.state.quizHistory.forEach(function (h) {
       var pct = Math.round((h.score / h.total) * 100);
       if (!(h.refId in best) || pct > best[h.refId]) best[h.refId] = pct;
+      attempts[h.refId] = (attempts[h.refId] || 0) + 1;
     });
     var weakList = Object.keys(best).map(function (refId) {
-      return { refId: refId, pct: best[refId] };
+      return { refId: refId, pct: best[refId], attempts: attempts[refId] };
     }).sort(function (a, b) { return a.pct - b.pct; }).slice(0, 3);
 
     dashboardHtml =
@@ -108,7 +110,8 @@ Views.home = function (container) {
         '<div class="weak-list">' +
           weakList.map(function (w) {
             var cls = w.pct >= 80 ? 'is-ok' : '';
-            return '<div class="weak-item"><span>' + resolveRefLabel(w.refId) + '</span><span class="weak-item-score ' + cls + '">' + w.pct + '%</span></div>';
+            var recurring = w.attempts >= 3 && w.pct < 60 ? '<span class="weak-item-recurring" title="' + w.attempts + ' tentativas e ainda abaixo de 60%">⚠ erro recorrente</span>' : '';
+            return '<div class="weak-item"><span>' + resolveRefLabel(w.refId) + ' ' + recurring + '</span><span class="weak-item-score ' + cls + '">' + w.pct + '%</span></div>';
           }).join('') +
         '</div>' +
       '</section>';
@@ -117,7 +120,33 @@ Views.home = function (container) {
   // Prioridade simples e transparente: módulo em andamento > writing sem
   // revisão > flashcards pendentes. Não inventa "conclusão automática" — só
   // aponta o motivo real com base no que já está registrado no estado.
+  // Limiar acima do qual recomendamos revisar a fila de flashcards ANTES de
+  // liberar módulo novo — evita empilhar conteúdo novo sobre uma revisão
+  // já atrasada.
+  var REVIEW_BACKLOG_THRESHOLD = 15;
+
+  function countDueFlashcards() {
+    var count = 0;
+    levels.concat(APP_DATA.electives || []).forEach(function (lvl) {
+      APP_DATA.getModules(lvl.id).forEach(function (m) {
+        (m.vocabulary || []).forEach(function (v) {
+          if (Storage.isCardDue(v.id || v.word)) count++;
+        });
+      });
+    });
+    return count;
+  }
+
   function nextStepInfo() {
+    var dueCount = countDueFlashcards();
+    if (dueCount >= REVIEW_BACKLOG_THRESHOLD) {
+      return {
+        reason: 'Fila de revisão grande (' + dueCount + ' cartões pendentes) — revisar antes de avançar ajuda a fixar o que já foi visto',
+        label: 'Revisar flashcards pendentes',
+        hash: '#/flashcards'
+      };
+    }
+
     for (var i = 0; i < levels.length; i++) {
       var lvl = levels[i];
       var modules = APP_DATA.getModules(lvl.id);
@@ -138,12 +167,7 @@ Views.home = function (container) {
     if (draftKeys.length > 0 && !hasReviewBadge) {
       return { reason: 'Writing sem revisão', label: 'Revisar seus rascunhos de writing', hash: null };
     }
-    var anyDue = levels.concat(APP_DATA.electives || []).some(function (lvl) {
-      return APP_DATA.getModules(lvl.id).some(function (m) {
-        return (m.vocabulary || []).some(function (v) { return Storage.isCardDue(v.id || v.word); });
-      });
-    });
-    if (anyDue) {
+    if (dueCount > 0) {
       return { reason: 'Revisão de flashcards pendente', label: 'Revisar flashcards pendentes', hash: '#/flashcards' };
     }
     return null;
@@ -183,6 +207,43 @@ Views.home = function (container) {
       '</div>' +
     '</section>';
 
+  // Progresso por habilidade: usa sessionProgress (marcado só por ação
+  // explícita — nunca por só abrir a aba) somado em todos os 39 módulos,
+  // não só nos que já têm quiz com skill marcado.
+  var SKILL_TABS = [
+    { key: 'vocabulary', label: 'Vocabulário' },
+    { key: 'grammar', label: 'Gramática' },
+    { key: 'listening', label: 'Listening' },
+    { key: 'reading', label: 'Reading' },
+    { key: 'writing', label: 'Writing' },
+    { key: 'speaking', label: 'Speaking' }
+  ];
+  var allModuleIds = [];
+  levels.concat(APP_DATA.electives || []).forEach(function (lvl) {
+    APP_DATA.getModules(lvl.id).forEach(function (m) { allModuleIds.push(m.id); });
+  });
+  var skillProgressHtml = '';
+  if (allModuleIds.length) {
+    skillProgressHtml =
+      '<section class="skill-progress-panel">' +
+        '<h2>Progresso por habilidade</h2>' +
+        '<p class="muted" style="text-align:center;">Sessões concluídas (marcadas explicitamente) em todos os níveis e trilhas extras.</p>' +
+        '<div class="skill-progress-grid">' +
+          SKILL_TABS.map(function (skill) {
+            var done = allModuleIds.filter(function (mid) { return Storage.isSessionCompleted(mid, skill.key); }).length;
+            var pct = Math.round((done / allModuleIds.length) * 100);
+            return (
+              '<div class="skill-progress-item">' +
+                '<div class="skill-progress-label">' + skill.label + '</div>' +
+                '<div class="terrace-progress"><div class="terrace-progress-fill" style="width:' + pct + '%"></div></div>' +
+                '<span class="skill-progress-count">' + done + '/' + allModuleIds.length + ' módulos</span>' +
+              '</div>'
+            );
+          }).join('') +
+        '</div>' +
+      '</section>';
+  }
+
   var electivesHtml =
     '<section class="electives-panel">' +
       '<h2>Trilhas extras</h2>' +
@@ -215,7 +276,9 @@ Views.home = function (container) {
     '</section>' +
     '<section class="roadmap">' +
       '<h2 class="roadmap-heading">Sua trilha de ascensão</h2>' +
-      '<p class="roadmap-sub">Cada nível é um degrau. Suba no seu ritmo, do A1 ao C2.</p>' +
+      '<p class="roadmap-sub">Cada nível é um degrau. Suba no seu ritmo, do A1 ao C2. ' +
+        '<a href="#/curriculum">Ver o mapa completo do currículo</a>' +
+        ' · <a href="#/grammar">Referência gramatical</a></p>' +
       '<div class="ascent">' + terraces + '</div>' +
       '<div class="step-list">' + stepListItems + '</div>' +
     '</section>' +
@@ -223,6 +286,7 @@ Views.home = function (container) {
     achievementsHtml +
     dashboardHtml +
     studyPlanHtml +
+    skillProgressHtml +
     electivesHtml +
     '<section class="data-panel">' +
       '<h2>Meus dados</h2>' +
@@ -230,7 +294,8 @@ Views.home = function (container) {
       '<div class="data-actions">' +
         '<button type="button" class="btn btn-secondary" id="export-btn">' + Icon('download', { size: 15 }) + ' Baixar meu progresso</button>' +
         '<button type="button" class="btn btn-secondary" id="import-btn">' + Icon('upload', { size: 15 }) + ' Importar progresso</button>' +
-        '<input type="file" accept="application/json" id="import-file-input" class="visually-hidden">' +
+        '<label class="visually-hidden" for="import-file-input">Selecionar arquivo de backup (.json) para importar progresso</label>' +
+        '<input type="file" accept="application/json" id="import-file-input" class="visually-hidden" aria-label="Selecionar arquivo de backup (.json) para importar progresso" tabindex="-1">' +
       '</div>' +
       '<div class="reset-section">' +
         '<button class="btn-text-danger" id="reset-progress-btn">Apagar todo o meu progresso salvo</button>' +

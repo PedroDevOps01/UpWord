@@ -153,6 +153,9 @@ var Speaking = (function () {
         var pct = Math.round(lastTranscript.score * 100);
         var diff = wordDiff(item.phrase, lastTranscript.transcript);
         var rubric = buildRubric(lastTranscript.score, diff, durationSeconds, item.phrase);
+        var nextTip = diff.omitted.length
+          ? 'Na próxima tentativa, tente incluir: ' + diff.omitted.join(', ') + '.'
+          : (pct < 85 ? 'Na próxima tentativa, fale um pouco mais devagar e claro.' : 'Ótimo — tente repetir no mesmo ritmo em voz mais natural.');
         transcriptHtml =
           '<div class="speaking-result-block">' +
             '<p><strong>Você disse:</strong> "' + lastTranscript.transcript + '"</p>' +
@@ -164,8 +167,9 @@ var Speaking = (function () {
               '<li>Inteligibilidade (estimativa): ' + rubric.intelligibility + '</li>' +
               (rubric.completeness !== null ? '<li>Completude da frase: ' + rubric.completeness + '%</li>' : '') +
               '<li>Ritmo: ' + rubric.rhythm.label + '</li>' +
+              '<li>Próxima tentativa: ' + nextTip + '</li>' +
             '</ul>' +
-            '<p class="muted writing-disclaimer">Isto é uma estimativa automática de similaridade de texto, não uma certificação de fluência ou pronúncia.</p>' +
+            '<p class="muted writing-disclaimer">Isto é uma estimativa automática de similaridade de texto, não uma certificação de fluência ou pronúncia. O navegador não permite analisar sons/fonemas específicos — por isso não indicamos "sons a revisar" individualmente.</p>' +
           '</div>';
       } else if (recognitionOk) {
         transcriptHtml = '<p class="muted">Não foi possível captar uma transcrição desta vez. A gravação em áudio abaixo continua válida.</p>';
@@ -236,8 +240,13 @@ var Speaking = (function () {
       if (state === 'error') {
         root.innerHTML =
           '<div class="speaking-status" aria-live="assertive">Não foi possível gravar agora.</div>' +
-          '<button type="button" class="btn btn-secondary" data-action="retry">Tentar de novo</button>';
+          '<p class="muted">Pode ser um problema temporário do microfone — tente de novo, ou pratique de outro jeito enquanto isso.</p>' +
+          '<div class="speaking-controls">' +
+            '<button type="button" class="btn btn-secondary" data-action="retry">🎙 Tentar de novo</button>' +
+            '<button type="button" class="btn btn-primary" data-action="practiced">✅ Pratiquei esta frase</button>' +
+          '</div>';
         root.querySelector('[data-action="retry"]').addEventListener('click', function () { setState('idle'); });
+        root.querySelector('[data-action="practiced"]').addEventListener('click', markPracticed);
         return;
       }
       renderManualFallback('Gravação de voz não disponível.');

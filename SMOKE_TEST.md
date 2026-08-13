@@ -114,7 +114,33 @@ Deve terminar com `OK: nenhum erro encontrado`. Se houver `Erros`, corrija antes
 
 - [ ] `node scripts/validate-content.js` sem erros (ver topo deste documento).
 - [ ] A1-M2 tem todos os números de 0 a 20 no vocabulário.
-- [ ] A1-M3 mostra a tabela formal de "There is / There are" na aba Aula.
+- [ ] A1-M3 mostra a tabela formal de "There is / There are" na aba Aula **e** na aba Gramática.
 - [ ] C1-M6 não mostra mais o título "Verbos Coletores".
-- [ ] Módulos de C1 e C2 têm 2 leituras, 2 listenings, uma tarefa de writing maior e uma tarefa de
-      speaking contextualizada (além do conteúdo original).
+- [ ] Módulos de C1 e C2 têm 2 leituras, 2 listenings, 3 tarefas de writing (uma maior, com
+      `minSentences`/`requiredStructures`/`targetWords`) e uma tarefa de speaking contextualizada
+      (além do conteúdo original), com 25-30 itens de vocabulário e 24-30 perguntas de quiz por módulo.
+
+## 11. Currículo, referência gramatical e progresso por habilidade
+
+- [ ] `#/curriculum` lista os 39 módulos com objetivo ("Ao final, o aluno consegue..."),
+      pré-requisitos e evidência de domínio, com aviso de que não é certificação oficial CEFR.
+- [ ] `#/grammar` (link em "Referência gramatical" na home e no rodapé da aba Gramática) permite
+      buscar um tópico gramatical e mostra em qual módulo ele foi ensinado.
+- [ ] A home mostra "Progresso por habilidade" (vocabulário/gramática/listening/reading/writing/
+      speaking) com contagem de módulos por habilidade.
+- [ ] Ao final do nivelamento e de quizzes com perguntas marcadas por `skill`, aparece um resumo
+      "Resultado por habilidade".
+- [ ] Módulo mostra "X/9 sessões" com pontos indicando quais sessões já foram concluídas e qual é o
+      próximo passo; a lista de módulos do nível também mostra essa contagem.
+- [ ] Abrir uma aba sem responder nada NÃO marca a sessão como concluída — só marcar
+      explicitamente ("Marcar sessão como concluída" em Aula/Vocabulário/Gramática) ou uma ação real
+      (responder corretamente em listening/reading, revisar writing, tentar speaking) conta.
+- [ ] Com muitos flashcards pendentes (15+), a home recomenda revisar antes de continuar um módulo novo.
+- [ ] Certificado baixado (PNG) inclui a frase "não é uma certificação oficial de proficiência".
+
+## Limitação conhecida do ambiente de teste
+
+O Chrome headless usado para gerar screenshots automatizados neste projeto não respeita larguras de
+janela abaixo de ~500px (limitação do ambiente, confirmada via depuração de `window.innerWidth`) —
+por isso a validação real em 390px (celular) precisa ser feita manualmente num navegador de verdade
+ou no modo responsivo do DevTools, não só nos screenshots automatizados já capturados.

@@ -29,10 +29,13 @@ Views.flashcards = function (container, initialLevelId) {
           pool.push({
             id: cardId,
             word: v.word,
+            partOfSpeech: v.partOfSpeech,
             phonetic: v.phonetic,
             translation: v.translation,
             example: v.example,
             exampleTranslation: v.exampleTranslation,
+            collocations: v.collocations,
+            synonyms: v.synonyms,
             levelId: lvl.id,
             levelCode: lvl.code,
             moduleTitle: m.title
@@ -74,8 +77,12 @@ Views.flashcards = function (container, initialLevelId) {
             electiveOptions +
           '</select>' +
         '</label>' +
-        '<label class="flashcards-elective-toggle">' +
-          '<input type="checkbox" id="fc-include-electives"' + (state.includeElectives ? ' checked' : '') + '> Incluir trilhas extras' +
+        '<label class="flashcards-elective-toggle"' + (state.filterLevelId !== 'all' ? ' title="Disponível só quando o filtro é \'Todos os níveis\'"' : '') + '>' +
+          '<input type="checkbox" id="fc-include-electives" aria-label="Incluir trilhas extras (viagem, entrevista, business) no deck"' +
+            (state.includeElectives ? ' checked' : '') +
+            (state.filterLevelId !== 'all' ? ' disabled aria-disabled="true"' : '') +
+          '> Incluir trilhas extras' +
+          (state.filterLevelId !== 'all' ? '<span class="visually-hidden"> (desativado — só se aplica com o filtro "Todos os níveis")</span>' : '') +
         '</label>' +
       '</div>'
     );
@@ -182,8 +189,10 @@ Views.flashcards = function (container, initialLevelId) {
             '<button type="button" class="btn-accent" id="fc-play" aria-label="Ouvir a palavra">' + Icon('sound', { size: 15 }) + ' Ouvir</button>' +
           '</div>' +
           '<div class="flashcard-back" id="fc-back" hidden>' +
-            '<div class="flashcard-translation">' + card.translation + '</div>' +
+            '<div class="flashcard-translation">' + card.translation + (card.partOfSpeech ? ' <span class="vocab-pos">' + card.partOfSpeech + '</span>' : '') + '</div>' +
             '<div class="vocab-example">"' + card.example + '" <span class="muted">— ' + card.exampleTranslation + '</span></div>' +
+            (card.collocations && card.collocations.length ? '<div class="vocab-extra-line"><strong>Collocations:</strong> ' + card.collocations.join(', ') + '</div>' : '') +
+            (card.synonyms && card.synonyms.length ? '<div class="vocab-extra-line"><strong>Sinônimos:</strong> ' + card.synonyms.join(', ') + '</div>' : '') +
             '<div class="flashcard-context muted">Visto em ' + card.levelCode + ' — ' + card.moduleTitle + '</div>' +
           '</div>' +
         '</div>' +

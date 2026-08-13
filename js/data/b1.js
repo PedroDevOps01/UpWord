@@ -6,6 +6,10 @@ APP_DATA.b1 = {
       id: "b1-m1",
       title: "Planos e Previsões",
       subtitle: "Will vs. Going to para o futuro",
+      objective: "Ao final, o aluno consegue falar sobre planos futuros e fazer previsões usando corretamente 'will' e 'going to' conforme o contexto (decisão espontânea vs. plano já decidido).",
+      prerequisites: ["a2-m6"],
+      masteryEvidence: "O aluno atingiu pelo menos 60% de acerto no quiz do módulo, completou o exercício de writing com revisão e praticou ao menos uma frase na seção de speaking.",
+      levelCefrNote: "Compatível com as expectativas de compreensão e produção do nível B1 do CEFR (Common European Framework of Reference) — não é uma certificação oficial.",
       lesson: {
         intro: "Neste módulo você vai aprender as duas formas mais comuns de falar sobre o futuro em inglês: 'will' e 'going to', e quando usar cada uma.",
         sections: [
@@ -167,6 +171,9 @@ APP_DATA.b1 = {
       id: "b1-m2",
       title: "Experiências de Vida",
       subtitle: "Present Perfect: ever, never, already, yet",
+      objective: "Ao final, o aluno consegue falar sobre experiências de vida usando o present perfect com 'ever', 'never', 'already' e 'yet', sem precisar especificar quando exatamente ocorreram.",
+      prerequisites: ["b1-m1"],
+      masteryEvidence: "O aluno atingiu pelo menos 60% de acerto no quiz do módulo, completou o exercício de writing com revisão e praticou ao menos uma frase na seção de speaking.",
       lesson: {
         intro: "O Present Perfect conecta o passado com o presente — perfeito para falar sobre experiências de vida, sem dizer exatamente quando aconteceram.",
         sections: [
@@ -323,6 +330,9 @@ APP_DATA.b1 = {
       id: "b1-m3",
       title: "Se Isso Acontecer...",
       subtitle: "Primeiro Condicional (real e possível no futuro)",
+      objective: "Ao final, o aluno consegue formar e usar frases no primeiro condicional (if + presente simples, will + verbo base) para expressar situações reais e possíveis no futuro.",
+      prerequisites: ["b1-m2", "b1-m1"],
+      masteryEvidence: "O aluno atingiu pelo menos 60% de acerto no quiz do módulo, completou o exercício de writing com revisão e praticou ao menos uma frase na seção de speaking.",
       lesson: {
         intro: "O primeiro condicional é usado para falar sobre situações reais e possíveis no futuro — 'se isso acontecer, aquilo vai acontecer'.",
         sections: [
@@ -480,6 +490,9 @@ APP_DATA.b1 = {
       id: "b1-m4",
       title: "Sonhos e Hipóteses",
       subtitle: "Segundo Condicional (situações hipotéticas e imaginárias)",
+      objective: "Ao final, o aluno consegue formar e usar frases no segundo condicional (if + passado simples, would + verbo base) para falar de situações hipotéticas, imaginárias ou improváveis, incluindo o uso de 'were' com todas as pessoas.",
+      prerequisites: ["b1-m3"],
+      masteryEvidence: "O aluno atingiu pelo menos 60% de acerto no quiz do módulo, completou o exercício de writing com revisão e praticou ao menos uma frase na seção de speaking.",
       lesson: {
         intro: "O segundo condicional é usado para falar de situações hipotéticas, imaginárias ou pouco prováveis — perfeito para sonhar acordado em inglês!",
         sections: [
@@ -637,6 +650,9 @@ APP_DATA.b1 = {
       id: "b1-m5",
       title: "Phrasal Verbs do Dia a Dia",
       subtitle: "Phrasal verbs comuns e como expressar opiniões",
+      objective: "Ao final, o aluno consegue usar phrasal verbs comuns do dia a dia (give up, look for, turn on/off, look after, find out, come back) e expressar opiniões com 'I think', 'In my opinion' e 'I agree/disagree'.",
+      prerequisites: ["b1-m4"],
+      masteryEvidence: "O aluno atingiu pelo menos 60% de acerto no quiz do módulo, completou o exercício de writing com revisão e praticou ao menos uma frase na seção de speaking.",
       lesson: {
         intro: "Phrasal verbs são combinações de verbo + preposição/advérbio que mudam o significado original — são essenciais para soar mais natural em inglês. Vamos também aprender a expressar opiniões.",
         sections: [
@@ -794,6 +810,9 @@ APP_DATA.b1 = {
       id: "b1-m6",
       title: "Descrevendo com Detalhes",
       subtitle: "Orações relativas com who, which e that",
+      objective: "Ao final, o aluno consegue combinar informações sobre pessoas, coisas e lugares em uma única frase usando orações relativas com 'who', 'which' e 'that'.",
+      prerequisites: ["b1-m5"],
+      masteryEvidence: "O aluno atingiu pelo menos 60% de acerto no quiz do módulo, completou o exercício de writing com revisão, praticou ao menos uma frase na seção de speaking e concluiu todas as 9 sessões do módulo.",
       lesson: {
         intro: "Orações relativas nos permitem dar mais informações sobre pessoas, coisas e lugares em uma única frase, tornando sua fala mais natural e sofisticada.",
         sections: [

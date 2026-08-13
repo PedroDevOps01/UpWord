@@ -38,6 +38,16 @@ var App = (function () {
       focusMain();
       return;
     }
+    if (parts[0] === 'curriculum') {
+      Views.curriculum(appEl);
+      focusMain();
+      return;
+    }
+    if (parts[0] === 'grammar') {
+      Views.grammarReference(appEl);
+      focusMain();
+      return;
+    }
     if (parts[0] === 'flashcards') {
       Views.flashcards(appEl, parts[1] || null);
       focusMain();

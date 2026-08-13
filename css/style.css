@@ -67,6 +67,9 @@ html { -webkit-text-size-adjust: 100%; }
 html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--mist);
   color: var(--ink);
   font-family: var(--font-body);
@@ -382,6 +385,45 @@ textarea:focus-visible,
   font-size: 1rem; font-family: var(--font-display); font-weight: 700;
 }
 .level-desc { color: var(--cloud); max-width: 620px; }
+
+/* ============================================================
+   CURRICULUM PAGE — matriz de cobertura
+   ============================================================ */
+.curriculum-disclaimer {
+  display: flex; align-items: flex-start; gap: 8px; flex-wrap: wrap; background: var(--amber-tint); color: var(--amber-dark);
+  border: 1px solid var(--amber); border-radius: var(--radius-sm); padding: var(--sp-3) var(--sp-4);
+  font-size: 0.9rem; margin: var(--sp-4) 0 var(--sp-6);
+}
+.curriculum-disclaimer > span { flex: 1 1 240px; min-width: 0; }
+.curriculum-level { margin-bottom: var(--sp-7); border-left: 4px solid var(--level-color); padding-left: var(--sp-4); }
+.curriculum-level h2 { display: flex; align-items: center; gap: var(--sp-3); }
+.curriculum-cefr-note { margin-top: -4px; margin-bottom: var(--sp-4); }
+.curriculum-module {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: var(--sp-4); margin-bottom: var(--sp-3);
+}
+.curriculum-module h4 { margin: 0 0 6px; }
+.curriculum-objective { margin: 0 0 var(--sp-2); }
+.curriculum-meta { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; color: var(--cloud); }
+.curriculum-meta strong { color: var(--ink); }
+
+/* ============================================================
+   REFERÊNCIA GRAMATICAL PESQUISÁVEL
+   ============================================================ */
+.grammar-ref-search {
+  width: 100%; max-width: 480px; display: block; border: 2px solid var(--border); border-radius: var(--radius-md);
+  padding: 10px 14px; font-family: var(--font-body); font-size: 1rem; margin: var(--sp-3) 0 var(--sp-2); background: var(--surface); color: var(--ink);
+}
+.grammar-ref-search:focus { border-color: var(--teal); }
+.grammar-ref-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--sp-3); margin-top: var(--sp-3); }
+.grammar-ref-card {
+  display: block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+  padding: var(--sp-4); color: var(--ink);
+}
+.grammar-ref-card:hover { text-decoration: none; box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.grammar-ref-meta { font-size: 0.75rem; font-weight: 600; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 4px; }
+.grammar-ref-card h3 { margin: 0 0 4px; font-size: 1rem; }
+.grammar-ref-card p { margin: 0; font-size: 0.85rem; }
 .flash-message {
   display: flex; align-items: center; gap: var(--sp-2); background: var(--amber-tint);
   border: 1px solid var(--amber); color: var(--amber-dark); border-radius: var(--radius-sm);
@@ -412,6 +454,10 @@ a.module-item:hover { text-decoration: none; border-color: var(--level-color); t
 .module-item:not(.is-locked):not(.is-completed) .module-step-marker { background: var(--teal-tint); color: var(--teal-dark); }
 
 .module-item-body h3 { margin: 0 0 2px; font-size: 1.02rem; font-family: var(--font-body); font-weight: 700; }
+.module-item-session-count {
+  font-size: 0.75rem; font-weight: 600; font-family: var(--font-mono); color: var(--cloud);
+  background: var(--cloud-tint); border-radius: var(--radius-pill); padding: 1px 8px; margin-left: 6px; vertical-align: middle;
+}
 .module-item-body p { margin: 0; font-size: 0.88rem; color: var(--cloud); }
 
 .final-test-item { justify-content: center; background: var(--amber-tint); border: 1px dashed var(--amber); }
@@ -425,6 +471,23 @@ a.module-item:hover { text-decoration: none; border-color: var(--level-color); t
    MODULE PAGE — step-tabs + content blocks
    ============================================================ */
 .module-page h1 { margin-bottom: 2px; }
+.module-objective {
+  display: flex; align-items: flex-start; gap: 6px; background: var(--teal-tint); color: var(--teal-dark);
+  border-radius: var(--radius-sm); padding: 6px 12px; font-size: 0.88rem; font-weight: 600; margin: var(--sp-2) 0 0;
+}
+.module-session-progress {
+  display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap;
+  margin: var(--sp-3) 0; font-size: 0.85rem;
+}
+.module-session-count { font-weight: 700; font-family: var(--font-mono); color: var(--teal-dark); white-space: nowrap; }
+.module-session-dots { display: inline-flex; gap: 4px; }
+.session-dot {
+  width: 10px; height: 10px; border-radius: 50%; background: var(--cloud-tint);
+  border: 1px solid var(--border); display: inline-block;
+}
+.session-dot.is-done { background: var(--moss); border-color: var(--moss); }
+.session-dot.is-current { outline: 2px solid var(--teal); outline-offset: 1px; }
+.module-session-next { white-space: nowrap; }
 .module-tabs {
   display: flex; flex-wrap: nowrap; gap: 2px; margin: var(--sp-4) 0 var(--sp-5);
   border-bottom: 1px solid var(--border); padding-bottom: 0;
@@ -454,6 +517,7 @@ a.module-item:hover { text-decoration: none; border-color: var(--level-color); t
 .lesson-intro { font-size: 1.05rem; }
 .lesson-section { margin-bottom: var(--sp-5); }
 .lesson-section h3 { color: var(--teal-dark); }
+.grammar-extra-topic { margin-top: var(--sp-6); padding-top: var(--sp-5); border-top: 1px solid var(--border); }
 .example-list { background: var(--teal-tint); border-radius: var(--radius-sm); padding: var(--sp-3) var(--sp-4); list-style: none; margin: 0; }
 .example-list li { margin-bottom: 6px; }
 .example-list li:last-child { margin-bottom: 0; }
@@ -464,6 +528,17 @@ a.module-item:hover { text-decoration: none; border-color: var(--level-color); t
 .vocab-phonetic { color: var(--cloud); font-weight: 400; font-size: 0.85rem; font-family: var(--font-mono); }
 .vocab-translation { color: var(--teal-dark); font-weight: 700; margin: 4px 0; }
 .vocab-example { font-size: 0.88rem; }
+.vocab-pos {
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--cloud); background: var(--cloud-tint); border-radius: var(--radius-sm); padding: 1px 6px; vertical-align: middle;
+}
+.vocab-register {
+  font-size: 0.68rem; font-weight: 600; color: var(--amber-dark); background: var(--amber-tint);
+  border-radius: var(--radius-sm); padding: 1px 6px; margin-left: 6px; vertical-align: middle;
+}
+.vocab-extra-line { font-size: 0.8rem; color: var(--ink); margin-top: 4px; }
+.vocab-extra-line strong { color: var(--cloud); font-weight: 600; }
+.vocab-common-error { color: var(--coral); }
 .accent-buttons { margin-left: 6px; display: inline-flex; align-items: center; gap: 3px; flex-wrap: wrap; }
 .accent-fallback-note { font-size: 0.78rem; color: var(--amber-dark); }
 .accent-fallback-note:empty { display: none; }
@@ -704,6 +779,10 @@ a.module-item:hover { text-decoration: none; border-color: var(--level-color); t
 .placement-history-list { list-style: none; padding: 0; margin: 0; }
 .placement-history-item { display: flex; justify-content: space-between; gap: var(--sp-3); padding: 4px 0; font-size: 0.88rem; border-bottom: 1px solid var(--border); }
 .placement-history-item:last-child { border-bottom: none; }
+.placement-skill-breakdown { margin-top: var(--sp-4); text-align: left; }
+.placement-skill-breakdown h3 { font-size: 0.95rem; text-align: center; }
+.placement-skill-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; max-width: 320px; margin: 0 auto; }
+.placement-skill-list li { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 3px 0; border-bottom: 1px solid var(--border); }
 
 /* ============================================================
    FLASHCARDS
@@ -721,6 +800,7 @@ a.module-item:hover { text-decoration: none; border-color: var(--level-color); t
 .flashcards-filter-label { display: flex; flex-direction: column; gap: 4px; font-size: 0.85rem; font-weight: 600; }
 .flashcards-filter-label select { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 6px 10px; font-family: var(--font-body); }
 .flashcards-elective-toggle { display: flex; align-items: center; gap: 6px; font-size: 0.9rem; }
+.flashcards-elective-toggle:has(input:disabled) { opacity: 0.55; cursor: not-allowed; }
 .flashcards-deck-stats { text-align: center; }
 .flashcards-shortcuts { text-align: center; font-size: 0.8rem; margin-top: var(--sp-3); }
 
@@ -777,9 +857,14 @@ html { font-size: var(--base-font-size, 16px); }
 /* ============================================================
    Home extras — streak, achievements, dashboard, electives, data
    ============================================================ */
-.achievements-panel, .dashboard-panel, .electives-panel, .data-panel, .next-step-panel, .study-plan-panel {
+.achievements-panel, .dashboard-panel, .electives-panel, .data-panel, .next-step-panel, .study-plan-panel, .skill-progress-panel {
   margin-top: var(--sp-6);
 }
+.skill-progress-panel h2 { text-align: center; }
+.skill-progress-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--sp-3); margin-top: var(--sp-3); }
+.skill-progress-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: var(--sp-3) var(--sp-4); }
+.skill-progress-label { font-weight: 600; margin-bottom: 6px; font-size: 0.92rem; }
+.skill-progress-count { font-size: 0.78rem; color: var(--cloud); font-family: var(--font-mono); }
 .achievements-panel h2, .dashboard-panel h2, .electives-panel h2, .data-panel h2, .study-plan-panel h2 { text-align: center; }
 
 .next-step-panel {
@@ -809,6 +894,7 @@ html { font-size: var(--base-font-size, 16px); }
 }
 .weak-item-score { font-family: var(--font-mono); font-weight: 700; color: var(--coral); flex-shrink: 0; }
 .weak-item-score.is-ok { color: var(--moss); }
+.weak-item-recurring { font-size: 0.75rem; color: var(--coral); font-weight: 600; }
 
 .elective-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--sp-3); margin-top: var(--sp-3); }
 .elective-card {

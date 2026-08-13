@@ -1,4 +1,4 @@
-var CACHE_NAME = 'upword-cache-v2';
+var CACHE_NAME = 'upword-cache-v3';
 var ASSETS = [
   './',
   'index.html',
@@ -28,6 +28,8 @@ var ASSETS = [
   'js/data/electives.js',
   'js/render/home.js',
   'js/render/placement.js',
+  'js/render/curriculum.js',
+  'js/render/grammarReference.js',
   'js/render/level.js',
   'js/render/writing.js',
   'js/render/module.js',

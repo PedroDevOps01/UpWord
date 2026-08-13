@@ -6,6 +6,10 @@ APP_DATA.a2 = {
       id: "a2-m1",
       title: "Rotina e Presente Contínuo",
       subtitle: "Presente simples vs. presente contínuo e advérbios de frequência",
+      objective: "Ao final, o aluno consegue diferenciar o presente simples do presente contínuo para descrever hábitos e rotinas versus ações em andamento, usando advérbios de frequência como usually, sometimes e never.",
+      prerequisites: ["a1-m6"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
+      levelCefrNote: "Compatível com as expectativas de compreensão e produção do nível A2 do CEFR (Common European Framework of Reference) — não é uma certificação oficial.",
       lesson: {
         intro: "Neste módulo você vai aprender a diferença entre o Presente Simples (para hábitos e rotinas) e o Presente Contínuo (para ações acontecendo agora), além de vocabulário para descrever sua rotina com mais detalhes.",
         sections: [
@@ -167,6 +171,9 @@ APP_DATA.a2 = {
       id: "a2-m2",
       title: "Minha Cidade e Direções",
       subtitle: "Lugares na cidade, preposições de lugar e como pedir/dar direções",
+      objective: "Ao final, o aluno consegue pedir e dar direções na cidade usando o modo imperativo e localizar lugares com preposições como next to, between e across from.",
+      prerequisites: ["a2-m1"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Vamos aprender a falar sobre lugares na cidade e como pedir e dar direções — essencial para quando você viajar ou explorar um lugar novo!",
         sections: [
@@ -324,6 +331,9 @@ APP_DATA.a2 = {
       id: "a2-m3",
       title: "O Passado",
       subtitle: "Passado simples (verbos regulares e irregulares) e expressões de tempo",
+      objective: "Ao final, o aluno consegue narrar eventos e experiências passadas usando o passado simples com verbos regulares e irregulares e expressões de tempo como yesterday, last week e ago.",
+      prerequisites: ["a2-m2"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Hora de aprender a falar sobre o passado! Vamos ver como formar o passado simples com verbos regulares e irregulares, e as expressões de tempo mais usadas.",
         sections: [
@@ -481,6 +491,9 @@ APP_DATA.a2 = {
       id: "a2-m4",
       title: "Viagens e Planos",
       subtitle: "Vocabulário de viagens, transporte e o futuro com 'going to'",
+      objective: "Ao final, o aluno consegue falar sobre planos de viagem futuros usando going to e usar vocabulário de aeroporto, hotel e transporte em situações práticas.",
+      prerequisites: ["a2-m3"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Vamos aprender a falar sobre planos futuros e vocabulário essencial para viagens — de reservar uma passagem a pegar um táxi.",
         sections: [
@@ -638,6 +651,9 @@ APP_DATA.a2 = {
       id: "a2-m5",
       title: "Descrevendo Pessoas e Lugares",
       subtitle: "Adjetivos, comparativos e superlativos",
+      objective: "Ao final, o aluno consegue descrever pessoas e lugares com adjetivos de aparência e personalidade e compará-los usando comparativos e superlativos como bigger than e the most beautiful.",
+      prerequisites: ["a2-m4"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "No último módulo do A2, vamos aprender a descrever pessoas e lugares e a comparar coisas usando adjetivos comparativos e superlativos.",
         sections: [
@@ -797,6 +813,9 @@ APP_DATA.a2 = {
       id: "a2-m6",
       title: "Habilidades e Permissão",
       subtitle: "Can, could e be able to para habilidade e pedidos",
+      objective: "Ao final, o aluno consegue falar sobre habilidades no presente e no passado e pedir permissão educadamente usando can, could e be able to.",
+      prerequisites: ["a2-m5"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Vamos aprender a falar sobre habilidades (o que você sabe/consegue fazer) e a pedir permissão educadamente usando 'can', 'could' e 'be able to'.",
         sections: [

@@ -55,16 +55,24 @@ Views.placement = function (container) {
       '<div id="placement-result" aria-live="polite"></div>' +
     '</section>';
 
+  var SKILL_LABELS = { vocabulary: 'Vocabulário', grammar: 'Gramática', register: 'Registro', collocation: 'Collocation', inference: 'Inferência', reading: 'Reading', listening: 'Listening', writing: 'Writing', speaking: 'Speaking' };
+
   document.getElementById('placement-form').addEventListener('submit', function (e) {
     e.preventDefault();
     var correct = 0;
     var container2 = document.getElementById('placement-form');
     var unanswered = 0;
+    var bySkill = {};
     quiz.questions.forEach(function (q, i) {
       var selected = document.querySelector('input[name="q' + i + '"]:checked');
       if (!selected) unanswered++;
       var ok = !!selected && parseInt(selected.value, 10) === q.answer;
       if (ok) correct++;
+      if (q.skill) {
+        if (!bySkill[q.skill]) bySkill[q.skill] = { correct: 0, total: 0 };
+        bySkill[q.skill].total++;
+        if (ok) bySkill[q.skill].correct++;
+      }
       var qEl = container2.querySelector('.quiz-question[data-index="' + i + '"]');
       qEl.classList.add(ok ? 'is-correct' : 'is-incorrect');
       var fb = document.getElementById('placement-feedback-' + i);
@@ -79,6 +87,21 @@ Views.placement = function (container) {
     var level = APP_DATA.getLevel(levelId);
     Storage.setPlacementResult(levelId, correct, quiz.questions.length);
 
+    var skillKeys = Object.keys(bySkill);
+    var skillBreakdownHtml = '';
+    if (skillKeys.length >= 2) {
+      skillBreakdownHtml =
+        '<div class="placement-skill-breakdown">' +
+          '<h3>Resultado por habilidade</h3>' +
+          '<ul class="placement-skill-list">' +
+            skillKeys.map(function (skill) {
+              var s = bySkill[skill];
+              return '<li><span>' + (SKILL_LABELS[skill] || skill) + '</span><span>' + s.correct + '/' + s.total + '</span></li>';
+            }).join('') +
+          '</ul>' +
+        '</div>';
+    }
+
     var resultEl = document.getElementById('placement-result');
     resultEl.innerHTML =
       '<div class="result-panel is-pass">' +
@@ -88,6 +111,7 @@ Views.placement = function (container) {
         '<p class="muted">Isto é uma estimativa baseada em ' + quiz.questions.length + ' perguntas — você pode escolher qualquer nível na trilha e pode refazer o teste quantas vezes quiser.' +
           (unanswered > 0 ? ' (' + unanswered + ' pergunta(s) ficaram sem resposta.)' : '') +
         '</p>' +
+        skillBreakdownHtml +
         '<div class="result-actions">' +
           '<a class="btn btn-primary" href="#/level/' + level.id + '">Subir para o nível ' + level.code + '</a>' +
           '<button type="button" class="btn btn-secondary" id="placement-retry-btn">Refazer nivelamento</button>' +

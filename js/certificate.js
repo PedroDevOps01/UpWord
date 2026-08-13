@@ -44,6 +44,9 @@ var Certificate = (function () {
     var dateStr = new Date().toLocaleDateString('pt-BR');
     ctx.fillText('Concluído em ' + dateStr, 600, 545);
 
+    ctx.font = '400 15px Georgia, serif';
+    ctx.fillText('Conclusão registrada dentro do app UpWord — não é uma certificação oficial de proficiência (CEFR, IELTS, TOEFL ou similar).', 600, 585);
+
     var barColors = ['#128077', '#146E93', '#1F5C9E', '#3A4EA0', '#4B3E93'];
     var baseX = 460, baseY = 700;
     barColors.forEach(function (c, i) {

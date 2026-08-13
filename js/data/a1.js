@@ -6,6 +6,10 @@ APP_DATA.a1 = {
       id: "a1-m1",
       title: "Primeiros Passos",
       subtitle: "Alfabeto, saudações e pronúncia básica",
+      objective: "Ao final, o aluno consegue se apresentar, cumprimentar outras pessoas em diferentes horários do dia, soletrar o próprio nome usando o alfabeto em inglês e usar os pronomes pessoais corretamente antes do verbo.",
+      prerequisites: [],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
+      levelCefrNote: "Compatível com as expectativas de compreensão e produção do nível A1 do CEFR (Common European Framework of Reference) — não é uma certificação oficial.",
       lesson: {
         intro: "Bem-vindo ao seu primeiro módulo de inglês! Aqui você vai aprender a se apresentar, saudar outras pessoas e conhecer o alfabeto em inglês. Vá com calma — cada passo pequeno te aproxima da fluência.",
         sections: [
@@ -171,6 +175,9 @@ APP_DATA.a1 = {
       id: "a1-m2",
       title: "Quem Sou Eu",
       subtitle: "O verbo 'to be', números e nacionalidades",
+      objective: "Ao final, o aluno consegue falar sua idade e nacionalidade, contar de zero a vinte em inglês e usar o verbo to be nas formas afirmativa, negativa e interrogativa.",
+      prerequisites: ["a1-m1"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Neste módulo você vai aprender a falar sobre quem você é: sua idade, nacionalidade e a usar o verbo mais importante do inglês, o 'to be' (ser/estar).",
         sections: [
@@ -348,6 +355,9 @@ APP_DATA.a1 = {
       id: "a1-m3",
       title: "Cores e Objetos",
       subtitle: "Cores, objetos do dia a dia e 'there is/there are'",
+      objective: "Ao final, o aluno consegue descrever objetos ao redor usando cores, diferenciar this/that/these/those conforme distância e quantidade, e usar there is/there are para dizer o que existe em um lugar.",
+      prerequisites: ["a1-m2"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Vamos aprender a descrever objetos ao seu redor usando cores e as palavras certas para indicar 'isto', 'aquilo' e 'existe'.",
         sections: [
@@ -514,6 +524,9 @@ APP_DATA.a1 = {
       id: "a1-m4",
       title: "Minha Família e Rotina",
       subtitle: "Família, posse (my/your/his/her) e rotina diária",
+      objective: "Ao final, o aluno consegue falar sobre os membros da família usando adjetivos possessivos (my/your/his/her/its/our/their) e descrever sua rotina diária com verbos de rotina no presente simples.",
+      prerequisites: ["a1-m3"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Vamos falar sobre a família e o que fazemos todos os dias. Você vai aprender os adjetivos possessivos e vocabulário de rotina.",
         sections: [
@@ -675,6 +688,9 @@ APP_DATA.a1 = {
       id: "a1-m5",
       title: "Compras e Comida",
       subtitle: "Vocabulário de compras, alimentos e a diferença entre a/an e some/any",
+      objective: "Ao final, o aluno consegue pedir alimentos no mercado usando a/an e some/any corretamente, além de perguntar e entender preços com how much e how many.",
+      prerequisites: ["a1-m4"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Neste último módulo do nível A1, você vai aprender vocabulário essencial para ir ao mercado, pedir comida e perguntar preços.",
         sections: [
@@ -833,6 +849,9 @@ APP_DATA.a1 = {
       id: "a1-m6",
       title: "Que Horas São?",
       subtitle: "Dizer a hora e preposições de tempo (at, in, on)",
+      objective: "Ao final, o aluno consegue perguntar e dizer as horas em inglês e usar corretamente as preposições de tempo at, in e on para descrever sua rotina diária com horários específicos.",
+      prerequisites: ["a1-m5", "a1-m4"],
+      masteryEvidence: "Quiz do módulo com pelo menos 60% de acerto, revisão de pelo menos uma resposta de writing e tentativa registrada nas atividades de speaking.",
       lesson: {
         intro: "Neste módulo extra, vamos aprender a dizer e perguntar a hora, falar sobre nossa rotina com horários específicos, e usar as preposições de tempo 'at', 'in' e 'on'.",
         sections: [
