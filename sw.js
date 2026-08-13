@@ -1,4 +1,4 @@
-var CACHE_NAME = 'upword-cache-v1';
+var CACHE_NAME = 'upword-cache-v2';
 var ASSETS = [
   './',
   'index.html',
@@ -10,7 +10,11 @@ var ASSETS = [
   'js/certificate.js',
   'js/prefs.js',
   'js/storage.js',
+  'js/guard.js',
   'js/speech.js',
+  'js/player.js',
+  'js/speaking.js',
+  'js/writingReview.js',
   'js/app.js',
   'js/data/levels.js',
   'js/data/placementQuiz.js',
@@ -24,6 +28,7 @@ var ASSETS = [
   'js/render/home.js',
   'js/render/placement.js',
   'js/render/level.js',
+  'js/render/writing.js',
   'js/render/module.js',
   'js/render/exercises.js',
   'js/render/quiz.js',

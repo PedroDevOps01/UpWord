@@ -6,6 +6,8 @@ Views.level = (function () {
     var level = APP_DATA.getLevel(levelId);
     if (!level) { Views.home(container); return; }
     var modules = APP_DATA.getModules(levelId);
+    var flash = Guard.consumeFlash();
+    var flashHtml = flash ? '<div class="flash-message" role="alert" aria-live="assertive">' + Icon('lock', { size: 15 }) + ' ' + flash + '</div>' : '';
 
     var moduleItems = modules.map(function (m, i) {
       var unlocked = Storage.isModuleUnlocked(levelId, modules, i);
@@ -45,6 +47,7 @@ Views.level = (function () {
       '<section class="level-page" style="--level-color:' + level.color + '">' +
         '<a class="back-link" href="#/">' + Icon('chevronLeft', { size: 16 }) + ' Minha trilha</a>' +
         '<h1><span class="level-code-tag">' + level.code + '</span> ' + level.name + '</h1>' +
+        flashHtml +
         '<p class="level-desc">' + level.description + '</p>' +
         (modules.length > 0 ? '<a class="link-flashcards" href="#/flashcards/' + levelId + '">' + Icon('sparkle', { size: 15 }) + ' Praticar flashcards deste nível</a>' : '') +
         '<div class="module-list">' + moduleItems + '</div>' +

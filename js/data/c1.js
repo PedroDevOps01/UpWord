@@ -36,16 +36,16 @@ APP_DATA.c1 = {
         ]
       },
       vocabulary: [
-        { word: "Nuance", phonetic: "/ˈnuːɑːns/", translation: "Nuance/Sutileza", example: "There's a subtle nuance between these two words.", exampleTranslation: "Há uma nuance sutil entre estas duas palavras." },
-        { word: "Emphasis", phonetic: "/ˈɛmfəsɪs/", translation: "Ênfase", example: "She spoke with great emphasis.", exampleTranslation: "Ela falou com grande ênfase." },
-        { word: "Habitual", phonetic: "/həˈbɪtʃuəl/", translation: "Habitual", example: "This was a habitual practice in her family.", exampleTranslation: "Esta era uma prática habitual na família dela." },
-        { word: "Speculate", phonetic: "/ˈspɛkjəleɪt/", translation: "Especular", example: "We can only speculate about what happened.", exampleTranslation: "Só podemos especular sobre o que aconteceu." },
-        { word: "Formal register", phonetic: "/ˈfɔːrməl ˈrɛdʒɪstər/", translation: "Registro formal", example: "This inversion is typical of a formal register.", exampleTranslation: "Esta inversão é típica de um registro formal." },
-        { word: "Rarely", phonetic: "/ˈrɛrli/", translation: "Raramente", example: "Rarely have I felt so inspired.", exampleTranslation: "Raramente me senti tão inspirado." },
-        { word: "Reproach", phonetic: "/rɪˈproʊtʃ/", translation: "Repreensão/Censura", example: "His tone carried a hint of reproach.", exampleTranslation: "Seu tom carregava um toque de censura." },
-        { word: "Assumption", phonetic: "/əˈsʌmpʃən/", translation: "Suposição", example: "That's just an assumption, not a fact.", exampleTranslation: "Isso é apenas uma suposição, não um fato." },
-        { word: "Distinct", phonetic: "/dɪˈstɪŋkt/", translation: "Distinto(a)", example: "These two meanings are quite distinct.", exampleTranslation: "Estes dois significados são bem distintos." },
-        { word: "Subtlety", phonetic: "/ˈsʌtəlti/", translation: "Sutileza", example: "Understanding subtlety takes years of practice.", exampleTranslation: "Entender sutileza leva anos de prática." }
+        { id: "c1-m1-nuance", word: "Nuance", phonetic: "/ˈnuːɑːns/", translation: "Nuance/Sutileza", example: "There's a subtle nuance between these two words.", exampleTranslation: "Há uma nuance sutil entre estas duas palavras." },
+        { id: "c1-m1-emphasis", word: "Emphasis", phonetic: "/ˈɛmfəsɪs/", translation: "Ênfase", example: "She spoke with great emphasis.", exampleTranslation: "Ela falou com grande ênfase." },
+        { id: "c1-m1-habitual", word: "Habitual", phonetic: "/həˈbɪtʃuəl/", translation: "Habitual", example: "This was a habitual practice in her family.", exampleTranslation: "Esta era uma prática habitual na família dela." },
+        { id: "c1-m1-speculate", word: "Speculate", phonetic: "/ˈspɛkjəleɪt/", translation: "Especular", example: "We can only speculate about what happened.", exampleTranslation: "Só podemos especular sobre o que aconteceu." },
+        { id: "c1-m1-formal-register", word: "Formal register", phonetic: "/ˈfɔːrməl ˈrɛdʒɪstər/", translation: "Registro formal", example: "This inversion is typical of a formal register.", exampleTranslation: "Esta inversão é típica de um registro formal." },
+        { id: "c1-m1-rarely", word: "Rarely", phonetic: "/ˈrɛrli/", translation: "Raramente", example: "Rarely have I felt so inspired.", exampleTranslation: "Raramente me senti tão inspirado." },
+        { id: "c1-m1-reproach", word: "Reproach", phonetic: "/rɪˈproʊtʃ/", translation: "Repreensão/Censura", example: "His tone carried a hint of reproach.", exampleTranslation: "Seu tom carregava um toque de censura." },
+        { id: "c1-m1-assumption", word: "Assumption", phonetic: "/əˈsʌmpʃən/", translation: "Suposição", example: "That's just an assumption, not a fact.", exampleTranslation: "Isso é apenas uma suposição, não um fato." },
+        { id: "c1-m1-distinct", word: "Distinct", phonetic: "/dɪˈstɪŋkt/", translation: "Distinto(a)", example: "These two meanings are quite distinct.", exampleTranslation: "Estes dois significados são bem distintos." },
+        { id: "c1-m1-subtlety", word: "Subtlety", phonetic: "/ˈsʌtəlti/", translation: "Sutileza", example: "Understanding subtlety takes years of practice.", exampleTranslation: "Entender sutileza leva anos de prática." }
       ],
       grammar: {
         title: "Modais de Especulação no Passado",
@@ -66,11 +66,24 @@ APP_DATA.c1 = {
         {
           title: "A Nuanced Conversation",
           accent: "british",
+          audioSrc: "assets/audio/c1-m1-listen-0.mp3",
+          audioSource: "tts-pregenerated",
+          speedLevels: [0.75, 1, 1.25],
           transcript: "Never have I been so surprised by a decision. Not only did they cancel the project, but they also refused to explain why. I must have missed something important in that meeting. Looking back, I should have asked more questions when I had the chance.",
           questions: [
             { q: "What structure is used in 'Never have I been so surprised'?", options: ["A question", "An inversion for emphasis", "A conditional", "A passive voice"], answer: 1 },
             { q: "What does the speaker say about the meeting?", options: ["They understood everything", "They must have missed something", "They enjoyed it", "They arrived late"], answer: 1 },
             { q: "What does the speaker regret?", options: ["Attending the meeting", "Not asking more questions", "Canceling the project", "Nothing"], answer: 1 }
+          ]
+        },
+        {
+          title: "Second Thoughts About a Decision",
+          accent: "american",
+          transcript: "A: Honestly, not only did I turn down that job offer, but I also never told anyone why. B: That's surprising — you used to talk about that company all the time. A: I know. I must have changed my mind the moment I pictured myself stuck in the same routine for years. B: Do you regret it? A: Rarely have I felt so relieved about a decision, actually. Though sometimes I wonder — I might have overreacted to a single bad interview. B: Well, you shouldn't have decided so quickly without sleeping on it first, but it sounds like it worked out. A: Maybe. Either way, I used to worry about things like this constantly; now I just trust my instincts a little more.",
+          questions: [
+            { q: "What is the conversation mainly about?", options: ["Planning a trip", "A decision to turn down a job offer", "A disagreement about money", "A new hobby"], answer: 1 },
+            { q: "What does speaker A say about the interview?", options: ["It was excellent", "It might have caused an overreaction", "It never happened", "It was rescheduled"], answer: 1 },
+            { q: "What can be inferred about speaker A's current state of mind?", options: ["Full of regret and anxiety", "Fairly at peace with the decision, despite some doubt", "Angry at speaker B", "Completely indifferent"], answer: 1 }
           ]
         }
       ],
@@ -83,18 +96,30 @@ APP_DATA.c1 = {
             { q: "What does the writer say technology has reshaped?", options: ["Only communication", "How we think, not just how we communicate", "Nothing important", "Only entertainment"], answer: 1 },
             { q: "What does the writer express regret about?", options: ["Using technology", "Not paying more attention to the transition", "Being a child", "Nothing"], answer: 1 }
           ]
+        },
+        {
+          title: "The Weight of Hindsight",
+          text: "Rarely does a friendship end with a single dramatic argument; more often, it fades through a series of small silences neither party bothers to break. Not only did we stop calling each other, but we also stopped noticing that we had stopped. When we were younger, we would talk for hours about nothing in particular — the kind of aimless conversation that only exists between people who trust each other completely. I used to assume that trust like that was permanent, immune to distance and time. Looking back, I must have missed the signs: the shorter replies, the postponed visits, the excuses that grew thinner each year. Perhaps I should have reached out before the silence calcified into something harder to name. Then again, she might have been waiting for the same gesture from me, each of us assuming the other would make the first move. There is a particular kind of regret reserved for endings that arrive quietly, without ceremony, leaving you unsure whether anything could have been done — or whether some friendships simply run their natural course.",
+          questions: [
+            { q: "According to the writer, how do most friendships end?", options: ["With a single dramatic argument", "Through small silences that build up over time", "By a sudden betrayal", "Because of geographic distance"], answer: 1 },
+            { q: "What does the writer say about their younger conversations?", options: ["They were always about serious topics", "They were aimless but built on complete trust", "They rarely happened", "They were always interrupted"], answer: 1 },
+            { q: "What can be inferred about the writer's attitude toward the friendship's ending?", options: ["They feel completely indifferent about it", "They feel a quiet, unresolved regret", "They are relieved it is over", "They blame their friend entirely"], answer: 1 },
+            { q: "What structure does 'Rarely does a friendship end...' demonstrate?", options: ["A conditional clause", "An inversion for emphasis", "A passive voice construction", "Reported speech"], answer: 1 }
+          ]
         }
       ],
       writing: [
         { prompt: "Escreva 3 frases usando inversão para ênfase (Never have I..., Not only did..., Rarely do I...).", minWords: 20, modelAnswer: "Never have I seen such dedication. Not only did she finish first, but she also helped others. Rarely do I regret a decision like this." },
-        { prompt: "Escreva sobre algo que você acha que 'deveria ter feito diferente' (should have) e algo que provavelmente aconteceu (must have).", minWords: 20, modelAnswer: "I should have studied more before the exam. He must have forgotten our meeting because he never showed up." }
+        { prompt: "Escreva sobre algo que você acha que 'deveria ter feito diferente' (should have) e algo que provavelmente aconteceu (must have).", minWords: 20, modelAnswer: "I should have studied far more thoroughly before the exam, especially given how challenging it turned out to be. He must have forgotten about our meeting entirely, since he never showed up or even sent a message." },
+        { prompt: "Escreva um texto de opinião (150-180 palavras) sobre como uma decisão do passado moldou quem você é hoje. Use pelo menos uma inversão para ênfase (Never have I.../Not only did...), um modal de especulação sobre o passado (must have/should have/might have) e a estrutura 'used to' ou 'would' para hábito passado.", minWords: 150, minSentences: 7, requiredStructures: ["should have", "used to", "not only"], targetWords: ["speculate", "assumption", "subtlety"], modelAnswer: "Looking back on the choices that shaped who I am today, I realize how much of my growth came from decisions I once doubted. I used to believe that every mistake needed to be avoided at all costs, and I built my life around that assumption. Not only did this belief make me overly cautious, but it also kept me from taking risks that might have led somewhere interesting. I should have trusted myself more in my twenties, when uncertainty felt unbearable rather than exciting. Now I can only speculate about the paths I did not take, though I no longer feel much regret about it. There is a subtlety in how experience quietly reshapes our values: what once seemed like failure now looks like necessary preparation. I have learned to notice these small shifts in perspective rather than dismiss them. If I could speak to my younger self, I would say that hesitation costs more than most mistakes ever do, and that trusting your own judgment is rarely as dangerous as it feels in the moment." }
       ],
       speaking: [
         { phrase: "Never have I seen such a beautiful place.", tip: "A inversão soa mais formal — reserve para contextos de ênfase real." },
         { phrase: "She must have forgotten about the meeting.", tip: "'Must have' é frequentemente contraído para 'must've' na fala." },
         { phrase: "You should have called me earlier.", tip: "'Should have' soa como 'shoulda' na fala rápida e informal." },
         { phrase: "Not only did she win, but she also broke a record.", tip: "Após 'not only' no início, há inversão: 'did she win'." },
-        { phrase: "I used to live in Paris.", tip: "'Used to' se pronuncia /ˈjuːstə/, com o som do 'd' desaparecendo." }
+        { phrase: "I used to live in Paris.", tip: "'Used to' se pronuncia /ˈjuːstə/, com o som do 'd' desaparecendo." },
+        { phrase: "In my opinion, people should learn to trust their instincts more, because hesitation often causes more regret than the mistakes themselves would have.", tip: "Dê sua opinião sobre se é melhor seguir a intuição ou pensar cuidadosamente antes de agir. Tente falar por pelo menos 20 segundos, usando um modal de especulação (must have/should have) ou uma inversão." }
       ],
       exercises: {
         fillBlanks: [
@@ -146,17 +171,17 @@ APP_DATA.c1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct sentence for a past habit (state verb).", options: ["I would know him well.", "I used to know him well.", "I use to know him well.", "I would known him well."], answer: 1 },
-        { q: "Choose the correct inversion.", options: ["Never I have seen that.", "Never have I seen that.", "I never have seen that.", "Have never I seen that."], answer: 1 },
-        { type: "tf", q: "'Must have' expresses near certainty about a past event.", answer: true },
-        { q: "Complete: 'You ___ (should/call) me earlier.'", options: ["should call", "should have called", "should calling", "should to call"], answer: 1 },
-        { type: "short", q: "Complete: 'She ___ have forgotten.' (deve)", answer: ["must"] },
-        { q: "'Speculate' means:", options: ["Confirmar", "Especular", "Negar", "Explicar"], answer: 1 },
+        { q: "Choose the correct sentence for a past habit (state verb).", options: ["I would know him well.", "I used to know him well.", "I use to know him well.", "I would known him well."], answer: 1, explanation: "'Know' é um verbo de estado, então apenas 'used to' é possível — 'would' não é usado para estados, só para ações repetidas no passado." },
+        { q: "Choose the correct inversion.", options: ["Never I have seen that.", "Never have I seen that.", "I never have seen that.", "Have never I seen that."], answer: 1, explanation: "Após advérbios negativos como 'never' no início da frase, ocorre inversão sujeito-auxiliar: 'Never have I seen...', e não 'Never I have seen...'." },
+        { type: "tf", q: "'Must have' expresses near certainty about a past event.", answer: true, explanation: "'Must have' + particípio é usado para expressar uma dedução quase certa sobre algo que aconteceu no passado, com base em evidências." },
+        { q: "Complete: 'You ___ (should/call) me earlier.'", options: ["should call", "should have called", "should calling", "should to call"], answer: 1, explanation: "'Should have' + particípio expressa crítica ou arrependimento sobre uma ação passada que não ocorreu — a forma correta é 'should have called', não 'should call'." },
+        { type: "short", q: "Complete: 'She ___ have forgotten.' (deve)", answer: ["must"], explanation: "'Deve ter esquecido' equivale a uma quase certeza sobre o passado, expressa por 'must have' + particípio." },
+        { q: "'Speculate' means:", options: ["Confirmar", "Especular", "Negar", "Explicar"], answer: 1, explanation: "'Speculate' significa formar uma hipótese ou opinião sem ter certeza dos fatos, equivalente a 'especular' em português." },
         { type: "tf", q: "'Would' can be used for past habitual states like 'I would love chocolate as a child.'", answer: false, explanation: "'Would' não é usado para estados (like, know, be); apenas 'used to' funciona para estados." },
-        { q: "Choose the correct sentence.", options: ["Not only she won, but also broke a record.", "Not only did she win, but she also broke a record.", "Not only won she, but she also broke a record.", "Not only she did win, but broke a record."], answer: 1 },
-        { q: "'Assumption' means:", options: ["Fato confirmado", "Suposição", "Prova", "Regra"], answer: 1 },
-        { type: "short", q: "Complete: 'He ___ have missed the train.' (talvez)", answer: ["might"] },
-        { q: "Choose the correct sentence.", options: ["I shouldn't have said that.", "I shouldn't said that.", "I shouldn't to have said that.", "I not should have said that."], answer: 0 },
+        { q: "Choose the correct sentence.", options: ["Not only she won, but also broke a record.", "Not only did she win, but she also broke a record.", "Not only won she, but she also broke a record.", "Not only she did win, but broke a record."], answer: 1, explanation: "Depois de 'Not only' no início da frase ocorre inversão auxiliar-sujeito: 'Not only did she win...', seguido de 'but she also...' na oração principal." },
+        { q: "'Assumption' means:", options: ["Fato confirmado", "Suposição", "Prova", "Regra"], answer: 1, explanation: "'Assumption' é algo aceito como verdade sem prova concreta — corresponde a 'suposição' em português." },
+        { type: "short", q: "Complete: 'He ___ have missed the train.' (talvez)", answer: ["might"], explanation: "'Might have' expressa possibilidade no passado, mais fraca que 'must have' — equivalente a 'talvez tenha perdido'." },
+        { q: "Choose the correct sentence.", options: ["I shouldn't have said that.", "I shouldn't said that.", "I shouldn't to have said that.", "I not should have said that."], answer: 0, explanation: "'Shouldn't have' + particípio expressa arrependimento por algo que foi feito e não deveria ter sido — a forma correta é 'shouldn't have said', sem infinitivo 'to'." },
         { type: "tf", q: "Inversion structures like 'Never have I...' are typical of casual, everyday speech.", answer: false, explanation: "São mais típicas de um registro formal ou enfático, não da conversa casual do dia a dia." }
       ]
     },
@@ -194,16 +219,16 @@ APP_DATA.c1 = {
         ]
       },
       vocabulary: [
-        { word: "Bite the bullet", phonetic: "/baɪt ðə ˈbʊlɪt/", translation: "Encarar a situação difícil", example: "I decided to bite the bullet and apologize.", exampleTranslation: "Eu decidi encarar a situação e pedir desculpas." },
-        { word: "Break the ice", phonetic: "/breɪk ðiː aɪs/", translation: "Quebrar o gelo", example: "He told a joke to break the ice.", exampleTranslation: "Ele contou uma piada para quebrar o gelo." },
-        { word: "Piece of cake", phonetic: "/piːs ʌv keɪk/", translation: "Muito fácil", example: "The test was a piece of cake.", exampleTranslation: "A prova foi muito fácil." },
-        { word: "Under the weather", phonetic: "/ˈʌndər ðə ˈwɛðər/", translation: "Um pouco doente", example: "I'm feeling a bit under the weather today.", exampleTranslation: "Estou me sentindo um pouco mal hoje." },
-        { word: "Hit the nail on the head", phonetic: "/hɪt ðə neɪl ɒn ðə hɛd/", translation: "Acertar em cheio", example: "You hit the nail on the head with that comment.", exampleTranslation: "Você acertou em cheio com esse comentário." },
-        { word: "Cut to the chase", phonetic: "/kʌt tuː ðə tʃeɪs/", translation: "Ir direto ao ponto", example: "Let's cut to the chase and discuss the budget.", exampleTranslation: "Vamos direto ao ponto e discutir o orçamento." },
-        { word: "Let the cat out of the bag", phonetic: "/lɛt ðə kæt aʊt ʌv ðə bæɡ/", translation: "Deixar escapar um segredo", example: "He let the cat out of the bag about the surprise party.", exampleTranslation: "Ele deixou escapar o segredo da festa surpresa." },
-        { word: "On the ball", phonetic: "/ɒn ðə bɔːl/", translation: "Atento/Competente", example: "She's really on the ball at work.", exampleTranslation: "Ela é realmente competente no trabalho." },
-        { word: "Once in a blue moon", phonetic: "/wʌns ɪn ə bluː muːn/", translation: "Raramente", example: "We only see each other once in a blue moon.", exampleTranslation: "Só nos vemos raramente." },
-        { word: "Cost an arm and a leg", phonetic: "/kɒst ən ɑːrm ənd ə lɛɡ/", translation: "Custar muito caro", example: "That car cost an arm and a leg.", exampleTranslation: "Aquele carro custou uma fortuna." }
+        { id: "c1-m2-bite-the-bullet", word: "Bite the bullet", phonetic: "/baɪt ðə ˈbʊlɪt/", translation: "Encarar a situação difícil", example: "I decided to bite the bullet and apologize.", exampleTranslation: "Eu decidi encarar a situação e pedir desculpas." },
+        { id: "c1-m2-break-the-ice", word: "Break the ice", phonetic: "/breɪk ðiː aɪs/", translation: "Quebrar o gelo", example: "He told a joke to break the ice.", exampleTranslation: "Ele contou uma piada para quebrar o gelo." },
+        { id: "c1-m2-piece-of-cake", word: "Piece of cake", phonetic: "/piːs ʌv keɪk/", translation: "Muito fácil", example: "The test was a piece of cake.", exampleTranslation: "A prova foi muito fácil." },
+        { id: "c1-m2-under-the-weather", word: "Under the weather", phonetic: "/ˈʌndər ðə ˈwɛðər/", translation: "Um pouco doente", example: "I'm feeling a bit under the weather today.", exampleTranslation: "Estou me sentindo um pouco mal hoje." },
+        { id: "c1-m2-hit-the-nail-on-the-head", word: "Hit the nail on the head", phonetic: "/hɪt ðə neɪl ɒn ðə hɛd/", translation: "Acertar em cheio", example: "You hit the nail on the head with that comment.", exampleTranslation: "Você acertou em cheio com esse comentário." },
+        { id: "c1-m2-cut-to-the-chase", word: "Cut to the chase", phonetic: "/kʌt tuː ðə tʃeɪs/", translation: "Ir direto ao ponto", example: "Let's cut to the chase and discuss the budget.", exampleTranslation: "Vamos direto ao ponto e discutir o orçamento." },
+        { id: "c1-m2-let-the-cat-out-of-the-bag", word: "Let the cat out of the bag", phonetic: "/lɛt ðə kæt aʊt ʌv ðə bæɡ/", translation: "Deixar escapar um segredo", example: "He let the cat out of the bag about the surprise party.", exampleTranslation: "Ele deixou escapar o segredo da festa surpresa." },
+        { id: "c1-m2-on-the-ball", word: "On the ball", phonetic: "/ɒn ðə bɔːl/", translation: "Atento/Competente", example: "She's really on the ball at work.", exampleTranslation: "Ela é realmente competente no trabalho." },
+        { id: "c1-m2-once-in-a-blue-moon", word: "Once in a blue moon", phonetic: "/wʌns ɪn ə bluː muːn/", translation: "Raramente", example: "We only see each other once in a blue moon.", exampleTranslation: "Só nos vemos raramente." },
+        { id: "c1-m2-cost-an-arm-and-a-leg", word: "Cost an arm and a leg", phonetic: "/kɒst ən ɑːrm ənd ə lɛɡ/", translation: "Custar muito caro", example: "That car cost an arm and a leg.", exampleTranslation: "Aquele carro custou uma fortuna." }
       ],
       grammar: {
         title: "Estrutura Fixa dos Idioms",
@@ -229,6 +254,16 @@ APP_DATA.c1 = {
             { q: "How is Tom feeling?", options: ["Great", "A bit under the weather", "Excited", "Angry"], answer: 1 },
             { q: "What does Sara want to do?", options: ["Talk about the weather", "Cut to the chase about the promotion", "End the conversation", "Avoid the topic"], answer: 1 }
           ]
+        },
+        {
+          title: "Planning a Surprise Party",
+          accent: "australian",
+          transcript: "A: Don't let the cat out of the bag, okay? Liam still has no idea about the party. B: My lips are sealed, don't worry. Though organizing this has cost me an arm and a leg already — the venue alone was pricey. A: I hear you, but it'll be worth it. Once in a blue moon we get to do something this special for him. B: True. Have you sorted the food yet? A: Nearly. I was going to bite the bullet and just order catering instead of cooking everything myself. B: Smart move. Honestly, compared to last year's event, this one should be a piece of cake to organize. A: Let's hope so — we cut it close enough last time as it is.",
+          questions: [
+            { q: "What is the conversation mainly about?", options: ["Complaining about a coworker", "Organizing a surprise party without revealing the secret", "Planning a vacation", "Discussing a job interview"], answer: 1 },
+            { q: "What has cost speaker B an arm and a leg?", options: ["The food", "The venue", "The decorations", "The invitations"], answer: 1 },
+            { q: "What can be inferred about how last year's event went?", options: ["It was perfectly organized with plenty of time to spare", "It was somewhat rushed or stressful", "It didn't happen at all", "Nobody attended"], answer: 1 }
+          ]
         }
       ],
       reading: [
@@ -240,18 +275,30 @@ APP_DATA.c1 = {
             { q: "What did the writer's friends say about the opportunity?", options: ["It was free", "It would cost an arm and a leg", "It was easy", "It was risky but cheap"], answer: 1 },
             { q: "How does the writer feel about the decision now?", options: ["Regretful", "It hit the nail on the head", "Confused", "Indifferent"], answer: 1 }
           ]
+        },
+        {
+          title: "An Unexpected Promotion",
+          text: "When my manager called me into her office last Friday, I assumed the worst — perhaps another round of budget cuts, or worse, layoffs. Instead, she cut to the chase and offered me a promotion I had never seen coming. At first, I thought she might be joking, but she assured me it was no joke at all. Admittedly, the timing could not have been more awkward: I had been feeling under the weather all week and could barely think straight, let alone celebrate properly. Still, I didn't want to look a gift horse in the mouth, so I accepted on the spot. My colleagues later admitted that the decision had been in the works for months, though nobody had let the cat out of the bag beforehand. Some things, apparently, really do cost an arm and a leg in terms of effort before they finally pay off. Looking back, I suspect the extra hours I quietly put in over the past year were exactly what tipped the scales in my favor, even if, at the time, none of it felt like anything more than routine, unremarkable work.",
+          questions: [
+            { q: "Why did the writer initially fear being called into the office?", options: ["They thought they were getting promoted", "They assumed it might be about budget cuts or layoffs", "They thought it was a birthday party", "They had no idea at all"], answer: 1 },
+            { q: "How was the writer feeling that week?", options: ["Extremely excited", "A bit under the weather", "Furious", "Bored"], answer: 1 },
+            { q: "What does 'let the cat out of the bag' refer to in the text?", options: ["Revealing the promotion news early", "Losing a pet", "Cancelling a meeting", "Firing someone"], answer: 0 },
+            { q: "What can be inferred about the writer's attitude toward their own hard work?", options: ["They believe it was irrelevant to the promotion", "They suspect their quiet extra effort ultimately paid off", "They regret working extra hours", "They think the promotion was undeserved"], answer: 1 }
+          ]
         }
       ],
       writing: [
         { prompt: "Escreva 3 frases usando idioms diferentes em contextos reais da sua vida.", minWords: 20, modelAnswer: "My exam was a piece of cake. I need to bite the bullet and talk to my landlord. I only see my cousins once in a blue moon." },
-        { prompt: "Escreva um pequeno diálogo usando pelo menos 3 idioms desta lição.", minWords: 25, modelAnswer: "A: How was your day? B: A bit under the weather, honestly. A: Sorry to hear that. Let's cut to the chase — do you need help with anything?" }
+        { prompt: "Escreva um pequeno diálogo usando pelo menos 3 idioms desta lição.", minWords: 25, modelAnswer: "A: How was your day? B: A bit under the weather, honestly. A: Sorry to hear that. Let's cut to the chase — do you need help with anything?" },
+        { prompt: "Escreva um relato pessoal (130-160 palavras) sobre uma vez em que você teve que 'bite the bullet' e tomar uma decisão difícil. Descreva a situação, o que você sentiu e o resultado, usando pelo menos 4 idioms desta lição de forma natural.", minWords: 130, minSentences: 6, requiredStructures: ["bite the bullet", "in the end", "even though"], targetWords: ["piece of cake", "under the weather", "cut to the chase"], modelAnswer: "Two years ago, I had to bite the bullet and quit a stable job to pursue something riskier. For months, I had been feeling stuck, and even though the salary was good, the work left me completely uninspired. Every morning I woke up feeling almost under the weather, dreading the same tasks all over again. Eventually, I decided to cut to the chase during a meeting with my manager and simply explain that I needed a change, rather than dragging out an awkward conversation for weeks. She was surprisingly understanding, which made handing in my notice far less painful than I expected. Looking back, I assumed leaving would be a piece of cake once I made the decision, but adjusting to freelance work actually took much longer than I imagined. In the end, though, I have no regrets: the discomfort of that first difficult conversation was nothing compared to the freedom I gained afterward." }
       ],
       speaking: [
         { phrase: "It's a piece of cake!", tip: "Diga com entusiasmo — é uma expressão informal e animada." },
         { phrase: "I'm feeling a bit under the weather.", tip: "'Weather' rima com 'feather', não com 'wither'." },
         { phrase: "Let's cut to the chase.", tip: "'Chase' tem o som 'ch' inicial, como em 'chair'." },
         { phrase: "You hit the nail on the head.", tip: "'Nail' tem vogal longa /eɪ/, como em 'mail'." },
-        { phrase: "That cost an arm and a leg!", tip: "Enfatize 'arm' e 'leg' para dar o tom exagerado da expressão." }
+        { phrase: "That cost an arm and a leg!", tip: "Enfatize 'arm' e 'leg' para dar o tom exagerado da expressão." },
+        { phrase: "To put it simply, after months of feeling under the weather about my job, I finally decided to bite the bullet and make a change.", tip: "Resuma, com suas próprias palavras, uma situação em que você teve que tomar uma decisão difícil. Use pelo menos dois idioms desta lição e fale por cerca de 20-30 segundos." }
       ],
       exercises: {
         fillBlanks: [
@@ -303,18 +350,18 @@ APP_DATA.c1 = {
         ]
       },
       quiz: [
-        { q: "'Piece of cake' means:", options: ["Muito difícil", "Muito fácil", "Muito caro", "Muito raro"], answer: 1 },
-        { q: "'Under the weather' means:", options: ["Muito feliz", "Um pouco doente", "Com muito frio", "Com muita pressa"], answer: 1 },
-        { type: "tf", q: "'Cut to the chase' means to go straight to the point.", answer: true },
-        { q: "Complete: 'You hit the ___ on the head.'", options: ["nail", "hammer", "screw", "wall"], answer: 0 },
-        { type: "short", q: "Complete: 'That car cost an arm and a ___.'", answer: ["leg"] },
-        { q: "'Once in a blue moon' means:", options: ["Frequentemente", "Raramente", "Nunca", "Sempre"], answer: 1 },
-        { type: "tf", q: "'Break the ice' means to start a conversation in an awkward situation.", answer: true },
-        { q: "Choose the correct idiom for 'deixar escapar um segredo'.", options: ["Let the cat out of the bag", "Break the ice", "Cost an arm and a leg", "Piece of cake"], answer: 0 },
-        { q: "'Bite the bullet' means:", options: ["Evitar um problema", "Encarar uma situação difícil", "Comemorar", "Desistir"], answer: 1 },
-        { type: "short", q: "Complete: 'She's really on the ___ at work.' (atenta)", answer: ["ball"] },
-        { q: "Choose the correct sentence.", options: ["The exam was a piece of pie.", "The exam was a piece of cake.", "The exam was a slice of cake.", "The exam was a cake piece."], answer: 1 },
-        { type: "tf", q: "Idioms usually keep their exact words, though the verb tense can change.", answer: true }
+        { q: "'Piece of cake' means:", options: ["Muito difícil", "Muito fácil", "Muito caro", "Muito raro"], answer: 1, explanation: "'A piece of cake' é um idiom que descreve algo extremamente fácil de fazer, sem relação literal com bolo." },
+        { q: "'Under the weather' means:", options: ["Muito feliz", "Um pouco doente", "Com muito frio", "Com muita pressa"], answer: 1, explanation: "'Under the weather' é uma forma idiomática e informal de dizer que alguém está um pouco doente ou indisposto." },
+        { type: "tf", q: "'Cut to the chase' means to go straight to the point.", answer: true, explanation: "'Cut to the chase' significa ir direto ao assunto principal, evitando rodeios — muito usada em conversas informais e reuniões." },
+        { q: "Complete: 'You hit the ___ on the head.'", options: ["nail", "hammer", "screw", "wall"], answer: 0, explanation: "O idiom fixo é 'hit the nail on the head', que significa acertar exatamente no ponto certo — a palavra não pode ser trocada por sinônimos como 'hammer'." },
+        { type: "short", q: "Complete: 'That car cost an arm and a ___.'", answer: ["leg"], explanation: "'Cost an arm and a leg' significa custar muito caro; a expressão fixa termina em 'leg', não em outra parte do corpo." },
+        { q: "'Once in a blue moon' means:", options: ["Frequentemente", "Raramente", "Nunca", "Sempre"], answer: 1, explanation: "'Once in a blue moon' descreve algo que acontece muito raramente, numa referência à raridade de uma 'lua azul'." },
+        { type: "tf", q: "'Break the ice' means to start a conversation in an awkward situation.", answer: true, explanation: "'Break the ice' descreve a ação de aliviar a tensão ou o desconforto inicial em uma situação social, geralmente com humor ou uma pergunta casual." },
+        { q: "Choose the correct idiom for 'deixar escapar um segredo'.", options: ["Let the cat out of the bag", "Break the ice", "Cost an arm and a leg", "Piece of cake"], answer: 0, explanation: "'Let the cat out of the bag' é o idiom que significa revelar um segredo, geralmente sem querer." },
+        { q: "'Bite the bullet' means:", options: ["Evitar um problema", "Encarar uma situação difícil", "Comemorar", "Desistir"], answer: 1, explanation: "'Bite the bullet' significa enfrentar corajosamente algo difícil ou desagradável que não pode ser evitado." },
+        { type: "short", q: "Complete: 'She's really on the ___ at work.' (atenta)", answer: ["ball"], explanation: "'On the ball' descreve alguém atento, competente e rápido para agir — a expressão fixa usa 'ball', não outra palavra." },
+        { q: "Choose the correct sentence.", options: ["The exam was a piece of pie.", "The exam was a piece of cake.", "The exam was a slice of cake.", "The exam was a cake piece."], answer: 1, explanation: "O idiom correto é 'a piece of cake'; variações como 'a piece of pie' ou 'a slice of cake' não são expressões idiomáticas reconhecidas." },
+        { type: "tf", q: "Idioms usually keep their exact words, though the verb tense can change.", answer: true, explanation: "A maioria dos idioms tem uma estrutura lexical fixa — as palavras não podem ser substituídas por sinônimos — mas o tempo verbal pode variar normalmente." }
       ]
     },
     {
@@ -351,16 +398,16 @@ APP_DATA.c1 = {
         ]
       },
       vocabulary: [
-        { word: "Furthermore", phonetic: "/ˈfɜːrðərmɔːr/", translation: "Além disso", example: "Furthermore, the results were consistent.", exampleTranslation: "Além disso, os resultados foram consistentes." },
-        { word: "Nevertheless", phonetic: "/ˌnɛvərðəˈlɛs/", translation: "No entanto/Mesmo assim", example: "Nevertheless, the project continued.", exampleTranslation: "Mesmo assim, o projeto continuou." },
-        { word: "Consequently", phonetic: "/ˈkɒnsɪkwəntli/", translation: "Consequentemente", example: "Consequently, sales increased.", exampleTranslation: "Consequentemente, as vendas aumentaram." },
-        { word: "Whereas", phonetic: "/wɛərˈæz/", translation: "Enquanto que", example: "Some prefer coffee, whereas others prefer tea.", exampleTranslation: "Alguns preferem café, enquanto outros preferem chá." },
-        { word: "In light of", phonetic: "/ɪn laɪt ʌv/", translation: "Em vista de", example: "In light of the results, we changed our strategy.", exampleTranslation: "Em vista dos resultados, mudamos nossa estratégia." },
-        { word: "Argument", phonetic: "/ˈɑːrɡjəmənt/", translation: "Argumento", example: "This is a strong argument.", exampleTranslation: "Este é um argumento forte." },
-        { word: "Evidence", phonetic: "/ˈɛvɪdəns/", translation: "Evidência", example: "The evidence supports this theory.", exampleTranslation: "A evidência apoia esta teoria." },
-        { word: "Conclude", phonetic: "/kənˈkluːd/", translation: "Concluir", example: "We can conclude that the method works.", exampleTranslation: "Podemos concluir que o método funciona." },
-        { word: "Significant", phonetic: "/sɪɡˈnɪfɪkənt/", translation: "Significativo(a)", example: "There was a significant improvement.", exampleTranslation: "Houve uma melhoria significativa." },
-        { word: "Perspective", phonetic: "/pərˈspɛktɪv/", translation: "Perspectiva", example: "This offers a new perspective on the issue.", exampleTranslation: "Isto oferece uma nova perspectiva sobre a questão." }
+        { id: "c1-m3-furthermore", word: "Furthermore", phonetic: "/ˈfɜːrðərmɔːr/", translation: "Além disso", example: "Furthermore, the results were consistent.", exampleTranslation: "Além disso, os resultados foram consistentes." },
+        { id: "c1-m3-nevertheless", word: "Nevertheless", phonetic: "/ˌnɛvərðəˈlɛs/", translation: "No entanto/Mesmo assim", example: "Nevertheless, the project continued.", exampleTranslation: "Mesmo assim, o projeto continuou." },
+        { id: "c1-m3-consequently", word: "Consequently", phonetic: "/ˈkɒnsɪkwəntli/", translation: "Consequentemente", example: "Consequently, sales increased.", exampleTranslation: "Consequentemente, as vendas aumentaram." },
+        { id: "c1-m3-whereas", word: "Whereas", phonetic: "/wɛərˈæz/", translation: "Enquanto que", example: "Some prefer coffee, whereas others prefer tea.", exampleTranslation: "Alguns preferem café, enquanto outros preferem chá." },
+        { id: "c1-m3-in-light-of", word: "In light of", phonetic: "/ɪn laɪt ʌv/", translation: "Em vista de", example: "In light of the results, we changed our strategy.", exampleTranslation: "Em vista dos resultados, mudamos nossa estratégia." },
+        { id: "c1-m3-argument", word: "Argument", phonetic: "/ˈɑːrɡjəmənt/", translation: "Argumento", example: "This is a strong argument.", exampleTranslation: "Este é um argumento forte." },
+        { id: "c1-m3-evidence", word: "Evidence", phonetic: "/ˈɛvɪdəns/", translation: "Evidência", example: "The evidence supports this theory.", exampleTranslation: "A evidência apoia esta teoria." },
+        { id: "c1-m3-conclude", word: "Conclude", phonetic: "/kənˈkluːd/", translation: "Concluir", example: "We can conclude that the method works.", exampleTranslation: "Podemos concluir que o método funciona." },
+        { id: "c1-m3-significant", word: "Significant", phonetic: "/sɪɡˈnɪfɪkənt/", translation: "Significativo(a)", example: "There was a significant improvement.", exampleTranslation: "Houve uma melhoria significativa." },
+        { id: "c1-m3-perspective", word: "Perspective", phonetic: "/pərˈspɛktɪv/", translation: "Perspectiva", example: "This offers a new perspective on the issue.", exampleTranslation: "Isto oferece uma nova perspectiva sobre a questão." }
       ],
       grammar: {
         title: "Conectivos Formais (Linking Words)",
@@ -387,6 +434,16 @@ APP_DATA.c1 = {
             { q: "What do some studies suggest?", options: ["Productivity always decreases", "Productivity increases", "Nothing changes", "Productivity is unrelated"], answer: 1 },
             { q: "What does the lecturer conclude?", options: ["The issue is simple", "The issue is complex and needs more research", "There is no issue", "The topic is closed"], answer: 1 }
           ]
+        },
+        {
+          title: "A Panel Discussion on Higher Education",
+          accent: "american",
+          transcript: "Thank you for having me. I'd like to focus on the rising cost of higher education. On one hand, universities argue that costs reflect necessary investments in research and facilities. On the other hand, students increasingly graduate with debt that takes decades to repay. In light of this tension, some institutions have begun experimenting with alternative funding models, such as income-share agreements. Furthermore, several countries have shown that heavily subsidized or free higher education can coexist with strong academic outcomes. Consequently, I would argue that cost alone should not determine access to education. Nevertheless, implementing such reforms requires significant political will, something that, frankly, has been in short supply.",
+          questions: [
+            { q: "What is the speaker mainly discussing?", options: ["The history of universities", "The rising cost of higher education", "Sports funding", "Technology in classrooms"], answer: 1 },
+            { q: "What alternative funding model does the speaker mention?", options: ["Income-share agreements", "Free textbooks", "Government loans only", "Corporate sponsorships"], answer: 0 },
+            { q: "What does the speaker imply about political will for reform?", options: ["It is abundant and strong", "It has been lacking", "It doesn't matter at all", "It is guaranteed to increase"], answer: 1 }
+          ]
         }
       ],
       reading: [
@@ -398,18 +455,30 @@ APP_DATA.c1 = {
             { q: "What do studies suggest about excessive use?", options: ["It has no effect", "A correlation with increased anxiety", "It always improves mood", "It's unrelated to mental health"], answer: 1 },
             { q: "What is the conclusion of the text?", options: ["Social media should be banned", "Benefits and consequences must be balanced", "There are no drawbacks", "Nothing needs to change"], answer: 1 }
           ]
+        },
+        {
+          title: "The Ethics of Automation in the Workplace",
+          text: "The rapid automation of routine tasks has prompted considerable debate among economists and policymakers alike. Proponents contend that automation increases efficiency, reduces production costs, and ultimately frees workers from monotonous labor. Critics, however, warn that these gains are unevenly distributed, disproportionately benefiting corporations while displacing workers in lower-skilled positions. Moreover, the pace of technological change has outstripped many governments' capacity to retrain displaced workers or adapt social safety nets accordingly. Nevertheless, dismissing automation altogether would be shortsighted, given its demonstrable contributions to productivity growth over the past decade. A more nuanced position might acknowledge both the transformative potential of automation and the urgent need for policies that cushion its social costs — retraining programs, portable benefits, and perhaps even forms of universal basic income. In light of these competing considerations, it seems reasonable to conclude that the central challenge is not whether automation should proceed, but rather how its benefits and burdens ought to be shared. Whether current institutions are equipped to manage that redistribution remains, at best, an open question.",
+          questions: [
+            { q: "According to proponents, what does automation do?", options: ["It only harms workers", "It increases efficiency and reduces costs", "It has no economic effect", "It is illegal in most countries"], answer: 1 },
+            { q: "What do critics warn about automation's benefits?", options: ["They are shared equally", "They are unevenly distributed, favoring corporations", "They don't exist", "They only help workers"], answer: 1 },
+            { q: "What does the writer suggest as part of a 'nuanced position'?", options: ["Banning automation completely", "Retraining programs and portable benefits", "Ignoring the issue", "Only helping corporations"], answer: 1 },
+            { q: "What can be inferred about the writer's overall stance on automation?", options: ["They believe automation is entirely negative and should be stopped", "They take a balanced view, seeing both value and risk that must be managed", "They are completely indifferent to the topic", "They believe governments should have no role at all"], answer: 1 }
+          ]
         }
       ],
       writing: [
-        { prompt: "Escreva um parágrafo formal (5-6 frases) sobre um tema à sua escolha, usando pelo menos 3 conectivos formais.", minWords: 40, modelAnswer: "Remote work has become increasingly common. Furthermore, it offers flexibility to employees. However, it can also lead to isolation. Consequently, companies must find a balance. In conclusion, remote work has both benefits and challenges." },
-        { prompt: "Reescreva 3 frases informais transformando-as em linguagem formal e acadêmica.", minWords: 20, modelAnswer: "It is not possible to confirm this claim without further evidence. The data indicates a significant trend. One might argue that additional research is necessary." }
+        { prompt: "Escreva um parágrafo formal (5-6 frases) sobre um tema à sua escolha, usando pelo menos 3 conectivos formais.", minWords: 40, modelAnswer: "Remote work has become increasingly common in the modern economy. Furthermore, it offers considerable flexibility, allowing employees to better balance their professional and personal responsibilities. However, it can also lead to feelings of isolation and blur the boundaries between work and home life. Consequently, companies must find an appropriate balance between autonomy and structured collaboration. In conclusion, while remote work undoubtedly has both benefits and challenges, its long-term success ultimately depends on thoughtful implementation." },
+        { prompt: "Reescreva 3 frases informais transformando-as em linguagem formal e acadêmica.", minWords: 20, modelAnswer: "It is not possible to confirm this claim without further evidence. The data indicates a significant trend. One might argue that additional research is necessary." },
+        { prompt: "Escreva uma redação formal (160-180 palavras) argumentando a favor ou contra o trabalho remoto como modelo padrão de trabalho. Estruture o texto com introdução, desenvolvimento e conclusão, usando pelo menos 3 conectivos formais (furthermore, however, consequently, in conclusion) e evitando contrações.", minWords: 160, minSentences: 7, requiredStructures: ["furthermore", "however", "in conclusion"], targetWords: ["significant", "perspective", "evidence"], modelAnswer: "Remote work has become one of the most debated topics in contemporary labor policy. Furthermore, its rapid adoption during recent years has revealed both considerable advantages and significant drawbacks that deserve careful examination. On one hand, remote arrangements grant employees greater autonomy over their schedules, which numerous studies cite as evidence of improved job satisfaction. However, this flexibility is not without cost: many workers report feelings of isolation, and the boundary between professional and personal life often becomes blurred. Consequently, organizations must adopt policies that address these psychological effects rather than assuming that flexibility alone guarantees wellbeing. Ultimately, evaluating this shift requires evidence rather than assumption, since anecdotal impressions alone cannot capture so significant a transformation in how societies define work. From my perspective, a hybrid model — combining occasional in-person collaboration with remote autonomy — offers the most balanced solution currently available. In conclusion, while remote work undoubtedly represents a significant shift in how we organize labor, its long-term success depends less on the model itself than on the thoughtfulness with which it is implemented." }
       ],
       speaking: [
         { phrase: "Furthermore, the results were consistent.", tip: "'Furthermore' tem 3 sílabas: FUR-ther-more." },
         { phrase: "However, some disagree with this view.", tip: "'However' geralmente vem seguido de vírgula e uma pequena pausa." },
         { phrase: "Consequently, sales increased.", tip: "'Consequently' tem acento na primeira sílaba: CON-se-quent-ly." },
         { phrase: "In conclusion, the study was successful.", tip: "'Conclusion' tem acento na segunda sílaba: con-CLU-sion." },
-        { phrase: "This offers a new perspective.", tip: "'Perspective' tem acento na segunda sílaba: per-SPEC-tive." }
+        { phrase: "This offers a new perspective.", tip: "'Perspective' tem acento na segunda sílaba: per-SPEC-tive." },
+        { phrase: "Rather than saying 'you can't just do that,' a more formal way to express the same idea would be: 'It is not advisable to proceed in this manner without further consideration.'", tip: "Pegue uma frase informal e reformule-a em um registro formal e acadêmico, como praticado nesta lição. Diga as duas versões em voz alta." }
       ],
       exercises: {
         fillBlanks: [
@@ -461,18 +530,18 @@ APP_DATA.c1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct formal connector for addition.", options: ["However", "Furthermore", "Whereas", "Despite"], answer: 1 },
-        { q: "Choose the correct formal connector for contrast.", options: ["Moreover", "In addition", "However", "Consequently"], answer: 2 },
-        { type: "tf", q: "'Consequently' is used to show a result or consequence.", answer: true },
-        { q: "Complete: 'In ___, the results are promising.' (conclusão)", options: ["addition", "conclusion", "contrast", "evidence"], answer: 1 },
-        { type: "short", q: "Complete: 'Some prefer tea, ___ others prefer coffee.' (enquanto que)", answer: ["whereas"] },
-        { q: "'Evidence' means:", options: ["Opinião", "Evidência", "Dúvida", "Erro"], answer: 1 },
+        { q: "Choose the correct formal connector for addition.", options: ["However", "Furthermore", "Whereas", "Despite"], answer: 1, explanation: "'Furthermore' é usado para acrescentar informação em registro formal, assim como 'moreover' e 'in addition' — diferente de 'however', que indica contraste." },
+        { q: "Choose the correct formal connector for contrast.", options: ["Moreover", "In addition", "However", "Consequently"], answer: 2, explanation: "'However' introduz uma ideia contrastante em registro formal; 'moreover' e 'in addition' indicam adição, e 'consequently' indica consequência." },
+        { type: "tf", q: "'Consequently' is used to show a result or consequence.", answer: true, explanation: "'Consequently' é um conectivo formal que introduz o resultado ou a consequência de algo mencionado anteriormente, equivalente a 'consequentemente'." },
+        { q: "Complete: 'In ___, the results are promising.' (conclusão)", options: ["addition", "conclusion", "contrast", "evidence"], answer: 1, explanation: "'In conclusion' é a expressão formal usada para introduzir o fechamento de um texto ou argumento, resumindo as ideias apresentadas." },
+        { type: "short", q: "Complete: 'Some prefer tea, ___ others prefer coffee.' (enquanto que)", answer: ["whereas"], explanation: "'Whereas' é um conectivo formal de contraste usado para comparar duas ideias opostas dentro da mesma frase, equivalente a 'enquanto que'." },
+        { q: "'Evidence' means:", options: ["Opinião", "Evidência", "Dúvida", "Erro"], answer: 1, explanation: "'Evidence' refere-se a fatos, dados ou provas que sustentam um argumento ou conclusão." },
         { type: "tf", q: "Formal academic writing typically uses contractions like 'can't' and 'don't'.", answer: false, explanation: "A escrita formal/acadêmica geralmente evita contrações, preferindo formas completas como 'cannot' e 'do not'." },
-        { q: "Choose the correct sentence.", options: ["Furthermore but the results support this.", "Furthermore, the results support this.", "The results, furthermore support this and.", "Furthermore results the support this."], answer: 1 },
-        { q: "'Significant' means:", options: ["Insignificante", "Significativo", "Duvidoso", "Impossível"], answer: 1 },
-        { type: "short", q: "Complete: 'This offers a new ___ on the issue.' (perspectiva)", answer: ["perspective"] },
-        { q: "Choose the correct sentence.", options: ["However, some disagree with this view.", "However some, disagree with this view.", "Some, however disagree with this view however.", "However disagree some with this view."], answer: 0 },
-        { type: "tf", q: "'Nevertheless' and 'however' can both be used to show contrast.", answer: true }
+        { q: "Choose the correct sentence.", options: ["Furthermore but the results support this.", "Furthermore, the results support this.", "The results, furthermore support this and.", "Furthermore results the support this."], answer: 1, explanation: "'Furthermore' deve iniciar a frase seguido de vírgula, sem conjunções redundantes como 'but' logo em seguida." },
+        { q: "'Significant' means:", options: ["Insignificante", "Significativo", "Duvidoso", "Impossível"], answer: 1, explanation: "'Significant' descreve algo importante ou notável, com impacto relevante — equivalente a 'significativo'." },
+        { type: "short", q: "Complete: 'This offers a new ___ on the issue.' (perspectiva)", answer: ["perspective"], explanation: "'Perspective' significa o ponto de vista ou ângulo sob o qual uma questão é vista, equivalente a 'perspectiva'." },
+        { q: "Choose the correct sentence.", options: ["However, some disagree with this view.", "However some, disagree with this view.", "Some, however disagree with this view however.", "However disagree some with this view."], answer: 0, explanation: "'However' aparece corretamente no início da frase seguido de vírgula: 'However, some disagree with this view.' — as demais opções quebram essa estrutura fixa." },
+        { type: "tf", q: "'Nevertheless' and 'however' can both be used to show contrast.", answer: true, explanation: "Ambos os conectivos introduzem uma ideia contrastante em relação à anterior, embora 'nevertheless' tenha um tom ligeiramente mais formal e enfático." }
       ]
     },
     {
@@ -509,16 +578,16 @@ APP_DATA.c1 = {
         ]
       },
       vocabulary: [
-        { word: "Connected speech", phonetic: "/kəˈnɛktɪd spiːtʃ/", translation: "Fala conectada", example: "Connected speech can be hard for learners.", exampleTranslation: "A fala conectada pode ser difícil para os aprendizes." },
-        { word: "Reduction", phonetic: "/rɪˈdʌkʃən/", translation: "Redução", example: "'Gonna' is a reduction of 'going to'.", exampleTranslation: "'Gonna' é uma redução de 'going to'." },
-        { word: "Stress", phonetic: "/strɛs/", translation: "Ênfase/Acento", example: "Sentence stress changes the meaning.", exampleTranslation: "A ênfase na frase muda o significado." },
-        { word: "Native speaker", phonetic: "/ˈneɪtɪv ˈspiːkər/", translation: "Falante nativo", example: "I love listening to native speakers.", exampleTranslation: "Eu adoro ouvir falantes nativos." },
-        { word: "Slang", phonetic: "/slæŋ/", translation: "Gíria", example: "That word is slang, not formal English.", exampleTranslation: "Essa palavra é gíria, não inglês formal." },
-        { word: "Mumble", phonetic: "/ˈmʌmbəl/", translation: "Resmungar/Falar sem clareza", example: "He tends to mumble when he's nervous.", exampleTranslation: "Ele tende a falar de forma pouco clara quando está nervoso." },
-        { word: "Context", phonetic: "/ˈkɒntɛkst/", translation: "Contexto", example: "Context helps you guess unknown words.", exampleTranslation: "O contexto ajuda a adivinhar palavras desconhecidas." },
-        { word: "Fluent", phonetic: "/ˈfluːənt/", translation: "Fluente", example: "She sounds completely fluent now.", exampleTranslation: "Ela soa completamente fluente agora." },
-        { word: "Accent", phonetic: "/ˈæksɛnt/", translation: "Sotaque", example: "Every region has a different accent.", exampleTranslation: "Cada região tem um sotaque diferente." },
-        { word: "Pace", phonetic: "/peɪs/", translation: "Ritmo/Velocidade", example: "Native speakers often talk at a fast pace.", exampleTranslation: "Falantes nativos costumam falar em um ritmo rápido." }
+        { id: "c1-m4-connected-speech", word: "Connected speech", phonetic: "/kəˈnɛktɪd spiːtʃ/", translation: "Fala conectada", example: "Connected speech can be hard for learners.", exampleTranslation: "A fala conectada pode ser difícil para os aprendizes." },
+        { id: "c1-m4-reduction", word: "Reduction", phonetic: "/rɪˈdʌkʃən/", translation: "Redução", example: "'Gonna' is a reduction of 'going to'.", exampleTranslation: "'Gonna' é uma redução de 'going to'." },
+        { id: "c1-m4-stress", word: "Stress", phonetic: "/strɛs/", translation: "Ênfase/Acento", example: "Sentence stress changes the meaning.", exampleTranslation: "A ênfase na frase muda o significado." },
+        { id: "c1-m4-native-speaker", word: "Native speaker", phonetic: "/ˈneɪtɪv ˈspiːkər/", translation: "Falante nativo", example: "I love listening to native speakers.", exampleTranslation: "Eu adoro ouvir falantes nativos." },
+        { id: "c1-m4-slang", word: "Slang", phonetic: "/slæŋ/", translation: "Gíria", example: "That word is slang, not formal English.", exampleTranslation: "Essa palavra é gíria, não inglês formal." },
+        { id: "c1-m4-mumble", word: "Mumble", phonetic: "/ˈmʌmbəl/", translation: "Resmungar/Falar sem clareza", example: "He tends to mumble when he's nervous.", exampleTranslation: "Ele tende a falar de forma pouco clara quando está nervoso." },
+        { id: "c1-m4-context", word: "Context", phonetic: "/ˈkɒntɛkst/", translation: "Contexto", example: "Context helps you guess unknown words.", exampleTranslation: "O contexto ajuda a adivinhar palavras desconhecidas." },
+        { id: "c1-m4-fluent", word: "Fluent", phonetic: "/ˈfluːənt/", translation: "Fluente", example: "She sounds completely fluent now.", exampleTranslation: "Ela soa completamente fluente agora." },
+        { id: "c1-m4-accent", word: "Accent", phonetic: "/ˈæksɛnt/", translation: "Sotaque", example: "Every region has a different accent.", exampleTranslation: "Cada região tem um sotaque diferente." },
+        { id: "c1-m4-pace", word: "Pace", phonetic: "/peɪs/", translation: "Ritmo/Velocidade", example: "Native speakers often talk at a fast pace.", exampleTranslation: "Falantes nativos costumam falar em um ritmo rápido." }
       ],
       grammar: {
         title: "Reduções Comuns na Fala Nativa",
@@ -546,6 +615,16 @@ APP_DATA.c1 = {
             { q: "What does the speaker suggest?", options: ["Studying together", "Grabbing some food", "Going to work", "Watching a movie"], answer: 1 },
             { q: "What does 'gotta' mean?", options: ["Got to / have to", "Going to", "Want to", "Got you"], answer: 0 }
           ]
+        },
+        {
+          title: "Ordering Coffee, Fast and Casual",
+          accent: "british",
+          transcript: "Barista: Mornin'! Whatcha havin' today? Customer: Uh, lemme think... I'll havta get a large flat white, I guess. Ya got any of them oat milk options? Barista: Yeah, no worries, we gotcha covered. D'you want anything else with that, or is that gonna be it? Customer: Nah, that's it, thanks. Oh wait — actually, gimme one of those pastries too, whichever's freshest. Barista: No problem. That'll be six-fifty altogether, whenever you're ready. Customer: Cheers. D'you take contactless? Barista: 'Course we do, just tap it there. Customer: Brilliant, thanks so much. Barista: No worries at all — have a good one!",
+          questions: [
+            { q: "What is happening in this conversation?", options: ["A customer is returning a product", "A customer is ordering coffee and a pastry", "Two friends are catching up", "Someone is applying for a job"], answer: 1 },
+            { q: "What milk option does the customer ask about?", options: ["Almond milk", "Soy milk", "Oat milk", "Coconut milk"], answer: 2 },
+            { q: "What does the barista's phrase 'no worries' suggest about the tone of the exchange?", options: ["It is tense and formal", "It is relaxed and casual", "It is angry", "It is confusing to both speakers"], answer: 1 }
+          ]
         }
       ],
       reading: [
@@ -557,18 +636,30 @@ APP_DATA.c1 = {
             { q: "What is the key to understanding, according to the text?", options: ["Translating every word", "Listening for overall meaning and stressed words", "Memorizing scripts", "Avoiding native content"], answer: 1 },
             { q: "How does this skill develop, according to the text?", options: ["Instantly", "Through enough exposure over time", "It can't be developed", "Only in a classroom"], answer: 1 }
           ]
+        },
+        {
+          title: "Podcasts and the Path to Fluency",
+          text: "Anyone who has tried to understand a native English podcast after years of classroom study knows the peculiar shock of realizing how little textbook English resembles real speech. Sentences blur together, words drop their endings, and phrases collapse into single sounds that bear only a passing resemblance to their written forms. 'Did you eat yet?' becomes something closer to 'Jeetyet?', and even advanced learners can feel as though they have regressed to their very first lesson. The temptation, at that point, is to reach for a transcript and painstakingly decode every syllable. That approach, however useful for isolated phrases, rarely builds the kind of intuitive processing speed that real conversations demand. A more productive strategy involves repeated, relaxed exposure — listening to the same short clip several times, focusing first on the general gist, then gradually tuning in to specific reductions once the overall meaning is secure. Over months of this kind of practice, what once sounded like an indecipherable blur begins to resolve into recognizable, even predictable, patterns. The ear, it turns out, adapts far more readily than most learners expect — provided they resist the urge to give up during those first frustrating weeks.",
+          questions: [
+            { q: "What happens to words in real native speech, according to the text?", options: ["They are pronounced very clearly and slowly", "They blur together and drop endings", "They disappear from the sentence entirely", "They are always repeated twice"], answer: 1 },
+            { q: "What is one problem with relying only on transcripts, according to the writer?", options: ["It's illegal", "It rarely builds intuitive processing speed", "It's too expensive", "It only works for beginners"], answer: 1 },
+            { q: "What strategy does the writer recommend?", options: ["Giving up after one attempt", "Repeated, relaxed listening focusing first on gist", "Reading only, never listening", "Memorizing dictionaries"], answer: 1 },
+            { q: "What does the writer imply about learners who quit early?", options: ["They would have succeeded anyway", "They likely give up right before things start to improve", "They made the right decision", "Early quitting has no real consequence"], answer: 1 }
+          ]
         }
       ],
       writing: [
         { prompt: "Escreva 3 frases usando formas reduzidas (gonna, wanna, gotta) como você as ouviria faladas.", minWords: 15, modelAnswer: "I'm gonna call her later. Do you wanna come with us? I gotta finish this first." },
-        { prompt: "Escreva sobre suas estratégias pessoais para entender falantes nativos de inglês.", minWords: 20, modelAnswer: "I listen to podcasts every day. I focus on the general meaning instead of every word. I watch movies with English subtitles first." }
+        { prompt: "Escreva sobre suas estratégias pessoais para entender falantes nativos de inglês.", minWords: 20, modelAnswer: "I listen to podcasts every day. I focus on the general meaning instead of every word. I watch movies with English subtitles first." },
+        { prompt: "Escreva um texto (140-175 palavras) argumentando se as escolas de idiomas deveriam ensinar fala reduzida e conectada (gonna, wanna, whaddaya) desde os níveis iniciais ou apenas em níveis avançados. Justifique sua opinião com pelo menos um exemplo pessoal.", minWords: 140, minSentences: 7, requiredStructures: ["in my opinion", "for example", "on the other hand"], targetWords: ["reduction", "context", "fluent"], modelAnswer: "In my opinion, language schools should introduce connected speech and common reductions much earlier than they currently do, rather than saving them exclusively for advanced levels. For example, when I first tried watching English movies without subtitles, I understood almost nothing, even though I had studied grammar for years — the gap between textbook English and real speech felt enormous. Had my early lessons included even brief exposure to reductions like 'gonna' or 'wanna', I believe I would have developed a more accurate sense of how native speakers actually sound. On the other hand, beginners already face considerable cognitive load while learning basic vocabulary and grammar, so overwhelming them with too many reduced forms too soon could backfire. A reasonable compromise might involve introducing a small, carefully chosen set of reductions once learners reach an intermediate level, gradually expanding their exposure to natural context and pace as their listening skills improve. Ultimately, the goal should be to sound genuinely fluent in real conversations, not simply fluent in a classroom simulation that rarely resembles how people actually speak." }
       ],
       speaking: [
         { phrase: "I'm gonna call you later.", tip: "'Gonna' é uma pronúncia natural, não um erro — mas evite escrever assim em textos formais." },
         { phrase: "Do you wanna go out tonight?", tip: "'Wanna' junta 'want' e 'to' em um único som." },
         { phrase: "I gotta finish this first.", tip: "'Gotta' vem de 'got to', usado como 'tenho que'." },
         { phrase: "Whaddaya think?", tip: "Essa é uma forma extremamente reduzida de 'What do you think?' — comum apenas na fala muito informal." },
-        { phrase: "Lemme know when you're free.", tip: "'Lemme' é a redução de 'let me'." }
+        { phrase: "Lemme know when you're free.", tip: "'Lemme' é a redução de 'let me'." },
+        { phrase: "Compared to what we learn in textbooks, real native speech is much faster and full of reductions like 'gonna' and 'wanna', which can make everyday conversations far harder to follow at first.", tip: "Compare o inglês que você aprende em sala de aula com o inglês real falado por nativos. Fale por pelo menos 20-30 segundos, mencionando ao menos duas diferenças." }
       ],
       exercises: {
         fillBlanks: [
@@ -620,18 +711,18 @@ APP_DATA.c1 = {
         ]
       },
       quiz: [
-        { q: "What does 'gonna' come from?", options: ["Got to", "Going to", "Want to", "Give to"], answer: 1 },
-        { q: "What does 'wanna' come from?", options: ["Want to", "Was not", "Will not", "Want a"], answer: 0 },
+        { q: "What does 'gonna' come from?", options: ["Got to", "Going to", "Want to", "Give to"], answer: 1, explanation: "'Gonna' é a redução informal falada de 'going to', usada para expressar planos ou intenções futuras." },
+        { q: "What does 'wanna' come from?", options: ["Want to", "Was not", "Will not", "Want a"], answer: 0, explanation: "'Wanna' é a contração falada de 'want to', comum na fala rápida e informal, mas evitada na escrita formal." },
         { type: "tf", q: "Reduced forms like 'gonna' and 'wanna' should be used in formal academic writing.", answer: false, explanation: "Formas reduzidas são apropriadas para a fala informal, não para a escrita formal/acadêmica." },
-        { q: "What does 'gotta' mean?", options: ["Got a", "Have to/Got to", "Going away", "Get out"], answer: 1 },
-        { type: "short", q: "Complete: 'Lemme know' means 'Let ___ know'.", answer: ["me"] },
-        { q: "'Native speaker' means:", options: ["Alguém aprendendo um idioma", "Alguém que fala o idioma nativamente", "Um professor", "Um tradutor"], answer: 1 },
+        { q: "What does 'gotta' mean?", options: ["Got a", "Have to/Got to", "Going away", "Get out"], answer: 1, explanation: "'Gotta' é a forma reduzida de 'got to' ou 'have to', usada na fala informal para expressar obrigação." },
+        { type: "short", q: "Complete: 'Lemme know' means 'Let ___ know'.", answer: ["me"], explanation: "'Lemme' é a redução falada de 'let me', muito comum em pedidos informais como 'lemme know'." },
+        { q: "'Native speaker' means:", options: ["Alguém aprendendo um idioma", "Alguém que fala o idioma nativamente", "Um professor", "Um tradutor"], answer: 1, explanation: "'Native speaker' é a pessoa que aprendeu e fala um idioma desde a infância, como sua língua materna." },
         { type: "tf", q: "Understanding every single word is necessary to understand native speech.", answer: false, explanation: "É mais eficaz focar no significado geral e nas palavras com ênfase, não em cada palavra isoladamente." },
-        { q: "'Slang' means:", options: ["Linguagem formal", "Gíria", "Gramática", "Pronúncia"], answer: 1 },
-        { q: "'Context' helps you:", options: ["Ignorar o significado", "Adivinhar palavras desconhecidas", "Falar mais rápido", "Escrever formalmente"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ finish this first.' (gotta)", answer: ["gotta"] },
-        { q: "Choose the best strategy for understanding fast native speech.", options: ["Translate every word", "Focus on stressed words and context", "Give up listening", "Only read subtitles"], answer: 1 },
-        { type: "tf", q: "'Accent' refers to the way people from different regions pronounce words.", answer: true }
+        { q: "'Slang' means:", options: ["Linguagem formal", "Gíria", "Gramática", "Pronúncia"], answer: 1, explanation: "'Slang' refere-se a uma linguagem informal e coloquial, geralmente usada por grupos específicos, diferente do inglês formal." },
+        { q: "'Context' helps you:", options: ["Ignorar o significado", "Adivinhar palavras desconhecidas", "Falar mais rápido", "Escrever formalmente"], answer: 1, explanation: "O contexto fornece pistas que ajudam a inferir o significado de palavras desconhecidas, sem precisar traduzir cada uma isoladamente." },
+        { type: "short", q: "Complete: 'I ___ finish this first.' (gotta)", answer: ["gotta"], explanation: "'Gotta' é a forma reduzida e informal de 'have got to'/'have to', usada para expressar uma obrigação imediata." },
+        { q: "Choose the best strategy for understanding fast native speech.", options: ["Translate every word", "Focus on stressed words and context", "Give up listening", "Only read subtitles"], answer: 1, explanation: "A estratégia mais eficaz é focar nas palavras com ênfase e usar o contexto geral, em vez de tentar traduzir cada palavra isoladamente." },
+        { type: "tf", q: "'Accent' refers to the way people from different regions pronounce words.", answer: true, explanation: "'Accent' descreve as variações de pronúncia associadas a uma região, país ou grupo social, sem alterar o vocabulário ou a gramática usados." }
       ]
     },
     {
@@ -668,16 +759,16 @@ APP_DATA.c1 = {
         ]
       },
       vocabulary: [
-        { word: "Argue", phonetic: "/ˈɑːrɡjuː/", translation: "Argumentar", example: "I would argue that this is unfair.", exampleTranslation: "Eu argumentaria que isto é injusto." },
-        { word: "Counter-argument", phonetic: "/ˈkaʊntər ˈɑːrɡjəmənt/", translation: "Contra-argumento", example: "Let me offer a counter-argument.", exampleTranslation: "Deixe-me oferecer um contra-argumento." },
-        { word: "Point of view", phonetic: "/pɔɪnt ʌv vjuː/", translation: "Ponto de vista", example: "I understand your point of view.", exampleTranslation: "Eu entendo seu ponto de vista." },
-        { word: "Concede", phonetic: "/kənˈsiːd/", translation: "Conceder/Admitir", example: "I concede that you have a valid point.", exampleTranslation: "Eu concedo que você tem um ponto válido." },
-        { word: "Persuade", phonetic: "/pərˈsweɪd/", translation: "Persuadir", example: "Her speech persuaded the audience.", exampleTranslation: "O discurso dela persuadiu a audiência." },
-        { word: "Debatable", phonetic: "/dɪˈbeɪtəbəl/", translation: "Discutível", example: "That claim is highly debatable.", exampleTranslation: "Essa afirmação é altamente discutível." },
-        { word: "Bias", phonetic: "/ˈbaɪəs/", translation: "Viés/Preconceito", example: "Every source has some bias.", exampleTranslation: "Toda fonte tem algum viés." },
-        { word: "Valid", phonetic: "/ˈvælɪd/", translation: "Válido(a)", example: "That's a valid concern.", exampleTranslation: "Essa é uma preocupação válida." },
-        { word: "Rebuttal", phonetic: "/rɪˈbʌtəl/", translation: "Réplica/Refutação", example: "Her rebuttal was very convincing.", exampleTranslation: "A réplica dela foi muito convincente." },
-        { word: "Compromise", phonetic: "/ˈkɒmprəmaɪz/", translation: "Compromisso/Meio-termo", example: "We need to find a compromise.", exampleTranslation: "Precisamos encontrar um meio-termo." }
+        { id: "c1-m5-argue", word: "Argue", phonetic: "/ˈɑːrɡjuː/", translation: "Argumentar", example: "I would argue that this is unfair.", exampleTranslation: "Eu argumentaria que isto é injusto." },
+        { id: "c1-m5-counter-argument", word: "Counter-argument", phonetic: "/ˈkaʊntər ˈɑːrɡjəmənt/", translation: "Contra-argumento", example: "Let me offer a counter-argument.", exampleTranslation: "Deixe-me oferecer um contra-argumento." },
+        { id: "c1-m5-point-of-view", word: "Point of view", phonetic: "/pɔɪnt ʌv vjuː/", translation: "Ponto de vista", example: "I understand your point of view.", exampleTranslation: "Eu entendo seu ponto de vista." },
+        { id: "c1-m5-concede", word: "Concede", phonetic: "/kənˈsiːd/", translation: "Conceder/Admitir", example: "I concede that you have a valid point.", exampleTranslation: "Eu concedo que você tem um ponto válido." },
+        { id: "c1-m5-persuade", word: "Persuade", phonetic: "/pərˈsweɪd/", translation: "Persuadir", example: "Her speech persuaded the audience.", exampleTranslation: "O discurso dela persuadiu a audiência." },
+        { id: "c1-m5-debatable", word: "Debatable", phonetic: "/dɪˈbeɪtəbəl/", translation: "Discutível", example: "That claim is highly debatable.", exampleTranslation: "Essa afirmação é altamente discutível." },
+        { id: "c1-m5-bias", word: "Bias", phonetic: "/ˈbaɪəs/", translation: "Viés/Preconceito", example: "Every source has some bias.", exampleTranslation: "Toda fonte tem algum viés." },
+        { id: "c1-m5-valid", word: "Valid", phonetic: "/ˈvælɪd/", translation: "Válido(a)", example: "That's a valid concern.", exampleTranslation: "Essa é uma preocupação válida." },
+        { id: "c1-m5-rebuttal", word: "Rebuttal", phonetic: "/rɪˈbʌtəl/", translation: "Réplica/Refutação", example: "Her rebuttal was very convincing.", exampleTranslation: "A réplica dela foi muito convincente." },
+        { id: "c1-m5-compromise", word: "Compromise", phonetic: "/ˈkɒmprəmaɪz/", translation: "Compromisso/Meio-termo", example: "We need to find a compromise.", exampleTranslation: "Precisamos encontrar um meio-termo." }
       ],
       grammar: {
         title: "Estruturas para Debate Formal",
@@ -704,6 +795,16 @@ APP_DATA.c1 = {
             { q: "What does Speaker B counter?", options: ["That it depends on the role", "That remote work is always bad", "That nothing matters", "That productivity is unrelated to work type"], answer: 0 },
             { q: "What compromise does Speaker A concede to?", options: ["Fully remote work only", "Fully in-person work only", "A hybrid model", "No compromise at all"], answer: 2 }
           ]
+        },
+        {
+          title: "A Radio Debate Segment",
+          accent: "australian",
+          transcript: "Host: Tonight we're discussing whether social media companies should be held legally responsible for harmful content. Guest: I would argue that platforms profit enormously from user engagement, so they bear at least some responsibility for what spreads on their sites. Host: I see your point, but wouldn't that turn private companies into censors of public speech? Guest: That's a fair concern, and I concede that heavy-handed regulation could backfire. Nevertheless, self-regulation alone has clearly failed so far. Host: So what's your proposed compromise? Guest: Independent oversight boards, perhaps, with real enforcement power but clear limits on what they can remove. Host: A reasonable middle ground, it seems. We'll continue this discussion after the break.",
+          questions: [
+            { q: "What is the debate mainly about?", options: ["Advertising costs", "Whether social media companies should be legally responsible for harmful content", "Internet speed", "Music streaming"], answer: 1 },
+            { q: "What compromise does the guest propose?", options: ["Banning social media entirely", "Independent oversight boards with limited power", "No regulation at all", "Government ownership of platforms"], answer: 1 },
+            { q: "What does the host imply by calling the proposal 'a reasonable middle ground'?", options: ["The host completely disagrees with the guest", "The host finds the proposal balanced and acceptable", "The host thinks the debate is pointless", "The host wants stricter censorship"], answer: 1 }
+          ]
         }
       ],
       reading: [
@@ -715,18 +816,30 @@ APP_DATA.c1 = {
             { q: "What do critics counter?", options: ["Technology is always good", "Excessive screen time can hinder learning and social skills", "There are no critics", "Technology is required by law"], answer: 1 },
             { q: "What do many experts suggest?", options: ["Banning technology completely", "A balanced, thoughtful approach", "Ignoring the debate", "Using technology all day"], answer: 1 }
           ]
+        },
+        {
+          title: "Should Universities Charge Tuition?",
+          text: "Few issues in higher education provoke as much disagreement as the question of tuition. Advocates of free public universities argue that education is a public good, comparable to healthcare or basic infrastructure, and that charging tuition simply reproduces existing inequalities across generations. One could counter, however, that entirely free tuition places enormous strain on public budgets, potentially at the expense of primary and secondary education, which arguably need funding just as urgently. Proponents of tuition-based systems, meanwhile, contend that some level of cost-sharing encourages students to take their studies more seriously and gives universities the financial independence to invest in research. Critics respond that this argument, however plausible in theory, tends to ignore the disproportionate burden placed on low-income students, who are often deterred from applying altogether. While both positions rest on genuinely defensible premises, neither fully accounts for the wide variation among countries that have experimented with different models, some successfully, others less so. Rather than settling the debate outright, this variation suggests that the answer may depend as much on a country's broader social contract as on the economics of higher education itself.",
+          questions: [
+            { q: "What do advocates of free tuition compare education to?", options: ["A luxury good", "A public good like healthcare", "A private investment", "A form of entertainment"], answer: 1 },
+            { q: "What do critics say about cost-sharing in tuition-based systems?", options: ["It helps low-income students the most", "It disproportionately burdens low-income students", "It has no effect on students", "It only affects wealthy students"], answer: 1 },
+            { q: "What can be inferred about the writer's own position on tuition?", options: ["They strongly favor free tuition for everyone", "They present a balanced view without committing to one side", "They believe tuition should be extremely high", "They think the debate has already been settled"], answer: 1 },
+            { q: "What does the variation among countries suggest, according to the writer?", options: ["That there is one universal correct answer", "That the answer may depend on a country's broader social contract", "That tuition should always be free", "That research proves tuition-based systems are best"], answer: 1 }
+          ]
         }
       ],
       writing: [
         { prompt: "Escreva um parágrafo argumentando sua opinião sobre um tema atual, usando pelo menos 2 estruturas de debate formal.", minWords: 40, modelAnswer: "I would argue that technology has transformed education for the better. While that may be true for access to information, one could counter that it also creates distractions. Nevertheless, I concede that a balanced approach is likely the best solution." },
-        { prompt: "Escreva um contra-argumento educado para a seguinte opinião: 'Trabalho remoto é sempre melhor que trabalho presencial.'", minWords: 25, modelAnswer: "I see your point, but I would counter that remote work isn't ideal for every role. While it offers flexibility, some jobs require in-person collaboration to function effectively." }
+        { prompt: "Escreva um contra-argumento educado para a seguinte opinião: 'Trabalho remoto é sempre melhor que trabalho presencial.'", minWords: 25, modelAnswer: "I see your point, but I would counter that remote work isn't ideal for every role. While it offers flexibility, some jobs require in-person collaboration to function effectively." },
+        { prompt: "Escreva um texto argumentativo (150-175 palavras) defendendo um lado do debate 'A tecnologia melhora ou piora as relações humanas?'. Reconheça o ponto de vista oposto antes de defender sua posição, usando pelo menos duas estruturas de debate formal desta lição (I would argue that, while that may be true, I concede that).", minWords: 150, minSentences: 6, requiredStructures: ["I would argue that", "while that may be true", "I concede that"], targetWords: ["persuade", "valid", "compromise"], modelAnswer: "I would argue that technology has, on balance, strengthened human relationships rather than weakened them, despite widespread concern to the contrary. Critics often point out that constant screen use replaces face-to-face conversation, and while that may be true in some households, it overlooks how video calls and messaging now sustain relationships across distances that would once have ended in silence. I concede that social media can encourage shallow, performative interactions rather than genuine connection, and this is a valid criticism that deserves serious attention. However, blaming the technology itself misses a more important point: the same tools that enable superficial scrolling also allow immigrants to speak daily with family abroad, or old friends to reconnect after decades apart. Rather than framing this as a simple contest between technology and authentic connection, I think what should persuade a fair-minded skeptic is the idea that technology is a neutral instrument whose effect depends entirely on how deliberately it is used. A sensible compromise, then, involves teaching people to use these tools intentionally, rather than either rejecting or blindly embracing them." }
       ],
       speaking: [
         { phrase: "I would argue that this approach is better.", tip: "Soa mais formal e sofisticado do que simplesmente 'I think'." },
         { phrase: "I see your point, but I would counter that...", tip: "Essa estrutura reconhece o outro lado antes de discordar — muito educada." },
         { phrase: "While that may be true, there's another factor to consider.", tip: "'While' aqui significa 'embora', não 'enquanto' (tempo)." },
         { phrase: "I concede that this has some merit.", tip: "'Concede' tem acento na segunda sílaba: con-CEDE." },
-        { phrase: "We need to find a compromise.", tip: "'Compromise' tem acento na primeira sílaba: COM-pro-mise." }
+        { phrase: "We need to find a compromise.", tip: "'Compromise' tem acento na primeira sílaba: COM-pro-mise." },
+        { phrase: "I would argue that remote work benefits most employees, and while that may be true for some roles, I still believe companies should offer it as the default option.", tip: "Defenda uma posição sobre um tema controverso à sua escolha (ex: trabalho remoto, redes sociais, uso de IA). Reconheça o lado oposto antes de argumentar. Fale por pelo menos 25-30 segundos." }
       ],
       exercises: {
         fillBlanks: [
@@ -778,18 +891,18 @@ APP_DATA.c1 = {
         ]
       },
       quiz: [
-        { q: "Choose a sophisticated way to introduce an opinion.", options: ["I think that...", "I would argue that...", "I guess that...", "Maybe that..."], answer: 1 },
-        { q: "Choose the polite way to disagree in a formal debate.", options: ["You're wrong.", "I see your point, but I would counter that...", "No way.", "That's stupid."], answer: 1 },
+        { q: "Choose a sophisticated way to introduce an opinion.", options: ["I think that...", "I would argue that...", "I guess that...", "Maybe that..."], answer: 1, explanation: "'I would argue that...' é uma forma mais sofisticada e formal de apresentar uma opinião do que o simples 'I think', comum em debates e redações acadêmicas." },
+        { q: "Choose the polite way to disagree in a formal debate.", options: ["You're wrong.", "I see your point, but I would counter that...", "No way.", "That's stupid."], answer: 1, explanation: "'I see your point, but I would counter that...' reconhece o argumento do outro antes de discordar, uma estratégia educada típica de debates formais." },
         { type: "tf", q: "'Concede' means to fully agree with everything the other person says.", answer: false, explanation: "'Concede' significa admitir que um ponto específico é válido, não concordar com tudo." },
-        { q: "'Persuade' means:", options: ["Convencer", "Discordar", "Ignorar", "Confundir"], answer: 0 },
-        { type: "short", q: "Complete: 'We need to find a ___.' (meio-termo)", answer: ["compromise"] },
-        { q: "'Bias' means:", options: ["Fato", "Viés/Preconceito", "Evidência", "Conclusão"], answer: 1 },
-        { type: "tf", q: "'While that may be true' is used to introduce a counter-argument politely.", answer: true },
-        { q: "Choose the correct sentence.", options: ["I would argue this is necessary that.", "I would argue that this is necessary.", "I argue would that this is necessary.", "That I would argue is necessary."], answer: 1 },
-        { q: "'Rebuttal' means:", options: ["Concordância", "Réplica/Refutação", "Pergunta", "Resumo"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ that you have a valid point.' (concedo)", answer: ["concede"] },
-        { q: "Choose the correct sentence.", options: ["I see you point but disagree.", "I see your point, but I disagree.", "I see your point but I am disagree.", "I see your point, but disagreeing."], answer: 1 },
-        { type: "tf", q: "Good arguments should be supported by evidence and examples, not just opinion.", answer: true }
+        { q: "'Persuade' means:", options: ["Convencer", "Discordar", "Ignorar", "Confundir"], answer: 0, explanation: "'Persuade' significa convencer alguém a acreditar em algo ou a agir de determinada forma, geralmente por meio de argumentos ou apelos emocionais." },
+        { type: "short", q: "Complete: 'We need to find a ___.' (meio-termo)", answer: ["compromise"], explanation: "'Compromise' é a solução intermediária que satisfaz parcialmente as partes envolvidas em um desacordo, equivalente a 'meio-termo'." },
+        { q: "'Bias' means:", options: ["Fato", "Viés/Preconceito", "Evidência", "Conclusão"], answer: 1, explanation: "'Bias' refere-se a uma inclinação ou preconceito que afeta a imparcialidade de uma opinião, argumento ou fonte de informação." },
+        { type: "tf", q: "'While that may be true' is used to introduce a counter-argument politely.", answer: true, explanation: "Essa estrutura reconhece parcialmente o ponto do interlocutor antes de introduzir um contra-argumento, suavizando o tom do desacordo." },
+        { q: "Choose the correct sentence.", options: ["I would argue this is necessary that.", "I would argue that this is necessary.", "I argue would that this is necessary.", "That I would argue is necessary."], answer: 1, explanation: "A ordem correta é 'I would argue that this is necessary', com 'that' introduzindo a oração subordinada logo após o verbo principal." },
+        { q: "'Rebuttal' means:", options: ["Concordância", "Réplica/Refutação", "Pergunta", "Resumo"], answer: 1, explanation: "'Rebuttal' é a resposta que refuta ou contesta um argumento apresentado anteriormente, geralmente com evidências ou contra-argumentos." },
+        { type: "short", q: "Complete: 'I ___ that you have a valid point.' (concedo)", answer: ["concede"], explanation: "'Concede' significa admitir que um ponto específico do outro é válido, mesmo mantendo uma posição diferente no geral." },
+        { q: "Choose the correct sentence.", options: ["I see you point but disagree.", "I see your point, but I disagree.", "I see your point but I am disagree.", "I see your point, but disagreeing."], answer: 1, explanation: "A estrutura correta usa 'but I disagree', com sujeito e verbo completos; as demais opções têm erros gramaticais, como sujeito ausente ou gerúndio incorreto." },
+        { type: "tf", q: "Good arguments should be supported by evidence and examples, not just opinion.", answer: true, explanation: "Argumentos convincentes se apoiam em evidências, dados e exemplos concretos, e não apenas em opiniões pessoais sem embasamento." }
       ]
     },
     {
@@ -826,19 +939,19 @@ APP_DATA.c1 = {
         ]
       },
       vocabulary: [
-        { word: "Make an effort", phonetic: "/meɪk ən ˈɛfərt/", translation: "Fazer um esforço", example: "She made a real effort to improve.", exampleTranslation: "Ela fez um esforço real para melhorar." },
-        { word: "Take responsibility", phonetic: "/teɪk rɪˌspɒnsəˈbɪləti/", translation: "Assumir responsabilidade", example: "He took responsibility for the mistake.", exampleTranslation: "Ele assumiu a responsabilidade pelo erro." },
-        { word: "Heavy rain", phonetic: "/ˈhɛvi reɪn/", translation: "Chuva forte", example: "There was heavy rain last night.", exampleTranslation: "Houve chuva forte ontem à noite." },
-        { word: "Deeply concerned", phonetic: "/ˈdiːpli kənˈsɜːrnd/", translation: "Profundamente preocupado", example: "We are deeply concerned about the results.", exampleTranslation: "Estamos profundamente preocupados com os resultados." },
-        { word: "Strictly forbidden", phonetic: "/ˈstrɪktli fərˈbɪdən/", translation: "Estritamente proibido", example: "Smoking is strictly forbidden here.", exampleTranslation: "Fumar é estritamente proibido aqui." },
-        { word: "Highly unlikely", phonetic: "/ˈhaɪli ənˈlaɪkli/", translation: "Altamente improvável", example: "It's highly unlikely to happen.", exampleTranslation: "É altamente improvável que aconteça." },
-        { word: "Reach an agreement", phonetic: "/riːtʃ ən əˈɡriːmənt/", translation: "Chegar a um acordo", example: "They finally reached an agreement.", exampleTranslation: "Eles finalmente chegaram a um acordo." },
-        { word: "Raise awareness", phonetic: "/reɪz əˈwɛrnəs/", translation: "Aumentar a conscientização", example: "The campaign aims to raise awareness.", exampleTranslation: "A campanha visa aumentar a conscientização." },
-        { word: "Bitterly disappointed", phonetic: "/ˈbɪtərli ˌdɪsəˈpɔɪntɪd/", translation: "Amargamente desapontado", example: "I was bitterly disappointed by the result.", exampleTranslation: "Fiquei amargamente desapontado com o resultado." },
-        { word: "Pay attention", phonetic: "/peɪ əˈtɛnʃən/", translation: "Prestar atenção", example: "Please pay attention to the details.", exampleTranslation: "Por favor, preste atenção aos detalhes." }
+        { id: "c1-m6-make-an-effort", word: "Make an effort", phonetic: "/meɪk ən ˈɛfərt/", translation: "Fazer um esforço", example: "She made a real effort to improve.", exampleTranslation: "Ela fez um esforço real para melhorar." },
+        { id: "c1-m6-take-responsibility", word: "Take responsibility", phonetic: "/teɪk rɪˌspɒnsəˈbɪləti/", translation: "Assumir responsabilidade", example: "He took responsibility for the mistake.", exampleTranslation: "Ele assumiu a responsabilidade pelo erro." },
+        { id: "c1-m6-heavy-rain", word: "Heavy rain", phonetic: "/ˈhɛvi reɪn/", translation: "Chuva forte", example: "There was heavy rain last night.", exampleTranslation: "Houve chuva forte ontem à noite." },
+        { id: "c1-m6-deeply-concerned", word: "Deeply concerned", phonetic: "/ˈdiːpli kənˈsɜːrnd/", translation: "Profundamente preocupado", example: "We are deeply concerned about the results.", exampleTranslation: "Estamos profundamente preocupados com os resultados." },
+        { id: "c1-m6-strictly-forbidden", word: "Strictly forbidden", phonetic: "/ˈstrɪktli fərˈbɪdən/", translation: "Estritamente proibido", example: "Smoking is strictly forbidden here.", exampleTranslation: "Fumar é estritamente proibido aqui." },
+        { id: "c1-m6-highly-unlikely", word: "Highly unlikely", phonetic: "/ˈhaɪli ənˈlaɪkli/", translation: "Altamente improvável", example: "It's highly unlikely to happen.", exampleTranslation: "É altamente improvável que aconteça." },
+        { id: "c1-m6-reach-an-agreement", word: "Reach an agreement", phonetic: "/riːtʃ ən əˈɡriːmənt/", translation: "Chegar a um acordo", example: "They finally reached an agreement.", exampleTranslation: "Eles finalmente chegaram a um acordo." },
+        { id: "c1-m6-raise-awareness", word: "Raise awareness", phonetic: "/reɪz əˈwɛrnəs/", translation: "Aumentar a conscientização", example: "The campaign aims to raise awareness.", exampleTranslation: "A campanha visa aumentar a conscientização." },
+        { id: "c1-m6-bitterly-disappointed", word: "Bitterly disappointed", phonetic: "/ˈbɪtərli ˌdɪsəˈpɔɪntɪd/", translation: "Amargamente desapontado", example: "I was bitterly disappointed by the result.", exampleTranslation: "Fiquei amargamente desapontado com o resultado." },
+        { id: "c1-m6-pay-attention", word: "Pay attention", phonetic: "/peɪ əˈtɛnʃən/", translation: "Prestar atenção", example: "Please pay attention to the details.", exampleTranslation: "Por favor, preste atenção aos detalhes." }
       ],
       grammar: {
-        title: "Verbos Coletores: Make, Do, Take, Have",
+        title: "Collocations com Make, Do, Take e Have",
         explanation: "Estes quatro verbos formam collocations com substantivos específicos que não seguem uma lógica de tradução direta.",
         table: {
           headers: ["Verbo", "Collocations comuns"],
@@ -862,6 +975,16 @@ APP_DATA.c1 = {
             { q: "What do they agree to do?", options: ["Give up", "Make an effort to finish early", "Ignore the problem", "Blame someone else"], answer: 1 },
             { q: "What does B say is highly unlikely?", options: ["Success", "More problems if they pay attention", "Finishing on time", "Nothing"], answer: 1 }
           ]
+        },
+        {
+          title: "A Job Performance Review",
+          accent: "british",
+          transcript: "Manager: Thanks for coming in. Overall, you've made real progress this quarter, and I want to say I've paid close attention to your reports. Employee: Thank you, I've made a real effort to take more responsibility on the new project. Manager: It shows. Honestly, I was deeply concerned in January about the missed deadlines, but you've clearly taken that feedback seriously. Employee: I appreciate you saying that. I did have a difficult conversation with the team about it. Manager: That took courage, and it's highly unlikely we'll see the same issues again if this continues. Employee: I'll keep making an effort. Manager: Good. Let's reach an agreement on your goals for next quarter before you go.",
+          questions: [
+            { q: "What is happening in this conversation?", options: ["A job interview", "A performance review", "A resignation meeting", "A sales pitch"], answer: 1 },
+            { q: "What was the manager deeply concerned about in January?", options: ["Missed deadlines", "The employee's attitude", "Budget cuts", "A resignation"], answer: 0 },
+            { q: "What does the manager imply about the employee's future at the company?", options: ["The manager expects them to be fired soon", "The manager seems optimistic about their continued improvement", "The manager is indifferent to their performance", "The manager plans to demote them"], answer: 1 }
+          ]
         }
       ],
       reading: [
@@ -873,18 +996,30 @@ APP_DATA.c1 = {
             { q: "What is the correct collocation for rain?", options: ["Strong rain", "Heavy rain", "Big rain", "Hard rain"], answer: 1 },
             { q: "What is one of the most effective ways to sound natural, according to the text?", options: ["Learning individual words only", "Learning collocations as whole chunks", "Avoiding new words", "Speaking slowly"], answer: 1 }
           ]
+        },
+        {
+          title: "A Difficult Announcement",
+          text: "When the CEO finally called an all-hands meeting, most employees assumed the company had reached an agreement with a new investor. Instead, she announced that the firm would be making significant cuts across several departments. She made it clear that this decision had not been taken lightly, and that leadership had made every effort to avoid layoffs before concluding they had no other option. Several employees were bitterly disappointed, having taken on extra responsibilities over the past year in the hope of promotion rather than redundancy. Others, more pragmatically, had quietly suspected something was wrong for weeks — the constant closed-door meetings and the CFO's uncharacteristically grim expression had not gone unnoticed. In her closing remarks, the CEO promised to raise awareness internally about support resources available to affected staff, and urged remaining employees to pay attention to updates over the following days. Whatever goodwill the announcement preserved seemed to rest less on its content than on the evident discomfort with which it was delivered — a discomfort that, oddly, made the news slightly easier to accept.",
+          questions: [
+            { q: "What did most employees initially assume the meeting was about?", options: ["Layoffs", "A new investor agreement", "A holiday party", "A merger with a competitor"], answer: 1 },
+            { q: "What does the text say leadership did before deciding on cuts?", options: ["Made no effort at all", "Made every effort to avoid layoffs", "Immediately fired everyone", "Ignored the problem"], answer: 1 },
+            { q: "Why were some employees bitterly disappointed?", options: ["They expected a raise, not layoffs", "They had taken on extra responsibilities hoping for promotion", "They disliked the CEO personally", "They wanted more vacation days"], answer: 1 },
+            { q: "What can be inferred about why the announcement was 'slightly easier to accept'?", options: ["Because the CEO seemed visibly uncomfortable delivering it, which humanized the news", "Because employees were told they would all get raises", "Because nobody actually lost their job", "Because the meeting was very short"], answer: 0 }
+          ]
         }
       ],
       writing: [
         { prompt: "Escreva 4 frases usando collocations diferentes com make, do, take e have.", minWords: 20, modelAnswer: "I need to make a decision soon. She always does her homework early. He took a big risk last year. We had a wonderful conversation yesterday." },
-        { prompt: "Escreva um parágrafo curto sobre uma preocupação atual, usando pelo menos 2 collocations desta lição (deeply concerned, highly unlikely, etc.).", minWords: 25, modelAnswer: "I am deeply concerned about climate change. It's highly unlikely that the problem will solve itself. We need to raise awareness and make an effort to change our habits." }
+        { prompt: "Escreva um parágrafo curto sobre uma preocupação atual, usando pelo menos 2 collocations desta lição (deeply concerned, highly unlikely, etc.).", minWords: 25, modelAnswer: "I am deeply concerned about climate change. It's highly unlikely that the problem will solve itself. We need to raise awareness and make an effort to change our habits." },
+        { prompt: "Escreva uma carta formal de reclamação (150-170 palavras) a uma empresa sobre um produto ou serviço que causou decepção, usando pelo menos 3 collocations desta lição (deeply concerned, take responsibility, reach an agreement, etc.) de forma natural.", minWords: 150, minSentences: 7, requiredStructures: ["I am writing to", "I would like to", "I look forward to"], targetWords: ["deeply concerned", "take responsibility", "reach an agreement"], modelAnswer: "Dear Customer Service Team, I am writing to express my dissatisfaction with a recent purchase from your online store. I ordered a laptop three weeks ago, and upon arrival, I discovered that it was significantly different from the model advertised on your website. I am deeply concerned that this kind of discrepancy could mislead other customers who make purchasing decisions based on your product descriptions. I would like to point out that I have already made several attempts to contact your support team, without receiving a satisfactory response. In my view, your company needs to take responsibility for this error rather than redirecting me to yet another department. I understand that mistakes happen occasionally, and I have no wish to be unreasonable; however, I do expect a prompt resolution. I would appreciate the opportunity to reach an agreement involving either a full refund or an exchange for the correct model. I look forward to your prompt response and trust that this matter will be resolved fairly." }
       ],
       speaking: [
         { phrase: "She made a difficult decision.", tip: "'Make a decision' é fixo — nunca diga 'do a decision'." },
         { phrase: "We are deeply concerned about the results.", tip: "'Deeply' intensifica 'concerned' — combinação natural e fixa." },
         { phrase: "It's highly unlikely to happen.", tip: "'Highly unlikely' é mais natural que 'very unlikely' em contextos formais." },
         { phrase: "They finally reached an agreement.", tip: "'Reach an agreement' é mais natural que 'arrive at an agreement'." },
-        { phrase: "Please pay attention to the details.", tip: "'Pay attention' é fixo — nunca 'give attention' neste sentido." }
+        { phrase: "Please pay attention to the details.", tip: "'Pay attention' é fixo — nunca 'give attention' neste sentido." },
+        { phrase: "To sum up, our team made a strong effort this quarter, took full responsibility for last year's mistakes, and finally reached an agreement on a clearer plan going forward.", tip: "Resuma uma situação de trabalho (real ou inventada) em que sua equipe teve que assumir responsabilidade por um erro e chegar a um acordo. Use pelo menos duas collocations desta lição." }
       ],
       exercises: {
         fillBlanks: [
@@ -936,17 +1071,17 @@ APP_DATA.c1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct collocation.", options: ["Do a decision", "Make a decision", "Take a decision", "Have a decision"], answer: 1 },
-        { q: "Choose the correct collocation.", options: ["Do homework", "Make homework", "Take homework", "Have homework"], answer: 0 },
-        { type: "tf", q: "'Heavy rain' is the natural collocation, not 'strong rain'.", answer: true },
-        { q: "Choose the correct collocation.", options: ["Take responsibility", "Make responsibility", "Do responsibility", "Have responsibility"], answer: 0 },
-        { type: "short", q: "Complete: 'We are deeply ___ about the results.' (preocupados)", answer: ["concerned"] },
-        { q: "'Raise awareness' means:", options: ["Diminuir a atenção", "Aumentar a conscientização", "Ignorar o problema", "Esconder informação"], answer: 1 },
+        { q: "Choose the correct collocation.", options: ["Do a decision", "Make a decision", "Take a decision", "Have a decision"], answer: 1, explanation: "'Make a decision' é a collocation fixa em inglês; 'do a decision' soa estranho e incorreto para um falante nativo, mesmo sendo gramaticalmente compreensível." },
+        { q: "Choose the correct collocation.", options: ["Do homework", "Make homework", "Take homework", "Have homework"], answer: 0, explanation: "'Do homework' é a collocation correta com 'do'; verbos como 'make' ou 'take' não combinam naturalmente com 'homework'." },
+        { type: "tf", q: "'Heavy rain' is the natural collocation, not 'strong rain'.", answer: true, explanation: "'Heavy rain' é a collocation natural em inglês para descrever chuva forte; 'strong rain' não é uma combinação usada por falantes nativos." },
+        { q: "Choose the correct collocation.", options: ["Take responsibility", "Make responsibility", "Do responsibility", "Have responsibility"], answer: 0, explanation: "'Take responsibility' é a collocation fixa; verbos como 'make', 'do' ou 'have' não combinam naturalmente com 'responsibility' nesse sentido." },
+        { type: "short", q: "Complete: 'We are deeply ___ about the results.' (preocupados)", answer: ["concerned"], explanation: "'Deeply concerned' é uma collocation entre advérbio e adjetivo usada para intensificar a preocupação de forma natural e formal." },
+        { q: "'Raise awareness' means:", options: ["Diminuir a atenção", "Aumentar a conscientização", "Ignorar o problema", "Esconder informação"], answer: 1, explanation: "'Raise awareness' significa aumentar a conscientização ou o conhecimento público sobre um assunto, geralmente através de campanhas." },
         { type: "tf", q: "'Pay attention' can also be correctly said as 'give attention' in every context.", answer: false, explanation: "'Pay attention' é a collocation fixa e natural; 'give attention' não é comum no mesmo sentido." },
-        { q: "Choose the correct sentence.", options: ["They did a big risk.", "They took a big risk.", "They made a big risk.", "They had a big risk."], answer: 1 },
-        { q: "'Bitterly disappointed' means:", options: ["Levemente feliz", "Amargamente desapontado", "Moderadamente satisfeito", "Extremamente animado"], answer: 1 },
-        { type: "short", q: "Complete: 'It's highly ___ to happen.' (improvável)", answer: ["unlikely"] },
-        { q: "Choose the correct sentence.", options: ["We made a great conversation.", "We had a great conversation.", "We did a great conversation.", "We took a great conversation."], answer: 1 },
+        { q: "Choose the correct sentence.", options: ["They did a big risk.", "They took a big risk.", "They made a big risk.", "They had a big risk."], answer: 1, explanation: "'Take a risk' é a collocation correta com 'take'; verbos como 'do', 'make' ou 'have' não se combinam naturalmente com 'risk'." },
+        { q: "'Bitterly disappointed' means:", options: ["Levemente feliz", "Amargamente desapontado", "Moderadamente satisfeito", "Extremamente animado"], answer: 1, explanation: "'Bitterly disappointed' é uma collocation que intensifica 'disappointed' com o advérbio 'bitterly', equivalente a 'amargamente desapontado'." },
+        { type: "short", q: "Complete: 'It's highly ___ to happen.' (improvável)", answer: ["unlikely"], explanation: "'Highly unlikely' é a collocation natural para expressar que algo é muito improvável, mais usada que 'very unlikely' em contextos formais." },
+        { q: "Choose the correct sentence.", options: ["We made a great conversation.", "We had a great conversation.", "We did a great conversation.", "We took a great conversation."], answer: 1, explanation: "'Have a conversation' é a collocation fixa com o verbo 'have'; 'make', 'do' ou 'take' não combinam naturalmente com 'conversation'." },
         { type: "tf", q: "Collocations should be learned as individual words rather than whole chunks.", answer: false, explanation: "É mais eficaz aprender collocations como blocos inteiros, não palavra por palavra." }
       ]
     }
@@ -954,26 +1089,26 @@ APP_DATA.c1 = {
   finalTest: {
     description: "Prova final do nível C1 — 20 questões cobrindo nuances gramaticais, idioms, redação formal, compreensão de fala nativa e debate.",
     questions: [
-      { q: "Choose the correct sentence for a past habit (state verb).", options: ["I would know him well.", "I used to know him well.", "I use to know him well.", "I would known him well."], answer: 1 },
-      { q: "Choose the correct inversion.", options: ["Never I have seen that.", "Never have I seen that.", "I never have seen that.", "Have never I seen that."], answer: 1 },
-      { type: "tf", q: "'Must have' expresses near certainty about a past event.", answer: true },
-      { q: "'Piece of cake' means:", options: ["Muito difícil", "Muito fácil", "Muito caro", "Muito raro"], answer: 1 },
-      { q: "'Under the weather' means:", options: ["Muito feliz", "Um pouco doente", "Com muito frio", "Com muita pressa"], answer: 1 },
-      { type: "short", q: "Complete: 'That car cost an arm and a ___.'", answer: ["leg"] },
-      { q: "Choose the correct formal connector for addition.", options: ["However", "Furthermore", "Whereas", "Despite"], answer: 1 },
-      { q: "Choose the correct formal connector for contrast.", options: ["Moreover", "In addition", "However", "Consequently"], answer: 2 },
-      { type: "tf", q: "Formal academic writing typically uses contractions like 'can't' and 'don't'.", answer: false },
-      { q: "What does 'gonna' come from?", options: ["Got to", "Going to", "Want to", "Give to"], answer: 1 },
-      { q: "What does 'gotta' mean?", options: ["Got a", "Have to/Got to", "Going away", "Get out"], answer: 1 },
-      { type: "tf", q: "Understanding every single word is necessary to understand native speech.", answer: false },
-      { q: "Choose a sophisticated way to introduce an opinion.", options: ["I think that...", "I would argue that...", "I guess that...", "Maybe that..."], answer: 1 },
-      { q: "'Persuade' means:", options: ["Convencer", "Discordar", "Ignorar", "Confundir"], answer: 0 },
-      { type: "short", q: "Complete: 'We need to find a ___.' (meio-termo)", answer: ["compromise"] },
-      { type: "tf", q: "'While that may be true' is used to introduce a counter-argument politely.", answer: true },
-      { q: "'Assumption' means:", options: ["Fato confirmado", "Suposição", "Prova", "Regra"], answer: 1 },
-      { q: "Choose the correct idiom for 'deixar escapar um segredo'.", options: ["Let the cat out of the bag", "Break the ice", "Cost an arm and a leg", "Piece of cake"], answer: 0 },
-      { q: "'Evidence' means:", options: ["Opinião", "Evidência", "Dúvida", "Erro"], answer: 1 },
-      { type: "tf", q: "Good arguments should be supported by evidence and examples, not just opinion.", answer: true }
+      { q: "Choose the correct sentence for a past habit (state verb).", options: ["I would know him well.", "I used to know him well.", "I use to know him well.", "I would known him well."], answer: 1, explanation: "'Know' é um verbo de estado, então apenas 'used to' é possível — 'would' não é usado para estados, só para ações repetidas no passado." },
+      { q: "Choose the correct inversion.", options: ["Never I have seen that.", "Never have I seen that.", "I never have seen that.", "Have never I seen that."], answer: 1, explanation: "Após advérbios negativos como 'never' no início da frase, ocorre inversão sujeito-auxiliar: 'Never have I seen...', e não 'Never I have seen...'." },
+      { type: "tf", q: "'Must have' expresses near certainty about a past event.", answer: true, explanation: "'Must have' + particípio é usado para expressar uma dedução quase certa sobre algo que aconteceu no passado, com base em evidências." },
+      { q: "'Piece of cake' means:", options: ["Muito difícil", "Muito fácil", "Muito caro", "Muito raro"], answer: 1, explanation: "'A piece of cake' é um idiom que descreve algo extremamente fácil de fazer, sem relação literal com bolo." },
+      { q: "'Under the weather' means:", options: ["Muito feliz", "Um pouco doente", "Com muito frio", "Com muita pressa"], answer: 1, explanation: "'Under the weather' é uma forma idiomática e informal de dizer que alguém está um pouco doente ou indisposto." },
+      { type: "short", q: "Complete: 'That car cost an arm and a ___.'", answer: ["leg"], explanation: "'Cost an arm and a leg' significa custar muito caro; a expressão fixa termina em 'leg', não em outra parte do corpo." },
+      { q: "Choose the correct formal connector for addition.", options: ["However", "Furthermore", "Whereas", "Despite"], answer: 1, explanation: "'Furthermore' é usado para acrescentar informação em registro formal, assim como 'moreover' e 'in addition' — diferente de 'however', que indica contraste." },
+      { q: "Choose the correct formal connector for contrast.", options: ["Moreover", "In addition", "However", "Consequently"], answer: 2, explanation: "'However' introduz uma ideia contrastante em registro formal; 'moreover' e 'in addition' indicam adição, e 'consequently' indica consequência." },
+      { type: "tf", q: "Formal academic writing typically uses contractions like 'can't' and 'don't'.", answer: false, explanation: "A escrita formal/acadêmica geralmente evita contrações, preferindo formas completas como 'cannot' e 'do not'." },
+      { q: "What does 'gonna' come from?", options: ["Got to", "Going to", "Want to", "Give to"], answer: 1, explanation: "'Gonna' é a redução informal falada de 'going to', usada para expressar planos ou intenções futuras." },
+      { q: "What does 'gotta' mean?", options: ["Got a", "Have to/Got to", "Going away", "Get out"], answer: 1, explanation: "'Gotta' é a forma reduzida de 'got to' ou 'have to', usada na fala informal para expressar obrigação." },
+      { type: "tf", q: "Understanding every single word is necessary to understand native speech.", answer: false, explanation: "É mais eficaz focar no significado geral e nas palavras com ênfase, não em cada palavra isoladamente." },
+      { q: "Choose a sophisticated way to introduce an opinion.", options: ["I think that...", "I would argue that...", "I guess that...", "Maybe that..."], answer: 1, explanation: "'I would argue that...' é uma forma mais sofisticada e formal de apresentar uma opinião do que o simples 'I think', comum em debates e redações acadêmicas." },
+      { q: "'Persuade' means:", options: ["Convencer", "Discordar", "Ignorar", "Confundir"], answer: 0, explanation: "'Persuade' significa convencer alguém a acreditar em algo ou a agir de determinada forma, geralmente por meio de argumentos ou apelos emocionais." },
+      { type: "short", q: "Complete: 'We need to find a ___.' (meio-termo)", answer: ["compromise"], explanation: "'Compromise' é a solução intermediária que satisfaz parcialmente as partes envolvidas em um desacordo, equivalente a 'meio-termo'." },
+      { type: "tf", q: "'While that may be true' is used to introduce a counter-argument politely.", answer: true, explanation: "Essa estrutura reconhece parcialmente o ponto do interlocutor antes de introduzir um contra-argumento, suavizando o tom do desacordo." },
+      { q: "'Assumption' means:", options: ["Fato confirmado", "Suposição", "Prova", "Regra"], answer: 1, explanation: "'Assumption' é algo aceito como verdade sem prova concreta — corresponde a 'suposição' em português." },
+      { q: "Choose the correct idiom for 'deixar escapar um segredo'.", options: ["Let the cat out of the bag", "Break the ice", "Cost an arm and a leg", "Piece of cake"], answer: 0, explanation: "'Let the cat out of the bag' é o idiom que significa revelar um segredo, geralmente sem querer." },
+      { q: "'Evidence' means:", options: ["Opinião", "Evidência", "Dúvida", "Erro"], answer: 1, explanation: "'Evidence' refere-se a fatos, dados ou provas que sustentam um argumento ou conclusão." },
+      { type: "tf", q: "Good arguments should be supported by evidence and examples, not just opinion.", answer: true, explanation: "Argumentos convincentes se apoiam em evidências, dados e exemplos concretos, e não apenas em opiniões pessoais sem embasamento." }
     ]
   }
 };

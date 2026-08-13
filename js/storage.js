@@ -1,21 +1,62 @@
 var Storage = (function () {
   var KEY = 'englishpath_progress_v1';
+  var SCHEMA_VERSION = 2;
   var LEITNER_INTERVAL_DAYS = [0, 1, 2, 4, 8, 16, 32];
   var STREAK_MILESTONES = [3, 7, 30, 100];
 
   function defaultState() {
     return {
+      schemaVersion: SCHEMA_VERSION,
       completedModules: {},
       completedFinals: {},
       quizHistory: [],
       points: 0,
       badges: [],
       flashcards: {},
+      writingDrafts: {},
+      sessionProgress: {},
       placementResult: null,
+      placementHistory: [],
       lastVisited: null,
       streak: { count: 0, lastDate: null },
       prefs: { theme: 'light', fontSize: 'md' }
     };
+  }
+
+  function migrateLegacyDraftKeys(parsed) {
+    try {
+      var keysToRemove = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.indexOf('draft:') === 0) {
+          var draftKey = k.slice('draft:'.length);
+          parsed.writingDrafts[draftKey] = localStorage.getItem(k);
+          keysToRemove.push(k);
+        }
+      }
+      keysToRemove.forEach(function (k) { localStorage.removeItem(k); });
+    } catch (e) { /* localStorage unavailable, nothing to migrate */ }
+  }
+
+  // originalVersion must be read BEFORE any default-filling touches parsed,
+  // otherwise schemaVersion looks current and legacy migration never runs.
+  function migrate(parsed, originalVersion) {
+    if (originalVersion < 2) {
+      migrateLegacyDraftKeys(parsed);
+      parsed._flashcardMigrationPending = true;
+    }
+    parsed.schemaVersion = SCHEMA_VERSION;
+    return parsed;
+  }
+
+  function fillDefaults(parsed) {
+    var def = defaultState();
+    for (var k in def) {
+      if (!(k in parsed)) parsed[k] = def[k];
+    }
+    if (!parsed.streak) parsed.streak = def.streak;
+    if (!parsed.prefs) parsed.prefs = def.prefs;
+    return parsed;
   }
 
   function load() {
@@ -23,13 +64,9 @@ var Storage = (function () {
       var raw = localStorage.getItem(KEY);
       if (!raw) return defaultState();
       var parsed = JSON.parse(raw);
-      var def = defaultState();
-      for (var k in def) {
-        if (!(k in parsed)) parsed[k] = def[k];
-      }
-      if (!parsed.streak) parsed.streak = def.streak;
-      if (!parsed.prefs) parsed.prefs = def.prefs;
-      return parsed;
+      var originalVersion = parsed.schemaVersion || 1;
+      parsed = fillDefaults(parsed);
+      return migrate(parsed, originalVersion);
     } catch (e) {
       return defaultState();
     }
@@ -52,8 +89,41 @@ var Storage = (function () {
     } catch (e) { /* storage full or blocked, ignore */ }
   }
 
+  // Runs once real vocabulary data (APP_DATA) is available. Maps legacy
+  // word-text flashcard keys to the stable vocabulary id of their first
+  // occurrence (A1 -> C2 -> electives). If the same word appears in more
+  // than one module, only the first occurrence keeps the migrated history —
+  // there is no reliable way to know which instance the user actually
+  // reviewed under the old word-keyed scheme.
+  function migrateFlashcardsByWordToId() {
+    if (!state._flashcardMigrationPending) return;
+    if (!window.APP_DATA || typeof APP_DATA.getModules !== 'function') return;
+    var wordToId = {};
+    var allLevels = (APP_DATA.levels || []).concat(APP_DATA.electives || []);
+    allLevels.forEach(function (lvl) {
+      APP_DATA.getModules(lvl.id).forEach(function (m) {
+        (m.vocabulary || []).forEach(function (v) {
+          if (v.id && !(v.word in wordToId)) wordToId[v.word] = v.id;
+        });
+      });
+    });
+    var oldCards = state.flashcards || {};
+    var migrated = {};
+    Object.keys(oldCards).forEach(function (word) {
+      var id = wordToId[word];
+      if (id) migrated[id] = oldCards[word];
+    });
+    state.flashcards = migrated;
+    delete state._flashcardMigrationPending;
+    persist();
+  }
+
+  function passThreshold() {
+    return (window.APP_DATA && typeof APP_DATA.PASS_THRESHOLD === 'number') ? APP_DATA.PASS_THRESHOLD : 0.6;
+  }
+
   function moduleThreshold(quizScore, quizTotal) {
-    return quizTotal > 0 && (quizScore / quizTotal) >= 0.6;
+    return quizTotal > 0 && (quizScore / quizTotal) >= passThreshold();
   }
 
   function isModuleCompleted(moduleId) {
@@ -67,11 +137,11 @@ var Storage = (function () {
   function isModuleUnlocked(levelId, modules, moduleIndex) {
     if (moduleIndex === 0) return true;
     var prev = modules[moduleIndex - 1];
-    return isModuleCompleted(prev.id);
+    return !!prev && isModuleCompleted(prev.id);
   }
 
   function isFinalUnlocked(levelId, modules) {
-    return modules.every(function (m) { return isModuleCompleted(m.id); });
+    return modules.length > 0 && modules.every(function (m) { return isModuleCompleted(m.id); });
   }
 
   function addBadge(badge) {
@@ -103,7 +173,16 @@ var Storage = (function () {
     persist();
   }
 
-  function completeModule(moduleId, quizScore, quizTotal) {
+  // levelId + modules are required here (not just moduleId) so that this
+  // function itself refuses to persist completion for a module that isn't
+  // actually unlocked yet, even if called directly (e.g. from a console),
+  // bypassing the router-level guard.
+  function completeModule(levelId, moduleId, quizScore, quizTotal) {
+    var modules = (window.APP_DATA && APP_DATA.getModules(levelId)) || [];
+    var idx = modules.findIndex(function (m) { return m.id === moduleId; });
+    if (idx === -1 || !isModuleUnlocked(levelId, modules, idx)) {
+      return { passed: false, isNew: false, earnedPoints: 0, blocked: true };
+    }
     var passed = moduleThreshold(quizScore, quizTotal);
     if (passed) {
       touchStreak();
@@ -128,6 +207,10 @@ var Storage = (function () {
   }
 
   function completeFinal(levelId, quizScore, quizTotal) {
+    var modules = (window.APP_DATA && APP_DATA.getModules(levelId)) || [];
+    if (!isFinalUnlocked(levelId, modules)) {
+      return { passed: false, isNew: false, earnedPoints: 0, blocked: true };
+    }
     var passed = moduleThreshold(quizScore, quizTotal);
     if (passed) {
       touchStreak();
@@ -153,7 +236,7 @@ var Storage = (function () {
   function checkNoRetryBadge(levelId, modules) {
     var allFirstTry = modules.length > 0 && modules.every(function (m) {
       var attempts = state.quizHistory.filter(function (h) { return h.refId === m.id; });
-      return attempts.length === 1 && (attempts[0].score / attempts[0].total) >= 0.6;
+      return attempts.length === 1 && (attempts[0].score / attempts[0].total) >= passThreshold();
     });
     if (allFirstTry) {
       addBadge('no-retry-' + levelId);
@@ -173,18 +256,25 @@ var Storage = (function () {
     return state.quizHistory.filter(function (h) { return h.refId === refId; });
   }
 
-  function setPlacementResult(levelId, answers) {
-    state.placementResult = { levelId: levelId, date: new Date().toISOString() };
+  function setPlacementResult(levelId, correctCount, totalCount) {
+    var entry = { levelId: levelId, date: new Date().toISOString(), correctCount: correctCount, totalCount: totalCount };
+    state.placementResult = entry;
+    state.placementHistory.push(entry);
+    if (state.placementHistory.length > 50) state.placementHistory.shift();
     persist();
   }
 
-  function getFlashcard(word) {
-    return state.flashcards[word] || { box: 0, nextReview: null, seen: 0, correct: 0 };
+  function getPlacementHistory() {
+    return state.placementHistory.slice();
   }
 
-  function reviewFlashcard(word, wasCorrect) {
+  function getFlashcard(id) {
+    return state.flashcards[id] || { box: 0, nextReview: null, seen: 0, correct: 0 };
+  }
+
+  function reviewFlashcard(id, wasCorrect) {
     touchStreak();
-    var card = getFlashcard(word);
+    var card = getFlashcard(id);
     card.seen += 1;
     if (wasCorrect) {
       card.correct += 1;
@@ -196,13 +286,18 @@ var Storage = (function () {
     var next = new Date();
     next.setDate(next.getDate() + days);
     card.nextReview = next.toISOString();
-    state.flashcards[word] = card;
+    state.flashcards[id] = card;
     persist();
+    var totalReviewed = Object.keys(state.flashcards).reduce(function (sum, key) {
+      return sum + (state.flashcards[key].seen || 0);
+    }, 0);
+    if (totalReviewed >= 50) addBadge('flashcards-50');
+    if (totalReviewed >= 200) addBadge('flashcards-200');
     return card;
   }
 
-  function isCardDue(word) {
-    var card = state.flashcards[word];
+  function isCardDue(id) {
+    var card = state.flashcards[id];
     if (!card || !card.nextReview) return true;
     return new Date(card.nextReview).getTime() <= Date.now();
   }
@@ -221,23 +316,85 @@ var Storage = (function () {
     persist();
   }
 
+  function getWritingDraft(draftKey) {
+    return state.writingDrafts[draftKey] || '';
+  }
+
+  function setWritingDraft(draftKey, text) {
+    state.writingDrafts[draftKey] = text;
+    persist();
+  }
+
+  function clearWritingDraft(draftKey) {
+    delete state.writingDrafts[draftKey];
+    persist();
+  }
+
+  function markWritingReviewed(moduleId) {
+    var isFirst = !state.badges.length || state.badges.indexOf('first-writing-review') === -1;
+    if (isFirst) addBadge('first-writing-review');
+    persist();
+  }
+
+  function markSpeakingAttempt(moduleId) {
+    if (addBadge('first-speaking-attempt')) persist();
+  }
+
+  function isSessionCompleted(moduleId, tab) {
+    return !!(state.sessionProgress[moduleId] && state.sessionProgress[moduleId][tab]);
+  }
+
+  function markSessionCompleted(moduleId, tab) {
+    if (!state.sessionProgress[moduleId]) state.sessionProgress[moduleId] = {};
+    state.sessionProgress[moduleId][tab] = true;
+    persist();
+  }
+
   function exportProgress() {
     return JSON.stringify(state, null, 2);
   }
 
-  function importProgress(json) {
-    try {
-      var parsed = JSON.parse(json);
-      var def = defaultState();
-      for (var k in def) {
-        if (!(k in parsed)) parsed[k] = def[k];
-      }
-      state = parsed;
-      persist();
-      return true;
-    } catch (e) {
-      return false;
+  function isPlainObject(v) {
+    return !!v && typeof v === 'object' && !Array.isArray(v);
+  }
+
+  // Validates shape/types before an imported file is allowed to replace the
+  // current state. Returns { ok: true } or { ok: false, error: <mensagem em pt-br> }.
+  function validateImportedShape(parsed) {
+    if (!isPlainObject(parsed)) return { ok: false, error: 'O arquivo não contém um objeto de progresso válido.' };
+    if ('completedModules' in parsed && !isPlainObject(parsed.completedModules)) return { ok: false, error: '"completedModules" deveria ser um objeto.' };
+    if ('completedFinals' in parsed && !isPlainObject(parsed.completedFinals)) return { ok: false, error: '"completedFinals" deveria ser um objeto.' };
+    if ('quizHistory' in parsed && !Array.isArray(parsed.quizHistory)) return { ok: false, error: '"quizHistory" deveria ser uma lista.' };
+    if ('points' in parsed && typeof parsed.points !== 'number') return { ok: false, error: '"points" deveria ser um número.' };
+    if ('badges' in parsed && !Array.isArray(parsed.badges)) return { ok: false, error: '"badges" deveria ser uma lista.' };
+    if ('flashcards' in parsed && !isPlainObject(parsed.flashcards)) return { ok: false, error: '"flashcards" deveria ser um objeto.' };
+    if ('writingDrafts' in parsed && !isPlainObject(parsed.writingDrafts)) return { ok: false, error: '"writingDrafts" deveria ser um objeto.' };
+    if ('sessionProgress' in parsed && !isPlainObject(parsed.sessionProgress)) return { ok: false, error: '"sessionProgress" deveria ser um objeto.' };
+    if ('placementHistory' in parsed && !Array.isArray(parsed.placementHistory)) return { ok: false, error: '"placementHistory" deveria ser uma lista.' };
+    if ('lastVisited' in parsed && parsed.lastVisited !== null && typeof parsed.lastVisited !== 'string') return { ok: false, error: '"lastVisited" deveria ser texto ou nulo.' };
+    if ('streak' in parsed) {
+      if (!isPlainObject(parsed.streak)) return { ok: false, error: '"streak" deveria ser um objeto.' };
+      if ('count' in parsed.streak && typeof parsed.streak.count !== 'number') return { ok: false, error: '"streak.count" deveria ser um número.' };
     }
+    if ('prefs' in parsed && !isPlainObject(parsed.prefs)) return { ok: false, error: '"prefs" deveria ser um objeto.' };
+    return { ok: true };
+  }
+
+  function importProgress(json) {
+    var parsed;
+    try {
+      parsed = JSON.parse(json);
+    } catch (e) {
+      return { ok: false, error: 'O arquivo não é um JSON válido.' };
+    }
+    var check = validateImportedShape(parsed);
+    if (!check.ok) return check;
+    var originalVersion = parsed.schemaVersion || 1;
+    parsed = fillDefaults(parsed);
+    state = migrate(parsed, originalVersion);
+    persist();
+    migrateFlashcardsByWordToId();
+    return { ok: true };
   }
 
   function resetAll() {
@@ -258,15 +415,25 @@ var Storage = (function () {
     recordQuizAttempt: recordQuizAttempt,
     getQuizHistory: getQuizHistory,
     setPlacementResult: setPlacementResult,
+    getPlacementHistory: getPlacementHistory,
     getFlashcard: getFlashcard,
     reviewFlashcard: reviewFlashcard,
     isCardDue: isCardDue,
     setLastVisited: setLastVisited,
     getPref: getPref,
     setPref: setPref,
+    getWritingDraft: getWritingDraft,
+    setWritingDraft: setWritingDraft,
+    clearWritingDraft: clearWritingDraft,
+    markWritingReviewed: markWritingReviewed,
+    markSpeakingAttempt: markSpeakingAttempt,
+    isSessionCompleted: isSessionCompleted,
+    markSessionCompleted: markSessionCompleted,
     touchStreak: touchStreak,
     exportProgress: exportProgress,
     importProgress: importProgress,
-    resetAll: resetAll
+    resetAll: resetAll,
+    migrateFlashcardsByWordToId: migrateFlashcardsByWordToId,
+    passThreshold: passThreshold
   };
 })();

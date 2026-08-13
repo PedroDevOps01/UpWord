@@ -27,6 +27,18 @@ var Achievements = (function () {
       var badgeMod = APP_DATA.getModule(badgeLevelId, badgeModuleId);
       return { icon: 'flag', label: badgeMod ? badgeMod.title : 'Módulo concluído' };
     }
+    if (id === 'first-writing-review') {
+      return { icon: 'check', label: 'Primeira revisão de writing' };
+    }
+    if (id === 'first-speaking-attempt') {
+      return { icon: 'check', label: 'Primeira prática de speaking' };
+    }
+    if (id === 'flashcards-50') {
+      return { icon: 'sparkle', label: '50 flashcards revisados' };
+    }
+    if (id === 'flashcards-200') {
+      return { icon: 'trophy', label: '200 flashcards revisados' };
+    }
     return { icon: 'sparkle', label: 'Conquista' };
   }
 

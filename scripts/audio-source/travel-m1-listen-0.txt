@@ -1,0 +1,1 @@
+Receptionist: Good evening! How can I help you? Guest: Hi, I have a reservation under the name Silva. Receptionist: Let me check... Yes, a double room for three nights. Could I see your passport, please? Guest: Sure, here it is. Receptionist: Thank you. Breakfast is included, from 7 to 10 a.m.

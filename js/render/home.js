@@ -114,6 +114,75 @@ Views.home = function (container) {
       '</section>';
   }
 
+  // Prioridade simples e transparente: módulo em andamento > writing sem
+  // revisão > flashcards pendentes. Não inventa "conclusão automática" — só
+  // aponta o motivo real com base no que já está registrado no estado.
+  function nextStepInfo() {
+    for (var i = 0; i < levels.length; i++) {
+      var lvl = levels[i];
+      var modules = APP_DATA.getModules(lvl.id);
+      for (var j = 0; j < modules.length; j++) {
+        var unlocked = Storage.isModuleUnlocked(lvl.id, modules, j);
+        var completed = Storage.isModuleCompleted(modules[j].id);
+        if (unlocked && !completed) {
+          return {
+            reason: 'Módulo em andamento',
+            label: 'Continuar "' + modules[j].title + '" (' + lvl.code + ')',
+            hash: '#/level/' + lvl.id + '/module/' + modules[j].id
+          };
+        }
+      }
+    }
+    var draftKeys = Object.keys(Storage.state.writingDrafts || {});
+    var hasReviewBadge = Storage.state.badges.indexOf('first-writing-review') !== -1;
+    if (draftKeys.length > 0 && !hasReviewBadge) {
+      return { reason: 'Writing sem revisão', label: 'Revisar seus rascunhos de writing', hash: null };
+    }
+    var anyDue = levels.concat(APP_DATA.electives || []).some(function (lvl) {
+      return APP_DATA.getModules(lvl.id).some(function (m) {
+        return (m.vocabulary || []).some(function (v) { return Storage.isCardDue(v.id || v.word); });
+      });
+    });
+    if (anyDue) {
+      return { reason: 'Revisão de flashcards pendente', label: 'Revisar flashcards pendentes', hash: '#/flashcards' };
+    }
+    return null;
+  }
+
+  var nextStep = nextStepInfo();
+  var nextStepHtml = nextStep
+    ? '<section class="next-step-panel">' +
+        '<h2>' + Icon('flag', { size: 16 }) + ' Próximo passo recomendado</h2>' +
+        '<p class="muted">' + nextStep.reason + '</p>' +
+        (nextStep.hash
+          ? '<a class="btn btn-primary" href="' + nextStep.hash + '">' + nextStep.label + '</a>'
+          : '<p>' + nextStep.label + '</p>') +
+      '</section>'
+    : '';
+
+  var studyPlanHtml =
+    '<section class="study-plan-panel">' +
+      '<h2>Plano de estudo rápido</h2>' +
+      '<p class="muted" style="text-align:center;">Sem cadastro, sem obrigação — escolha quanto tempo você tem agora.</p>' +
+      '<div class="study-plan-grid">' +
+        '<div class="study-plan-card">' +
+          '<h3>15 minutos</h3>' +
+          '<p>Revise flashcards pendentes e ouça um listening.</p>' +
+          '<a class="btn btn-secondary" href="#/flashcards">Começar</a>' +
+        '</div>' +
+        '<div class="study-plan-card">' +
+          '<h3>30 minutos</h3>' +
+          '<p>Flashcards + vocabulário e gramática do próximo módulo.</p>' +
+          '<a class="btn btn-secondary" href="' + (nextStep && nextStep.hash ? nextStep.hash : '#/flashcards') + '">Começar</a>' +
+        '</div>' +
+        '<div class="study-plan-card">' +
+          '<h3>45 minutos</h3>' +
+          '<p>Módulo completo: aula, vocabulário, exercícios e quiz.</p>' +
+          '<a class="btn btn-secondary" href="' + (nextStep && nextStep.hash ? nextStep.hash : '#/level/a1') + '">Começar</a>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+
   var electivesHtml =
     '<section class="electives-panel">' +
       '<h2>Trilhas extras</h2>' +
@@ -150,8 +219,10 @@ Views.home = function (container) {
       '<div class="ascent">' + terraces + '</div>' +
       '<div class="step-list">' + stepListItems + '</div>' +
     '</section>' +
+    nextStepHtml +
     achievementsHtml +
     dashboardHtml +
+    studyPlanHtml +
     electivesHtml +
     '<section class="data-panel">' +
       '<h2>Meus dados</h2>' +
@@ -167,7 +238,7 @@ Views.home = function (container) {
     '</section>';
 
   document.getElementById('reset-progress-btn').addEventListener('click', function () {
-    if (confirm('Isso vai apagar todo o progresso salvo neste navegador (módulos concluídos, pontos, badges e flashcards). Deseja continuar?')) {
+    if (confirm('Isso vai apagar todo o progresso salvo neste navegador (módulos concluídos, pontos, badges, flashcards e rascunhos de writing). Esta ação não pode ser desfeita. Deseja continuar?')) {
       Storage.resetAll();
       location.hash = '#/';
       location.reload();
@@ -196,13 +267,13 @@ Views.home = function (container) {
     if (!file) return;
     var reader = new FileReader();
     reader.onload = function () {
-      var ok = Storage.importProgress(reader.result);
-      if (ok) {
+      var result = Storage.importProgress(reader.result);
+      if (result.ok) {
         alert('Progresso importado com sucesso!');
         location.hash = '#/';
         location.reload();
       } else {
-        alert('Não foi possível importar este arquivo. Verifique se é um backup válido do UpWord.');
+        alert('Não foi possível importar este arquivo: ' + result.error);
       }
     };
     reader.readAsText(file);

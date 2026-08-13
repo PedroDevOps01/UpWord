@@ -36,16 +36,16 @@ APP_DATA.b1 = {
         ]
       },
       vocabulary: [
-        { word: "Prediction", phonetic: "/prɪˈdɪkʃən/", translation: "Previsão", example: "My prediction is that we will win.", exampleTranslation: "Minha previsão é que vamos ganhar." },
-        { word: "Decision", phonetic: "/dɪˈsɪʒən/", translation: "Decisão", example: "I made a quick decision.", exampleTranslation: "Eu tomei uma decisão rápida." },
-        { word: "Promise", phonetic: "/ˈprɒmɪs/", translation: "Promessa", example: "I promise I will call you.", exampleTranslation: "Eu prometo que vou te ligar." },
-        { word: "Forecast", phonetic: "/ˈfɔːrkæst/", translation: "Previsão (do tempo)", example: "The weather forecast says it will be sunny.", exampleTranslation: "A previsão do tempo diz que vai fazer sol." },
-        { word: "Career", phonetic: "/kəˈrɪr/", translation: "Carreira", example: "She is going to start a new career.", exampleTranslation: "Ela vai começar uma nova carreira." },
-        { word: "Goal", phonetic: "/ɡoʊl/", translation: "Meta/Objetivo", example: "My goal is to speak fluent English.", exampleTranslation: "Minha meta é falar inglês fluente." },
-        { word: "Probably", phonetic: "/ˈprɒbəbli/", translation: "Provavelmente", example: "It will probably rain later.", exampleTranslation: "Provavelmente vai chover mais tarde." },
-        { word: "Definitely", phonetic: "/ˈdɛfɪnətli/", translation: "Definitivamente", example: "I will definitely go to the party.", exampleTranslation: "Eu definitivamente vou à festa." },
-        { word: "Soon", phonetic: "/suːn/", translation: "Em breve", example: "We will finish soon.", exampleTranslation: "Nós vamos terminar em breve." },
-        { word: "Eventually", phonetic: "/ɪˈvɛntʃuəli/", translation: "Eventualmente/Por fim", example: "She will eventually understand.", exampleTranslation: "Ela vai eventualmente entender." }
+        { id: "b1-m1-prediction", word: "Prediction", phonetic: "/prɪˈdɪkʃən/", translation: "Previsão", example: "My prediction is that we will win.", exampleTranslation: "Minha previsão é que vamos ganhar." },
+        { id: "b1-m1-decision", word: "Decision", phonetic: "/dɪˈsɪʒən/", translation: "Decisão", example: "I made a quick decision.", exampleTranslation: "Eu tomei uma decisão rápida." },
+        { id: "b1-m1-promise", word: "Promise", phonetic: "/ˈprɒmɪs/", translation: "Promessa", example: "I promise I will call you.", exampleTranslation: "Eu prometo que vou te ligar." },
+        { id: "b1-m1-forecast", word: "Forecast", phonetic: "/ˈfɔːrkæst/", translation: "Previsão (do tempo)", example: "The weather forecast says it will be sunny.", exampleTranslation: "A previsão do tempo diz que vai fazer sol." },
+        { id: "b1-m1-career", word: "Career", phonetic: "/kəˈrɪr/", translation: "Carreira", example: "She is going to start a new career.", exampleTranslation: "Ela vai começar uma nova carreira." },
+        { id: "b1-m1-goal", word: "Goal", phonetic: "/ɡoʊl/", translation: "Meta/Objetivo", example: "My goal is to speak fluent English.", exampleTranslation: "Minha meta é falar inglês fluente." },
+        { id: "b1-m1-probably", word: "Probably", phonetic: "/ˈprɒbəbli/", translation: "Provavelmente", example: "It will probably rain later.", exampleTranslation: "Provavelmente vai chover mais tarde." },
+        { id: "b1-m1-definitely", word: "Definitely", phonetic: "/ˈdɛfɪnətli/", translation: "Definitivamente", example: "I will definitely go to the party.", exampleTranslation: "Eu definitivamente vou à festa." },
+        { id: "b1-m1-soon", word: "Soon", phonetic: "/suːn/", translation: "Em breve", example: "We will finish soon.", exampleTranslation: "Nós vamos terminar em breve." },
+        { id: "b1-m1-eventually", word: "Eventually", phonetic: "/ɪˈvɛntʃuəli/", translation: "Eventualmente/Por fim", example: "She will eventually understand.", exampleTranslation: "Ela vai eventualmente entender." }
       ],
       grammar: {
         title: "Will vs. Going to",
@@ -66,6 +66,9 @@ APP_DATA.b1 = {
         {
           title: "Future Plans",
           accent: "american",
+          audioSrc: "assets/audio/b1-m1-listen-0.mp3",
+          audioSource: "tts-pregenerated",
+          speedLevels: [0.75, 1, 1.25],
           transcript: "Sarah: What are your plans for the weekend? Tom: I'm going to visit my parents on Saturday. What about you? Sarah: I don't know yet, but I think I will stay home and relax. Tom: That sounds nice too!",
           questions: [
             { q: "What is Tom going to do?", options: ["Stay home", "Visit his parents", "Travel abroad", "Work"], answer: 1 },
@@ -146,17 +149,17 @@ APP_DATA.b1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct sentence for a spontaneous decision.", options: ["I'm going to answer the phone.", "I will answer the phone!", "I answer the phone.", "I answered the phone."], answer: 1 },
-        { q: "Choose the correct sentence for a decided plan.", options: ["I will travel next year, I already bought the ticket.", "I am going to travel next year, I already bought the ticket.", "I travel next year.", "I travelled next year."], answer: 1 },
-        { type: "tf", q: "'Going to' is used for plans already decided.", answer: true },
-        { q: "Complete: 'Look at the sky! It ___ rain.'", options: ["will", "is going to", "was going to", "would"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ help you.' (promessa espontânea)", answer: ["will"] },
-        { q: "'Prediction' means:", options: ["Decisão", "Previsão", "Promessa", "Meta"], answer: 1 },
+        { q: "Choose the correct sentence for a spontaneous decision.", options: ["I'm going to answer the phone.", "I will answer the phone!", "I answer the phone.", "I answered the phone."], answer: 1, explanation: "Decisões tomadas no momento da fala usam 'will', não 'going to' (que indica um plano já decidido antes)." },
+        { q: "Choose the correct sentence for a decided plan.", options: ["I will travel next year, I already bought the ticket.", "I am going to travel next year, I already bought the ticket.", "I travel next year.", "I travelled next year."], answer: 1, explanation: "Um plano já decidido, evidenciado pela compra da passagem, usa 'going to', não 'will'." },
+        { type: "tf", q: "'Going to' is used for plans already decided.", answer: true, explanation: "Correto: 'going to' expressa planos que já foram decididos antes do momento da fala." },
+        { q: "Complete: 'Look at the sky! It ___ rain.'", options: ["will", "is going to", "was going to", "would"], answer: 1, explanation: "Há evidência visível (o céu escuro) de que vai chover, então usamos 'going to', não 'will'." },
+        { type: "short", q: "Complete: 'I ___ help you.' (promessa espontânea)", answer: ["will"], explanation: "Promessas feitas espontaneamente no momento da fala usam 'will'." },
+        { q: "'Prediction' means:", options: ["Decisão", "Previsão", "Promessa", "Meta"], answer: 1, explanation: "'Prediction' significa 'previsão', uma afirmação sobre o que pode acontecer no futuro." },
         { type: "tf", q: "'Probably' means 'com certeza'.", answer: false, explanation: "'Probably' significa 'provavelmente'; 'com certeza' é 'definitely' ou 'certainly'." },
-        { q: "Choose the correct question.", options: ["Will you help me?", "Will you to help me?", "Do you will help me?", "Are you will help me?"], answer: 0 },
-        { q: "'Goal' means:", options: ["Meta", "Previsão", "Decisão", "Promessa"], answer: 0 },
-        { type: "short", q: "Complete: 'She is ___ to have a baby.' (evidência presente)", answer: ["going"] },
-        { q: "Choose the correct sentence.", options: ["I will to call you.", "I will call you.", "I going call you.", "I call will you."], answer: 1 },
+        { q: "Choose the correct question.", options: ["Will you help me?", "Will you to help me?", "Do you will help me?", "Are you will help me?"], answer: 0, explanation: "Perguntas com 'will' seguem a ordem 'Will + sujeito + verbo base', sem 'to' e sem auxiliar extra." },
+        { q: "'Goal' means:", options: ["Meta", "Previsão", "Decisão", "Promessa"], answer: 0, explanation: "'Goal' significa 'meta' ou 'objetivo' que se deseja alcançar." },
+        { type: "short", q: "Complete: 'She is ___ to have a baby.' (evidência presente)", answer: ["going"], explanation: "Com evidência presente (ela já está grávida), usamos 'going to', formando 'is going to'." },
+        { q: "Choose the correct sentence.", options: ["I will to call you.", "I will call you.", "I going call you.", "I call will you."], answer: 1, explanation: "Depois de 'will' usamos o verbo base sem 'to': 'I will call you.'" },
         { type: "tf", q: "We use 'will' for evidence-based predictions, like looking at dark clouds.", answer: false, explanation: "Para previsões com evidência visível usamos 'going to'; 'will' é mais opinativo, sem evidência concreta." }
       ]
     },
@@ -194,16 +197,16 @@ APP_DATA.b1 = {
         ]
       },
       vocabulary: [
-        { word: "Experience", phonetic: "/ɪkˈspɪriəns/", translation: "Experiência", example: "That was an amazing experience.", exampleTranslation: "Aquela foi uma experiência incrível." },
-        { word: "Already", phonetic: "/ɔːlˈrɛdi/", translation: "Já", example: "I have already seen that movie.", exampleTranslation: "Eu já vi aquele filme." },
-        { word: "Yet", phonetic: "/jɛt/", translation: "Ainda (negativa/pergunta)", example: "Have you finished yet?", exampleTranslation: "Você já terminou?" },
-        { word: "Ever", phonetic: "/ˈɛvər/", translation: "Alguma vez", example: "Have you ever traveled alone?", exampleTranslation: "Você já viajou sozinho alguma vez?" },
-        { word: "Never", phonetic: "/ˈnɛvər/", translation: "Nunca", example: "I have never tried sushi.", exampleTranslation: "Eu nunca experimentei sushi." },
-        { word: "Abroad", phonetic: "/əˈbrɔːd/", translation: "No exterior", example: "Have you ever lived abroad?", exampleTranslation: "Você já morou no exterior alguma vez?" },
-        { word: "Achievement", phonetic: "/əˈtʃiːvmənt/", translation: "Conquista", example: "Graduating was a big achievement.", exampleTranslation: "Se formar foi uma grande conquista." },
-        { word: "So far", phonetic: "/soʊ fɑːr/", translation: "Até agora", example: "So far, I have visited ten countries.", exampleTranslation: "Até agora, eu visitei dez países." },
-        { word: "Recently", phonetic: "/ˈriːsəntli/", translation: "Recentemente", example: "I have recently started a new job.", exampleTranslation: "Eu comecei um novo emprego recentemente." },
-        { word: "Twice", phonetic: "/twaɪs/", translation: "Duas vezes", example: "I have been to London twice.", exampleTranslation: "Eu já fui a Londres duas vezes." }
+        { id: "b1-m2-experience", word: "Experience", phonetic: "/ɪkˈspɪriəns/", translation: "Experiência", example: "That was an amazing experience.", exampleTranslation: "Aquela foi uma experiência incrível." },
+        { id: "b1-m2-already", word: "Already", phonetic: "/ɔːlˈrɛdi/", translation: "Já", example: "I have already seen that movie.", exampleTranslation: "Eu já vi aquele filme." },
+        { id: "b1-m2-yet", word: "Yet", phonetic: "/jɛt/", translation: "Ainda (negativa/pergunta)", example: "Have you finished yet?", exampleTranslation: "Você já terminou?" },
+        { id: "b1-m2-ever", word: "Ever", phonetic: "/ˈɛvər/", translation: "Alguma vez", example: "Have you ever traveled alone?", exampleTranslation: "Você já viajou sozinho alguma vez?" },
+        { id: "b1-m2-never", word: "Never", phonetic: "/ˈnɛvər/", translation: "Nunca", example: "I have never tried sushi.", exampleTranslation: "Eu nunca experimentei sushi." },
+        { id: "b1-m2-abroad", word: "Abroad", phonetic: "/əˈbrɔːd/", translation: "No exterior", example: "Have you ever lived abroad?", exampleTranslation: "Você já morou no exterior alguma vez?" },
+        { id: "b1-m2-achievement", word: "Achievement", phonetic: "/əˈtʃiːvmənt/", translation: "Conquista", example: "Graduating was a big achievement.", exampleTranslation: "Se formar foi uma grande conquista." },
+        { id: "b1-m2-so-far", word: "So far", phonetic: "/soʊ fɑːr/", translation: "Até agora", example: "So far, I have visited ten countries.", exampleTranslation: "Até agora, eu visitei dez países." },
+        { id: "b1-m2-recently", word: "Recently", phonetic: "/ˈriːsəntli/", translation: "Recentemente", example: "I have recently started a new job.", exampleTranslation: "Eu comecei um novo emprego recentemente." },
+        { id: "b1-m2-twice", word: "Twice", phonetic: "/twaɪs/", translation: "Duas vezes", example: "I have been to London twice.", exampleTranslation: "Eu já fui a Londres duas vezes." }
       ],
       grammar: {
         title: "Present Perfect (have/has + particípio)",
@@ -302,17 +305,17 @@ APP_DATA.b1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct present perfect form.", options: ["I have visit Paris.", "I have visited Paris.", "I has visited Paris.", "I having visited Paris."], answer: 1 },
-        { q: "Choose the correct question.", options: ["Have you ever eaten sushi?", "Do you ever eaten sushi?", "Have you ever eat sushi?", "Did you ever eaten sushi?"], answer: 0 },
-        { type: "tf", q: "'Yet' is usually used in negative sentences and questions.", answer: true },
-        { q: "Complete: 'She ___ already finished.'", options: ["have", "has", "is", "was"], answer: 1 },
-        { type: "short", q: "Complete: 'I have ___ tried sushi.' (nunca)", answer: ["never"] },
-        { q: "'Achievement' means:", options: ["Experiência", "Conquista", "Viagem", "Trabalho"], answer: 1 },
+        { q: "Choose the correct present perfect form.", options: ["I have visit Paris.", "I have visited Paris.", "I has visited Paris.", "I having visited Paris."], answer: 1, explanation: "O present perfect é formado com 'have/has' + particípio passado; com 'I' usamos 'have visited'." },
+        { q: "Choose the correct question.", options: ["Have you ever eaten sushi?", "Do you ever eaten sushi?", "Have you ever eat sushi?", "Did you ever eaten sushi?"], answer: 0, explanation: "Perguntas no present perfect seguem 'Have/Has + sujeito + particípio passado': 'Have you ever eaten...?'" },
+        { type: "tf", q: "'Yet' is usually used in negative sentences and questions.", answer: true, explanation: "Correto: 'yet' aparece tipicamente em frases negativas e perguntas, geralmente no final." },
+        { q: "Complete: 'She ___ already finished.'", options: ["have", "has", "is", "was"], answer: 1, explanation: "Com a 3ª pessoa do singular (she) usamos 'has' no present perfect." },
+        { type: "short", q: "Complete: 'I have ___ tried sushi.' (nunca)", answer: ["never"], explanation: "'Never' (nunca) é o advérbio de frequência negativo usado com o present perfect." },
+        { q: "'Achievement' means:", options: ["Experiência", "Conquista", "Viagem", "Trabalho"], answer: 1, explanation: "'Achievement' significa 'conquista', algo alcançado com esforço." },
         { type: "tf", q: "'Already' is usually used in negative sentences.", answer: false, explanation: "'Already' é mais comum em frases afirmativas; 'yet' é usado em negativas e perguntas." },
-        { q: "Choose the correct sentence.", options: ["We haven't finished yet.", "We haven't finished already.", "We have finished yet.", "We haven't yet finish."], answer: 0 },
-        { q: "'So far' means:", options: ["No futuro", "Até agora", "Ontem", "Nunca"], answer: 1 },
-        { type: "short", q: "Complete: 'Has she ___ been to Brazil?' (alguma vez)", answer: ["ever"] },
-        { q: "Choose the correct sentence.", options: ["He has visit London twice.", "He has visited London twice.", "He have visited London twice.", "He visited has London twice."], answer: 1 },
+        { q: "Choose the correct sentence.", options: ["We haven't finished yet.", "We haven't finished already.", "We have finished yet.", "We haven't yet finish."], answer: 0, explanation: "'Yet' é usado em frases negativas, geralmente no final: 'We haven't finished yet.'" },
+        { q: "'So far' means:", options: ["No futuro", "Até agora", "Ontem", "Nunca"], answer: 1, explanation: "'So far' significa 'até agora', indicando o período até o momento presente." },
+        { type: "short", q: "Complete: 'Has she ___ been to Brazil?' (alguma vez)", answer: ["ever"], explanation: "'Ever' (alguma vez) é usado em perguntas no present perfect." },
+        { q: "Choose the correct sentence.", options: ["He has visit London twice.", "He has visited London twice.", "He have visited London twice.", "He visited has London twice."], answer: 1, explanation: "Com 'he' usamos 'has' + particípio passado: 'has visited'." },
         { type: "tf", q: "Present perfect is used to say exactly when something happened, like 'yesterday'.", answer: false, explanation: "Para dizer exatamente quando, usamos o passado simples; o present perfect não especifica o momento exato." }
       ]
     },
@@ -350,16 +353,16 @@ APP_DATA.b1 = {
         ]
       },
       vocabulary: [
-        { word: "Condition", phonetic: "/kənˈdɪʃən/", translation: "Condição", example: "There is one condition.", exampleTranslation: "Há uma condição." },
-        { word: "Possible", phonetic: "/ˈpɒsəbəl/", translation: "Possível", example: "It's possible that it will rain.", exampleTranslation: "É possível que chova." },
-        { word: "Hurry", phonetic: "/ˈhɜːri/", translation: "Apressar-se", example: "If you don't hurry, you'll be late.", exampleTranslation: "Se você não se apressar, vai se atrasar." },
-        { word: "Miss", phonetic: "/mɪs/", translation: "Perder (ônibus, oportunidade)", example: "You will miss the bus.", exampleTranslation: "Você vai perder o ônibus." },
-        { word: "Pass", phonetic: "/pæs/", translation: "Passar (numa prova)", example: "If you study, you will pass.", exampleTranslation: "Se você estudar, você vai passar." },
-        { word: "Depend on", phonetic: "/dɪˈpɛnd ɒn/", translation: "Depender de", example: "It depends on the weather.", exampleTranslation: "Depende do tempo." },
-        { word: "Unless", phonetic: "/ənˈlɛs/", translation: "A menos que", example: "I won't go unless you come too.", exampleTranslation: "Eu não vou a menos que você venha também." },
-        { word: "Arrive", phonetic: "/əˈraɪv/", translation: "Chegar", example: "If we leave now, we will arrive on time.", exampleTranslation: "Se sairmos agora, vamos chegar na hora." },
-        { word: "Succeed", phonetic: "/səkˈsiːd/", translation: "Ter sucesso/Conseguir", example: "If you try hard, you will succeed.", exampleTranslation: "Se você se esforçar, você vai conseguir." },
-        { word: "Result", phonetic: "/rɪˈzʌlt/", translation: "Resultado", example: "The result will be different.", exampleTranslation: "O resultado vai ser diferente." }
+        { id: "b1-m3-condition", word: "Condition", phonetic: "/kənˈdɪʃən/", translation: "Condição", example: "There is one condition.", exampleTranslation: "Há uma condição." },
+        { id: "b1-m3-possible", word: "Possible", phonetic: "/ˈpɒsəbəl/", translation: "Possível", example: "It's possible that it will rain.", exampleTranslation: "É possível que chova." },
+        { id: "b1-m3-hurry", word: "Hurry", phonetic: "/ˈhɜːri/", translation: "Apressar-se", example: "If you don't hurry, you'll be late.", exampleTranslation: "Se você não se apressar, vai se atrasar." },
+        { id: "b1-m3-miss", word: "Miss", phonetic: "/mɪs/", translation: "Perder (ônibus, oportunidade)", example: "You will miss the bus.", exampleTranslation: "Você vai perder o ônibus." },
+        { id: "b1-m3-pass", word: "Pass", phonetic: "/pæs/", translation: "Passar (numa prova)", example: "If you study, you will pass.", exampleTranslation: "Se você estudar, você vai passar." },
+        { id: "b1-m3-depend-on", word: "Depend on", phonetic: "/dɪˈpɛnd ɒn/", translation: "Depender de", example: "It depends on the weather.", exampleTranslation: "Depende do tempo." },
+        { id: "b1-m3-unless", word: "Unless", phonetic: "/ənˈlɛs/", translation: "A menos que", example: "I won't go unless you come too.", exampleTranslation: "Eu não vou a menos que você venha também." },
+        { id: "b1-m3-arrive", word: "Arrive", phonetic: "/əˈraɪv/", translation: "Chegar", example: "If we leave now, we will arrive on time.", exampleTranslation: "Se sairmos agora, vamos chegar na hora." },
+        { id: "b1-m3-succeed", word: "Succeed", phonetic: "/səkˈsiːd/", translation: "Ter sucesso/Conseguir", example: "If you try hard, you will succeed.", exampleTranslation: "Se você se esforçar, você vai conseguir." },
+        { id: "b1-m3-result", word: "Result", phonetic: "/rɪˈzʌlt/", translation: "Resultado", example: "The result will be different.", exampleTranslation: "O resultado vai ser diferente." }
       ],
       grammar: {
         title: "Primeiro Condicional (If + Presente, Will + Base)",
@@ -459,17 +462,17 @@ APP_DATA.b1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct first conditional sentence.", options: ["If it rains, I will stay home.", "If it will rain, I stay home.", "If it rains, I stay will home.", "If it rain, I will stay home."], answer: 0 },
-        { q: "Complete: 'If you study hard, you ___ pass.'", options: ["will", "would", "are", "was"], answer: 0 },
-        { type: "tf", q: "In the first conditional, the 'if' clause uses the present simple.", answer: true },
-        { q: "Complete: 'If she ___ (call), I will answer.'", options: ["call", "calls", "will call", "called"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ help you if you ask.' (will)", answer: ["will"] },
-        { q: "'Unless' means:", options: ["Se", "A menos que", "Porque", "Embora"], answer: 1 },
+        { q: "Choose the correct first conditional sentence.", options: ["If it rains, I will stay home.", "If it will rain, I stay home.", "If it rains, I stay will home.", "If it rain, I will stay home."], answer: 0, explanation: "No primeiro condicional, a oração com 'if' usa presente simples ('rains') e a principal usa 'will': 'If it rains, I will stay home.'" },
+        { q: "Complete: 'If you study hard, you ___ pass.'", options: ["will", "would", "are", "was"], answer: 0, explanation: "A oração principal do primeiro condicional usa 'will' + verbo base." },
+        { type: "tf", q: "In the first conditional, the 'if' clause uses the present simple.", answer: true, explanation: "Correto: mesmo se referindo ao futuro, a oração com 'if' usa o presente simples." },
+        { q: "Complete: 'If she ___ (call), I will answer.'", options: ["call", "calls", "will call", "called"], answer: 1, explanation: "Na oração com 'if', usamos o presente simples com a 3ª pessoa do singular: 'calls'." },
+        { type: "short", q: "Complete: 'I ___ help you if you ask.' (will)", answer: ["will"], explanation: "A oração principal do primeiro condicional usa 'will' + verbo base." },
+        { q: "'Unless' means:", options: ["Se", "A menos que", "Porque", "Embora"], answer: 1, explanation: "'Unless' significa 'a menos que', introduzindo uma condição negativa." },
         { type: "tf", q: "The first conditional describes imaginary, impossible situations.", answer: false, explanation: "O primeiro condicional descreve situações reais e possíveis no futuro; situações imaginárias usam o segundo condicional." },
-        { q: "Choose the correct sentence.", options: ["If we leave now, we will arrive on time.", "If we will leave now, we arrive on time.", "If we leave now, we arrive will on time.", "If we leaving now, we will arrive on time."], answer: 0 },
-        { q: "'Succeed' means:", options: ["Falhar", "Ter sucesso", "Desistir", "Esperar"], answer: 1 },
-        { type: "short", q: "Complete: 'If you don't hurry, you will ___ the bus.' (perder)", answer: ["miss"] },
-        { q: "Choose the correct sentence.", options: ["You will miss the bus if you don't hurry.", "You miss will the bus if you don't hurry.", "You will miss the bus if you won't hurry.", "You will missed the bus if you don't hurry."], answer: 0 },
+        { q: "Choose the correct sentence.", options: ["If we leave now, we will arrive on time.", "If we will leave now, we arrive on time.", "If we leave now, we arrive will on time.", "If we leaving now, we will arrive on time."], answer: 0, explanation: "A oração com 'if' usa presente simples ('leave') e a oração principal usa 'will' + verbo base ('will arrive')." },
+        { q: "'Succeed' means:", options: ["Falhar", "Ter sucesso", "Desistir", "Esperar"], answer: 1, explanation: "'Succeed' significa 'ter sucesso' ou 'conseguir' alcançar um objetivo." },
+        { type: "short", q: "Complete: 'If you don't hurry, you will ___ the bus.' (perder)", answer: ["miss"], explanation: "'Miss' aqui significa 'perder' (o ônibus, uma oportunidade)." },
+        { q: "Choose the correct sentence.", options: ["You will miss the bus if you don't hurry.", "You miss will the bus if you don't hurry.", "You will miss the bus if you won't hurry.", "You will missed the bus if you don't hurry."], answer: 0, explanation: "A oração com 'if' usa presente simples negativo ('don't hurry'), não 'won't', e a principal usa 'will miss'." },
         { type: "tf", q: "In first conditional sentences, both clauses use 'will'.", answer: false, explanation: "Apenas a oração principal usa 'will'; a oração com 'if' usa o presente simples." }
       ]
     },
@@ -507,16 +510,16 @@ APP_DATA.b1 = {
         ]
       },
       vocabulary: [
-        { word: "Lottery", phonetic: "/ˈlɒtəri/", translation: "Loteria", example: "If I won the lottery, I would be rich.", exampleTranslation: "Se eu ganhasse na loteria, eu seria rico." },
-        { word: "Wish", phonetic: "/wɪʃ/", translation: "Desejo/Desejar", example: "I wish I could travel more.", exampleTranslation: "Eu queria poder viajar mais." },
-        { word: "Imagine", phonetic: "/ɪˈmædʒɪn/", translation: "Imaginar", example: "Imagine if you could fly.", exampleTranslation: "Imagine se você pudesse voar." },
-        { word: "Would", phonetic: "/wʊd/", translation: "Verbo modal 'iria/faria'", example: "I would help you if I could.", exampleTranslation: "Eu te ajudaria se pudesse." },
-        { word: "Apologize", phonetic: "/əˈpɒlədʒaɪz/", translation: "Pedir desculpas", example: "If I were you, I would apologize.", exampleTranslation: "Se eu fosse você, eu pediria desculpas." },
-        { word: "Rich", phonetic: "/rɪtʃ/", translation: "Rico(a)", example: "If I were rich, I would buy a big house.", exampleTranslation: "Se eu fosse rico, eu compraria uma casa grande." },
-        { word: "Spacesuit", phonetic: "/ˈspeɪssuːt/", translation: "Traje espacial", example: "I would need a spacesuit on the moon.", exampleTranslation: "Eu precisaria de um traje espacial na lua." },
-        { word: "Unlikely", phonetic: "/ənˈlaɪkli/", translation: "Improvável", example: "It's unlikely, but if it happened...", exampleTranslation: "É improvável, mas se acontecesse..." },
-        { word: "Advice", phonetic: "/ədˈvaɪs/", translation: "Conselho", example: "If I were you, I would take her advice.", exampleTranslation: "Se eu fosse você, eu seguiria o conselho dela." },
-        { word: "Fluent", phonetic: "/ˈfluːənt/", translation: "Fluente", example: "If I lived abroad, I would become fluent faster.", exampleTranslation: "Se eu morasse no exterior, eu ficaria fluente mais rápido." }
+        { id: "b1-m4-lottery", word: "Lottery", phonetic: "/ˈlɒtəri/", translation: "Loteria", example: "If I won the lottery, I would be rich.", exampleTranslation: "Se eu ganhasse na loteria, eu seria rico." },
+        { id: "b1-m4-wish", word: "Wish", phonetic: "/wɪʃ/", translation: "Desejo/Desejar", example: "I wish I could travel more.", exampleTranslation: "Eu queria poder viajar mais." },
+        { id: "b1-m4-imagine", word: "Imagine", phonetic: "/ɪˈmædʒɪn/", translation: "Imaginar", example: "Imagine if you could fly.", exampleTranslation: "Imagine se você pudesse voar." },
+        { id: "b1-m4-would", word: "Would", phonetic: "/wʊd/", translation: "Verbo modal 'iria/faria'", example: "I would help you if I could.", exampleTranslation: "Eu te ajudaria se pudesse." },
+        { id: "b1-m4-apologize", word: "Apologize", phonetic: "/əˈpɒlədʒaɪz/", translation: "Pedir desculpas", example: "If I were you, I would apologize.", exampleTranslation: "Se eu fosse você, eu pediria desculpas." },
+        { id: "b1-m4-rich", word: "Rich", phonetic: "/rɪtʃ/", translation: "Rico(a)", example: "If I were rich, I would buy a big house.", exampleTranslation: "Se eu fosse rico, eu compraria uma casa grande." },
+        { id: "b1-m4-spacesuit", word: "Spacesuit", phonetic: "/ˈspeɪssuːt/", translation: "Traje espacial", example: "I would need a spacesuit on the moon.", exampleTranslation: "Eu precisaria de um traje espacial na lua." },
+        { id: "b1-m4-unlikely", word: "Unlikely", phonetic: "/ənˈlaɪkli/", translation: "Improvável", example: "It's unlikely, but if it happened...", exampleTranslation: "É improvável, mas se acontecesse..." },
+        { id: "b1-m4-advice", word: "Advice", phonetic: "/ədˈvaɪs/", translation: "Conselho", example: "If I were you, I would take her advice.", exampleTranslation: "Se eu fosse você, eu seguiria o conselho dela." },
+        { id: "b1-m4-fluent", word: "Fluent", phonetic: "/ˈfluːənt/", translation: "Fluente", example: "If I lived abroad, I would become fluent faster.", exampleTranslation: "Se eu morasse no exterior, eu ficaria fluente mais rápido." }
       ],
       grammar: {
         title: "Segundo Condicional (If + Passado, Would + Base)",
@@ -616,18 +619,18 @@ APP_DATA.b1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct second conditional sentence.", options: ["If I win the lottery, I would travel.", "If I won the lottery, I would travel.", "If I would win the lottery, I travel.", "If I won the lottery, I will travel."], answer: 1 },
-        { q: "Complete: 'If I ___ you, I would apologize.'", options: ["am", "was", "were", "be"], answer: 2 },
+        { q: "Choose the correct second conditional sentence.", options: ["If I win the lottery, I would travel.", "If I won the lottery, I would travel.", "If I would win the lottery, I travel.", "If I won the lottery, I will travel."], answer: 1, explanation: "No segundo condicional, a oração com 'if' usa passado simples ('won') e a principal usa 'would' + verbo base." },
+        { q: "Complete: 'If I ___ you, I would apologize.'", options: ["am", "was", "were", "be"], answer: 2, explanation: "No segundo condicional, usamos 'were' com todas as pessoas do verbo 'to be', inclusive 'I', como em 'If I were you'." },
         { type: "tf", q: "The second conditional describes real, possible future situations.", answer: false, explanation: "O segundo condicional descreve situações hipotéticas ou improváveis; o primeiro condicional descreve situações reais e possíveis." },
-        { q: "Complete: 'If she had more time, she ___ learn guitar.'", options: ["will", "would", "was", "is"], answer: 1 },
-        { type: "short", q: "Complete: 'I wish I ___ travel more.' (poder)", answer: ["could"] },
-        { q: "'Lottery' means:", options: ["Loteria", "Conselho", "Desejo", "Sonho"], answer: 0 },
-        { type: "tf", q: "'Advice' means 'conselho'.", answer: true },
-        { q: "Choose the correct sentence.", options: ["If I had money, I would travel.", "If I have money, I would travel.", "If I had money, I will travel.", "If I would have money, I travel."], answer: 0 },
-        { q: "'Unlikely' means:", options: ["Provável", "Improvável", "Certo", "Impossível de saber"], answer: 1 },
-        { type: "short", q: "Complete: 'If I were you, I ___ apologize.' (would)", answer: ["would"] },
-        { q: "Choose the correct sentence.", options: ["She would help if she could.", "She would help if she can.", "She will help if she could.", "She helped if she would."], answer: 0 },
-        { type: "tf", q: "In the second conditional, we can use 'were' with 'I' even though it's grammatically plural.", answer: true }
+        { q: "Complete: 'If she had more time, she ___ learn guitar.'", options: ["will", "would", "was", "is"], answer: 1, explanation: "A oração principal do segundo condicional usa 'would' + verbo base." },
+        { type: "short", q: "Complete: 'I wish I ___ travel more.' (poder)", answer: ["could"], explanation: "'Could' expressa a capacidade hipotética de fazer algo, usada após 'wish'." },
+        { q: "'Lottery' means:", options: ["Loteria", "Conselho", "Desejo", "Sonho"], answer: 0, explanation: "'Lottery' significa 'loteria', um sorteio de prêmios." },
+        { type: "tf", q: "'Advice' means 'conselho'.", answer: true, explanation: "Correto: 'advice' significa 'conselho' e é normalmente incontável em inglês (não se diz 'an advice')." },
+        { q: "Choose the correct sentence.", options: ["If I had money, I would travel.", "If I have money, I would travel.", "If I had money, I will travel.", "If I would have money, I travel."], answer: 0, explanation: "O segundo condicional exige passado simples na oração com 'if' ('had') e 'would' na oração principal." },
+        { q: "'Unlikely' means:", options: ["Provável", "Improvável", "Certo", "Impossível de saber"], answer: 1, explanation: "'Unlikely' significa 'improvável', algo com pouca chance de acontecer." },
+        { type: "short", q: "Complete: 'If I were you, I ___ apologize.' (would)", answer: ["would"], explanation: "A oração principal do segundo condicional usa 'would' + verbo base." },
+        { q: "Choose the correct sentence.", options: ["She would help if she could.", "She would help if she can.", "She will help if she could.", "She helped if she would."], answer: 0, explanation: "No segundo condicional, a oração com 'if' usa passado ('could') e a principal usa 'would'." },
+        { type: "tf", q: "In the second conditional, we can use 'were' with 'I' even though it's grammatically plural.", answer: true, explanation: "Correto: no segundo condicional, 'were' é usado com todos os pronomes, incluindo 'I', especialmente em 'If I were you'." }
       ]
     },
     {
@@ -664,16 +667,16 @@ APP_DATA.b1 = {
         ]
       },
       vocabulary: [
-        { word: "Give up", phonetic: "/ɡɪv ʌp/", translation: "Desistir", example: "Don't give up on your dreams.", exampleTranslation: "Não desista dos seus sonhos." },
-        { word: "Look for", phonetic: "/lʊk fɔːr/", translation: "Procurar", example: "I'm looking for my phone.", exampleTranslation: "Estou procurando meu celular." },
-        { word: "Get up", phonetic: "/ɡɛt ʌp/", translation: "Levantar-se", example: "I get up at seven.", exampleTranslation: "Eu me levanto às sete." },
-        { word: "Turn on/off", phonetic: "/tɜːrn ɒn/ɒf/", translation: "Ligar/Desligar", example: "Turn off the TV, please.", exampleTranslation: "Desligue a TV, por favor." },
-        { word: "Look after", phonetic: "/lʊk ˈæftər/", translation: "Cuidar de", example: "She looks after her little brother.", exampleTranslation: "Ela cuida do irmão mais novo." },
-        { word: "Find out", phonetic: "/faɪnd aʊt/", translation: "Descobrir", example: "I need to find out the truth.", exampleTranslation: "Eu preciso descobrir a verdade." },
-        { word: "Come back", phonetic: "/kʌm bæk/", translation: "Voltar", example: "He will come back tomorrow.", exampleTranslation: "Ele vai voltar amanhã." },
-        { word: "Opinion", phonetic: "/əˈpɪnjən/", translation: "Opinião", example: "In my opinion, it's a great idea.", exampleTranslation: "Na minha opinião, é uma ótima ideia." },
-        { word: "Agree", phonetic: "/əˈɡriː/", translation: "Concordar", example: "I agree with you.", exampleTranslation: "Eu concordo com você." },
-        { word: "Disagree", phonetic: "/ˌdɪsəˈɡriː/", translation: "Discordar", example: "I disagree, I think it's too expensive.", exampleTranslation: "Eu discordo, acho que é muito caro." }
+        { id: "b1-m5-give-up", word: "Give up", phonetic: "/ɡɪv ʌp/", translation: "Desistir", example: "Don't give up on your dreams.", exampleTranslation: "Não desista dos seus sonhos." },
+        { id: "b1-m5-look-for", word: "Look for", phonetic: "/lʊk fɔːr/", translation: "Procurar", example: "I'm looking for my phone.", exampleTranslation: "Estou procurando meu celular." },
+        { id: "b1-m5-get-up", word: "Get up", phonetic: "/ɡɛt ʌp/", translation: "Levantar-se", example: "I get up at seven.", exampleTranslation: "Eu me levanto às sete." },
+        { id: "b1-m5-turn-on-off", word: "Turn on/off", phonetic: "/tɜːrn ɒn/ɒf/", translation: "Ligar/Desligar", example: "Turn off the TV, please.", exampleTranslation: "Desligue a TV, por favor." },
+        { id: "b1-m5-look-after", word: "Look after", phonetic: "/lʊk ˈæftər/", translation: "Cuidar de", example: "She looks after her little brother.", exampleTranslation: "Ela cuida do irmão mais novo." },
+        { id: "b1-m5-find-out", word: "Find out", phonetic: "/faɪnd aʊt/", translation: "Descobrir", example: "I need to find out the truth.", exampleTranslation: "Eu preciso descobrir a verdade." },
+        { id: "b1-m5-come-back", word: "Come back", phonetic: "/kʌm bæk/", translation: "Voltar", example: "He will come back tomorrow.", exampleTranslation: "Ele vai voltar amanhã." },
+        { id: "b1-m5-opinion", word: "Opinion", phonetic: "/əˈpɪnjən/", translation: "Opinião", example: "In my opinion, it's a great idea.", exampleTranslation: "Na minha opinião, é uma ótima ideia." },
+        { id: "b1-m5-agree", word: "Agree", phonetic: "/əˈɡriː/", translation: "Concordar", example: "I agree with you.", exampleTranslation: "Eu concordo com você." },
+        { id: "b1-m5-disagree", word: "Disagree", phonetic: "/ˌdɪsəˈɡriː/", translation: "Discordar", example: "I disagree, I think it's too expensive.", exampleTranslation: "Eu discordo, acho que é muito caro." }
       ],
       grammar: {
         title: "Phrasal Verbs Separáveis e Inseparáveis",
@@ -773,17 +776,17 @@ APP_DATA.b1 = {
         ]
       },
       quiz: [
-        { q: "'Give up' means:", options: ["Continuar", "Desistir", "Procurar", "Voltar"], answer: 1 },
-        { q: "Choose the correct sentence.", options: ["I'm looking my keys for.", "I'm looking for my keys.", "I'm for looking my keys.", "I'm looking keys for my."], answer: 1 },
-        { type: "tf", q: "'Look after' means 'cuidar de'.", answer: true },
-        { q: "Complete: 'Turn ___ the lights, please.' (desligar)", options: ["on", "off", "up", "for"], answer: 1 },
-        { type: "short", q: "Complete: 'In my ___, it's a great idea.' (opinião)", answer: ["opinion"] },
-        { q: "'Find out' means:", options: ["Esquecer", "Descobrir", "Ignorar", "Perder"], answer: 1 },
+        { q: "'Give up' means:", options: ["Continuar", "Desistir", "Procurar", "Voltar"], answer: 1, explanation: "'Give up' é um phrasal verb que significa 'desistir'." },
+        { q: "Choose the correct sentence.", options: ["I'm looking my keys for.", "I'm looking for my keys.", "I'm for looking my keys.", "I'm looking keys for my."], answer: 1, explanation: "'Look for' (procurar) não se separa dessa forma: a ordem correta é 'looking for my keys'." },
+        { type: "tf", q: "'Look after' means 'cuidar de'.", answer: true, explanation: "Correto: 'look after' é um phrasal verb que significa 'cuidar de'." },
+        { q: "Complete: 'Turn ___ the lights, please.' (desligar)", options: ["on", "off", "up", "for"], answer: 1, explanation: "'Turn off' significa 'desligar'; 'turn on' seria 'ligar'." },
+        { type: "short", q: "Complete: 'In my ___, it's a great idea.' (opinião)", answer: ["opinion"], explanation: "'Opinion' significa 'opinião', usado na expressão 'in my opinion'." },
+        { q: "'Find out' means:", options: ["Esquecer", "Descobrir", "Ignorar", "Perder"], answer: 1, explanation: "'Find out' significa 'descobrir' uma informação." },
         { type: "tf", q: "'Agree' means 'discordar'.", answer: false, explanation: "'Agree' significa 'concordar'; 'discordar' é 'disagree'." },
-        { q: "Choose the correct separable phrasal verb usage with a pronoun.", options: ["Turn off it.", "Turn it off.", "Turn it on off.", "Off turn it."], answer: 1 },
-        { q: "'Come back' means:", options: ["Ir embora", "Voltar", "Chegar cedo", "Desistir"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ with you.' (concordo)", answer: ["agree"] },
-        { q: "Choose the correct sentence.", options: ["She looks her brother after.", "She looks after her brother.", "She after looks her brother.", "She looks after brother her."], answer: 1 },
+        { q: "Choose the correct separable phrasal verb usage with a pronoun.", options: ["Turn off it.", "Turn it off.", "Turn it on off.", "Off turn it."], answer: 1, explanation: "Com pronomes, phrasal verbs separáveis exigem que o pronome fique entre o verbo e a partícula: 'Turn it off.'" },
+        { q: "'Come back' means:", options: ["Ir embora", "Voltar", "Chegar cedo", "Desistir"], answer: 1, explanation: "'Come back' significa 'voltar' a um lugar." },
+        { type: "short", q: "Complete: 'I ___ with you.' (concordo)", answer: ["agree"], explanation: "'Agree' significa 'concordar'." },
+        { q: "Choose the correct sentence.", options: ["She looks her brother after.", "She looks after her brother.", "She after looks her brother.", "She looks after brother her."], answer: 1, explanation: "'Look after' é inseparável quando o objeto é um substantivo: 'She looks after her brother.'" },
         { type: "tf", q: "'Look after' can be separated by the object, like 'look the children after'.", answer: false, explanation: "'Look after' é inseparável — o objeto sempre vem depois da expressão completa." }
       ]
     },
@@ -821,16 +824,16 @@ APP_DATA.b1 = {
         ]
       },
       vocabulary: [
-        { word: "Neighbor", phonetic: "/ˈneɪbər/", translation: "Vizinho(a)", example: "My neighbor who lives upstairs is very kind.", exampleTranslation: "Meu vizinho que mora no andar de cima é muito gentil." },
-        { word: "Describe", phonetic: "/dɪˈskraɪb/", translation: "Descrever", example: "Can you describe the person who helped you?", exampleTranslation: "Você pode descrever a pessoa que te ajudou?" },
-        { word: "Fascinating", phonetic: "/ˈfæsəneɪtɪŋ/", translation: "Fascinante", example: "The book which I'm reading is fascinating.", exampleTranslation: "O livro que estou lendo é fascinante." },
-        { word: "Author", phonetic: "/ˈɔːθər/", translation: "Autor(a)", example: "The author who wrote this book is famous.", exampleTranslation: "O autor que escreveu este livro é famoso." },
-        { word: "Nearby", phonetic: "/nɪrˈbaɪ/", translation: "Próximo/Nas proximidades", example: "There's a café nearby that I love.", exampleTranslation: "Há um café nas proximidades que eu amo." },
-        { word: "Owner", phonetic: "/ˈoʊnər/", translation: "Proprietário(a)", example: "The owner who runs this shop is friendly.", exampleTranslation: "O proprietário que administra esta loja é simpático." },
-        { word: "Belong", phonetic: "/bɪˈlɒŋ/", translation: "Pertencer", example: "This is the bag which belongs to my sister.", exampleTranslation: "Esta é a bolsa que pertence à minha irmã." },
-        { word: "Recommend", phonetic: "/ˌrɛkəˈmɛnd/", translation: "Recomendar", example: "The restaurant that you recommended was great.", exampleTranslation: "O restaurante que você recomendou foi ótimo." },
-        { word: "Colleague", phonetic: "/ˈkɒliːɡ/", translation: "Colega de trabalho", example: "My colleague who sits next to me is very helpful.", exampleTranslation: "Meu colega que se senta ao meu lado é muito prestativo." },
-        { word: "Memorable", phonetic: "/ˈmɛmərəbəl/", translation: "Memorável", example: "It was a trip that I will never forget.", exampleTranslation: "Foi uma viagem que eu nunca vou esquecer." }
+        { id: "b1-m6-neighbor", word: "Neighbor", phonetic: "/ˈneɪbər/", translation: "Vizinho(a)", example: "My neighbor who lives upstairs is very kind.", exampleTranslation: "Meu vizinho que mora no andar de cima é muito gentil." },
+        { id: "b1-m6-describe", word: "Describe", phonetic: "/dɪˈskraɪb/", translation: "Descrever", example: "Can you describe the person who helped you?", exampleTranslation: "Você pode descrever a pessoa que te ajudou?" },
+        { id: "b1-m6-fascinating", word: "Fascinating", phonetic: "/ˈfæsəneɪtɪŋ/", translation: "Fascinante", example: "The book which I'm reading is fascinating.", exampleTranslation: "O livro que estou lendo é fascinante." },
+        { id: "b1-m6-author", word: "Author", phonetic: "/ˈɔːθər/", translation: "Autor(a)", example: "The author who wrote this book is famous.", exampleTranslation: "O autor que escreveu este livro é famoso." },
+        { id: "b1-m6-nearby", word: "Nearby", phonetic: "/nɪrˈbaɪ/", translation: "Próximo/Nas proximidades", example: "There's a café nearby that I love.", exampleTranslation: "Há um café nas proximidades que eu amo." },
+        { id: "b1-m6-owner", word: "Owner", phonetic: "/ˈoʊnər/", translation: "Proprietário(a)", example: "The owner who runs this shop is friendly.", exampleTranslation: "O proprietário que administra esta loja é simpático." },
+        { id: "b1-m6-belong", word: "Belong", phonetic: "/bɪˈlɒŋ/", translation: "Pertencer", example: "This is the bag which belongs to my sister.", exampleTranslation: "Esta é a bolsa que pertence à minha irmã." },
+        { id: "b1-m6-recommend", word: "Recommend", phonetic: "/ˌrɛkəˈmɛnd/", translation: "Recomendar", example: "The restaurant that you recommended was great.", exampleTranslation: "O restaurante que você recomendou foi ótimo." },
+        { id: "b1-m6-colleague", word: "Colleague", phonetic: "/ˈkɒliːɡ/", translation: "Colega de trabalho", example: "My colleague who sits next to me is very helpful.", exampleTranslation: "Meu colega que se senta ao meu lado é muito prestativo." },
+        { id: "b1-m6-memorable", word: "Memorable", phonetic: "/ˈmɛmərəbəl/", translation: "Memorável", example: "It was a trip that I will never forget.", exampleTranslation: "Foi uma viagem que eu nunca vou esquecer." }
       ],
       grammar: {
         title: "Orações Relativas: Who, Which, That",
@@ -930,17 +933,17 @@ APP_DATA.b1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct relative pronoun: 'The woman ___ called is my sister.'", options: ["which", "who", "whose", "whom"], answer: 1 },
-        { q: "Choose the correct relative pronoun: 'This is the car ___ I bought.'", options: ["who", "which", "whom", "whose"], answer: 1 },
-        { type: "tf", q: "'That' can replace both 'who' and 'which' in restrictive clauses.", answer: true },
-        { q: "Choose the correct sentence.", options: ["The book who I read was great.", "The book which I read was great.", "The book whom I read was great.", "The book whose I read was great."], answer: 1 },
-        { type: "short", q: "Complete: 'I have a friend ___ speaks four languages.' (who)", answer: ["who"] },
-        { q: "'Neighbor' means:", options: ["Autor", "Vizinho(a)", "Proprietário", "Colega"], answer: 1 },
+        { q: "Choose the correct relative pronoun: 'The woman ___ called is my sister.'", options: ["which", "who", "whose", "whom"], answer: 1, explanation: "Usamos 'who' para nos referirmos a pessoas: 'The woman who called...'" },
+        { q: "Choose the correct relative pronoun: 'This is the car ___ I bought.'", options: ["who", "which", "whom", "whose"], answer: 1, explanation: "Usamos 'which' para nos referirmos a coisas/objetos: 'the car which I bought'." },
+        { type: "tf", q: "'That' can replace both 'who' and 'which' in restrictive clauses.", answer: true, explanation: "Correto: em orações restritivas, 'that' pode substituir tanto 'who' (pessoas) quanto 'which' (coisas)." },
+        { q: "Choose the correct sentence.", options: ["The book who I read was great.", "The book which I read was great.", "The book whom I read was great.", "The book whose I read was great."], answer: 1, explanation: "'Book' é uma coisa, então usamos 'which', não 'who' (usado para pessoas)." },
+        { type: "short", q: "Complete: 'I have a friend ___ speaks four languages.' (who)", answer: ["who"], explanation: "'Who' é usado para se referir a uma pessoa ('a friend')." },
+        { q: "'Neighbor' means:", options: ["Autor", "Vizinho(a)", "Proprietário", "Colega"], answer: 1, explanation: "'Neighbor' significa 'vizinho(a)'." },
         { type: "tf", q: "Restrictive relative clauses with 'that' use a comma before 'that'.", answer: false, explanation: "Orações restritivas com 'that' nunca usam vírgula." },
-        { q: "'Recommend' means:", options: ["Esquecer", "Recomendar", "Pertencer", "Descrever"], answer: 1 },
-        { q: "Choose the correct sentence.", options: ["The man that called you is my boss.", "The man, that called you, is my boss.", "The man that called you, is my boss.", "The man that, called you is my boss."], answer: 0 },
-        { type: "short", q: "Complete: 'It was a trip that I will never ___.' (esquecer)", answer: ["forget"] },
-        { q: "'Memorable' means:", options: ["Esquecível", "Memorável", "Comum", "Chato"], answer: 1 },
+        { q: "'Recommend' means:", options: ["Esquecer", "Recomendar", "Pertencer", "Descrever"], answer: 1, explanation: "'Recommend' significa 'recomendar'." },
+        { q: "Choose the correct sentence.", options: ["The man that called you is my boss.", "The man, that called you, is my boss.", "The man that called you, is my boss.", "The man that, called you is my boss."], answer: 0, explanation: "Orações restritivas com 'that' não usam vírgulas antes ou depois." },
+        { type: "short", q: "Complete: 'It was a trip that I will never ___.' (esquecer)", answer: ["forget"], explanation: "'Forget' significa 'esquecer'." },
+        { q: "'Memorable' means:", options: ["Esquecível", "Memorável", "Comum", "Chato"], answer: 1, explanation: "'Memorable' significa 'memorável', algo digno de ser lembrado." },
         { type: "tf", q: "'Which' is typically used for people, not things.", answer: false, explanation: "'Which' é usado para coisas/animais; 'who' é usado para pessoas." }
       ]
     }
@@ -948,26 +951,26 @@ APP_DATA.b1 = {
   finalTest: {
     description: "Prova final do nível B1 — 20 questões cobrindo will/going to, present perfect, primeiro e segundo condicional, e phrasal verbs/opiniões.",
     questions: [
-      { q: "Choose the correct sentence for a spontaneous decision.", options: ["I'm going to answer the phone.", "I will answer the phone!", "I answer the phone.", "I answered the phone."], answer: 1 },
-      { q: "Choose the correct sentence for a decided plan.", options: ["I will travel next year, I already bought the ticket.", "I am going to travel next year, I already bought the ticket.", "I travel next year.", "I travelled next year."], answer: 1 },
-      { q: "Choose the correct present perfect form.", options: ["I have visit Paris.", "I have visited Paris.", "I has visited Paris.", "I having visited Paris."], answer: 1 },
-      { type: "short", q: "Complete: 'I have ___ tried sushi.' (nunca)", answer: ["never"] },
-      { q: "Choose the correct first conditional sentence.", options: ["If it rains, I will stay home.", "If it will rain, I stay home.", "If it rains, I stay will home.", "If it rain, I will stay home."], answer: 0 },
-      { type: "tf", q: "In the first conditional, the 'if' clause uses the present simple.", answer: true },
-      { q: "Choose the correct second conditional sentence.", options: ["If I win the lottery, I would travel.", "If I won the lottery, I would travel.", "If I would win the lottery, I travel.", "If I won the lottery, I will travel."], answer: 1 },
-      { q: "Complete: 'If I ___ you, I would apologize.'", options: ["am", "was", "were", "be"], answer: 2 },
-      { q: "'Give up' means:", options: ["Continuar", "Desistir", "Procurar", "Voltar"], answer: 1 },
-      { q: "Choose the correct sentence.", options: ["I'm looking my keys for.", "I'm looking for my keys.", "I'm for looking my keys.", "I'm looking keys for my."], answer: 1 },
-      { type: "tf", q: "'Agree' means 'discordar'.", answer: false },
-      { q: "'Prediction' means:", options: ["Decisão", "Previsão", "Promessa", "Meta"], answer: 1 },
-      { type: "short", q: "Complete: 'Has she ___ been to Brazil?' (alguma vez)", answer: ["ever"] },
-      { q: "'Unless' means:", options: ["Se", "A menos que", "Porque", "Embora"], answer: 1 },
-      { type: "tf", q: "The second conditional describes real, possible future situations.", answer: false },
-      { type: "short", q: "Complete: 'In my ___, it's a great idea.'", answer: ["opinion"] },
-      { q: "'Achievement' means:", options: ["Experiência", "Conquista", "Viagem", "Trabalho"], answer: 1 },
-      { q: "Choose the correct sentence.", options: ["If we leave now, we will arrive on time.", "If we will leave now, we arrive on time.", "If we leave now, we arrive will on time.", "If we leaving now, we will arrive on time."], answer: 0 },
-      { type: "tf", q: "'Going to' is used for plans already decided.", answer: true },
-      { q: "'Find out' means:", options: ["Esquecer", "Descobrir", "Ignorar", "Perder"], answer: 1 }
+      { q: "Choose the correct sentence for a spontaneous decision.", options: ["I'm going to answer the phone.", "I will answer the phone!", "I answer the phone.", "I answered the phone."], answer: 1, explanation: "Decisões tomadas no momento da fala usam 'will', não 'going to' (que indica um plano já decidido)." },
+      { q: "Choose the correct sentence for a decided plan.", options: ["I will travel next year, I already bought the ticket.", "I am going to travel next year, I already bought the ticket.", "I travel next year.", "I travelled next year."], answer: 1, explanation: "Um plano já decidido, evidenciado pela compra da passagem, usa 'going to', não 'will'." },
+      { q: "Choose the correct present perfect form.", options: ["I have visit Paris.", "I have visited Paris.", "I has visited Paris.", "I having visited Paris."], answer: 1, explanation: "O present perfect com 'I' é formado por 'have' + particípio passado: 'have visited'." },
+      { type: "short", q: "Complete: 'I have ___ tried sushi.' (nunca)", answer: ["never"], explanation: "'Never' (nunca) é o advérbio usado para negar experiências no present perfect." },
+      { q: "Choose the correct first conditional sentence.", options: ["If it rains, I will stay home.", "If it will rain, I stay home.", "If it rains, I stay will home.", "If it rain, I will stay home."], answer: 0, explanation: "No primeiro condicional, a oração com 'if' usa presente simples e a principal usa 'will'." },
+      { type: "tf", q: "In the first conditional, the 'if' clause uses the present simple.", answer: true, explanation: "Correto: mesmo tratando do futuro, a oração com 'if' no primeiro condicional usa o presente simples." },
+      { q: "Choose the correct second conditional sentence.", options: ["If I win the lottery, I would travel.", "If I won the lottery, I would travel.", "If I would win the lottery, I travel.", "If I won the lottery, I will travel."], answer: 1, explanation: "No segundo condicional, a oração com 'if' usa passado simples ('won') e a principal usa 'would'." },
+      { q: "Complete: 'If I ___ you, I would apologize.'", options: ["am", "was", "were", "be"], answer: 2, explanation: "No segundo condicional, usa-se 'were' com todas as pessoas, inclusive 'I', na expressão 'If I were you'." },
+      { q: "'Give up' means:", options: ["Continuar", "Desistir", "Procurar", "Voltar"], answer: 1, explanation: "'Give up' significa 'desistir'." },
+      { q: "Choose the correct sentence.", options: ["I'm looking my keys for.", "I'm looking for my keys.", "I'm for looking my keys.", "I'm looking keys for my."], answer: 1, explanation: "'Look for' (procurar) mantém a partícula 'for' antes do objeto: 'looking for my keys'." },
+      { type: "tf", q: "'Agree' means 'discordar'.", answer: false, explanation: "Incorreto: 'agree' significa 'concordar'; 'discordar' é 'disagree'." },
+      { q: "'Prediction' means:", options: ["Decisão", "Previsão", "Promessa", "Meta"], answer: 1, explanation: "'Prediction' significa 'previsão'." },
+      { type: "short", q: "Complete: 'Has she ___ been to Brazil?' (alguma vez)", answer: ["ever"], explanation: "'Ever' (alguma vez) é usado em perguntas no present perfect." },
+      { q: "'Unless' means:", options: ["Se", "A menos que", "Porque", "Embora"], answer: 1, explanation: "'Unless' significa 'a menos que'." },
+      { type: "tf", q: "The second conditional describes real, possible future situations.", answer: false, explanation: "Incorreto: o segundo condicional descreve situações hipotéticas ou improváveis; o primeiro condicional trata de situações reais e possíveis." },
+      { type: "short", q: "Complete: 'In my ___, it's a great idea.'", answer: ["opinion"], explanation: "'Opinion' significa 'opinião', usado na expressão 'in my opinion'." },
+      { q: "'Achievement' means:", options: ["Experiência", "Conquista", "Viagem", "Trabalho"], answer: 1, explanation: "'Achievement' significa 'conquista'." },
+      { q: "Choose the correct sentence.", options: ["If we leave now, we will arrive on time.", "If we will leave now, we arrive on time.", "If we leave now, we arrive will on time.", "If we leaving now, we will arrive on time."], answer: 0, explanation: "A oração com 'if' usa presente simples ('leave') e a principal usa 'will' + verbo base ('will arrive')." },
+      { type: "tf", q: "'Going to' is used for plans already decided.", answer: true, explanation: "Correto: 'going to' é usado para planos já decididos antes do momento da fala." },
+      { q: "'Find out' means:", options: ["Esquecer", "Descobrir", "Ignorar", "Perder"], answer: 1, explanation: "'Find out' significa 'descobrir'." }
     ]
   }
 };

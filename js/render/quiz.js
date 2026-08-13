@@ -12,7 +12,7 @@ Views.quiz = (function () {
       );
     }
     if (q.type === 'short') {
-      return '<input type="text" class="quiz-short-input" id="quiz-short-input" autocomplete="off" placeholder="Digite sua resposta em inglês">';
+      return '<input type="text" class="quiz-short-input" id="quiz-short-input" autocomplete="off" placeholder="Digite sua resposta em inglês" aria-label="Digite sua resposta em inglês">';
     }
     var opts = q.options.map(function (opt, oi) {
       return '<label class="option-row"><input type="radio" name="qopt" value="' + oi + '"> <span>' + opt + '</span></label>';
@@ -45,11 +45,26 @@ Views.quiz = (function () {
     return q.options[q.answer];
   }
 
+  function yourAnswerLabel(q, raw) {
+    if (raw === null || raw === undefined || raw === '') return 'Sem resposta';
+    if (q.type === 'tf') return raw === 'true' ? 'Verdadeiro' : 'Falso';
+    if (q.type === 'short') return raw;
+    var opt = q.options[parseInt(raw, 10)];
+    return opt || 'Sem resposta';
+  }
+
+  // Para quizzes de módulo, sugere revisar a gramática do próprio módulo;
+  // para prova final/nivelamento, volta para a tela de origem.
+  function reviewHash(opts) {
+    if (opts.type === 'module') return opts.backHash.replace(/\/exercises$/, '/grammar');
+    return opts.backHash;
+  }
+
   function render(container, opts) {
     var questions = opts.questions;
     var n = questions.length;
     var startTime = Date.now();
-    var state = { index: 0, score: 0, results: new Array(n).fill(null) };
+    var state = { index: 0, score: 0, results: new Array(n).fill(null), rawAnswers: new Array(n).fill(null) };
 
     function progressHtml() {
       var dots = questions.map(function (q, i) {
@@ -79,7 +94,7 @@ Views.quiz = (function () {
           '<div class="quiz-card">' +
             '<p class="quiz-q-text">' + q.q + '</p>' +
             optionsTemplate(q) +
-            '<div id="quiz-feedback-slot"></div>' +
+            '<div id="quiz-feedback-slot" aria-live="polite"></div>' +
             '<div class="quiz-actions"><button type="button" class="btn btn-primary" id="quiz-check-btn">Verificar</button></div>' +
           '</div>' +
         '</section>';
@@ -94,6 +109,7 @@ Views.quiz = (function () {
       var raw = readAnswer(q);
       var ok = isCorrect(q, raw);
       state.results[state.index] = ok;
+      state.rawAnswers[state.index] = raw;
       if (ok) state.score++;
 
       container.querySelectorAll('input').forEach(function (inp) { inp.disabled = true; });
@@ -139,10 +155,31 @@ Views.quiz = (function () {
       var total = n;
       var elapsedSeconds = Math.round((Date.now() - startTime) / 1000);
       var pct = Math.round((state.score / total) * 100);
-      var passed = pct >= 60;
+      var passed = pct >= Math.round(APP_DATA.PASS_THRESHOLD * 100);
 
       Storage.recordQuizAttempt({ refId: opts.refId, type: opts.type, score: state.score, total: total, timeSeconds: elapsedSeconds });
       var completionInfo = opts.onComplete ? opts.onComplete(state.score, total) : null;
+
+      var wrongIndexes = state.results.reduce(function (acc, ok, i) { if (ok === false) acc.push(i); return acc; }, []);
+      var wrongListHtml = '';
+      if (wrongIndexes.length) {
+        wrongListHtml =
+          '<div class="quiz-wrong-list">' +
+            '<h2>Questões para revisar (' + wrongIndexes.length + ')</h2>' +
+            wrongIndexes.map(function (i) {
+              var q = questions[i];
+              return (
+                '<div class="quiz-wrong-item">' +
+                  '<p class="quiz-wrong-q">' + q.q + '</p>' +
+                  '<p class="quiz-wrong-your">Sua resposta: <strong>' + yourAnswerLabel(q, state.rawAnswers[i]) + '</strong></p>' +
+                  '<p class="quiz-wrong-correct">Resposta certa: <strong>' + correctAnswerLabel(q) + '</strong></p>' +
+                  (q.explanation ? '<p class="quiz-wrong-explain">' + q.explanation + '</p>' : '') +
+                '</div>'
+              );
+            }).join('') +
+            '<a class="btn-text-link" href="#' + reviewHash(opts) + '">Revisar conteúdo relacionado</a>' +
+          '</div>';
+      }
 
       container.innerHTML =
         '<section class="quiz-shell">' +
@@ -159,6 +196,7 @@ Views.quiz = (function () {
               (opts.nextHash ? '<a class="btn btn-primary" href="#' + opts.nextHash + '">' + (opts.nextLabel || 'Continuar') + '</a>' : '') +
             '</div>' +
           '</div>' +
+          wrongListHtml +
         '</section>';
 
       App.updatePointsPill();

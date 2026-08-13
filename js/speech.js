@@ -19,23 +19,50 @@ var Speech = (function () {
   function pickVoice(accent) {
     var lang = ACCENT_LANG[accent] || 'en-US';
     var exact = voices.filter(function (v) { return v.lang === lang; });
-    if (exact.length) return exact[0];
+    if (exact.length) return { voice: exact[0], exact: true };
     var anyEnglish = voices.filter(function (v) { return v.lang && v.lang.indexOf('en') === 0; });
-    if (anyEnglish.length) return anyEnglish[0];
-    return null;
+    if (anyEnglish.length) return { voice: anyEnglish[0], exact: false };
+    return { voice: null, exact: false };
   }
 
+  // Retorna informação honesta sobre a voz usada, em vez de um booleano —
+  // permite à UI avisar quando o sotaque pedido (americano/britânico/
+  // australiano) não existir de fato no navegador do usuário, ao invés de
+  // fingir que foi garantido.
   function speak(text, accent) {
-    if (!synth || !text) return false;
+    if (!synth || !text) return { ok: false };
     synth.cancel();
     var utter = new SpeechSynthesisUtterance(text);
-    var voice = pickVoice(accent);
-    if (voice) utter.voice = voice;
-    utter.lang = (voice && voice.lang) || ACCENT_LANG[accent] || 'en-US';
+    var picked = pickVoice(accent);
+    if (picked.voice) utter.voice = picked.voice;
+    utter.lang = (picked.voice && picked.voice.lang) || ACCENT_LANG[accent] || 'en-US';
     utter.rate = 0.92;
     utter.pitch = 1;
     synth.speak(utter);
-    return true;
+    return {
+      ok: true,
+      usedVoice: picked.voice ? picked.voice.name : utter.lang,
+      requestedAccent: accent,
+      fallback: !picked.exact
+    };
+  }
+
+  var ACCENT_LABEL = { american: 'americana', british: 'britânica', australian: 'australiana' };
+
+  // Fala o texto e, se um elemento de feedback for passado, escreve nele um
+  // aviso em português quando a voz pedida não foi encontrada no navegador.
+  function speakInto(text, accent, feedbackEl) {
+    var result = speak(text, accent);
+    if (feedbackEl) {
+      if (!result.ok) {
+        feedbackEl.textContent = 'Não foi possível reproduzir o áudio neste navegador.';
+      } else if (result.fallback) {
+        feedbackEl.textContent = 'Voz ' + (ACCENT_LABEL[accent] || accent) + ' não encontrada neste navegador; tocando com "' + result.usedVoice + '".';
+      } else {
+        feedbackEl.textContent = '';
+      }
+    }
+    return result;
   }
 
   function stop() {
@@ -112,6 +139,7 @@ var Speech = (function () {
 
   return {
     speak: speak,
+    speakInto: speakInto,
     stop: stop,
     isTTSSupported: isTTSSupported,
     isRecognitionSupported: isRecognitionSupported,

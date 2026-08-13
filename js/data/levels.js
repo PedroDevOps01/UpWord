@@ -1,5 +1,9 @@
 var APP_DATA = window.APP_DATA || {};
 
+// Único ponto de configuração da nota mínima de aprovação (60%) usada por
+// storage.js (bloqueio de progresso) e pela tela de quiz (exibição do resultado).
+APP_DATA.PASS_THRESHOLD = 0.6;
+
 APP_DATA.levels = [
   {
     id: 'a1',

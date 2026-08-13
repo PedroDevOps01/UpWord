@@ -13,20 +13,24 @@ Views.module = (function () {
   ];
 
   function tabNav(levelId, moduleId, activeTab) {
-    return '<nav class="module-tabs">' + TABS.map(function (t, i) {
+    return '<nav class="module-tabs" aria-label="Abas do módulo">' + TABS.map(function (t, i) {
       var active = t.key === activeTab ? ' is-active' : '';
       var tick = '<span class="module-tab-tick" style="--i:' + i + '"></span>';
-      return '<a class="module-tab' + active + '" href="#/level/' + levelId + '/module/' + moduleId + '/' + t.key + '">' + tick + t.label + '</a>';
+      return '<a class="module-tab' + active + '" href="#/level/' + levelId + '/module/' + moduleId + '/' + t.key + '"' + (t.key === activeTab ? ' aria-current="page"' : '') + '>' + tick + t.label + '</a>';
     }).join('') + '</nav>';
   }
 
+  var accentGroupCounter = 0;
+
   function accentButtons(text) {
-    var esc = text.replace(/'/g, "\\'");
+    var safe = text.replace(/"/g, '&quot;');
+    var groupId = 'accent-fb-' + (++accentGroupCounter);
     return (
       '<span class="accent-buttons">' +
-        '<button type="button" class="btn-accent" data-speak="' + text.replace(/"/g, '&quot;') + '" data-accent="american" title="Sotaque americano">🇺🇸</button>' +
-        '<button type="button" class="btn-accent" data-speak="' + text.replace(/"/g, '&quot;') + '" data-accent="british" title="Sotaque britânico">🇬🇧</button>' +
-        '<button type="button" class="btn-accent" data-speak="' + text.replace(/"/g, '&quot;') + '" data-accent="australian" title="Sotaque australiano">🇦🇺</button>' +
+        '<button type="button" class="btn-accent" data-speak="' + safe + '" data-accent="american" data-fb="' + groupId + '" title="Sotaque americano" aria-label="Ouvir com sotaque americano">🇺🇸</button>' +
+        '<button type="button" class="btn-accent" data-speak="' + safe + '" data-accent="british" data-fb="' + groupId + '" title="Sotaque britânico" aria-label="Ouvir com sotaque britânico">🇬🇧</button>' +
+        '<button type="button" class="btn-accent" data-speak="' + safe + '" data-accent="australian" data-fb="' + groupId + '" title="Sotaque australiano" aria-label="Ouvir com sotaque australiano">🇦🇺</button>' +
+        '<span class="accent-fallback-note" id="' + groupId + '" aria-live="polite"></span>' +
       '</span>'
     );
   }
@@ -34,9 +38,40 @@ Views.module = (function () {
   function bindAccentButtons(root) {
     root.querySelectorAll('.btn-accent').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        Speech.speak(btn.getAttribute('data-speak'), btn.getAttribute('data-accent'));
+        var fbEl = document.getElementById(btn.getAttribute('data-fb'));
+        Speech.speakInto(btn.getAttribute('data-speak'), btn.getAttribute('data-accent'), fbEl);
       });
     });
+  }
+
+  // Um section pode opcionalmente trazer table/correct/incorrect (mesmo
+  // formato usado em module.grammar) quando o próprio texto da aula precisa
+  // de uma tabela formal além da prosa — ex.: "There is / There are" em
+  // A1-M3, que convive no mesmo módulo com a tabela de This/That/These/Those
+  // em module.grammar.
+  function renderSectionTable(s) {
+    if (!s.table) return '';
+    return (
+      '<table class="grammar-table"><thead><tr>' +
+        s.table.headers.map(function (h) { return '<th>' + h + '</th>'; }).join('') +
+      '</tr></thead><tbody>' +
+      s.table.rows.map(function (row) {
+        return '<tr>' + row.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>';
+      }).join('') +
+      '</tbody></table>'
+    );
+  }
+
+  function renderSectionCompare(s) {
+    if (!s.correct && !s.incorrect) return '';
+    var correct = (s.correct || []).map(function (c) { return '<li class="fb-ok">✔ ' + c + '</li>'; }).join('');
+    var incorrect = (s.incorrect || []).map(function (c) { return '<li class="fb-bad">✘ ' + c + '</li>'; }).join('');
+    return (
+      '<div class="grammar-compare">' +
+        '<div><h4>Certo</h4><ul class="plain-list">' + correct + '</ul></div>' +
+        '<div><h4>Errado</h4><ul class="plain-list">' + incorrect + '</ul></div>' +
+      '</div>'
+    );
   }
 
   function renderLesson(module) {
@@ -49,7 +84,9 @@ Views.module = (function () {
         '<div class="lesson-section">' +
           '<h3>' + s.heading + '</h3>' +
           '<p>' + s.text + '</p>' +
+          renderSectionTable(s) +
           (examples ? '<ul class="example-list">' + examples + '</ul>' : '') +
+          renderSectionCompare(s) +
         '</div>'
       );
     }).join('');
@@ -122,13 +159,39 @@ Views.module = (function () {
       return (
         '<div class="listening-card">' +
           '<h3>' + flag + ' ' + item.title + '</h3>' +
-          '<button type="button" class="btn btn-secondary btn-play-audio" data-text="' + item.transcript.replace(/"/g, '&quot;') + '" data-accent="' + item.accent + '">▶ Ouvir</button>' +
-          '<details class="transcript-toggle"><summary>Ver transcrição</summary><p>' + item.transcript + '</p></details>' +
+          '<div class="audio-player-slot" id="audio-slot-listen-' + i + '"></div>' +
+          '<details class="transcript-toggle"><summary>Mostrar transcrição</summary><p>' + item.transcript + '</p></details>' +
           questions +
         '</div>'
       );
     }).join('');
-    return '<div class="tab-content">' + items + '</div>';
+    var toggleAll = module.listening.length > 1
+      ? '<button type="button" class="btn-text-link" id="listening-toggle-all">Mostrar todas as transcrições</button>'
+      : '';
+    return '<div class="tab-content">' + toggleAll + items + '</div>';
+  }
+
+  function mountListeningPlayers(container, module) {
+    module.listening.forEach(function (item, i) {
+      var slot = container.querySelector('#audio-slot-listen-' + i);
+      if (!slot) return;
+      Player.mount(slot, {
+        audioSrc: item.audioSrc || null,
+        audioSource: item.audioSource || null,
+        transcript: item.transcript,
+        accent: item.accent,
+        speedLevels: item.speedLevels
+      });
+    });
+    var toggleBtn = container.querySelector('#listening-toggle-all');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', function () {
+        var details = container.querySelectorAll('.listening-card .transcript-toggle');
+        var allOpen = Array.prototype.every.call(details, function (d) { return d.open; });
+        details.forEach(function (d) { d.open = !allOpen; });
+        toggleBtn.textContent = allOpen ? 'Mostrar todas as transcrições' : 'Esconder todas as transcrições';
+      });
+    }
   }
 
   function renderReading(module) {
@@ -150,7 +213,7 @@ Views.module = (function () {
       return (
         '<div class="reading-card">' +
           '<h3>' + item.title + '</h3>' +
-          '<button type="button" class="btn btn-secondary btn-play-reading" data-text="' + item.text.replace(/"/g, '&quot;') + '">' + Icon('sound', { size: 15 }) + ' Ouvir texto completo</button>' +
+          '<div class="audio-player-slot" id="audio-slot-read-' + i + '"></div>' +
           '<div class="reading-text">' + item.text + '</div>' +
           questions +
         '</div>'
@@ -159,64 +222,44 @@ Views.module = (function () {
     return '<div class="tab-content">' + items + '</div>';
   }
 
-  function renderWriting(module, moduleId) {
-    var items = module.writing.map(function (item, i) {
-      var draftKey = 'draft:' + moduleId + ':' + i;
-      var saved = '';
-      try { saved = localStorage.getItem(draftKey) || ''; } catch (e) {}
+  function mountReadingPlayers(container, module) {
+    module.reading.forEach(function (item, i) {
+      var slot = container.querySelector('#audio-slot-read-' + i);
+      if (!slot) return;
+      Player.mount(slot, {
+        audioSrc: item.audioSrc || null,
+        audioSource: item.audioSource || null,
+        text: item.text,
+        accent: 'american',
+        speedLevels: item.speedLevels,
+        fallbackLabel: 'Ouvir texto completo (voz do navegador — TTS)'
+      });
+    });
+  }
+
+  function renderSpeaking(module) {
+    var items = module.speaking.map(function (item, i) {
       return (
-        '<div class="writing-card">' +
-          '<p><strong>Exercício ' + (i + 1) + ':</strong> ' + item.prompt + '</p>' +
-          (item.minWords ? '<p class="muted">Mínimo sugerido: ' + item.minWords + ' palavras</p>' : '') +
-          '<textarea class="writing-area" rows="6" data-draft-key="' + draftKey + '" placeholder="Escreva sua resposta em inglês...">' + saved + '</textarea>' +
-          '<div class="word-count muted" data-count-for="' + draftKey + '"></div>' +
-          (item.modelAnswer ? '<details class="transcript-toggle"><summary>Ver um modelo de resposta</summary><p>' + item.modelAnswer + '</p></details>' : '') +
+        '<div class="speaking-card" data-speaking-index="' + i + '">' +
+          '<p class="speaking-phrase">"' + item.phrase + '"</p>' +
+          '<p class="muted">💡 ' + item.tip + '</p>' +
+          '<div class="speaking-actions">' + accentButtons(item.phrase) + '</div>' +
+          '<div class="speaking-slot" id="speaking-slot-' + i + '"></div>' +
         '</div>'
       );
     }).join('');
     return '<div class="tab-content">' + items + '</div>';
   }
 
-  function renderSpeaking(module) {
-    var recSupported = Speech.isRecognitionSupported();
-    var items = module.speaking.map(function (item, i) {
-      var id = 'speak-' + i;
-      return (
-        '<div class="speaking-card">' +
-          '<p class="speaking-phrase">"' + item.phrase + '"</p>' +
-          '<p class="muted">💡 ' + item.tip + '</p>' +
-          '<div class="speaking-actions">' +
-            accentButtons(item.phrase) +
-            (recSupported
-              ? '<button type="button" class="btn btn-secondary btn-record" data-phrase="' + item.phrase.replace(/"/g, '&quot;') + '" data-id="' + id + '">🎙 Praticar pronúncia</button>'
-              : '') +
-          '</div>' +
-          '<span class="ex-feedback" id="' + id + '-fb"></span>' +
-        '</div>'
-      );
-    }).join('');
-    var note = recSupported ? '' : '<p class="muted">Seu navegador não suporta reconhecimento de voz. Ouça o áudio e repita a frase em voz alta.</p>';
-    return '<div class="tab-content">' + note + items + '</div>';
+  function mountSpeakingWidgets(container, module, moduleId) {
+    module.speaking.forEach(function (item, i) {
+      var slot = container.querySelector('#speaking-slot-' + i);
+      if (slot) Speaking.mount(slot, item, moduleId);
+    });
   }
 
-  function bindTabExtras(root, tab) {
+  function bindTabExtras(root, tab, moduleId) {
     bindAccentButtons(root);
-
-    if (tab === 'listening') {
-      root.querySelectorAll('.btn-play-audio').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          Speech.speak(btn.getAttribute('data-text'), btn.getAttribute('data-accent'));
-        });
-      });
-    }
-
-    if (tab === 'reading') {
-      root.querySelectorAll('.btn-play-reading').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          Speech.speak(btn.getAttribute('data-text'), 'american');
-        });
-      });
-    }
 
     if (tab === 'listening' || tab === 'reading') {
       root.querySelectorAll('.btn-check-mini').forEach(function (btn) {
@@ -231,49 +274,26 @@ Views.module = (function () {
           var correctInput = item.querySelector('input[value="' + answer + '"]');
           var correctLabel = correctInput ? correctInput.closest('label').querySelector('span').textContent : '';
           fb.innerHTML = ok ? '<span class="fb-ok">✔ Correto!</span>' : '<span class="fb-bad">✘ Resposta correta: ' + correctLabel + '</span>';
+          if (ok) Storage.markSessionCompleted(moduleId, tab);
         });
       });
     }
+  }
 
-    if (tab === 'writing') {
-      root.querySelectorAll('.writing-area').forEach(function (area) {
-        function updateCount() {
-          var words = area.value.trim().split(/\s+/).filter(Boolean).length;
-          var counter = root.querySelector('[data-count-for="' + area.getAttribute('data-draft-key') + '"]');
-          if (counter) counter.textContent = words + ' palavras';
-        }
-        updateCount();
-        area.addEventListener('input', function () {
-          updateCount();
-          try { localStorage.setItem(area.getAttribute('data-draft-key'), area.value); } catch (e) {}
-        });
-      });
-    }
+  // Abas sem sinal próprio de conclusão (lesson/vocabulary/grammar não têm
+  // pergunta para responder) ganham um botão explícito — não marcamos a
+  // sessão como concluída só por a aba ter sido aberta.
+  var SESSION_SIMPLE_TABS = { lesson: true, vocabulary: true, grammar: true };
 
-    if (tab === 'speaking') {
-      root.querySelectorAll('.btn-record').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var phrase = btn.getAttribute('data-phrase');
-          var fb = document.getElementById(btn.getAttribute('data-id') + '-fb');
-          fb.innerHTML = '<span class="muted">🎙 Ouvindo...</span>';
-          Speech.listen(phrase, {
-            onResult: function (res) {
-              if (res.score >= 0.8) {
-                fb.innerHTML = '<span class="fb-ok">✔ Ótima pronúncia! ("' + res.transcript + '")</span>';
-              } else {
-                fb.innerHTML = '<span class="fb-bad">Quase lá. Você disse: "' + res.transcript + '". Tente novamente.</span>';
-              }
-            },
-            onError: function () {
-              fb.innerHTML = '<span class="fb-bad">Não foi possível captar o áudio. Tente novamente.</span>';
-            },
-            onUnsupported: function () {
-              fb.innerHTML = '<span class="muted">Reconhecimento de voz não suportado.</span>';
-            }
-          });
-        });
-      });
-    }
+  function sessionCompleteButtonHtml(moduleId, tab) {
+    var done = Storage.isSessionCompleted(moduleId, tab);
+    return (
+      '<div class="session-complete-row">' +
+        '<button type="button" class="btn ' + (done ? 'btn-secondary is-done' : 'btn-primary') + '" id="session-complete-btn" aria-pressed="' + done + '">' +
+          (done ? Icon('check', { size: 15 }) + ' Sessão concluída' : 'Marcar sessão como concluída') +
+        '</button>' +
+      '</div>'
+    );
   }
 
   function render(container, levelId, moduleId, tab) {
@@ -288,12 +308,14 @@ Views.module = (function () {
     else if (tab === 'grammar') contentHtml = renderGrammar(module);
     else if (tab === 'listening') contentHtml = renderListening(module);
     else if (tab === 'reading') contentHtml = renderReading(module);
-    else if (tab === 'writing') contentHtml = renderWriting(module, moduleId);
+    else if (tab === 'writing') contentHtml = Views.writing.render(module, moduleId);
     else if (tab === 'speaking') contentHtml = renderSpeaking(module);
     else contentHtml = '<div id="exercises-root" class="tab-content"></div>';
 
+    if (SESSION_SIMPLE_TABS[tab]) contentHtml += sessionCompleteButtonHtml(moduleId, tab);
+
     container.innerHTML =
-      '<section class="module-page" style="--level-color:' + level.color + '">' +
+      '<section class="module-page" data-module-id="' + moduleId + '" style="--level-color:' + level.color + '">' +
         '<a class="back-link" href="#/level/' + levelId + '">' + Icon('chevronLeft', { size: 16 }) + ' ' + level.code + ' — ' + level.name + '</a>' +
         '<h1>' + module.title + '</h1>' +
         '<p class="muted">' + module.subtitle + '</p>' +
@@ -307,8 +329,24 @@ Views.module = (function () {
     if (tab === 'exercises') {
       Views.exercises.renderAll(document.getElementById('exercises-root'), module.exercises, moduleId);
     }
+    if (tab === 'listening') mountListeningPlayers(container, module);
+    if (tab === 'reading') mountReadingPlayers(container, module);
+    if (tab === 'writing') Views.writing.bind(container, module, moduleId);
+    if (tab === 'speaking') mountSpeakingWidgets(container, module, moduleId);
+    if (SESSION_SIMPLE_TABS[tab]) {
+      var sessionBtn = document.getElementById('session-complete-btn');
+      if (sessionBtn) {
+        sessionBtn.addEventListener('click', function () {
+          Storage.markSessionCompleted(moduleId, tab);
+          sessionBtn.innerHTML = Icon('check', { size: 15 }) + ' Sessão concluída';
+          sessionBtn.classList.remove('btn-primary');
+          sessionBtn.classList.add('btn-secondary', 'is-done');
+          sessionBtn.setAttribute('aria-pressed', 'true');
+        });
+      }
+    }
 
-    bindTabExtras(container, tab);
+    bindTabExtras(container, tab, moduleId);
   }
 
   function renderQuiz(container, levelId, moduleId) {
@@ -329,7 +367,7 @@ Views.module = (function () {
 
     Views.quiz.render(container, {
       title: 'Quiz — ' + module.title,
-      subtitle: 'Acerte pelo menos 60% para concluir o módulo.',
+      subtitle: 'Acerte pelo menos ' + Math.round(APP_DATA.PASS_THRESHOLD * 100) + '% para concluir o módulo.',
       questions: module.quiz,
       refId: moduleId,
       type: 'module',
@@ -338,7 +376,7 @@ Views.module = (function () {
       nextHash: nextHash,
       nextLabel: nextLabel,
       onComplete: function (score, total) {
-        return Storage.completeModule(moduleId, score, total);
+        return Storage.completeModule(levelId, moduleId, score, total);
       }
     });
   }

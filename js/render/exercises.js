@@ -17,16 +17,16 @@ Views.exercises = (function () {
       var id = uid + '-fb-' + i;
       var parts = item.text.split('___');
       var inputHtml = item.options
-        ? '<select id="' + id + '" class="ex-input">' +
+        ? '<select id="' + id + '" class="ex-input" aria-label="Escolha a palavra correta para a lacuna ' + (i + 1) + '">' +
             '<option value="">— escolha —</option>' +
             item.options.map(function (o) { return '<option value="' + o + '">' + o + '</option>'; }).join('') +
           '</select>'
-        : '<input id="' + id + '" class="ex-input" type="text" autocomplete="off">';
+        : '<input id="' + id + '" class="ex-input" type="text" autocomplete="off" aria-label="Complete a lacuna ' + (i + 1) + '">';
       return (
         '<div class="ex-item" data-answer="' + item.answer + '">' +
           '<p>' + (i + 1) + '. ' + parts[0] + inputHtml + (parts[1] || '') + '</p>' +
-          '<button type="button" class="btn-check" data-target="' + id + '">Verificar</button>' +
-          '<span class="ex-feedback" id="' + id + '-fb"></span>' +
+          '<button type="button" class="btn-check" data-target="' + id + '" aria-label="Verificar lacuna ' + (i + 1) + '">Verificar</button>' +
+          '<span class="ex-feedback" id="' + id + '-fb" aria-live="polite"></span>' +
         '</div>'
       );
     }).join('');
@@ -41,11 +41,11 @@ Views.exercises = (function () {
       var opts = rightOptions.map(function (r) { return '<option value="' + r + '">' + r + '</option>'; }).join('');
       return (
         '<div class="ex-match-row" data-answer="' + pair.right + '">' +
-          '<span class="ex-match-left">' + pair.left + '</span>' +
-          '<select id="' + id + '" class="ex-input">' +
+          '<span class="ex-match-left" id="' + id + '-label">' + pair.left + '</span>' +
+          '<select id="' + id + '" class="ex-input" aria-label="Associação para ' + pair.left + '">' +
             '<option value="">— escolha —</option>' + opts +
           '</select>' +
-          '<span class="ex-feedback" id="' + id + '-fb"></span>' +
+          '<span class="ex-feedback" id="' + id + '-fb" aria-live="polite"></span>' +
         '</div>'
       );
     }).join('');
@@ -68,11 +68,11 @@ Views.exercises = (function () {
       return (
         '<div class="ex-item ex-ordering" data-answer="' + item.answer + '" data-wid="' + wid + '">' +
           '<p>' + (i + 1) + '. Organize as palavras na ordem correta:</p>' +
-          '<div class="order-answer-box" id="' + wid + '-answer"></div>' +
-          '<div class="order-pool" id="' + wid + '-pool">' + pool + '</div>' +
+          '<div class="order-answer-box" id="' + wid + '-answer" aria-label="Sua frase montada" role="group"></div>' +
+          '<div class="order-pool" id="' + wid + '-pool" aria-label="Palavras disponíveis para montar a frase ' + (i + 1) + '">' + pool + '</div>' +
           '<button type="button" class="btn-secondary-sm" data-reset="' + wid + '">Recomeçar</button>' +
           '<button type="button" class="btn-check" data-target="' + wid + '" data-kind="order">Verificar</button>' +
-          '<span class="ex-feedback" id="' + wid + '-fb"></span>' +
+          '<span class="ex-feedback" id="' + wid + '-fb" aria-live="polite"></span>' +
         '</div>'
       );
     }).join('');
@@ -87,30 +87,53 @@ Views.exercises = (function () {
       return (
         '<div class="ex-item" data-answer="' + item.answer + '">' +
           '<p><strong>' + label + ':</strong> "' + item.text + '"</p>' +
-          '<input id="' + id + '" class="ex-input" type="text" autocomplete="off">' +
+          '<label class="visually-hidden" for="' + id + '">' + label + ': ' + item.text + '</label>' +
+          '<input id="' + id + '" class="ex-input" type="text" autocomplete="off" aria-label="' + label + ': ' + item.text + '">' +
           '<button type="button" class="btn-check" data-target="' + id + '" data-kind="fuzzy">Verificar</button>' +
-          '<span class="ex-feedback" id="' + id + '-fb"></span>' +
+          '<span class="ex-feedback" id="' + id + '-fb" aria-live="polite"></span>' +
         '</div>'
       );
     }).join('');
     return '<div class="ex-block" data-kind="translation">' + items + '</div>';
   }
 
-  function renderDictation(list, uid) {
+  // A resposta certa NÃO fica num atributo HTML (data-answer) — fica só no
+  // answerStore em memória, para não aparecer de forma óbvia em "ver
+  // código-fonte" antes de o aluno responder. Isso não impede inspeção via
+  // DevTools (inevitável em uma app 100% client-side), mas evita o vazamento
+  // trivial de visualizar o HTML da página.
+  function renderDictation(list, uid, answerStore) {
     if (!list || !list.length) return '';
     var items = list.map(function (item, i) {
       var id = uid + '-dict-' + i;
+      answerStore[id] = item.answer;
       return (
-        '<div class="ex-item" data-answer="' + item.answer + '" data-audio="' + item.audioText + '">' +
+        '<div class="ex-item" data-kind-id="' + id + '">' +
           '<p>' + (i + 1) + '. Ouça e escreva o que você ouvir:</p>' +
-          '<button type="button" class="btn-play" data-play="' + id + '">🔊 Ouvir</button>' +
-          '<input id="' + id + '" class="ex-input" type="text" autocomplete="off" placeholder="Escreva a frase">' +
+          '<div class="audio-player-slot" id="' + id + '-player"></div>' +
+          '<label class="visually-hidden" for="' + id + '">Escreva a frase que você ouviu</label>' +
+          '<input id="' + id + '" class="ex-input" type="text" autocomplete="off" placeholder="Escreva a frase" aria-label="Escreva a frase que você ouviu">' +
           '<button type="button" class="btn-check" data-target="' + id + '" data-kind="fuzzy">Verificar</button>' +
-          '<span class="ex-feedback" id="' + id + '-fb"></span>' +
+          '<span class="ex-feedback" id="' + id + '-fb" aria-live="polite"></span>' +
         '</div>'
       );
     }).join('');
     return '<div class="ex-block" data-kind="dictation">' + items + '</div>';
+  }
+
+  function mountDictationPlayers(container, list, uid) {
+    if (!list || !list.length) return;
+    list.forEach(function (item, i) {
+      var id = uid + '-dict-' + i;
+      var slot = container.querySelector('#' + id + '-player');
+      if (!slot) return;
+      Player.mount(slot, {
+        audioSrc: item.audioSrc || null,
+        audioSource: item.audioSource || null,
+        transcript: item.audioText,
+        accent: 'american'
+      });
+    });
   }
 
   function renderDialogue(list, uid) {
@@ -126,7 +149,7 @@ Views.exercises = (function () {
             '<div class="dialogue-line dialogue-user" data-answer="' + line.answer + '" id="' + id + '">' +
               '<p class="dialogue-prompt">🗣 ' + line.prompt + '</p>' +
               '<div class="dialogue-options">' + opts + '</div>' +
-              '<span class="ex-feedback" id="' + id + '-fb"></span>' +
+              '<span class="ex-feedback" id="' + id + '-fb" aria-live="polite"></span>' +
             '</div>'
           );
         }
@@ -143,15 +166,22 @@ Views.exercises = (function () {
     return '<div class="ex-block" data-kind="dialogue">' + blocks + '</div>';
   }
 
-  function attachHandlers(root) {
+  // Limiar elevado (0.92) para aceitar apenas pequenos erros de digitação —
+  // um limiar mais baixo (o antigo 0.85) aceitava respostas próximas na
+  // distância de Levenshtein mas semanticamente erradas.
+  var FUZZY_ACCEPT_THRESHOLD = 0.92;
+
+  function attachHandlers(root, answerStore) {
+    answerStore = answerStore || {};
     root.querySelectorAll('.btn-check[data-kind="fuzzy"]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var input = document.getElementById(btn.getAttribute('data-target'));
         var item = input.closest('.ex-item');
-        var answer = item.getAttribute('data-answer');
+        var kindId = item.getAttribute('data-kind-id');
+        var answer = kindId ? answerStore[kindId] : item.getAttribute('data-answer');
         var score = Speech.similarity(input.value, answer);
         var fb = document.getElementById(btn.getAttribute('data-target') + '-fb');
-        if (score >= 0.85) {
+        if (score >= FUZZY_ACCEPT_THRESHOLD) {
           fb.innerHTML = '<span class="fb-ok">✔ Correto!</span>';
         } else {
           fb.innerHTML = '<span class="fb-bad">✘ Resposta esperada: "' + answer + '"</span>';
@@ -233,13 +263,6 @@ Views.exercises = (function () {
       });
     });
 
-    root.querySelectorAll('.btn-play').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var item = btn.closest('.ex-item');
-        Speech.speak(item.getAttribute('data-audio'), 'american');
-      });
-    });
-
     root.querySelectorAll('.btn-play-inline').forEach(function (btn) {
       btn.addEventListener('click', function () {
         Speech.speak(btn.getAttribute('data-speak'), 'american');
@@ -266,15 +289,17 @@ Views.exercises = (function () {
       container.innerHTML = '<p class="muted">Nenhum exercício disponível ainda para este módulo.</p>';
       return;
     }
+    var answerStore = {};
     var html =
       sectionWrap('Complete as lacunas', renderFillBlanks(exercises.fillBlanks, uid)) +
       sectionWrap('Associação de palavras', renderMatching(exercises.matching, uid)) +
       sectionWrap('Organize as frases', renderOrdering(exercises.ordering, uid)) +
       sectionWrap('Tradução', renderTranslation(exercises.translation, uid)) +
-      sectionWrap('Ditado (listening)', renderDictation(exercises.dictation, uid)) +
+      sectionWrap('Ditado (listening)', renderDictation(exercises.dictation, uid, answerStore)) +
       sectionWrap('Diálogo interativo', renderDialogue(exercises.dialogue, uid));
     container.innerHTML = html || '<p class="muted">Nenhum exercício disponível ainda para este módulo.</p>';
-    attachHandlers(container);
+    mountDictationPlayers(container, exercises.dictation, uid);
+    attachHandlers(container, answerStore);
   }
 
   function sectionWrap(title, innerHtml) {

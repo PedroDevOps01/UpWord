@@ -39,14 +39,14 @@ APP_DATA.a1 = {
         ]
       },
       vocabulary: [
-        { word: "Hello", phonetic: "/həˈloʊ/", translation: "Olá", example: "Hello! How are you?", exampleTranslation: "Olá! Como você está?" },
-        { word: "Good morning", phonetic: "/ɡʊd ˈmɔːrnɪŋ/", translation: "Bom dia", example: "Good morning, everyone!", exampleTranslation: "Bom dia, pessoal!" },
-        { word: "Please", phonetic: "/pliːz/", translation: "Por favor", example: "Can you help me, please?", exampleTranslation: "Você pode me ajudar, por favor?" },
-        { word: "Thank you", phonetic: "/ˈθæŋk juː/", translation: "Obrigado(a)", example: "Thank you very much!", exampleTranslation: "Muito obrigado(a)!" },
-        { word: "Sorry", phonetic: "/ˈsɒri/", translation: "Desculpe", example: "Sorry, I'm late.", exampleTranslation: "Desculpe, estou atrasado(a)." },
-        { word: "Name", phonetic: "/neɪm/", translation: "Nome", example: "What's your name?", exampleTranslation: "Qual é o seu nome?" },
-        { word: "Goodbye", phonetic: "/ɡʊdˈbaɪ/", translation: "Tchau/Adeus", example: "Goodbye, see you tomorrow!", exampleTranslation: "Tchau, até amanhã!" },
-        { word: "Friend", phonetic: "/frɛnd/", translation: "Amigo(a)", example: "She is my friend.", exampleTranslation: "Ela é minha amiga." }
+        { id: "a1-m1-hello", word: "Hello", phonetic: "/həˈloʊ/", translation: "Olá", example: "Hello! How are you?", exampleTranslation: "Olá! Como você está?" },
+        { id: "a1-m1-good-morning", word: "Good morning", phonetic: "/ɡʊd ˈmɔːrnɪŋ/", translation: "Bom dia", example: "Good morning, everyone!", exampleTranslation: "Bom dia, pessoal!" },
+        { id: "a1-m1-please", word: "Please", phonetic: "/pliːz/", translation: "Por favor", example: "Can you help me, please?", exampleTranslation: "Você pode me ajudar, por favor?" },
+        { id: "a1-m1-thank-you", word: "Thank you", phonetic: "/ˈθæŋk juː/", translation: "Obrigado(a)", example: "Thank you very much!", exampleTranslation: "Muito obrigado(a)!" },
+        { id: "a1-m1-sorry", word: "Sorry", phonetic: "/ˈsɒri/", translation: "Desculpe", example: "Sorry, I'm late.", exampleTranslation: "Desculpe, estou atrasado(a)." },
+        { id: "a1-m1-name", word: "Name", phonetic: "/neɪm/", translation: "Nome", example: "What's your name?", exampleTranslation: "Qual é o seu nome?" },
+        { id: "a1-m1-goodbye", word: "Goodbye", phonetic: "/ɡʊdˈbaɪ/", translation: "Tchau/Adeus", example: "Goodbye, see you tomorrow!", exampleTranslation: "Tchau, até amanhã!" },
+        { id: "a1-m1-friend", word: "Friend", phonetic: "/frɛnd/", translation: "Amigo(a)", example: "She is my friend.", exampleTranslation: "Ela é minha amiga." }
       ],
       grammar: {
         title: "Pronomes Pessoais (Subject Pronouns)",
@@ -70,6 +70,9 @@ APP_DATA.a1 = {
         {
           title: "A Conversation at School",
           accent: "american",
+          audioSrc: "assets/audio/a1-m1-listen-0.mp3",
+          audioSource: "tts-pregenerated",
+          speedLevels: [0.75, 1, 1.25],
           transcript: "Anna: Good morning! My name is Anna. What's your name? Leo: Hi, Anna! My name is Leo. Nice to meet you. Anna: Nice to meet you too! Where are you from? Leo: I'm from Brazil.",
           questions: [
             { q: "What is the girl's name?", options: ["Anna", "Leo", "Maria", "Brazil"], answer: 0 },
@@ -155,12 +158,12 @@ APP_DATA.a1 = {
         { type: "tf", q: "'Goodbye' is used when you meet someone for the first time.", answer: false, explanation: "'Goodbye' é usado para se despedir, não para conhecer alguém." },
         { q: "Which sentence is correct?", options: ["I is happy.", "I am happy.", "I are happy.", "I be happy."], answer: 1, explanation: "Com 'I', usamos sempre 'am'." },
         { type: "short", q: "Complete with one word: 'Thank ___!'", answer: ["you"], explanation: "'Thank you' é a forma padrão de agradecer." },
-        { q: "What does 'Nice to meet you' mean?", options: ["Tchau", "Prazer em conhecê-lo", "Bom dia", "Por favor"], answer: 1 },
+        { q: "What does 'Nice to meet you' mean?", options: ["Tchau", "Prazer em conhecê-lo", "Bom dia", "Por favor"], answer: 1, explanation: "'Nice to meet you' é usado ao conhecer alguém pela primeira vez e significa 'prazer em conhecê-lo(a)'." },
         { type: "tf", q: "'She' is used to refer to a man.", answer: false, explanation: "'She' se refere a uma mulher; 'he' se refere a um homem." },
         { q: "Choose the correct pronoun: '___ are my friends.'", options: ["He", "She", "They", "It"], answer: 2, explanation: "'They' é usado para grupos de pessoas ou coisas." },
-        { q: "'Good ___!' is said when you say goodnight before sleeping.", options: ["morning", "afternoon", "evening", "night"], answer: 3 },
-        { type: "short", q: "How do you ask someone's name? Complete: 'What's your ___?'", answer: ["name"] },
-        { q: "Which is a polite way to apologize?", options: ["Please", "Sorry", "Thanks", "Hello"], answer: 1 },
+        { q: "'Good ___!' is said when you say goodnight before sleeping.", options: ["morning", "afternoon", "evening", "night"], answer: 3, explanation: "'Good night' é usado para se despedir antes de dormir, diferente de 'good evening', usado ao encontrar alguém à noite." },
+        { type: "short", q: "How do you ask someone's name? Complete: 'What's your ___?'", answer: ["name"], explanation: "Perguntamos o nome de alguém com 'What's your name?', usando a palavra 'name' (nome)." },
+        { q: "Which is a polite way to apologize?", options: ["Please", "Sorry", "Thanks", "Hello"], answer: 1, explanation: "'Sorry' é a palavra usada para pedir desculpas; 'please' é usado para pedir algo educadamente." },
         { type: "tf", q: "In English, subject pronouns come before the verb.", answer: true, explanation: "Diferente do português, em inglês a ordem sujeito-verbo é fixa." }
       ]
     },
@@ -199,16 +202,31 @@ APP_DATA.a1 = {
         ]
       },
       vocabulary: [
-        { word: "Zero", phonetic: "/ˈzɪəroʊ/", translation: "Zero", example: "I have zero brothers.", exampleTranslation: "Eu não tenho irmãos." },
-        { word: "One", phonetic: "/wʌn/", translation: "Um", example: "I have one sister.", exampleTranslation: "Eu tenho uma irmã." },
-        { word: "Two", phonetic: "/tuː/", translation: "Dois", example: "I have two cats.", exampleTranslation: "Eu tenho dois gatos." },
-        { word: "Three", phonetic: "/θriː/", translation: "Três", example: "She has three books.", exampleTranslation: "Ela tem três livros." },
-        { word: "Ten", phonetic: "/tɛn/", translation: "Dez", example: "He is ten years old.", exampleTranslation: "Ele tem dez anos." },
-        { word: "Twenty", phonetic: "/ˈtwɛnti/", translation: "Vinte", example: "My sister is twenty years old.", exampleTranslation: "Minha irmã tem vinte anos." },
-        { word: "Brazilian", phonetic: "/brəˈzɪljən/", translation: "Brasileiro(a)", example: "I am Brazilian.", exampleTranslation: "Eu sou brasileiro(a)." },
-        { word: "American", phonetic: "/əˈmɛrɪkən/", translation: "Americano(a)", example: "He is American.", exampleTranslation: "Ele é americano." },
-        { word: "Country", phonetic: "/ˈkʌntri/", translation: "País", example: "Brazil is a big country.", exampleTranslation: "O Brasil é um país grande." },
-        { word: "Age", phonetic: "/eɪdʒ/", translation: "Idade", example: "What is your age?", exampleTranslation: "Qual é a sua idade?" }
+        { id: "a1-m2-zero", word: "Zero", phonetic: "/ˈzɪəroʊ/", translation: "Zero", example: "I have zero brothers.", exampleTranslation: "Eu não tenho irmãos." },
+        { id: "a1-m2-one", word: "One", phonetic: "/wʌn/", translation: "Um", example: "I have one sister.", exampleTranslation: "Eu tenho uma irmã." },
+        { id: "a1-m2-two", word: "Two", phonetic: "/tuː/", translation: "Dois", example: "I have two cats.", exampleTranslation: "Eu tenho dois gatos." },
+        { id: "a1-m2-three", word: "Three", phonetic: "/θriː/", translation: "Três", example: "She has three books.", exampleTranslation: "Ela tem três livros." },
+        { id: "a1-m2-four", word: "Four", phonetic: "/fɔːr/", translation: "Quatro", example: "I have four books.", exampleTranslation: "Eu tenho quatro livros." },
+        { id: "a1-m2-five", word: "Five", phonetic: "/faɪv/", translation: "Cinco", example: "She has five dollars.", exampleTranslation: "Ela tem cinco dólares." },
+        { id: "a1-m2-six", word: "Six", phonetic: "/sɪks/", translation: "Seis", example: "We have six chairs.", exampleTranslation: "Nós temos seis cadeiras." },
+        { id: "a1-m2-seven", word: "Seven", phonetic: "/ˈsɛvən/", translation: "Sete", example: "He wakes up at seven.", exampleTranslation: "Ele acorda às sete." },
+        { id: "a1-m2-eight", word: "Eight", phonetic: "/eɪt/", translation: "Oito", example: "There are eight students in the room.", exampleTranslation: "Há oito estudantes na sala." },
+        { id: "a1-m2-nine", word: "Nine", phonetic: "/naɪn/", translation: "Nove", example: "My brother is nine years old.", exampleTranslation: "Meu irmão tem nove anos." },
+        { id: "a1-m2-ten", word: "Ten", phonetic: "/tɛn/", translation: "Dez", example: "He is ten years old.", exampleTranslation: "Ele tem dez anos." },
+        { id: "a1-m2-eleven", word: "Eleven", phonetic: "/ɪˈlɛvən/", translation: "Onze", example: "I have eleven dollars.", exampleTranslation: "Eu tenho onze dólares." },
+        { id: "a1-m2-twelve", word: "Twelve", phonetic: "/twɛlv/", translation: "Doze", example: "There are twelve months in a year.", exampleTranslation: "Há doze meses em um ano." },
+        { id: "a1-m2-thirteen", word: "Thirteen", phonetic: "/ˌθɜːrˈtiːn/", translation: "Treze", example: "She is thirteen years old.", exampleTranslation: "Ela tem treze anos." },
+        { id: "a1-m2-fourteen", word: "Fourteen", phonetic: "/ˌfɔːrˈtiːn/", translation: "Quatorze", example: "He is fourteen years old.", exampleTranslation: "Ele tem quatorze anos." },
+        { id: "a1-m2-fifteen", word: "Fifteen", phonetic: "/ˌfɪfˈtiːn/", translation: "Quinze", example: "I am fifteen years old.", exampleTranslation: "Eu tenho quinze anos." },
+        { id: "a1-m2-sixteen", word: "Sixteen", phonetic: "/ˌsɪksˈtiːn/", translation: "Dezesseis", example: "My sister is sixteen years old.", exampleTranslation: "Minha irmã tem dezesseis anos." },
+        { id: "a1-m2-seventeen", word: "Seventeen", phonetic: "/ˌsɛvənˈtiːn/", translation: "Dezessete", example: "He is seventeen years old.", exampleTranslation: "Ele tem dezessete anos." },
+        { id: "a1-m2-eighteen", word: "Eighteen", phonetic: "/ˌeɪˈtiːn/", translation: "Dezoito", example: "She is eighteen years old.", exampleTranslation: "Ela tem dezoito anos." },
+        { id: "a1-m2-nineteen", word: "Nineteen", phonetic: "/ˌnaɪnˈtiːn/", translation: "Dezenove", example: "My cousin is nineteen years old.", exampleTranslation: "Minha prima tem dezenove anos." },
+        { id: "a1-m2-twenty", word: "Twenty", phonetic: "/ˈtwɛnti/", translation: "Vinte", example: "My sister is twenty years old.", exampleTranslation: "Minha irmã tem vinte anos." },
+        { id: "a1-m2-brazilian", word: "Brazilian", phonetic: "/brəˈzɪljən/", translation: "Brasileiro(a)", example: "I am Brazilian.", exampleTranslation: "Eu sou brasileiro(a)." },
+        { id: "a1-m2-american", word: "American", phonetic: "/əˈmɛrɪkən/", translation: "Americano(a)", example: "He is American.", exampleTranslation: "Ele é americano." },
+        { id: "a1-m2-country", word: "Country", phonetic: "/ˈkʌntri/", translation: "País", example: "Brazil is a big country.", exampleTranslation: "O Brasil é um país grande." },
+        { id: "a1-m2-age", word: "Age", phonetic: "/eɪdʒ/", translation: "Idade", example: "What is your age?", exampleTranslation: "Qual é a sua idade?" }
       ],
       grammar: {
         title: "Verb 'to be' — Afirmativa, Negativa e Perguntas",
@@ -267,12 +285,16 @@ APP_DATA.a1 = {
           { text: "How old ___ he?", answer: "is" }
         ],
         matching: [
+          { left: "0", right: "Zero" },
           { left: "1", right: "One" },
           { left: "2", right: "Two" },
           { left: "3", right: "Three" },
+          { left: "5", right: "Five" },
+          { left: "7", right: "Seven" },
           { left: "10", right: "Ten" },
-          { left: "20", right: "Twenty" },
-          { left: "0", right: "Zero" }
+          { left: "12", right: "Twelve" },
+          { left: "15", right: "Fifteen" },
+          { left: "20", right: "Twenty" }
         ],
         ordering: [
           { words: ["are", "you", "Where", "from?"], answer: "Where are you from?" },
@@ -308,18 +330,18 @@ APP_DATA.a1 = {
         ]
       },
       quiz: [
-        { q: "Complete: 'They ___ students.'", options: ["is", "am", "are", "be"], answer: 2 },
-        { q: "Choose the negative form: 'He is happy.'", options: ["He isn't happy.", "He not is happy.", "He amn't happy.", "He aren't happy."], answer: 0 },
-        { type: "tf", q: "The number after 'nine' is 'ten'.", answer: true },
-        { q: "How do you ask someone's age?", options: ["What's your age name?", "How old are you?", "Where are you?", "Who are you?"], answer: 1 },
-        { type: "short", q: "Write the number: 3", answer: ["three", "Three"] },
-        { q: "'I am from Brazil' means:", options: ["Eu vou para o Brasil", "Eu sou do Brasil", "Eu gosto do Brasil", "Eu moro no Brasil"], answer: 1 },
+        { q: "Complete: 'They ___ students.'", options: ["is", "am", "are", "be"], answer: 2, explanation: "Usamos 'are' com 'they' (assim como com 'you' e 'we')." },
+        { q: "Choose the negative form: 'He is happy.'", options: ["He isn't happy.", "He not is happy.", "He amn't happy.", "He aren't happy."], answer: 0, explanation: "A negativa de 'is' se forma acrescentando 'not', contraído como 'isn't'." },
+        { type: "tf", q: "The number after 'nine' is 'ten'.", answer: true, explanation: "A sequência numérica segue ...eight, nine, ten..., portanto depois de 'nine' vem 'ten'." },
+        { q: "How do you ask someone's age?", options: ["What's your age name?", "How old are you?", "Where are you?", "Who are you?"], answer: 1, explanation: "Perguntamos a idade de alguém com a expressão fixa 'How old are you?', sem tradução literal de 'idade'." },
+        { type: "short", q: "Write the number: 3", answer: ["three", "Three"], explanation: "O número 3 se escreve 'three' em inglês." },
+        { q: "'I am from Brazil' means:", options: ["Eu vou para o Brasil", "Eu sou do Brasil", "Eu gosto do Brasil", "Eu moro no Brasil"], answer: 1, explanation: "'I am from + país' indica a origem/nacionalidade de alguém, equivalente a 'Eu sou de/do...'." },
         { type: "tf", q: "'Are' is used with 'he' and 'she'.", answer: false, explanation: "Usamos 'is' com he/she/it." },
-        { q: "Choose the question form: '___ she Brazilian?'", options: ["Is", "Are", "Am", "Be"], answer: 0 },
-        { q: "'Country' means:", options: ["Cidade", "País", "Continente", "Idioma"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ not a teacher.' (to be)", answer: ["am"] },
-        { q: "Which sentence is correct?", options: ["She fifteen years old is.", "She is fifteen years old.", "Is she fifteen years old", "She old is fifteen years."], answer: 1 },
-        { type: "tf", q: "'Twenty' is the number 20.", answer: true }
+        { q: "Choose the question form: '___ she Brazilian?'", options: ["Is", "Are", "Am", "Be"], answer: 0, explanation: "Com he/she/it, a pergunta com o verbo 'to be' começa com 'Is'." },
+        { q: "'Country' means:", options: ["Cidade", "País", "Continente", "Idioma"], answer: 1, explanation: "'Country' significa 'país' em português." },
+        { type: "short", q: "Complete: 'I ___ not a teacher.' (to be)", answer: ["am"], explanation: "A negativa do verbo 'to be' com 'I' é 'I am not', usando 'am'." },
+        { q: "Which sentence is correct?", options: ["She fifteen years old is.", "She is fifteen years old.", "Is she fifteen years old", "She old is fifteen years."], answer: 1, explanation: "A ordem correta em inglês é sujeito + verbo + complemento: 'She is fifteen years old.'" },
+        { type: "tf", q: "'Twenty' is the number 20.", answer: true, explanation: "'Twenty' corresponde ao número 20 em inglês." }
       ]
     },
     {
@@ -348,6 +370,16 @@ APP_DATA.a1 = {
           {
             heading: "There is / There are",
             text: "Usamos 'there is' para uma coisa (singular) e 'there are' para várias coisas (plural), para dizer que algo existe em um lugar.",
+            table: {
+              headers: ["Forma", "Singular", "Plural"],
+              rows: [
+                ["Afirmativa", "There is a book on the table.", "There are two books on the table."],
+                ["Negativa", "There isn't a book on the table.", "There aren't any books on the table."],
+                ["Pergunta", "Is there a book on the table?", "Are there any books on the table?"]
+              ]
+            },
+            correct: ["There is a book on the table.", "There are three chairs in the room.", "Is there a pen here?"],
+            incorrect: ["There are a book on the table.", "There is three chairs in the room.", "Is there a pens here?"],
             examples: [
               { en: "There is a book on the table.", pt: "Há um livro na mesa." },
               { en: "There are three chairs in the room.", pt: "Há três cadeiras na sala." }
@@ -356,16 +388,16 @@ APP_DATA.a1 = {
         ]
       },
       vocabulary: [
-        { word: "Red", phonetic: "/rɛd/", translation: "Vermelho", example: "I have a red bag.", exampleTranslation: "Eu tenho uma bolsa vermelha." },
-        { word: "Blue", phonetic: "/bluː/", translation: "Azul", example: "The sky is blue.", exampleTranslation: "O céu é azul." },
-        { word: "Green", phonetic: "/ɡriːn/", translation: "Verde", example: "The grass is green.", exampleTranslation: "A grama é verde." },
-        { word: "Yellow", phonetic: "/ˈjɛloʊ/", translation: "Amarelo", example: "The sun is yellow.", exampleTranslation: "O sol é amarelo." },
-        { word: "Black", phonetic: "/blæk/", translation: "Preto", example: "My cat is black.", exampleTranslation: "Meu gato é preto." },
-        { word: "White", phonetic: "/waɪt/", translation: "Branco", example: "This wall is white.", exampleTranslation: "Esta parede é branca." },
-        { word: "Book", phonetic: "/bʊk/", translation: "Livro", example: "This is my book.", exampleTranslation: "Este é meu livro." },
-        { word: "Table", phonetic: "/ˈteɪbəl/", translation: "Mesa", example: "There is a book on the table.", exampleTranslation: "Há um livro na mesa." },
-        { word: "Chair", phonetic: "/tʃɛr/", translation: "Cadeira", example: "There are two chairs here.", exampleTranslation: "Há duas cadeiras aqui." },
-        { word: "Bag", phonetic: "/bæɡ/", translation: "Bolsa/Mochila", example: "Is this your bag?", exampleTranslation: "Esta é sua bolsa?" }
+        { id: "a1-m3-red", word: "Red", phonetic: "/rɛd/", translation: "Vermelho", example: "I have a red bag.", exampleTranslation: "Eu tenho uma bolsa vermelha." },
+        { id: "a1-m3-blue", word: "Blue", phonetic: "/bluː/", translation: "Azul", example: "The sky is blue.", exampleTranslation: "O céu é azul." },
+        { id: "a1-m3-green", word: "Green", phonetic: "/ɡriːn/", translation: "Verde", example: "The grass is green.", exampleTranslation: "A grama é verde." },
+        { id: "a1-m3-yellow", word: "Yellow", phonetic: "/ˈjɛloʊ/", translation: "Amarelo", example: "The sun is yellow.", exampleTranslation: "O sol é amarelo." },
+        { id: "a1-m3-black", word: "Black", phonetic: "/blæk/", translation: "Preto", example: "My cat is black.", exampleTranslation: "Meu gato é preto." },
+        { id: "a1-m3-white", word: "White", phonetic: "/waɪt/", translation: "Branco", example: "This wall is white.", exampleTranslation: "Esta parede é branca." },
+        { id: "a1-m3-book", word: "Book", phonetic: "/bʊk/", translation: "Livro", example: "This is my book.", exampleTranslation: "Este é meu livro." },
+        { id: "a1-m3-table", word: "Table", phonetic: "/ˈteɪbəl/", translation: "Mesa", example: "There is a book on the table.", exampleTranslation: "Há um livro na mesa." },
+        { id: "a1-m3-chair", word: "Chair", phonetic: "/tʃɛr/", translation: "Cadeira", example: "There are two chairs here.", exampleTranslation: "Há duas cadeiras aqui." },
+        { id: "a1-m3-bag", word: "Bag", phonetic: "/bæɡ/", translation: "Bolsa/Mochila", example: "Is this your bag?", exampleTranslation: "Esta é sua bolsa?" }
       ],
       grammar: {
         title: "This / That / These / Those",
@@ -405,7 +437,7 @@ APP_DATA.a1 = {
       ],
       writing: [
         { prompt: "Descreva 3 objetos que você vê agora, incluindo a cor de cada um.", minWords: 12, modelAnswer: "This is my phone. It is black. That is my bag. It is red." },
-        { prompt: "Escreva sobre seu quarto ou sala usando 'there is/there are' pelo menos 3 vezes.", minWords: 20, modelAnswer: "There is a table in my room. There are two chairs. There is a green lamp on the desk." }
+        { prompt: "Escreva sobre seu quarto ou sala usando 'there is/there are' pelo menos 3 vezes.", minWords: 20, modelAnswer: "There is a table in my room. There are two chairs near the window. There is a green lamp on the desk, and there are some books on the shelf." }
       ],
       speaking: [
         { phrase: "This is my book.", tip: "'This' tem o som 'th' com a língua entre os dentes." },
@@ -464,18 +496,18 @@ APP_DATA.a1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct word: '___ is my pen.' (near)", options: ["This", "That", "These", "Those"], answer: 0 },
-        { q: "Choose the correct word: '___ are her books.' (far, plural)", options: ["This", "That", "These", "Those"], answer: 3 },
+        { q: "Choose the correct word: '___ is my pen.' (near)", options: ["This", "That", "These", "Those"], answer: 0, explanation: "'This' é usado para algo singular e próximo de quem fala." },
+        { q: "Choose the correct word: '___ are her books.' (far, plural)", options: ["This", "That", "These", "Those"], answer: 3, explanation: "'Those' é usado para coisas plurais e distantes." },
         { type: "tf", q: "'There is' is used with plural nouns.", answer: false, explanation: "'There is' é usado com substantivos singulares; 'there are' com plurais." },
-        { q: "Complete: 'There ___ five chairs here.'", options: ["is", "are", "am", "be"], answer: 1 },
-        { type: "short", q: "What color do you get mixing blue and yellow? (in English)", answer: ["green", "Green"] },
-        { q: "'This is my book' — 'this' refers to something:", options: ["Far away", "Close", "Plural", "In the past"], answer: 1 },
-        { q: "Choose the plural form correctly used:", options: ["These book", "These books", "This books", "That books"], answer: 1 },
-        { type: "tf", q: "'Black' and 'white' are colors.", answer: true },
-        { q: "Complete: 'Is ___ your bag?' (pointing at something close)", options: ["this", "those", "these", "there"], answer: 0 },
-        { type: "short", q: "Complete: 'There ___ a book on the table.' (to be)", answer: ["is"] },
-        { q: "Which sentence correctly uses 'there are'?", options: ["There are a cat.", "There are two cats.", "There is two cats.", "There cats are."], answer: 1 },
-        { type: "tf", q: "'That' is used for things close to the speaker.", answer: false }
+        { q: "Complete: 'There ___ five chairs here.'", options: ["is", "are", "am", "be"], answer: 1, explanation: "Usamos 'are' com substantivos plurais, como 'five chairs'." },
+        { type: "short", q: "What color do you get mixing blue and yellow? (in English)", answer: ["green", "Green"], explanation: "Misturar azul (blue) e amarelo (yellow) resulta na cor verde ('green')." },
+        { q: "'This is my book' — 'this' refers to something:", options: ["Far away", "Close", "Plural", "In the past"], answer: 1, explanation: "'This' indica algo singular e próximo (perto) de quem fala." },
+        { q: "Choose the plural form correctly used:", options: ["These book", "These books", "This books", "That books"], answer: 1, explanation: "O plural de 'this' é 'these', e o substantivo também deve ir para o plural: 'these books'." },
+        { type: "tf", q: "'Black' and 'white' are colors.", answer: true, explanation: "'Black' (preto) e 'white' (branco) são nomes de cores em inglês." },
+        { q: "Complete: 'Is ___ your bag?' (pointing at something close)", options: ["this", "those", "these", "there"], answer: 0, explanation: "'This' é usado para apontar algo singular e próximo, mesmo em perguntas." },
+        { type: "short", q: "Complete: 'There ___ a book on the table.' (to be)", answer: ["is"], explanation: "Usamos 'there is' com substantivos singulares, como 'a book'." },
+        { q: "Which sentence correctly uses 'there are'?", options: ["There are a cat.", "There are two cats.", "There is two cats.", "There cats are."], answer: 1, explanation: "'There are two cats' está correta porque 'are' concorda com o substantivo plural 'cats'." },
+        { type: "tf", q: "'That' is used for things close to the speaker.", answer: false, explanation: "'That' é usado para coisas distantes; 'this' é usado para coisas próximas." }
       ]
     },
     {
@@ -512,16 +544,16 @@ APP_DATA.a1 = {
         ]
       },
       vocabulary: [
-        { word: "Mother", phonetic: "/ˈmʌðər/", translation: "Mãe", example: "My mother is a doctor.", exampleTranslation: "Minha mãe é médica." },
-        { word: "Father", phonetic: "/ˈfɑːðər/", translation: "Pai", example: "His father works a lot.", exampleTranslation: "O pai dele trabalha muito." },
-        { word: "Brother", phonetic: "/ˈbrʌðər/", translation: "Irmão", example: "I have one brother.", exampleTranslation: "Eu tenho um irmão." },
-        { word: "Sister", phonetic: "/ˈsɪstər/", translation: "Irmã", example: "Her sister is funny.", exampleTranslation: "A irmã dela é divertida." },
-        { word: "Family", phonetic: "/ˈfæməli/", translation: "Família", example: "I love my family.", exampleTranslation: "Eu amo minha família." },
-        { word: "Wake up", phonetic: "/weɪk ʌp/", translation: "Levantar-se", example: "I wake up at 7 a.m.", exampleTranslation: "Eu me levanto às 7h." },
-        { word: "Breakfast", phonetic: "/ˈbrɛkfəst/", translation: "Café da manhã", example: "We eat breakfast together.", exampleTranslation: "Nós comemos café da manhã juntos." },
-        { word: "Work", phonetic: "/wɜːrk/", translation: "Trabalhar/Trabalho", example: "He goes to work by bus.", exampleTranslation: "Ele vai ao trabalho de ônibus." },
-        { word: "School", phonetic: "/skuːl/", translation: "Escola", example: "She goes to school every day.", exampleTranslation: "Ela vai à escola todos os dias." },
-        { word: "Sleep", phonetic: "/sliːp/", translation: "Dormir", example: "I sleep at ten p.m.", exampleTranslation: "Eu durmo às 22h." }
+        { id: "a1-m4-mother", word: "Mother", phonetic: "/ˈmʌðər/", translation: "Mãe", example: "My mother is a doctor.", exampleTranslation: "Minha mãe é médica." },
+        { id: "a1-m4-father", word: "Father", phonetic: "/ˈfɑːðər/", translation: "Pai", example: "His father works a lot.", exampleTranslation: "O pai dele trabalha muito." },
+        { id: "a1-m4-brother", word: "Brother", phonetic: "/ˈbrʌðər/", translation: "Irmão", example: "I have one brother.", exampleTranslation: "Eu tenho um irmão." },
+        { id: "a1-m4-sister", word: "Sister", phonetic: "/ˈsɪstər/", translation: "Irmã", example: "Her sister is funny.", exampleTranslation: "A irmã dela é divertida." },
+        { id: "a1-m4-family", word: "Family", phonetic: "/ˈfæməli/", translation: "Família", example: "I love my family.", exampleTranslation: "Eu amo minha família." },
+        { id: "a1-m4-wake-up", word: "Wake up", phonetic: "/weɪk ʌp/", translation: "Levantar-se", example: "I wake up at 7 a.m.", exampleTranslation: "Eu me levanto às 7h." },
+        { id: "a1-m4-breakfast", word: "Breakfast", phonetic: "/ˈbrɛkfəst/", translation: "Café da manhã", example: "We eat breakfast together.", exampleTranslation: "Nós comemos café da manhã juntos." },
+        { id: "a1-m4-work", word: "Work", phonetic: "/wɜːrk/", translation: "Trabalhar/Trabalho", example: "He goes to work by bus.", exampleTranslation: "Ele vai ao trabalho de ônibus." },
+        { id: "a1-m4-school", word: "School", phonetic: "/skuːl/", translation: "Escola", example: "She goes to school every day.", exampleTranslation: "Ela vai à escola todos os dias." },
+        { id: "a1-m4-sleep", word: "Sleep", phonetic: "/sliːp/", translation: "Dormir", example: "I sleep at ten p.m.", exampleTranslation: "Eu durmo às 22h." }
       ],
       grammar: {
         title: "Possessive Adjectives",
@@ -566,7 +598,7 @@ APP_DATA.a1 = {
       ],
       writing: [
         { prompt: "Descreva 3 pessoas da sua família usando adjetivos possessivos (my, his, her).", minWords: 15, modelAnswer: "My mother is kind. My father is funny. Her name is Ana and his name is Carlos." },
-        { prompt: "Escreva sobre sua rotina matinal usando pelo menos 4 verbos de rotina.", minWords: 20, modelAnswer: "I wake up at seven. I eat breakfast. Then I go to school. I sleep at ten p.m." }
+        { prompt: "Escreva sobre sua rotina matinal usando pelo menos 4 verbos de rotina.", minWords: 20, modelAnswer: "I wake up at seven every morning. I eat breakfast with my family. Then I go to school by bus. In the evening, I do my homework and I sleep at ten p.m." }
       ],
       speaking: [
         { phrase: "This is my family.", tip: "'Family' tem o acento na primeira sílaba: FA-mi-ly." },
@@ -625,18 +657,18 @@ APP_DATA.a1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct possessive: 'This is ___ book.' (dela)", options: ["his", "her", "their", "its"], answer: 1 },
-        { q: "'Brother' means:", options: ["Irmã", "Irmão", "Pai", "Mãe"], answer: 1 },
-        { type: "tf", q: "'Their' and 'there' sound the same but have different meanings.", answer: true },
-        { q: "Complete: 'We ___ breakfast at 7 a.m.'", options: ["eat", "eats", "eating", "ate"], answer: 0 },
-        { type: "short", q: "Complete: 'I wake ___ at seven.' (verbo levantar)", answer: ["up"] },
-        { q: "Choose the correct possessive for 'they': '___ house is big.'", options: ["Our", "Your", "Their", "His"], answer: 2 },
+        { q: "Choose the correct possessive: 'This is ___ book.' (dela)", options: ["his", "her", "their", "its"], answer: 1, explanation: "'Her' é o adjetivo possessivo usado para 'dela' (she → her)." },
+        { q: "'Brother' means:", options: ["Irmã", "Irmão", "Pai", "Mãe"], answer: 1, explanation: "'Brother' significa 'irmão' em português." },
+        { type: "tf", q: "'Their' and 'there' sound the same but have different meanings.", answer: true, explanation: "'Their' (deles/delas) e 'there' (lá/há) têm a mesma pronúncia, mas significados diferentes." },
+        { q: "Complete: 'We ___ breakfast at 7 a.m.'", options: ["eat", "eats", "eating", "ate"], answer: 0, explanation: "Com 'we', o verbo no presente simples fica na forma base: 'eat'." },
+        { type: "short", q: "Complete: 'I wake ___ at seven.' (verbo levantar)", answer: ["up"], explanation: "'Wake up' é o verbo frasal que significa 'levantar-se/acordar'." },
+        { q: "Choose the correct possessive for 'they': '___ house is big.'", options: ["Our", "Your", "Their", "His"], answer: 2, explanation: "'Their' é o adjetivo possessivo correspondente a 'they' (eles/elas)." },
         { type: "tf", q: "'Sleep' means 'levantar-se'.", answer: false, explanation: "'Sleep' significa 'dormir'; 'levantar-se' é 'wake up'." },
-        { q: "'Family' means:", options: ["Amigo", "Família", "Escola", "Trabalho"], answer: 1 },
-        { q: "Choose the correct sentence.", options: ["He house is big.", "His house is big.", "Him house is big.", "He's house is big."], answer: 1 },
-        { type: "short", q: "Complete: 'She goes to ___ every day.' (escola)", answer: ["school"] },
-        { q: "'My mother is a nurse' — what is her job?", options: ["Teacher", "Doctor", "Nurse", "Engineer"], answer: 2 },
-        { type: "tf", q: "Possessive adjectives come after the noun in English.", answer: false }
+        { q: "'Family' means:", options: ["Amigo", "Família", "Escola", "Trabalho"], answer: 1, explanation: "'Family' significa 'família' em português." },
+        { q: "Choose the correct sentence.", options: ["He house is big.", "His house is big.", "Him house is big.", "He's house is big."], answer: 1, explanation: "Adjetivos possessivos como 'his' vêm antes do substantivo: 'His house is big.'" },
+        { type: "short", q: "Complete: 'She goes to ___ every day.' (escola)", answer: ["school"], explanation: "'School' significa 'escola', o lugar para onde vamos estudar." },
+        { q: "'My mother is a nurse' — what is her job?", options: ["Teacher", "Doctor", "Nurse", "Engineer"], answer: 2, explanation: "'Nurse' significa 'enfermeira', a profissão mencionada na frase." },
+        { type: "tf", q: "Possessive adjectives come after the noun in English.", answer: false, explanation: "Adjetivos possessivos vêm antes do substantivo em inglês, não depois." }
       ]
     },
     {
@@ -675,16 +707,16 @@ APP_DATA.a1 = {
         ]
       },
       vocabulary: [
-        { word: "Apple", phonetic: "/ˈæpəl/", translation: "Maçã", example: "I want an apple, please.", exampleTranslation: "Eu quero uma maçã, por favor." },
-        { word: "Bread", phonetic: "/brɛd/", translation: "Pão", example: "We need some bread.", exampleTranslation: "Nós precisamos de um pouco de pão." },
-        { word: "Milk", phonetic: "/mɪlk/", translation: "Leite", example: "Do you have any milk?", exampleTranslation: "Você tem leite?" },
-        { word: "Water", phonetic: "/ˈwɔːtər/", translation: "Água", example: "Can I have some water?", exampleTranslation: "Posso ter um pouco de água?" },
-        { word: "Rice", phonetic: "/raɪs/", translation: "Arroz", example: "I eat rice every day.", exampleTranslation: "Eu como arroz todos os dias." },
-        { word: "Market", phonetic: "/ˈmɑːrkɪt/", translation: "Mercado", example: "Let's go to the market.", exampleTranslation: "Vamos ao mercado." },
-        { word: "Money", phonetic: "/ˈmʌni/", translation: "Dinheiro", example: "I don't have much money.", exampleTranslation: "Eu não tenho muito dinheiro." },
-        { word: "Price", phonetic: "/praɪs/", translation: "Preço", example: "What is the price of this bag?", exampleTranslation: "Qual é o preço desta bolsa?" },
-        { word: "Cheap", phonetic: "/tʃiːp/", translation: "Barato", example: "This is very cheap!", exampleTranslation: "Isto é muito barato!" },
-        { word: "Expensive", phonetic: "/ɪkˈspɛnsɪv/", translation: "Caro", example: "That car is expensive.", exampleTranslation: "Aquele carro é caro." }
+        { id: "a1-m5-apple", word: "Apple", phonetic: "/ˈæpəl/", translation: "Maçã", example: "I want an apple, please.", exampleTranslation: "Eu quero uma maçã, por favor." },
+        { id: "a1-m5-bread", word: "Bread", phonetic: "/brɛd/", translation: "Pão", example: "We need some bread.", exampleTranslation: "Nós precisamos de um pouco de pão." },
+        { id: "a1-m5-milk", word: "Milk", phonetic: "/mɪlk/", translation: "Leite", example: "Do you have any milk?", exampleTranslation: "Você tem leite?" },
+        { id: "a1-m5-water", word: "Water", phonetic: "/ˈwɔːtər/", translation: "Água", example: "Can I have some water?", exampleTranslation: "Posso ter um pouco de água?" },
+        { id: "a1-m5-rice", word: "Rice", phonetic: "/raɪs/", translation: "Arroz", example: "I eat rice every day.", exampleTranslation: "Eu como arroz todos os dias." },
+        { id: "a1-m5-market", word: "Market", phonetic: "/ˈmɑːrkɪt/", translation: "Mercado", example: "Let's go to the market.", exampleTranslation: "Vamos ao mercado." },
+        { id: "a1-m5-money", word: "Money", phonetic: "/ˈmʌni/", translation: "Dinheiro", example: "I don't have much money.", exampleTranslation: "Eu não tenho muito dinheiro." },
+        { id: "a1-m5-price", word: "Price", phonetic: "/praɪs/", translation: "Preço", example: "What is the price of this bag?", exampleTranslation: "Qual é o preço desta bolsa?" },
+        { id: "a1-m5-cheap", word: "Cheap", phonetic: "/tʃiːp/", translation: "Barato", example: "This is very cheap!", exampleTranslation: "Isto é muito barato!" },
+        { id: "a1-m5-expensive", word: "Expensive", phonetic: "/ɪkˈspɛnsɪv/", translation: "Caro", example: "That car is expensive.", exampleTranslation: "Aquele carro é caro." }
       ],
       grammar: {
         title: "How much / How many",
@@ -723,7 +755,7 @@ APP_DATA.a1 = {
         }
       ],
       writing: [
-        { prompt: "Escreva uma lista de compras com pelo menos 5 alimentos, usando 'a', 'an' ou 'some'.", minWords: 15, modelAnswer: "I need some bread, an apple, a banana, some rice, and some water." },
+        { prompt: "Escreva uma lista de compras com pelo menos 5 alimentos, usando 'a', 'an' ou 'some'.", minWords: 15, modelAnswer: "I need some bread, an apple, a banana, some rice, some milk, and some water for the week." },
         { prompt: "Escreva um pequeno diálogo de compra no mercado perguntando o preço de 2 itens.", minWords: 20, modelAnswer: "A: How much is this bread? B: It's one dollar. A: And how much are the apples? B: They are two dollars." }
       ],
       speaking: [
@@ -783,17 +815,17 @@ APP_DATA.a1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct article: '___ orange'", options: ["a", "an", "some", "any"], answer: 1 },
-        { q: "Choose the correct article: '___ banana'", options: ["a", "an", "some", "any"], answer: 0 },
+        { q: "Choose the correct article: '___ orange'", options: ["a", "an", "some", "any"], answer: 1, explanation: "'An' é usado antes de palavras que começam com som de vogal, como 'orange'." },
+        { q: "Choose the correct article: '___ banana'", options: ["a", "an", "some", "any"], answer: 0, explanation: "'A' é usado antes de palavras que começam com som de consoante, como 'banana'." },
         { type: "tf", q: "'Some' is usually used in negative sentences.", answer: false, explanation: "'Some' é mais comum em afirmações; 'any' é usado em negativas e perguntas." },
-        { q: "Complete: 'Do you have ___ milk?'", options: ["a", "an", "some", "any"], answer: 3 },
-        { type: "short", q: "Complete: '___ much is this?' (pergunta sobre preço)", answer: ["How"] },
-        { q: "'Cheap' is the opposite of:", options: ["Expensive", "Small", "Big", "Good"], answer: 0 },
-        { q: "Choose the correct sentence.", options: ["How many is this bread?", "How much is this bread?", "How much are this bread?", "How many this bread?"], answer: 1 },
+        { q: "Complete: 'Do you have ___ milk?'", options: ["a", "an", "some", "any"], answer: 3, explanation: "Em perguntas, usamos 'any' em vez de 'some'." },
+        { type: "short", q: "Complete: '___ much is this?' (pergunta sobre preço)", answer: ["How"], explanation: "Perguntamos o preço de algo com a expressão 'How much is this?'." },
+        { q: "'Cheap' is the opposite of:", options: ["Expensive", "Small", "Big", "Good"], answer: 0, explanation: "'Cheap' (barato) é o oposto de 'expensive' (caro)." },
+        { q: "Choose the correct sentence.", options: ["How many is this bread?", "How much is this bread?", "How much are this bread?", "How many this bread?"], answer: 1, explanation: "'How much' é usado com substantivos incontáveis como 'bread' e com o verbo 'is'." },
         { type: "tf", q: "'Expensive' means 'barato'.", answer: false, explanation: "'Expensive' significa 'caro'; 'barato' é 'cheap'." },
-        { q: "'Market' means:", options: ["Mercado", "Dinheiro", "Preço", "Comida"], answer: 0 },
-        { type: "short", q: "Complete: 'I don't have ___ money.' (negativa)", answer: ["any"] },
-        { q: "Choose the correct plural question.", options: ["How much apples do you have?", "How many apples do you have?", "How much apple you have?", "How many apple do you have?"], answer: 1 },
+        { q: "'Market' means:", options: ["Mercado", "Dinheiro", "Preço", "Comida"], answer: 0, explanation: "'Market' significa 'mercado' em português." },
+        { type: "short", q: "Complete: 'I don't have ___ money.' (negativa)", answer: ["any"], explanation: "Em frases negativas, usamos 'any' em vez de 'some'." },
+        { q: "Choose the correct plural question.", options: ["How much apples do you have?", "How many apples do you have?", "How much apple you have?", "How many apple do you have?"], answer: 1, explanation: "Com substantivos contáveis no plural, usamos 'how many': 'How many apples do you have?'" },
         { type: "tf", q: "'Water' is countable, so we say 'a water'.", answer: false, explanation: "'Water' é incontável; usamos 'some water' ou 'a glass of water'." }
       ]
     },
@@ -833,16 +865,16 @@ APP_DATA.a1 = {
         ]
       },
       vocabulary: [
-        { word: "O'clock", phonetic: "/əˈklɒk/", translation: "Em ponto", example: "It's five o'clock.", exampleTranslation: "São cinco horas em ponto." },
-        { word: "Half past", phonetic: "/hæf pæst/", translation: "E meia", example: "It's half past two.", exampleTranslation: "São duas e meia." },
-        { word: "Quarter past", phonetic: "/ˈkwɔːrtər pæst/", translation: "E quinze", example: "It's quarter past six.", exampleTranslation: "São seis e quinze." },
-        { word: "Quarter to", phonetic: "/ˈkwɔːrtər tuː/", translation: "Quinze para", example: "It's quarter to nine.", exampleTranslation: "São quinze para as nove." },
-        { word: "Noon", phonetic: "/nuːn/", translation: "Meio-dia", example: "We eat lunch at noon.", exampleTranslation: "Almoçamos ao meio-dia." },
-        { word: "Midnight", phonetic: "/ˈmɪdnaɪt/", translation: "Meia-noite", example: "The party ends at midnight.", exampleTranslation: "A festa termina à meia-noite." },
-        { word: "Morning", phonetic: "/ˈmɔːrnɪŋ/", translation: "Manhã", example: "I exercise in the morning.", exampleTranslation: "Eu me exercito de manhã." },
-        { word: "Afternoon", phonetic: "/ˌæftərˈnuːn/", translation: "Tarde", example: "I work in the afternoon.", exampleTranslation: "Eu trabalho de tarde." },
-        { word: "Schedule", phonetic: "/ˈskɛdʒuːl/", translation: "Horário/Agenda", example: "What's your schedule like today?", exampleTranslation: "Como é sua agenda hoje?" },
-        { word: "Early/Late", phonetic: "/ˈɜːrli/leɪt/", translation: "Cedo/Tarde (atrasado)", example: "I don't like to arrive late.", exampleTranslation: "Eu não gosto de chegar atrasado." }
+        { id: "a1-m6-oclock", word: "O'clock", phonetic: "/əˈklɒk/", translation: "Em ponto", example: "It's five o'clock.", exampleTranslation: "São cinco horas em ponto." },
+        { id: "a1-m6-half-past", word: "Half past", phonetic: "/hæf pæst/", translation: "E meia", example: "It's half past two.", exampleTranslation: "São duas e meia." },
+        { id: "a1-m6-quarter-past", word: "Quarter past", phonetic: "/ˈkwɔːrtər pæst/", translation: "E quinze", example: "It's quarter past six.", exampleTranslation: "São seis e quinze." },
+        { id: "a1-m6-quarter-to", word: "Quarter to", phonetic: "/ˈkwɔːrtər tuː/", translation: "Quinze para", example: "It's quarter to nine.", exampleTranslation: "São quinze para as nove." },
+        { id: "a1-m6-noon", word: "Noon", phonetic: "/nuːn/", translation: "Meio-dia", example: "We eat lunch at noon.", exampleTranslation: "Almoçamos ao meio-dia." },
+        { id: "a1-m6-midnight", word: "Midnight", phonetic: "/ˈmɪdnaɪt/", translation: "Meia-noite", example: "The party ends at midnight.", exampleTranslation: "A festa termina à meia-noite." },
+        { id: "a1-m6-morning", word: "Morning", phonetic: "/ˈmɔːrnɪŋ/", translation: "Manhã", example: "I exercise in the morning.", exampleTranslation: "Eu me exercito de manhã." },
+        { id: "a1-m6-afternoon", word: "Afternoon", phonetic: "/ˌæftərˈnuːn/", translation: "Tarde", example: "I work in the afternoon.", exampleTranslation: "Eu trabalho de tarde." },
+        { id: "a1-m6-schedule", word: "Schedule", phonetic: "/ˈskɛdʒuːl/", translation: "Horário/Agenda", example: "What's your schedule like today?", exampleTranslation: "Como é sua agenda hoje?" },
+        { id: "a1-m6-early-late", word: "Early/Late", phonetic: "/ˈɜːrli/leɪt/", translation: "Cedo/Tarde (atrasado)", example: "I don't like to arrive late.", exampleTranslation: "Eu não gosto de chegar atrasado." }
       ],
       grammar: {
         title: "Preposições de Tempo: At, In, On",
@@ -883,7 +915,7 @@ APP_DATA.a1 = {
       ],
       writing: [
         { prompt: "Escreva sua rotina de um dia da semana com horários específicos, usando at/in/on.", minWords: 25, modelAnswer: "I wake up at seven. In the morning, I study English. I have lunch at noon. On Fridays, I meet my friends in the evening." },
-        { prompt: "Escreva um pequeno diálogo perguntando e respondendo que horas são.", minWords: 15, modelAnswer: "A: What time is it? B: It's half past three. A: Thank you!" }
+        { prompt: "Escreva um pequeno diálogo perguntando e respondendo que horas são.", minWords: 15, modelAnswer: "A: Excuse me, what time is it? B: It's half past three. A: Thank you very much! B: You're welcome!" }
       ],
       speaking: [
         { phrase: "What time is it?", tip: "Entoação de pergunta simples, sobe levemente no final." },
@@ -942,44 +974,44 @@ APP_DATA.a1 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct preposition: 'I wake up ___ seven.'", options: ["in", "on", "at", "to"], answer: 2 },
-        { q: "Choose the correct preposition: 'I study ___ the morning.'", options: ["at", "in", "on", "for"], answer: 1 },
-        { type: "tf", q: "'On' is used with days of the week.", answer: true },
-        { q: "'Half past seven' means:", options: ["7:00", "7:15", "7:30", "7:45"], answer: 2 },
-        { type: "short", q: "Complete: 'What ___ is it?' (hora)", answer: ["time"] },
-        { q: "'Noon' means:", options: ["Meia-noite", "Meio-dia", "Manhã", "Tarde"], answer: 1 },
+        { q: "Choose the correct preposition: 'I wake up ___ seven.'", options: ["in", "on", "at", "to"], answer: 2, explanation: "Usamos 'at' com horários exatos, como 'at seven'." },
+        { q: "Choose the correct preposition: 'I study ___ the morning.'", options: ["at", "in", "on", "for"], answer: 1, explanation: "Usamos 'in' com partes do dia, como 'in the morning'." },
+        { type: "tf", q: "'On' is used with days of the week.", answer: true, explanation: "Usamos 'on' com dias da semana, como 'on Monday'." },
+        { q: "'Half past seven' means:", options: ["7:00", "7:15", "7:30", "7:45"], answer: 2, explanation: "'Half past seven' significa 'sete e meia', ou seja, 7:30." },
+        { type: "short", q: "Complete: 'What ___ is it?' (hora)", answer: ["time"], explanation: "Perguntamos as horas com a expressão 'What time is it?'." },
+        { q: "'Noon' means:", options: ["Meia-noite", "Meio-dia", "Manhã", "Tarde"], answer: 1, explanation: "'Noon' significa 'meio-dia' em português." },
         { type: "tf", q: "'O'clock' can be used with 'half past three'.", answer: false, explanation: "'O'clock' só é usado com horas exatas, como 'three o'clock'." },
-        { q: "Choose the correct preposition: 'I have class ___ Monday.'", options: ["at", "in", "on", "for"], answer: 2 },
-        { q: "'Schedule' means:", options: ["Horário/Agenda", "Relógio", "Calendário", "Despertador"], answer: 0 },
-        { type: "short", q: "Complete: 'It's ___ to nine.' (quinze para)", answer: ["quarter"] },
-        { q: "Choose the correct sentence.", options: ["I wake up in seven.", "I wake up at seven.", "I wake up on seven.", "I wake up for seven."], answer: 1 },
-        { type: "tf", q: "'Midnight' means twelve o'clock at night.", answer: true }
+        { q: "Choose the correct preposition: 'I have class ___ Monday.'", options: ["at", "in", "on", "for"], answer: 2, explanation: "Usamos 'on' com dias da semana, como 'on Monday'." },
+        { q: "'Schedule' means:", options: ["Horário/Agenda", "Relógio", "Calendário", "Despertador"], answer: 0, explanation: "'Schedule' significa 'horário' ou 'agenda' em português." },
+        { type: "short", q: "Complete: 'It's ___ to nine.' (quinze para)", answer: ["quarter"], explanation: "'Quarter to nine' significa 'quinze para as nove'." },
+        { q: "Choose the correct sentence.", options: ["I wake up in seven.", "I wake up at seven.", "I wake up on seven.", "I wake up for seven."], answer: 1, explanation: "Usamos 'at' com horários exatos, como 'at seven'." },
+        { type: "tf", q: "'Midnight' means twelve o'clock at night.", answer: true, explanation: "'Midnight' significa meia-noite, ou seja, doze horas da noite." }
       ]
     }
   ],
   finalTest: {
     description: "Prova final do nível A1 — 20 questões cobrindo saudações, verbo to be, números, cores, this/that, família, posse e compras.",
     questions: [
-      { q: "Choose the correct greeting for the morning.", options: ["Good night", "Good morning", "Goodbye", "Good evening"], answer: 1 },
-      { q: "Complete: 'I ___ a student.'", options: ["am", "is", "are", "be"], answer: 0 },
-      { q: "Choose the correct pronoun: '___ is my friend.' (ela)", options: ["He", "She", "They", "It"], answer: 1 },
-      { type: "short", q: "Write the number: 10", answer: ["ten", "Ten"] },
-      { q: "What color do you get mixing blue and yellow?", options: ["Red", "Purple", "Green", "Orange"], answer: 2 },
-      { q: "Choose the correct word: '___ is my book.' (perto)", options: ["This", "That", "These", "Those"], answer: 0 },
-      { type: "tf", q: "'There is' is used with plural nouns.", answer: false },
-      { q: "Choose the correct possessive: '___ house is big.' (deles)", options: ["His", "Her", "Their", "Its"], answer: 2 },
-      { q: "'Brother' means:", options: ["Irmã", "Irmão", "Mãe", "Pai"], answer: 1 },
-      { type: "short", q: "Complete: 'I wake ___ at seven.'", answer: ["up"] },
-      { q: "Choose the correct article: '___ apple'", options: ["a", "an", "some", "any"], answer: 1 },
-      { q: "Complete: 'Do you have ___ milk?'", options: ["a", "an", "some", "any"], answer: 3 },
-      { q: "'Expensive' means:", options: ["Barato", "Caro", "Grátis", "Pequeno"], answer: 1 },
-      { type: "tf", q: "'Good night' is used to greet someone in the morning.", answer: false },
-      { q: "Choose the negative form of 'He is happy.'", options: ["He isn't happy.", "He not is happy.", "He amn't happy.", "He amn't happy"], answer: 0 },
-      { q: "'Nice to meet you' is said when:", options: ["Você se despede", "Você conhece alguém", "Você pede desculpas", "Você agradece"], answer: 1 },
-      { type: "short", q: "Complete: 'How ___ is this?' (pergunta sobre preço)", answer: ["much"] },
-      { q: "Choose the correct sentence.", options: ["They is students.", "They are students.", "They am students.", "They be students."], answer: 1 },
-      { q: "'Family' means:", options: ["Amigo", "Trabalho", "Família", "Escola"], answer: 2 },
-      { type: "tf", q: "'An' is used before words starting with a vowel sound.", answer: true }
+      { q: "Choose the correct greeting for the morning.", options: ["Good night", "Good morning", "Goodbye", "Good evening"], answer: 1, explanation: "'Good morning' é a saudação usada pela manhã, até por volta do meio-dia." },
+      { q: "Complete: 'I ___ a student.'", options: ["am", "is", "are", "be"], answer: 0, explanation: "Usamos 'am' apenas com o pronome 'I'." },
+      { q: "Choose the correct pronoun: '___ is my friend.' (ela)", options: ["He", "She", "They", "It"], answer: 1, explanation: "'She' é o pronome usado para se referir a uma mulher (ela)." },
+      { type: "short", q: "Write the number: 10", answer: ["ten", "Ten"], explanation: "O número 10 se escreve 'ten' em inglês." },
+      { q: "What color do you get mixing blue and yellow?", options: ["Red", "Purple", "Green", "Orange"], answer: 2, explanation: "Misturar azul (blue) e amarelo (yellow) resulta na cor verde (green)." },
+      { q: "Choose the correct word: '___ is my book.' (perto)", options: ["This", "That", "These", "Those"], answer: 0, explanation: "'This' é usado para algo singular e próximo de quem fala." },
+      { type: "tf", q: "'There is' is used with plural nouns.", answer: false, explanation: "'There is' é usado com substantivos singulares; 'there are' é usado com plurais." },
+      { q: "Choose the correct possessive: '___ house is big.' (deles)", options: ["His", "Her", "Their", "Its"], answer: 2, explanation: "'Their' é o adjetivo possessivo correspondente a 'they' (eles/elas)." },
+      { q: "'Brother' means:", options: ["Irmã", "Irmão", "Mãe", "Pai"], answer: 1, explanation: "'Brother' significa 'irmão' em português." },
+      { type: "short", q: "Complete: 'I wake ___ at seven.'", answer: ["up"], explanation: "'Wake up' é o verbo frasal que significa 'levantar-se/acordar'." },
+      { q: "Choose the correct article: '___ apple'", options: ["a", "an", "some", "any"], answer: 1, explanation: "'An' é usado antes de palavras que começam com som de vogal, como 'apple'." },
+      { q: "Complete: 'Do you have ___ milk?'", options: ["a", "an", "some", "any"], answer: 3, explanation: "Em perguntas, usamos 'any' em vez de 'some'." },
+      { q: "'Expensive' means:", options: ["Barato", "Caro", "Grátis", "Pequeno"], answer: 1, explanation: "'Expensive' significa 'caro' em português." },
+      { type: "tf", q: "'Good night' is used to greet someone in the morning.", answer: false, explanation: "'Good night' é usado para se despedir antes de dormir, não como saudação matinal." },
+      { q: "Choose the negative form of 'He is happy.'", options: ["He isn't happy.", "He not is happy.", "He amn't happy.", "He amn't happy"], answer: 0, explanation: "A negativa do verbo 'to be' se forma com 'not', contraído como 'isn't'." },
+      { q: "'Nice to meet you' is said when:", options: ["Você se despede", "Você conhece alguém", "Você pede desculpas", "Você agradece"], answer: 1, explanation: "'Nice to meet you' é dito ao conhecer alguém pela primeira vez." },
+      { type: "short", q: "Complete: 'How ___ is this?' (pergunta sobre preço)", answer: ["much"], explanation: "Perguntamos o preço de algo com a expressão 'How much is this?'." },
+      { q: "Choose the correct sentence.", options: ["They is students.", "They are students.", "They am students.", "They be students."], answer: 1, explanation: "Usamos 'are' com o pronome 'they'." },
+      { q: "'Family' means:", options: ["Amigo", "Trabalho", "Família", "Escola"], answer: 2, explanation: "'Family' significa 'família' em português." },
+      { type: "tf", q: "'An' is used before words starting with a vowel sound.", answer: true, explanation: "'An' é usado antes de palavras que começam com som de vogal, como 'apple' ou 'orange'." }
     ]
   }
 };

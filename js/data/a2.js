@@ -36,16 +36,16 @@ APP_DATA.a2 = {
         ]
       },
       vocabulary: [
-        { word: "Usually", phonetic: "/ˈjuːʒuəli/", translation: "Geralmente", example: "I usually have coffee in the morning.", exampleTranslation: "Eu geralmente tomo café pela manhã." },
-        { word: "Sometimes", phonetic: "/ˈsʌmtaɪmz/", translation: "Às vezes", example: "Sometimes I walk to work.", exampleTranslation: "Às vezes eu vou andando ao trabalho." },
-        { word: "Never", phonetic: "/ˈnɛvər/", translation: "Nunca", example: "He never eats meat.", exampleTranslation: "Ele nunca come carne." },
-        { word: "Right now", phonetic: "/raɪt naʊ/", translation: "Agora mesmo", example: "I am eating right now.", exampleTranslation: "Eu estou comendo agora mesmo." },
-        { word: "Study", phonetic: "/ˈstʌdi/", translation: "Estudar", example: "She studies at night.", exampleTranslation: "Ela estuda à noite." },
-        { word: "Watch TV", phonetic: "/wɒtʃ tiːˈviː/", translation: "Assistir TV", example: "We watch TV after dinner.", exampleTranslation: "Nós assistimos TV depois do jantar." },
-        { word: "Clean", phonetic: "/kliːn/", translation: "Limpar", example: "He cleans the house on Saturdays.", exampleTranslation: "Ele limpa a casa aos sábados." },
-        { word: "Cook", phonetic: "/kʊk/", translation: "Cozinhar", example: "I am cooking dinner now.", exampleTranslation: "Eu estou cozinhando o jantar agora." },
-        { word: "Weekend", phonetic: "/ˈwiːkɛnd/", translation: "Fim de semana", example: "What do you do on the weekend?", exampleTranslation: "O que você faz no fim de semana?" },
-        { word: "Exercise", phonetic: "/ˈɛksərsaɪz/", translation: "Exercitar-se", example: "They exercise every morning.", exampleTranslation: "Eles se exercitam toda manhã." }
+        { id: "a2-m1-usually", word: "Usually", phonetic: "/ˈjuːʒuəli/", translation: "Geralmente", example: "I usually have coffee in the morning.", exampleTranslation: "Eu geralmente tomo café pela manhã." },
+        { id: "a2-m1-sometimes", word: "Sometimes", phonetic: "/ˈsʌmtaɪmz/", translation: "Às vezes", example: "Sometimes I walk to work.", exampleTranslation: "Às vezes eu vou andando ao trabalho." },
+        { id: "a2-m1-never", word: "Never", phonetic: "/ˈnɛvər/", translation: "Nunca", example: "He never eats meat.", exampleTranslation: "Ele nunca come carne." },
+        { id: "a2-m1-right-now", word: "Right now", phonetic: "/raɪt naʊ/", translation: "Agora mesmo", example: "I am eating right now.", exampleTranslation: "Eu estou comendo agora mesmo." },
+        { id: "a2-m1-study", word: "Study", phonetic: "/ˈstʌdi/", translation: "Estudar", example: "She studies at night.", exampleTranslation: "Ela estuda à noite." },
+        { id: "a2-m1-watch-tv", word: "Watch TV", phonetic: "/wɒtʃ tiːˈviː/", translation: "Assistir TV", example: "We watch TV after dinner.", exampleTranslation: "Nós assistimos TV depois do jantar." },
+        { id: "a2-m1-clean", word: "Clean", phonetic: "/kliːn/", translation: "Limpar", example: "He cleans the house on Saturdays.", exampleTranslation: "Ele limpa a casa aos sábados." },
+        { id: "a2-m1-cook", word: "Cook", phonetic: "/kʊk/", translation: "Cozinhar", example: "I am cooking dinner now.", exampleTranslation: "Eu estou cozinhando o jantar agora." },
+        { id: "a2-m1-weekend", word: "Weekend", phonetic: "/ˈwiːkɛnd/", translation: "Fim de semana", example: "What do you do on the weekend?", exampleTranslation: "O que você faz no fim de semana?" },
+        { id: "a2-m1-exercise", word: "Exercise", phonetic: "/ˈɛksərsaɪz/", translation: "Exercitar-se", example: "They exercise every morning.", exampleTranslation: "Eles se exercitam toda manhã." }
       ],
       grammar: {
         title: "Presente Simples vs. Presente Contínuo",
@@ -66,6 +66,9 @@ APP_DATA.a2 = {
         {
           title: "A Busy Morning",
           accent: "american",
+          audioSrc: "assets/audio/a2-m1-listen-0.mp3",
+          audioSource: "tts-pregenerated",
+          speedLevels: [0.75, 1, 1.25],
           transcript: "Every morning, Laura wakes up at six thirty. She usually exercises for twenty minutes, and then she takes a shower. Right now, she is cooking breakfast because her children are still sleeping. She never leaves the house without eating breakfast first.",
           questions: [
             { q: "What time does Laura usually wake up?", options: ["Six o'clock", "Six thirty", "Seven o'clock", "Seven thirty"], answer: 1 },
@@ -86,7 +89,7 @@ APP_DATA.a2 = {
         }
       ],
       writing: [
-        { prompt: "Descreva sua rotina semanal usando presente simples e pelo menos 2 advérbios de frequência.", minWords: 20, modelAnswer: "I usually wake up at seven. I always have breakfast before work. I sometimes exercise in the evening." },
+        { prompt: "Descreva sua rotina semanal usando presente simples e pelo menos 2 advérbios de frequência.", minWords: 20, modelAnswer: "I usually wake up at seven every morning. I always have breakfast before work, and I sometimes exercise in the evening after dinner." },
         { prompt: "Escreva 3 frases no presente contínuo descrevendo o que as pessoas ao seu redor estão fazendo agora.", minWords: 15, modelAnswer: "My brother is watching TV. My mother is cooking dinner. I am writing this sentence." }
       ],
       speaking: [
@@ -146,17 +149,17 @@ APP_DATA.a2 = {
         ]
       },
       quiz: [
-        { q: "Complete: 'She ___ to work every day.'", options: ["go", "goes", "going", "gone"], answer: 1 },
-        { q: "Complete: 'I ___ dinner right now.'", options: ["cook", "cooks", "am cooking", "cooking"], answer: 2 },
+        { q: "Complete: 'She ___ to work every day.'", options: ["go", "goes", "going", "gone"], answer: 1, explanation: "Com he/she/it no presente simples, acrescentamos '-s' ou '-es' ao verbo; 'go' se torna 'goes'." },
+        { q: "Complete: 'I ___ dinner right now.'", options: ["cook", "cooks", "am cooking", "cooking"], answer: 2, explanation: "'Right now' indica uma ação acontecendo neste momento, por isso usamos o presente contínuo (to be + verbo-ing)." },
         { type: "tf", q: "'Never' means 'sempre'.", answer: false, explanation: "'Never' significa 'nunca'; 'sempre' é 'always'." },
-        { q: "Choose the correct question.", options: ["Do you like coffee?", "Does you like coffee?", "Are you like coffee?", "Like you coffee?"], answer: 0 },
-        { type: "short", q: "Complete: 'He ___ (watch) TV every night.' (presente simples)", answer: ["watches"] },
-        { q: "'Right now' is used with which tense?", options: ["Present Simple", "Present Continuous", "Past Simple", "Future"], answer: 1 },
-        { type: "tf", q: "We use '-s' with 'he/she/it' in the present simple.", answer: true },
-        { q: "Choose the correct negative: 'They ___ studying.'", options: ["doesn't", "don't", "isn't", "aren't"], answer: 3 },
-        { q: "'Weekend' means:", options: ["Semana", "Fim de semana", "Feriado", "Fim de mês"], answer: 1 },
-        { type: "short", q: "Complete: 'What ___ you doing?' (to be)", answer: ["are"] },
-        { q: "Choose the correct sentence.", options: ["She is work now.", "She working now.", "She is working now.", "She works now right."], answer: 2 },
+        { q: "Choose the correct question.", options: ["Do you like coffee?", "Does you like coffee?", "Are you like coffee?", "Like you coffee?"], answer: 0, explanation: "Perguntas no presente simples com 'you' são formadas com 'Do' + sujeito + verbo na forma base." },
+        { type: "short", q: "Complete: 'He ___ (watch) TV every night.' (presente simples)", answer: ["watches"], explanation: "Verbos terminados em 'ch' recebem '-es' na terceira pessoa do singular: watch → watches." },
+        { q: "'Right now' is used with which tense?", options: ["Present Simple", "Present Continuous", "Past Simple", "Future"], answer: 1, explanation: "'Right now' expressa uma ação em progresso no momento da fala, por isso é usado com o presente contínuo." },
+        { type: "tf", q: "We use '-s' with 'he/she/it' in the present simple.", answer: true, explanation: "No presente simples, a terceira pessoa do singular (he/she/it) recebe '-s' ou '-es' no verbo." },
+        { q: "Choose the correct negative: 'They ___ studying.'", options: ["doesn't", "don't", "isn't", "aren't"], answer: 3, explanation: "No presente contínuo, a negativa usa o verbo 'to be' + not; com 'they', a forma é 'aren't'." },
+        { q: "'Weekend' means:", options: ["Semana", "Fim de semana", "Feriado", "Fim de mês"], answer: 1, explanation: "'Weekend' significa 'fim de semana', os dias de sábado e domingo." },
+        { type: "short", q: "Complete: 'What ___ you doing?' (to be)", answer: ["are"], explanation: "Perguntas no presente contínuo usam o verbo 'to be' antes do sujeito; com 'you', é 'are'." },
+        { q: "Choose the correct sentence.", options: ["She is work now.", "She working now.", "She is working now.", "She works now right."], answer: 2, explanation: "O presente contínuo exige o verbo 'to be' conjugado + verbo com '-ing': 'is working'." },
         { type: "tf", q: "Frequency adverbs like 'usually' come after the main verb but before 'to be'.", answer: false, explanation: "Advérbios de frequência vêm antes do verbo principal, mas depois do verbo 'to be'." }
       ]
     },
@@ -194,16 +197,16 @@ APP_DATA.a2 = {
         ]
       },
       vocabulary: [
-        { word: "Bank", phonetic: "/bæŋk/", translation: "Banco", example: "The bank is open until 4 p.m.", exampleTranslation: "O banco está aberto até as 16h." },
-        { word: "Supermarket", phonetic: "/ˈsuːpərmɑːrkɪt/", translation: "Supermercado", example: "I need to go to the supermarket.", exampleTranslation: "Eu preciso ir ao supermercado." },
-        { word: "Pharmacy", phonetic: "/ˈfɑːrməsi/", translation: "Farmácia", example: "Is there a pharmacy near here?", exampleTranslation: "Há uma farmácia perto daqui?" },
-        { word: "Hospital", phonetic: "/ˈhɒspɪtl/", translation: "Hospital", example: "The hospital is next to the park.", exampleTranslation: "O hospital fica ao lado do parque." },
-        { word: "Corner", phonetic: "/ˈkɔːrnər/", translation: "Esquina", example: "Turn left at the corner.", exampleTranslation: "Vire à esquerda na esquina." },
-        { word: "Straight", phonetic: "/streɪt/", translation: "Em frente/Reto", example: "Go straight for two blocks.", exampleTranslation: "Siga em frente por duas quadras." },
-        { word: "Street", phonetic: "/striːt/", translation: "Rua", example: "Cross the street carefully.", exampleTranslation: "Atravesse a rua com cuidado." },
-        { word: "Between", phonetic: "/bɪˈtwiːn/", translation: "Entre", example: "The café is between the bank and the school.", exampleTranslation: "O café fica entre o banco e a escola." },
-        { word: "Near", phonetic: "/nɪr/", translation: "Perto", example: "My house is near the station.", exampleTranslation: "Minha casa fica perto da estação." },
-        { word: "Map", phonetic: "/mæp/", translation: "Mapa", example: "Can you show me on the map?", exampleTranslation: "Você pode me mostrar no mapa?" }
+        { id: "a2-m2-bank", word: "Bank", phonetic: "/bæŋk/", translation: "Banco", example: "The bank is open until 4 p.m.", exampleTranslation: "O banco está aberto até as 16h." },
+        { id: "a2-m2-supermarket", word: "Supermarket", phonetic: "/ˈsuːpərmɑːrkɪt/", translation: "Supermercado", example: "I need to go to the supermarket.", exampleTranslation: "Eu preciso ir ao supermercado." },
+        { id: "a2-m2-pharmacy", word: "Pharmacy", phonetic: "/ˈfɑːrməsi/", translation: "Farmácia", example: "Is there a pharmacy near here?", exampleTranslation: "Há uma farmácia perto daqui?" },
+        { id: "a2-m2-hospital", word: "Hospital", phonetic: "/ˈhɒspɪtl/", translation: "Hospital", example: "The hospital is next to the park.", exampleTranslation: "O hospital fica ao lado do parque." },
+        { id: "a2-m2-corner", word: "Corner", phonetic: "/ˈkɔːrnər/", translation: "Esquina", example: "Turn left at the corner.", exampleTranslation: "Vire à esquerda na esquina." },
+        { id: "a2-m2-straight", word: "Straight", phonetic: "/streɪt/", translation: "Em frente/Reto", example: "Go straight for two blocks.", exampleTranslation: "Siga em frente por duas quadras." },
+        { id: "a2-m2-street", word: "Street", phonetic: "/striːt/", translation: "Rua", example: "Cross the street carefully.", exampleTranslation: "Atravesse a rua com cuidado." },
+        { id: "a2-m2-between", word: "Between", phonetic: "/bɪˈtwiːn/", translation: "Entre", example: "The café is between the bank and the school.", exampleTranslation: "O café fica entre o banco e a escola." },
+        { id: "a2-m2-near", word: "Near", phonetic: "/nɪr/", translation: "Perto", example: "My house is near the station.", exampleTranslation: "Minha casa fica perto da estação." },
+        { id: "a2-m2-map", word: "Map", phonetic: "/mæp/", translation: "Mapa", example: "Can you show me on the map?", exampleTranslation: "Você pode me mostrar no mapa?" }
       ],
       grammar: {
         title: "Imperativo para Direções",
@@ -243,7 +246,7 @@ APP_DATA.a2 = {
         }
       ],
       writing: [
-        { prompt: "Escreva direções (4-5 frases) de sua casa até um lugar próximo, usando o imperativo.", minWords: 20, modelAnswer: "Go straight for two blocks. Turn left at the corner. The supermarket is next to the bank." },
+        { prompt: "Escreva direções (4-5 frases) de sua casa até um lugar próximo, usando o imperativo.", minWords: 20, modelAnswer: "Go straight for two blocks and turn left at the corner. Cross the street carefully. The supermarket is next to the bank, near the school." },
         { prompt: "Descreva onde 3 lugares importantes ficam na sua cidade, usando preposições de lugar.", minWords: 15, modelAnswer: "The hospital is near my house. The bank is between the school and the park. The pharmacy is across from the supermarket." }
       ],
       speaking: [
@@ -303,17 +306,17 @@ APP_DATA.a2 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct imperative.", options: ["You turn left.", "Turn left.", "Turning left.", "Turned left."], answer: 1 },
-        { q: "'Pharmacy' means:", options: ["Banco", "Farmácia", "Hospital", "Supermercado"], answer: 1 },
-        { type: "tf", q: "'Between' is used to describe something in the middle of two things.", answer: true },
-        { q: "Complete: 'The bank is ___ the pharmacy.' (ao lado)", options: ["between", "next to", "near", "far"], answer: 1 },
-        { type: "short", q: "Complete: '___ straight for two blocks.' (imperativo)", answer: ["Go"] },
-        { q: "Choose the polite way to start a question to a stranger.", options: ["Hey you!", "Excuse me,", "Tell me,", "You there,"], answer: 1 },
-        { type: "tf", q: "'Corner' means 'esquina'.", answer: true },
-        { q: "Choose the negative imperative.", options: ["Don't cross here.", "Not cross here.", "Crossing not here.", "No crosses here."], answer: 0 },
-        { q: "'Straight' means:", options: ["Torto", "Em frente/reto", "Perto", "Longe"], answer: 1 },
-        { type: "short", q: "Complete: 'Is it far ___ here?'", answer: ["from"] },
-        { q: "Choose the correct sentence.", options: ["The park between the bank and school.", "The park is between the bank and the school.", "The park is between bank and school.", "The park between the bank school."], answer: 1 },
+        { q: "Choose the correct imperative.", options: ["You turn left.", "Turn left.", "Turning left.", "Turned left."], answer: 1, explanation: "O imperativo usa o verbo na forma base, sem sujeito, para dar instruções: 'Turn left.'" },
+        { q: "'Pharmacy' means:", options: ["Banco", "Farmácia", "Hospital", "Supermercado"], answer: 1, explanation: "'Pharmacy' significa 'farmácia', o lugar onde compramos remédios." },
+        { type: "tf", q: "'Between' is used to describe something in the middle of two things.", answer: true, explanation: "'Between' significa 'entre' e é usado para posicionar algo no meio de dois pontos de referência." },
+        { q: "Complete: 'The bank is ___ the pharmacy.' (ao lado)", options: ["between", "next to", "near", "far"], answer: 1, explanation: "'Next to' significa 'ao lado de', indicando que dois lugares estão um ao lado do outro." },
+        { type: "short", q: "Complete: '___ straight for two blocks.' (imperativo)", answer: ["Go"], explanation: "O imperativo para dar direções começa com o verbo na forma base, como em 'Go straight'." },
+        { q: "Choose the polite way to start a question to a stranger.", options: ["Hey you!", "Excuse me,", "Tell me,", "You there,"], answer: 1, explanation: "'Excuse me' é a forma educada de chamar a atenção de alguém antes de fazer uma pergunta." },
+        { type: "tf", q: "'Corner' means 'esquina'.", answer: true, explanation: "'Corner' significa 'esquina', o ponto onde duas ruas se encontram." },
+        { q: "Choose the negative imperative.", options: ["Don't cross here.", "Not cross here.", "Crossing not here.", "No crosses here."], answer: 0, explanation: "A negativa do imperativo é formada com 'don't' antes do verbo: 'Don't cross here.'" },
+        { q: "'Straight' means:", options: ["Torto", "Em frente/reto", "Perto", "Longe"], answer: 1, explanation: "'Straight' significa 'em frente' ou 'reto', indicando continuar na mesma direção." },
+        { type: "short", q: "Complete: 'Is it far ___ here?'", answer: ["from"], explanation: "Usamos a preposição 'from' na expressão 'far from' para indicar distância de um ponto de referência." },
+        { q: "Choose the correct sentence.", options: ["The park between the bank and school.", "The park is between the bank and the school.", "The park is between bank and school.", "The park between the bank school."], answer: 1, explanation: "'Between' exige dois elementos conectados por 'and', cada um com seu artigo quando necessário: 'between the bank and the school'." },
         { type: "tf", q: "'Map' means 'rua'.", answer: false, explanation: "'Map' significa 'mapa'; 'rua' é 'street'." }
       ]
     },
@@ -351,16 +354,16 @@ APP_DATA.a2 = {
         ]
       },
       vocabulary: [
-        { word: "Yesterday", phonetic: "/ˈjɛstərdeɪ/", translation: "Ontem", example: "I called her yesterday.", exampleTranslation: "Eu liguei para ela ontem." },
-        { word: "Last week", phonetic: "/læst wiːk/", translation: "Semana passada", example: "We traveled last week.", exampleTranslation: "Nós viajamos semana passada." },
-        { word: "Ago", phonetic: "/əˈɡoʊ/", translation: "Atrás/Há", example: "He arrived two hours ago.", exampleTranslation: "Ele chegou há duas horas." },
-        { word: "Went", phonetic: "/wɛnt/", translation: "Foi (go)", example: "I went to the beach.", exampleTranslation: "Eu fui à praia." },
-        { word: "Saw", phonetic: "/sɔː/", translation: "Viu (see)", example: "She saw an old friend.", exampleTranslation: "Ela viu uma amiga antiga." },
-        { word: "Had", phonetic: "/hæd/", translation: "Teve (have)", example: "We had a great time.", exampleTranslation: "Nós tivemos um ótimo momento." },
-        { word: "Bought", phonetic: "/bɔːt/", translation: "Comprou (buy)", example: "He bought a new car.", exampleTranslation: "Ele comprou um carro novo." },
-        { word: "Visited", phonetic: "/ˈvɪzɪtɪd/", translation: "Visitou (visit)", example: "I visited my grandmother.", exampleTranslation: "Eu visitei minha avó." },
-        { word: "Arrived", phonetic: "/əˈraɪvd/", translation: "Chegou (arrive)", example: "They arrived late.", exampleTranslation: "Eles chegaram tarde." },
-        { word: "Happened", phonetic: "/ˈhæpənd/", translation: "Aconteceu (happen)", example: "What happened yesterday?", exampleTranslation: "O que aconteceu ontem?" }
+        { id: "a2-m3-yesterday", word: "Yesterday", phonetic: "/ˈjɛstərdeɪ/", translation: "Ontem", example: "I called her yesterday.", exampleTranslation: "Eu liguei para ela ontem." },
+        { id: "a2-m3-last-week", word: "Last week", phonetic: "/læst wiːk/", translation: "Semana passada", example: "We traveled last week.", exampleTranslation: "Nós viajamos semana passada." },
+        { id: "a2-m3-ago", word: "Ago", phonetic: "/əˈɡoʊ/", translation: "Atrás/Há", example: "He arrived two hours ago.", exampleTranslation: "Ele chegou há duas horas." },
+        { id: "a2-m3-went", word: "Went", phonetic: "/wɛnt/", translation: "Foi (go)", example: "I went to the beach.", exampleTranslation: "Eu fui à praia." },
+        { id: "a2-m3-saw", word: "Saw", phonetic: "/sɔː/", translation: "Viu (see)", example: "She saw an old friend.", exampleTranslation: "Ela viu uma amiga antiga." },
+        { id: "a2-m3-had", word: "Had", phonetic: "/hæd/", translation: "Teve (have)", example: "We had a great time.", exampleTranslation: "Nós tivemos um ótimo momento." },
+        { id: "a2-m3-bought", word: "Bought", phonetic: "/bɔːt/", translation: "Comprou (buy)", example: "He bought a new car.", exampleTranslation: "Ele comprou um carro novo." },
+        { id: "a2-m3-visited", word: "Visited", phonetic: "/ˈvɪzɪtɪd/", translation: "Visitou (visit)", example: "I visited my grandmother.", exampleTranslation: "Eu visitei minha avó." },
+        { id: "a2-m3-arrived", word: "Arrived", phonetic: "/əˈraɪvd/", translation: "Chegou (arrive)", example: "They arrived late.", exampleTranslation: "Eles chegaram tarde." },
+        { id: "a2-m3-happened", word: "Happened", phonetic: "/ˈhæpənd/", translation: "Aconteceu (happen)", example: "What happened yesterday?", exampleTranslation: "O que aconteceu ontem?" }
       ],
       grammar: {
         title: "Passado Simples: Afirmativa, Negativa e Pergunta",
@@ -400,8 +403,8 @@ APP_DATA.a2 = {
         }
       ],
       writing: [
-        { prompt: "Escreva sobre o que você fez ontem, usando pelo menos 4 verbos no passado.", minWords: 20, modelAnswer: "Yesterday, I woke up early. I studied English. I visited my friend. We had lunch together." },
-        { prompt: "Escreva sobre uma viagem que você fez no passado (real ou imaginária).", minWords: 25, modelAnswer: "Last year, I traveled to the beach. I stayed for one week. I saw dolphins and I bought some souvenirs. It was amazing." }
+        { prompt: "Escreva sobre o que você fez ontem, usando pelo menos 4 verbos no passado.", minWords: 20, modelAnswer: "Yesterday, I woke up early and I studied English for an hour. Then I visited my friend, and later we had lunch together at a restaurant." },
+        { prompt: "Escreva sobre uma viagem que você fez no passado (real ou imaginária).", minWords: 25, modelAnswer: "Last year, I traveled to the beach with my family. We stayed for one week in a small hotel. I saw dolphins and I bought some souvenirs for my friends. It was an amazing trip." }
       ],
       speaking: [
         { phrase: "I went to the market yesterday.", tip: "'Went' se pronuncia /wɛnt/, rima com 'sent'." },
@@ -460,17 +463,17 @@ APP_DATA.a2 = {
         ]
       },
       quiz: [
-        { q: "Complete: 'I ___ to the market yesterday.'", options: ["go", "goes", "went", "going"], answer: 2 },
-        { q: "Choose the correct question.", options: ["Did you saw it?", "Did you see it?", "Do you saw it?", "Did you seeing it?"], answer: 1 },
-        { type: "tf", q: "'Didn't' is the contraction of 'did not'.", answer: true },
-        { q: "Complete: 'She ___ (not/have) time.'", options: ["don't have", "doesn't have", "didn't have", "not had"], answer: 2 },
-        { type: "short", q: "Write the past tense of 'buy'.", answer: ["bought", "Bought"] },
-        { q: "'Ago' is used to say:", options: ["Que algo vai acontecer", "Quanto tempo atrás algo aconteceu", "Que algo está acontecendo agora", "Nada disso"], answer: 1 },
-        { type: "tf", q: "Regular verbs form the past by adding '-ed'.", answer: true },
-        { q: "Choose the correct sentence.", options: ["They arrived lately last night.", "They arrived late last night.", "They arrive late last night.", "They arriving late last night."], answer: 1 },
-        { q: "Choose the past tense of 'see'.", options: ["Seed", "Saw", "Seen", "Sees"], answer: 1 },
-        { type: "short", q: "Complete: '___ you see the movie?' (pergunta no passado)", answer: ["Did"] },
-        { q: "'Last week' refers to:", options: ["O futuro", "O presente", "O passado", "Um hábito"], answer: 2 },
+        { q: "Complete: 'I ___ to the market yesterday.'", options: ["go", "goes", "went", "going"], answer: 2, explanation: "'Go' é um verbo irregular; seu passado é 'went', e não segue a regra do '-ed'." },
+        { q: "Choose the correct question.", options: ["Did you saw it?", "Did you see it?", "Do you saw it?", "Did you seeing it?"], answer: 1, explanation: "Perguntas no passado simples usam 'Did' + sujeito + verbo na forma base, mesmo com verbos irregulares: 'Did you see it?'" },
+        { type: "tf", q: "'Didn't' is the contraction of 'did not'.", answer: true, explanation: "'Didn't' é de fato a contração de 'did not', usada para negar no passado simples." },
+        { q: "Complete: 'She ___ (not/have) time.'", options: ["don't have", "doesn't have", "didn't have", "not had"], answer: 2, explanation: "A negativa no passado simples é formada com 'didn't' + verbo na forma base, independente do sujeito." },
+        { type: "short", q: "Write the past tense of 'buy'.", answer: ["bought", "Bought"], explanation: "'Buy' é um verbo irregular; seu passado é 'bought'." },
+        { q: "'Ago' is used to say:", options: ["Que algo vai acontecer", "Quanto tempo atrás algo aconteceu", "Que algo está acontecendo agora", "Nada disso"], answer: 1, explanation: "'Ago' é usado após uma expressão de tempo para indicar quanto tempo atrás algo aconteceu, como em 'two hours ago'." },
+        { type: "tf", q: "Regular verbs form the past by adding '-ed'.", answer: true, explanation: "Verbos regulares formam o passado simples acrescentando '-ed' ao final, como 'work' → 'worked'." },
+        { q: "Choose the correct sentence.", options: ["They arrived lately last night.", "They arrived late last night.", "They arrive late last night.", "They arriving late last night."], answer: 1, explanation: "'Late' (tarde) não recebe '-ly' aqui, e o verbo regular 'arrive' forma o passado com '-ed': 'arrived'." },
+        { q: "Choose the past tense of 'see'.", options: ["Seed", "Saw", "Seen", "Sees"], answer: 1, explanation: "'See' é um verbo irregular; seu passado é 'saw'." },
+        { type: "short", q: "Complete: '___ you see the movie?' (pergunta no passado)", answer: ["Did"], explanation: "Perguntas no passado simples começam com o auxiliar 'Did', antes do sujeito." },
+        { q: "'Last week' refers to:", options: ["O futuro", "O presente", "O passado", "Um hábito"], answer: 2, explanation: "'Last week' significa 'semana passada', uma expressão de tempo usada com o passado." },
         { type: "tf", q: "In past simple questions, the main verb changes to the past form too (e.g. 'Did you went?').", answer: false, explanation: "No passado, apenas 'did' muda; o verbo principal volta para a forma base: 'Did you go?'" }
       ]
     },
@@ -508,16 +511,16 @@ APP_DATA.a2 = {
         ]
       },
       vocabulary: [
-        { word: "Airport", phonetic: "/ˈɛərpɔːrt/", translation: "Aeroporto", example: "The airport is very busy today.", exampleTranslation: "O aeroporto está muito movimentado hoje." },
-        { word: "Ticket", phonetic: "/ˈtɪkɪt/", translation: "Passagem/Bilhete", example: "I bought my ticket online.", exampleTranslation: "Eu comprei minha passagem online." },
-        { word: "Suitcase", phonetic: "/ˈsuːtkeɪs/", translation: "Mala", example: "My suitcase is very heavy.", exampleTranslation: "Minha mala está muito pesada." },
-        { word: "Passport", phonetic: "/ˈpæspɔːrt/", translation: "Passaporte", example: "Don't forget your passport!", exampleTranslation: "Não esqueça seu passaporte!" },
-        { word: "Flight", phonetic: "/flaɪt/", translation: "Voo", example: "Our flight leaves at 9 a.m.", exampleTranslation: "Nosso voo sai às 9h." },
-        { word: "Hotel", phonetic: "/hoʊˈtɛl/", translation: "Hotel", example: "We are staying at a nice hotel.", exampleTranslation: "Estamos nos hospedando em um hotel bom." },
-        { word: "Reservation", phonetic: "/ˌrɛzərˈveɪʃən/", translation: "Reserva", example: "I have a reservation for two nights.", exampleTranslation: "Eu tenho uma reserva para duas noites." },
-        { word: "Luggage", phonetic: "/ˈlʌɡɪdʒ/", translation: "Bagagem", example: "Where can I leave my luggage?", exampleTranslation: "Onde posso deixar minha bagagem?" },
-        { word: "Train", phonetic: "/treɪn/", translation: "Trem", example: "We are going to travel by train.", exampleTranslation: "Nós vamos viajar de trem." },
-        { word: "Abroad", phonetic: "/əˈbrɔːd/", translation: "No exterior", example: "She is going to study abroad.", exampleTranslation: "Ela vai estudar no exterior." }
+        { id: "a2-m4-airport", word: "Airport", phonetic: "/ˈɛərpɔːrt/", translation: "Aeroporto", example: "The airport is very busy today.", exampleTranslation: "O aeroporto está muito movimentado hoje." },
+        { id: "a2-m4-ticket", word: "Ticket", phonetic: "/ˈtɪkɪt/", translation: "Passagem/Bilhete", example: "I bought my ticket online.", exampleTranslation: "Eu comprei minha passagem online." },
+        { id: "a2-m4-suitcase", word: "Suitcase", phonetic: "/ˈsuːtkeɪs/", translation: "Mala", example: "My suitcase is very heavy.", exampleTranslation: "Minha mala está muito pesada." },
+        { id: "a2-m4-passport", word: "Passport", phonetic: "/ˈpæspɔːrt/", translation: "Passaporte", example: "Don't forget your passport!", exampleTranslation: "Não esqueça seu passaporte!" },
+        { id: "a2-m4-flight", word: "Flight", phonetic: "/flaɪt/", translation: "Voo", example: "Our flight leaves at 9 a.m.", exampleTranslation: "Nosso voo sai às 9h." },
+        { id: "a2-m4-hotel", word: "Hotel", phonetic: "/hoʊˈtɛl/", translation: "Hotel", example: "We are staying at a nice hotel.", exampleTranslation: "Estamos nos hospedando em um hotel bom." },
+        { id: "a2-m4-reservation", word: "Reservation", phonetic: "/ˌrɛzərˈveɪʃən/", translation: "Reserva", example: "I have a reservation for two nights.", exampleTranslation: "Eu tenho uma reserva para duas noites." },
+        { id: "a2-m4-luggage", word: "Luggage", phonetic: "/ˈlʌɡɪdʒ/", translation: "Bagagem", example: "Where can I leave my luggage?", exampleTranslation: "Onde posso deixar minha bagagem?" },
+        { id: "a2-m4-train", word: "Train", phonetic: "/treɪn/", translation: "Trem", example: "We are going to travel by train.", exampleTranslation: "Nós vamos viajar de trem." },
+        { id: "a2-m4-abroad", word: "Abroad", phonetic: "/əˈbrɔːd/", translation: "No exterior", example: "She is going to study abroad.", exampleTranslation: "Ela vai estudar no exterior." }
       ],
       grammar: {
         title: "Going to + verbo",
@@ -617,17 +620,17 @@ APP_DATA.a2 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct sentence.", options: ["I going to travel.", "I am going to travel.", "I am go to travel.", "I am going travel."], answer: 1 },
-        { q: "'Passport' means:", options: ["Passagem", "Passaporte", "Mala", "Aeroporto"], answer: 1 },
-        { type: "tf", q: "'Going to' is used for future plans already decided.", answer: true },
-        { q: "Complete: '___ you going to visit Paris?'", options: ["Do", "Are", "Is", "Does"], answer: 1 },
-        { type: "short", q: "Complete: 'We travel ___ plane.' (meio de transporte)", answer: ["by"] },
-        { q: "'Luggage' means:", options: ["Bagagem", "Passaporte", "Hotel", "Voo"], answer: 0 },
+        { q: "Choose the correct sentence.", options: ["I going to travel.", "I am going to travel.", "I am go to travel.", "I am going travel."], answer: 1, explanation: "'Going to' exige o verbo 'to be' conjugado antes: 'I am going to travel.'" },
+        { q: "'Passport' means:", options: ["Passagem", "Passaporte", "Mala", "Aeroporto"], answer: 1, explanation: "'Passport' significa 'passaporte', o documento necessário para viajar ao exterior." },
+        { type: "tf", q: "'Going to' is used for future plans already decided.", answer: true, explanation: "Usamos 'going to' para falar de planos futuros que já foram decididos antes do momento da fala." },
+        { q: "Complete: '___ you going to visit Paris?'", options: ["Do", "Are", "Is", "Does"], answer: 1, explanation: "Perguntas com 'going to' usam o verbo 'to be' antes do sujeito; com 'you', é 'Are'." },
+        { type: "short", q: "Complete: 'We travel ___ plane.' (meio de transporte)", answer: ["by"], explanation: "Usamos a preposição 'by' antes do meio de transporte: 'by plane', 'by train', etc." },
+        { q: "'Luggage' means:", options: ["Bagagem", "Passaporte", "Hotel", "Voo"], answer: 0, explanation: "'Luggage' significa 'bagagem', as malas que levamos numa viagem." },
         { type: "tf", q: "'Flight' means 'hotel'.", answer: false, explanation: "'Flight' significa 'voo'; 'hotel' é 'hotel' mesmo (cognato)." },
-        { q: "Choose the negative form: 'She is going to work.'", options: ["She isn't going to work.", "She don't going to work.", "She not going to work.", "She isn't go to work."], answer: 0 },
-        { q: "'Reservation' means:", options: ["Reserva", "Passaporte", "Bagagem", "Aeroporto"], answer: 0 },
-        { type: "short", q: "Complete: 'Don't ___ your passport!' (esquecer)", answer: ["forget"] },
-        { q: "Choose the correct question.", options: ["Are you going travel?", "Are you going to travel?", "Do you going to travel?", "Is you going to travel?"], answer: 1 },
+        { q: "Choose the negative form: 'She is going to work.'", options: ["She isn't going to work.", "She don't going to work.", "She not going to work.", "She isn't go to work."], answer: 0, explanation: "A negativa com 'going to' usa o verbo 'to be' + not antes de 'going to': 'isn't going to work'." },
+        { q: "'Reservation' means:", options: ["Reserva", "Passaporte", "Bagagem", "Aeroporto"], answer: 0, explanation: "'Reservation' significa 'reserva', como a de um hotel ou voo." },
+        { type: "short", q: "Complete: 'Don't ___ your passport!' (esquecer)", answer: ["forget"], explanation: "'Don't forget' é o imperativo negativo de 'forget' (esquecer), usado para lembrar alguém de algo importante." },
+        { q: "Choose the correct question.", options: ["Are you going travel?", "Are you going to travel?", "Do you going to travel?", "Is you going to travel?"], answer: 1, explanation: "A pergunta com 'going to' segue a ordem: 'to be' + sujeito + 'going to' + verbo: 'Are you going to travel?'" },
         { type: "tf", q: "'Suitcase' means 'passagem'.", answer: false, explanation: "'Suitcase' significa 'mala'; 'passagem' é 'ticket'." }
       ]
     },
@@ -665,16 +668,16 @@ APP_DATA.a2 = {
         ]
       },
       vocabulary: [
-        { word: "Tall", phonetic: "/tɔːl/", translation: "Alto", example: "My brother is very tall.", exampleTranslation: "Meu irmão é muito alto." },
-        { word: "Short", phonetic: "/ʃɔːrt/", translation: "Baixo", example: "She is shorter than me.", exampleTranslation: "Ela é mais baixa que eu." },
-        { word: "Friendly", phonetic: "/ˈfrɛndli/", translation: "Simpático(a)", example: "Our neighbors are very friendly.", exampleTranslation: "Nossos vizinhos são muito simpáticos." },
-        { word: "Funny", phonetic: "/ˈfʌni/", translation: "Engraçado(a)", example: "He is the funniest person I know.", exampleTranslation: "Ele é a pessoa mais engraçada que conheço." },
-        { word: "Beautiful", phonetic: "/ˈbjuːtɪfəl/", translation: "Bonito(a)", example: "This city is beautiful.", exampleTranslation: "Esta cidade é bonita." },
-        { word: "Quiet", phonetic: "/ˈkwaɪət/", translation: "Quieto(a)/Calmo(a)", example: "The library is very quiet.", exampleTranslation: "A biblioteca é muito quieta." },
-        { word: "Crowded", phonetic: "/ˈkraʊdɪd/", translation: "Lotado(a)", example: "The market is crowded on Saturdays.", exampleTranslation: "O mercado fica lotado aos sábados." },
-        { word: "Expensive", phonetic: "/ɪkˈspɛnsɪv/", translation: "Caro(a)", example: "This restaurant is more expensive than that one.", exampleTranslation: "Este restaurante é mais caro que aquele." },
-        { word: "Modern", phonetic: "/ˈmɒdərn/", translation: "Moderno(a)", example: "The new building is very modern.", exampleTranslation: "O prédio novo é muito moderno." },
-        { word: "Similar", phonetic: "/ˈsɪmɪlər/", translation: "Parecido(a)", example: "These two cities are similar.", exampleTranslation: "Estas duas cidades são parecidas." }
+        { id: "a2-m5-tall", word: "Tall", phonetic: "/tɔːl/", translation: "Alto", example: "My brother is very tall.", exampleTranslation: "Meu irmão é muito alto." },
+        { id: "a2-m5-short", word: "Short", phonetic: "/ʃɔːrt/", translation: "Baixo", example: "She is shorter than me.", exampleTranslation: "Ela é mais baixa que eu." },
+        { id: "a2-m5-friendly", word: "Friendly", phonetic: "/ˈfrɛndli/", translation: "Simpático(a)", example: "Our neighbors are very friendly.", exampleTranslation: "Nossos vizinhos são muito simpáticos." },
+        { id: "a2-m5-funny", word: "Funny", phonetic: "/ˈfʌni/", translation: "Engraçado(a)", example: "He is the funniest person I know.", exampleTranslation: "Ele é a pessoa mais engraçada que conheço." },
+        { id: "a2-m5-beautiful", word: "Beautiful", phonetic: "/ˈbjuːtɪfəl/", translation: "Bonito(a)", example: "This city is beautiful.", exampleTranslation: "Esta cidade é bonita." },
+        { id: "a2-m5-quiet", word: "Quiet", phonetic: "/ˈkwaɪət/", translation: "Quieto(a)/Calmo(a)", example: "The library is very quiet.", exampleTranslation: "A biblioteca é muito quieta." },
+        { id: "a2-m5-crowded", word: "Crowded", phonetic: "/ˈkraʊdɪd/", translation: "Lotado(a)", example: "The market is crowded on Saturdays.", exampleTranslation: "O mercado fica lotado aos sábados." },
+        { id: "a2-m5-expensive", word: "Expensive", phonetic: "/ɪkˈspɛnsɪv/", translation: "Caro(a)", example: "This restaurant is more expensive than that one.", exampleTranslation: "Este restaurante é mais caro que aquele." },
+        { id: "a2-m5-modern", word: "Modern", phonetic: "/ˈmɒdərn/", translation: "Moderno(a)", example: "The new building is very modern.", exampleTranslation: "O prédio novo é muito moderno." },
+        { id: "a2-m5-similar", word: "Similar", phonetic: "/ˈsɪmɪlər/", translation: "Parecido(a)", example: "These two cities are similar.", exampleTranslation: "Estas duas cidades são parecidas." }
       ],
       grammar: {
         title: "Comparativos e Superlativos",
@@ -716,8 +719,8 @@ APP_DATA.a2 = {
         }
       ],
       writing: [
-        { prompt: "Compare duas pessoas que você conhece usando comparativos (ex: mais alto, mais engraçado).", minWords: 20, modelAnswer: "My sister is taller than me. She is also funnier. But I am more organized than her." },
-        { prompt: "Descreva sua cidade usando pelo menos 3 adjetivos e um superlativo.", minWords: 20, modelAnswer: "My city is beautiful and modern. It is a little crowded, but it is the friendliest city I know." }
+        { prompt: "Compare duas pessoas que você conhece usando comparativos (ex: mais alto, mais engraçado).", minWords: 20, modelAnswer: "My sister is taller than me, and she is also funnier than I am. But I am more organized than her, and I am a better cook." },
+        { prompt: "Descreva sua cidade usando pelo menos 3 adjetivos e um superlativo.", minWords: 20, modelAnswer: "My city is beautiful and modern, but it is a little crowded on weekends. Even so, it is the friendliest city I know, and everyone is kind." }
       ],
       speaking: [
         { phrase: "This city is bigger than mine.", tip: "O '-er' em 'bigger' soa como /ər/, sem enfatizar muito." },
@@ -776,17 +779,17 @@ APP_DATA.a2 = {
         ]
       },
       quiz: [
-        { q: "Choose the comparative of 'tall'.", options: ["More tall", "Taller", "Tallest", "Tall-er"], answer: 1 },
-        { q: "Choose the superlative of 'good'.", options: ["Gooder", "Goodest", "Best", "More good"], answer: 2 },
-        { type: "tf", q: "Long adjectives use 'more' to form the comparative.", answer: true },
-        { q: "Complete: 'This house is ___ than that one.' (big)", options: ["big", "bigger", "biggest", "more big"], answer: 1 },
-        { type: "short", q: "Write the comparative of 'happy'.", answer: ["happier", "Happier"] },
-        { q: "'Crowded' means:", options: ["Vazio", "Lotado", "Silencioso", "Moderno"], answer: 1 },
+        { q: "Choose the comparative of 'tall'.", options: ["More tall", "Taller", "Tallest", "Tall-er"], answer: 1, explanation: "Adjetivos curtos de uma sílaba formam o comparativo com '-er': tall → taller." },
+        { q: "Choose the superlative of 'good'.", options: ["Gooder", "Goodest", "Best", "More good"], answer: 2, explanation: "'Good' é irregular; seu superlativo é 'the best', não segue o padrão '-est'." },
+        { type: "tf", q: "Long adjectives use 'more' to form the comparative.", answer: true, explanation: "Adjetivos longos (geralmente com duas ou mais sílabas) formam o comparativo com 'more' antes do adjetivo." },
+        { q: "Complete: 'This house is ___ than that one.' (big)", options: ["big", "bigger", "biggest", "more big"], answer: 1, explanation: "'Big' é um adjetivo curto; dobra a consoante final e recebe '-er': big → bigger." },
+        { type: "short", q: "Write the comparative of 'happy'.", answer: ["happier", "Happier"], explanation: "Adjetivos terminados em consoante + 'y' trocam o 'y' por 'i' antes de '-er': happy → happier." },
+        { q: "'Crowded' means:", options: ["Vazio", "Lotado", "Silencioso", "Moderno"], answer: 1, explanation: "'Crowded' significa 'lotado', cheio de pessoas." },
         { type: "tf", q: "'Friendly' means 'tímido'.", answer: false, explanation: "'Friendly' significa 'simpático'; 'tímido' é 'shy'." },
-        { q: "Choose the correct superlative sentence.", options: ["She is the intelligentest.", "She is the most intelligent.", "She is intelligenter.", "She is more intelligentest."], answer: 1 },
-        { q: "'Quiet' is the opposite of:", options: ["Loud", "Tall", "Short", "Modern"], answer: 0 },
-        { type: "short", q: "Complete: 'This is ___ best restaurant in town.' (artigo)", answer: ["the"] },
-        { q: "Choose the correct sentence.", options: ["He is more short than me.", "He is shorter than me.", "He is the shorter than me.", "He shorter than me."], answer: 1 },
+        { q: "Choose the correct superlative sentence.", options: ["She is the intelligentest.", "She is the most intelligent.", "She is intelligenter.", "She is more intelligentest."], answer: 1, explanation: "Adjetivos longos formam o superlativo com 'the most', não com '-est': 'the most intelligent'." },
+        { q: "'Quiet' is the opposite of:", options: ["Loud", "Tall", "Short", "Modern"], answer: 0, explanation: "'Quiet' (quieto/silencioso) é o oposto de 'loud' (barulhento)." },
+        { type: "short", q: "Complete: 'This is ___ best restaurant in town.' (artigo)", answer: ["the"], explanation: "Superlativos são sempre precedidos pelo artigo definido 'the': 'the best restaurant'." },
+        { q: "Choose the correct sentence.", options: ["He is more short than me.", "He is shorter than me.", "He is the shorter than me.", "He shorter than me."], answer: 1, explanation: "O comparativo de 'short' é formado com '-er': 'shorter than'." },
         { type: "tf", q: "'Similar' means 'diferente'.", answer: false, explanation: "'Similar' significa 'parecido'; 'diferente' é 'different'." }
       ]
     },
@@ -824,16 +827,16 @@ APP_DATA.a2 = {
         ]
       },
       vocabulary: [
-        { word: "Ability", phonetic: "/əˈbɪləti/", translation: "Habilidade", example: "Swimming is a useful ability.", exampleTranslation: "Nadar é uma habilidade útil." },
-        { word: "Permission", phonetic: "/pərˈmɪʃən/", translation: "Permissão", example: "You need permission to enter.", exampleTranslation: "Você precisa de permissão para entrar." },
-        { word: "Allowed", phonetic: "/əˈlaʊd/", translation: "Permitido(a)", example: "Smoking is not allowed here.", exampleTranslation: "Fumar não é permitido aqui." },
-        { word: "Able to", phonetic: "/ˈeɪbəl tuː/", translation: "Capaz de", example: "I am able to solve this problem.", exampleTranslation: "Eu sou capaz de resolver este problema." },
-        { word: "Skill", phonetic: "/skɪl/", translation: "Habilidade/Competência", example: "Cooking is a great skill.", exampleTranslation: "Cozinhar é uma ótima habilidade." },
-        { word: "Fluently", phonetic: "/ˈfluːəntli/", translation: "Fluentemente", example: "She speaks English fluently.", exampleTranslation: "Ela fala inglês fluentemente." },
-        { word: "Instrument", phonetic: "/ˈɪnstrəmənt/", translation: "Instrumento", example: "Can you play an instrument?", exampleTranslation: "Você sabe tocar um instrumento?" },
-        { word: "Request", phonetic: "/rɪˈkwɛst/", translation: "Pedido/Solicitar", example: "I have a small request.", exampleTranslation: "Eu tenho um pequeno pedido." },
-        { word: "Borrow", phonetic: "/ˈbɒroʊ/", translation: "Pegar emprestado", example: "Could I borrow your pen?", exampleTranslation: "Eu poderia pegar sua caneta emprestada?" },
-        { word: "Manage to", phonetic: "/ˈmænɪdʒ tuː/", translation: "Conseguir (fazer algo difícil)", example: "I managed to finish on time.", exampleTranslation: "Eu consegui terminar a tempo." }
+        { id: "a2-m6-ability", word: "Ability", phonetic: "/əˈbɪləti/", translation: "Habilidade", example: "Swimming is a useful ability.", exampleTranslation: "Nadar é uma habilidade útil." },
+        { id: "a2-m6-permission", word: "Permission", phonetic: "/pərˈmɪʃən/", translation: "Permissão", example: "You need permission to enter.", exampleTranslation: "Você precisa de permissão para entrar." },
+        { id: "a2-m6-allowed", word: "Allowed", phonetic: "/əˈlaʊd/", translation: "Permitido(a)", example: "Smoking is not allowed here.", exampleTranslation: "Fumar não é permitido aqui." },
+        { id: "a2-m6-able-to", word: "Able to", phonetic: "/ˈeɪbəl tuː/", translation: "Capaz de", example: "I am able to solve this problem.", exampleTranslation: "Eu sou capaz de resolver este problema." },
+        { id: "a2-m6-skill", word: "Skill", phonetic: "/skɪl/", translation: "Habilidade/Competência", example: "Cooking is a great skill.", exampleTranslation: "Cozinhar é uma ótima habilidade." },
+        { id: "a2-m6-fluently", word: "Fluently", phonetic: "/ˈfluːəntli/", translation: "Fluentemente", example: "She speaks English fluently.", exampleTranslation: "Ela fala inglês fluentemente." },
+        { id: "a2-m6-instrument", word: "Instrument", phonetic: "/ˈɪnstrəmənt/", translation: "Instrumento", example: "Can you play an instrument?", exampleTranslation: "Você sabe tocar um instrumento?" },
+        { id: "a2-m6-request", word: "Request", phonetic: "/rɪˈkwɛst/", translation: "Pedido/Solicitar", example: "I have a small request.", exampleTranslation: "Eu tenho um pequeno pedido." },
+        { id: "a2-m6-borrow", word: "Borrow", phonetic: "/ˈbɒroʊ/", translation: "Pegar emprestado", example: "Could I borrow your pen?", exampleTranslation: "Eu poderia pegar sua caneta emprestada?" },
+        { id: "a2-m6-manage-to", word: "Manage to", phonetic: "/ˈmænɪdʒ tuː/", translation: "Conseguir (fazer algo difícil)", example: "I managed to finish on time.", exampleTranslation: "Eu consegui terminar a tempo." }
       ],
       grammar: {
         title: "Can / Could / Be able to",
@@ -934,44 +937,44 @@ APP_DATA.a2 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct sentence for present ability.", options: ["I can to swim.", "I can swim.", "I cans swim.", "I canning swim."], answer: 1 },
-        { q: "Choose the correct sentence for past ability.", options: ["I could swim when I was young.", "I can swim when I was young.", "I could to swim when I was young.", "I able swim when I was young."], answer: 0 },
+        { q: "Choose the correct sentence for present ability.", options: ["I can to swim.", "I can swim.", "I cans swim.", "I canning swim."], answer: 1, explanation: "'Can' é seguido do verbo na forma base, sem 'to' e sem '-s': 'I can swim.'" },
+        { q: "Choose the correct sentence for past ability.", options: ["I could swim when I was young.", "I can swim when I was young.", "I could to swim when I was young.", "I able swim when I was young."], answer: 0, explanation: "'Could' expressa habilidade no passado e é seguido do verbo na forma base, sem 'to'." },
         { type: "tf", q: "'Could' is used for future ability.", answer: false, explanation: "'Could' é usado para habilidade no passado; para o futuro usamos 'will be able to'." },
-        { q: "Choose the most polite request.", options: ["Give me your pen.", "Can I have your pen?", "Could I borrow your pen, please?", "Pen now."], answer: 2 },
-        { type: "short", q: "Complete: 'I ___ speak two languages.' (habilidade presente)", answer: ["can"] },
-        { q: "'Allowed' means:", options: ["Proibido", "Permitido", "Impossível", "Difícil"], answer: 1 },
-        { type: "tf", q: "'Be able to' can be used in the future tense, unlike 'can'.", answer: true },
-        { q: "Choose the correct sentence.", options: ["I will can help tomorrow.", "I will be able to help tomorrow.", "I will able to help tomorrow.", "I can help tomorrow future."], answer: 1 },
-        { q: "'Skill' means:", options: ["Erro", "Habilidade/Competência", "Permissão", "Pedido"], answer: 1 },
-        { type: "short", q: "Complete: 'Could I ___ your pen?' (pegar emprestado)", answer: ["borrow"] },
-        { q: "Choose the correct sentence.", options: ["She speak English fluently.", "She speaks English fluently.", "She speaking English fluently.", "She to speak English fluently."], answer: 1 },
-        { type: "tf", q: "'Manage to' means to succeed in doing something difficult.", answer: true }
+        { q: "Choose the most polite request.", options: ["Give me your pen.", "Can I have your pen?", "Could I borrow your pen, please?", "Pen now."], answer: 2, explanation: "'Could' combinado com 'please' torna o pedido mais educado e formal do que 'can'." },
+        { type: "short", q: "Complete: 'I ___ speak two languages.' (habilidade presente)", answer: ["can"], explanation: "'Can' é o modal usado para expressar habilidade no presente." },
+        { q: "'Allowed' means:", options: ["Proibido", "Permitido", "Impossível", "Difícil"], answer: 1, explanation: "'Allowed' significa 'permitido', o oposto de proibido." },
+        { type: "tf", q: "'Be able to' can be used in the future tense, unlike 'can'.", answer: true, explanation: "'Can' não tem forma de futuro; usamos 'will be able to' para expressar habilidade no futuro." },
+        { q: "Choose the correct sentence.", options: ["I will can help tomorrow.", "I will be able to help tomorrow.", "I will able to help tomorrow.", "I can help tomorrow future."], answer: 1, explanation: "No futuro, usamos 'will be able to' em vez de 'will can', pois dois modais não podem ser combinados diretamente." },
+        { q: "'Skill' means:", options: ["Erro", "Habilidade/Competência", "Permissão", "Pedido"], answer: 1, explanation: "'Skill' significa 'habilidade' ou 'competência', uma capacidade desenvolvida com prática." },
+        { type: "short", q: "Complete: 'Could I ___ your pen?' (pegar emprestado)", answer: ["borrow"], explanation: "'Borrow' significa 'pegar emprestado', usado para pedir algo emprestado temporariamente." },
+        { q: "Choose the correct sentence.", options: ["She speak English fluently.", "She speaks English fluently.", "She speaking English fluently.", "She to speak English fluently."], answer: 1, explanation: "Com 'she' no presente simples, o verbo recebe '-s': 'speaks'." },
+        { type: "tf", q: "'Manage to' means to succeed in doing something difficult.", answer: true, explanation: "'Manage to' significa 'conseguir fazer algo', geralmente algo difícil ou que exigiu esforço." }
       ]
     }
   ],
   finalTest: {
     description: "Prova final do nível A2 — 20 questões cobrindo presente simples/contínuo, direções, passado simples, viagens/futuro e comparativos.",
     questions: [
-      { q: "Complete: 'She ___ to work every day.'", options: ["go", "goes", "going", "gone"], answer: 1 },
-      { q: "Complete: 'I ___ dinner right now.'", options: ["cook", "cooks", "am cooking", "cooked"], answer: 2 },
-      { q: "Choose the correct imperative.", options: ["You turn left.", "Turn left.", "Turning left.", "Turned left."], answer: 1 },
-      { type: "short", q: "Complete: 'The bank is ___ to the pharmacy.' (ao lado)", answer: ["next"] },
-      { q: "Complete: 'I ___ to the market yesterday.'", options: ["go", "goes", "went", "going"], answer: 2 },
-      { type: "tf", q: "'Didn't' is the contraction of 'did not'.", answer: true },
-      { q: "Choose the correct question in the past.", options: ["Did you saw it?", "Did you see it?", "Do you saw it?", "Did you seeing it?"], answer: 1 },
-      { q: "Choose the correct sentence.", options: ["I going to travel.", "I am going to travel.", "I am go to travel.", "I am going travel."], answer: 1 },
-      { type: "short", q: "Complete: 'We travel ___ plane.'", answer: ["by"] },
-      { q: "'Passport' means:", options: ["Passagem", "Passaporte", "Mala", "Aeroporto"], answer: 1 },
-      { q: "Choose the comparative of 'tall'.", options: ["More tall", "Taller", "Tallest", "Tall-er"], answer: 1 },
-      { type: "tf", q: "Long adjectives use 'more' to form the comparative.", answer: true },
-      { q: "'Crowded' means:", options: ["Vazio", "Lotado", "Silencioso", "Moderno"], answer: 1 },
-      { type: "short", q: "Write the comparative of 'happy'.", answer: ["happier", "Happier"] },
-      { q: "'Right now' is used with which tense?", options: ["Present Simple", "Present Continuous", "Past Simple", "Future"], answer: 1 },
-      { q: "'Ago' is used to say:", options: ["Que algo vai acontecer", "Quanto tempo atrás algo aconteceu", "Que algo está acontecendo agora", "Nada disso"], answer: 1 },
-      { type: "tf", q: "'Never' means 'sempre'.", answer: false },
-      { q: "Choose the correct negative: 'They ___ studying.'", options: ["doesn't", "don't", "isn't", "aren't"], answer: 3 },
-      { q: "'Luggage' means:", options: ["Bagagem", "Passaporte", "Hotel", "Voo"], answer: 0 },
-      { type: "tf", q: "'Going to' is used for future plans already decided.", answer: true }
+      { q: "Complete: 'She ___ to work every day.'", options: ["go", "goes", "going", "gone"], answer: 1, explanation: "Com he/she/it no presente simples, o verbo recebe '-s' ou '-es': go → goes." },
+      { q: "Complete: 'I ___ dinner right now.'", options: ["cook", "cooks", "am cooking", "cooked"], answer: 2, explanation: "'Right now' pede o presente contínuo (to be + verbo-ing) para uma ação em andamento." },
+      { q: "Choose the correct imperative.", options: ["You turn left.", "Turn left.", "Turning left.", "Turned left."], answer: 1, explanation: "O imperativo usa o verbo na forma base, sem sujeito: 'Turn left.'" },
+      { type: "short", q: "Complete: 'The bank is ___ to the pharmacy.' (ao lado)", answer: ["next"], explanation: "'Next to' significa 'ao lado de'; a resposta completa a expressão fixa 'next to'." },
+      { q: "Complete: 'I ___ to the market yesterday.'", options: ["go", "goes", "went", "going"], answer: 2, explanation: "'Go' é irregular; seu passado é 'went', usado com 'yesterday'." },
+      { type: "tf", q: "'Didn't' is the contraction of 'did not'.", answer: true, explanation: "'Didn't' é realmente a forma contraída de 'did not', usada para negar no passado simples." },
+      { q: "Choose the correct question in the past.", options: ["Did you saw it?", "Did you see it?", "Do you saw it?", "Did you seeing it?"], answer: 1, explanation: "Perguntas no passado simples usam 'Did' + sujeito + verbo na forma base, mesmo com verbos irregulares." },
+      { q: "Choose the correct sentence.", options: ["I going to travel.", "I am going to travel.", "I am go to travel.", "I am going travel."], answer: 1, explanation: "'Going to' precisa do verbo 'to be' conjugado antes: 'I am going to travel.'" },
+      { type: "short", q: "Complete: 'We travel ___ plane.'", answer: ["by"], explanation: "Usamos a preposição 'by' para indicar o meio de transporte: 'by plane'." },
+      { q: "'Passport' means:", options: ["Passagem", "Passaporte", "Mala", "Aeroporto"], answer: 1, explanation: "'Passport' significa 'passaporte', documento necessário para viajar ao exterior." },
+      { q: "Choose the comparative of 'tall'.", options: ["More tall", "Taller", "Tallest", "Tall-er"], answer: 1, explanation: "Adjetivos curtos formam o comparativo com '-er': tall → taller." },
+      { type: "tf", q: "Long adjectives use 'more' to form the comparative.", answer: true, explanation: "Adjetivos com duas ou mais sílabas geralmente formam o comparativo com 'more' antes do adjetivo." },
+      { q: "'Crowded' means:", options: ["Vazio", "Lotado", "Silencioso", "Moderno"], answer: 1, explanation: "'Crowded' significa 'lotado', cheio de gente." },
+      { type: "short", q: "Write the comparative of 'happy'.", answer: ["happier", "Happier"], explanation: "Adjetivos terminados em consoante + 'y' trocam o 'y' por 'i' antes de '-er': happy → happier." },
+      { q: "'Right now' is used with which tense?", options: ["Present Simple", "Present Continuous", "Past Simple", "Future"], answer: 1, explanation: "'Right now' indica uma ação em progresso no momento da fala, por isso é usado com o presente contínuo." },
+      { q: "'Ago' is used to say:", options: ["Que algo vai acontecer", "Quanto tempo atrás algo aconteceu", "Que algo está acontecendo agora", "Nada disso"], answer: 1, explanation: "'Ago' indica quanto tempo atrás algo aconteceu, como em 'two years ago'." },
+      { type: "tf", q: "'Never' means 'sempre'.", answer: false, explanation: "'Never' significa 'nunca'; 'sempre' é 'always'." },
+      { q: "Choose the correct negative: 'They ___ studying.'", options: ["doesn't", "don't", "isn't", "aren't"], answer: 3, explanation: "No presente contínuo, a negativa usa o verbo 'to be' + not; com 'they' a forma é 'aren't'." },
+      { q: "'Luggage' means:", options: ["Bagagem", "Passaporte", "Hotel", "Voo"], answer: 0, explanation: "'Luggage' significa 'bagagem', as malas levadas em uma viagem." },
+      { type: "tf", q: "'Going to' is used for future plans already decided.", answer: true, explanation: "Usamos 'going to' para planos futuros que já foram decididos antes do momento da fala." }
     ]
   }
 };

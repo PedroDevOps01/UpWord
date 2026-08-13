@@ -63,16 +63,16 @@ APP_DATA.travel = {
         ]
       },
       vocabulary: [
-        { word: "Boarding pass", phonetic: "/ˈbɔːrdɪŋ pæs/", translation: "Cartão de embarque", example: "Please have your boarding pass ready.", exampleTranslation: "Por favor, tenha seu cartão de embarque em mãos." },
-        { word: "Customs", phonetic: "/ˈkʌstəmz/", translation: "Alfândega", example: "You need to go through customs.", exampleTranslation: "Você precisa passar pela alfândega." },
-        { word: "Luggage claim", phonetic: "/ˈlʌɡɪdʒ kleɪm/", translation: "Retirada de bagagem", example: "The luggage claim is downstairs.", exampleTranslation: "A retirada de bagagem é no andar de baixo." },
-        { word: "Reservation", phonetic: "/ˌrɛzərˈveɪʃən/", translation: "Reserva", example: "I have a reservation for two nights.", exampleTranslation: "Eu tenho uma reserva para duas noites." },
-        { word: "Check-out", phonetic: "/tʃɛk aʊt/", translation: "Saída do hotel", example: "Check-out is at eleven a.m.", exampleTranslation: "O check-out é às 11h." },
-        { word: "Receipt", phonetic: "/rɪˈsiːt/", translation: "Recibo/Comprovante", example: "Can I have a receipt, please?", exampleTranslation: "Posso ter um recibo, por favor?" },
-        { word: "Currency exchange", phonetic: "/ˈkʌrənsi ɪksˈtʃeɪndʒ/", translation: "Casa de câmbio", example: "Where is the nearest currency exchange?", exampleTranslation: "Onde fica a casa de câmbio mais próxima?" },
-        { word: "Delayed", phonetic: "/dɪˈleɪd/", translation: "Atrasado(a)", example: "Our flight is delayed.", exampleTranslation: "Nosso voo está atrasado." },
-        { word: "Gate", phonetic: "/ɡeɪt/", translation: "Portão de embarque", example: "The gate changed to B12.", exampleTranslation: "O portão mudou para B12." },
-        { word: "Round trip", phonetic: "/raʊnd trɪp/", translation: "Ida e volta", example: "I'd like a round trip ticket.", exampleTranslation: "Eu gostaria de uma passagem de ida e volta." }
+        { id: "travel-m1-boarding-pass", word: "Boarding pass", phonetic: "/ˈbɔːrdɪŋ pæs/", translation: "Cartão de embarque", example: "Please have your boarding pass ready.", exampleTranslation: "Por favor, tenha seu cartão de embarque em mãos." },
+        { id: "travel-m1-customs", word: "Customs", phonetic: "/ˈkʌstəmz/", translation: "Alfândega", example: "You need to go through customs.", exampleTranslation: "Você precisa passar pela alfândega." },
+        { id: "travel-m1-luggage-claim", word: "Luggage claim", phonetic: "/ˈlʌɡɪdʒ kleɪm/", translation: "Retirada de bagagem", example: "The luggage claim is downstairs.", exampleTranslation: "A retirada de bagagem é no andar de baixo." },
+        { id: "travel-m1-reservation", word: "Reservation", phonetic: "/ˌrɛzərˈveɪʃən/", translation: "Reserva", example: "I have a reservation for two nights.", exampleTranslation: "Eu tenho uma reserva para duas noites." },
+        { id: "travel-m1-check-out", word: "Check-out", phonetic: "/tʃɛk aʊt/", translation: "Saída do hotel", example: "Check-out is at eleven a.m.", exampleTranslation: "O check-out é às 11h." },
+        { id: "travel-m1-receipt", word: "Receipt", phonetic: "/rɪˈsiːt/", translation: "Recibo/Comprovante", example: "Can I have a receipt, please?", exampleTranslation: "Posso ter um recibo, por favor?" },
+        { id: "travel-m1-currency-exchange", word: "Currency exchange", phonetic: "/ˈkʌrənsi ɪksˈtʃeɪndʒ/", translation: "Casa de câmbio", example: "Where is the nearest currency exchange?", exampleTranslation: "Onde fica a casa de câmbio mais próxima?" },
+        { id: "travel-m1-delayed", word: "Delayed", phonetic: "/dɪˈleɪd/", translation: "Atrasado(a)", example: "Our flight is delayed.", exampleTranslation: "Nosso voo está atrasado." },
+        { id: "travel-m1-gate", word: "Gate", phonetic: "/ɡeɪt/", translation: "Portão de embarque", example: "The gate changed to B12.", exampleTranslation: "O portão mudou para B12." },
+        { id: "travel-m1-round-trip", word: "Round trip", phonetic: "/raʊnd trɪp/", translation: "Ida e volta", example: "I'd like a round trip ticket.", exampleTranslation: "Eu gostaria de uma passagem de ida e volta." }
       ],
       grammar: {
         title: "Pedidos Educados com 'Could' e 'Would'",
@@ -92,6 +92,9 @@ APP_DATA.travel = {
         {
           title: "At the Hotel Front Desk",
           accent: "british",
+          audioSrc: "assets/audio/travel-m1-listen-0.mp3",
+          audioSource: "tts-pregenerated",
+          speedLevels: [0.75, 1, 1.25],
           transcript: "Receptionist: Good evening! How can I help you? Guest: Hi, I have a reservation under the name Silva. Receptionist: Let me check... Yes, a double room for three nights. Could I see your passport, please? Guest: Sure, here it is. Receptionist: Thank you. Breakfast is included, from 7 to 10 a.m.",
           questions: [
             { q: "How many nights is the reservation for?", options: ["One", "Two", "Three", "Four"], answer: 2 },
@@ -172,18 +175,18 @@ APP_DATA.travel = {
         ]
       },
       quiz: [
-        { q: "Choose the most polite request.", options: ["Give me water.", "Can I have water?", "Could I have some water, please?", "Water now."], answer: 2 },
-        { q: "'Boarding pass' means:", options: ["Passaporte", "Cartão de embarque", "Mala", "Recibo"], answer: 1 },
+        { q: "Choose the most polite request.", options: ["Give me water.", "Can I have water?", "Could I have some water, please?", "Water now."], answer: 2, explanation: "'Could I have... please?' combina 'could' (mais formal que 'can') com 'please', tornando esse pedido o mais educado das opções." },
+        { q: "'Boarding pass' means:", options: ["Passaporte", "Cartão de embarque", "Mala", "Recibo"], answer: 1, explanation: "'Boarding pass' é o documento que você apresenta para embarcar no avião, o 'cartão de embarque'." },
         { type: "tf", q: "'Customs' is where you exchange money.", answer: false, explanation: "'Customs' é a alfândega; câmbio é 'currency exchange'." },
-        { q: "'Luggage claim' means:", options: ["Check-in", "Retirada de bagagem", "Portão de embarque", "Reserva"], answer: 1 },
-        { type: "short", q: "Complete: 'Our flight is ___.' (atrasado)", answer: ["delayed"] },
-        { q: "Choose the correct polite question.", options: ["Could you show me the way?", "Could you to show me the way?", "Could you showing me the way?", "You could show me the way?"], answer: 0 },
+        { q: "'Luggage claim' means:", options: ["Check-in", "Retirada de bagagem", "Portão de embarque", "Reserva"], answer: 1, explanation: "'Luggage claim' é a área do aeroporto onde você retira as malas despachadas, a 'retirada de bagagem'." },
+        { type: "short", q: "Complete: 'Our flight is ___.' (atrasado)", answer: ["delayed"], explanation: "'Delayed' significa 'atrasado', usado para descrever um voo que não sairá no horário previsto." },
+        { q: "Choose the correct polite question.", options: ["Could you show me the way?", "Could you to show me the way?", "Could you showing me the way?", "You could show me the way?"], answer: 0, explanation: "Depois de 'could you', usa-se o verbo no infinitivo sem 'to' ('show'), nunca 'to show' ou o gerúndio 'showing'." },
         { type: "tf", q: "'Gate' means the front desk of a hotel.", answer: false, explanation: "'Gate' é o portão de embarque no aeroporto, não a recepção do hotel." },
-        { q: "'Receipt' means:", options: ["Recibo", "Reserva", "Alfândega", "Portão"], answer: 0 },
-        { q: "Choose the correct sentence.", options: ["I have reservation under name Silva.", "I have a reservation under the name Silva.", "I have a reservation under name of Silva.", "I a reservation have under the name Silva."], answer: 1 },
-        { type: "short", q: "Complete: 'What time is ___?' (saída do hotel)", answer: ["check-out"] },
-        { q: "'Round trip' means:", options: ["Só ida", "Ida e volta", "Cancelado", "Atrasado"], answer: 1 },
-        { type: "tf", q: "'Could you help me?' is more polite than 'Help me!'", answer: true }
+        { q: "'Receipt' means:", options: ["Recibo", "Reserva", "Alfândega", "Portão"], answer: 0, explanation: "'Receipt' é o comprovante de pagamento, o 'recibo'." },
+        { q: "Choose the correct sentence.", options: ["I have reservation under name Silva.", "I have a reservation under the name Silva.", "I have a reservation under name of Silva.", "I a reservation have under the name Silva."], answer: 1, explanation: "A frase correta usa o artigo 'a' antes de 'reservation' e o artigo 'the' antes do sobrenome, na estrutura 'a reservation under the name Silva'." },
+        { type: "short", q: "Complete: 'What time is ___?' (saída do hotel)", answer: ["check-out"], explanation: "'Check-out' é o horário de saída do hotel, quando você devolve a chave e paga a conta." },
+        { q: "'Round trip' means:", options: ["Só ida", "Ida e volta", "Cancelado", "Atrasado"], answer: 1, explanation: "'Round trip' é uma passagem de 'ida e volta', diferente de 'one-way' (somente ida)." },
+        { type: "tf", q: "'Could you help me?' is more polite than 'Help me!'", answer: true, explanation: "'Could you...?' é uma pergunta educada, enquanto 'Help me!' é uma ordem direta e mais brusca." }
       ]
     }
   ],
@@ -226,16 +229,16 @@ APP_DATA.interview = {
         ]
       },
       vocabulary: [
-        { word: "Strength", phonetic: "/strɛŋkθ/", translation: "Ponto forte", example: "My biggest strength is teamwork.", exampleTranslation: "Meu maior ponto forte é trabalho em equipe." },
-        { word: "Weakness", phonetic: "/ˈwiːknəs/", translation: "Ponto fraco", example: "My weakness is that I overthink.", exampleTranslation: "Meu ponto fraco é que eu penso demais." },
-        { word: "Achievement", phonetic: "/əˈtʃiːvmənt/", translation: "Realização/Conquista", example: "My biggest achievement was leading a team of ten.", exampleTranslation: "Minha maior conquista foi liderar uma equipe de dez pessoas." },
-        { word: "Responsibility", phonetic: "/rɪˌspɒnsəˈbɪləti/", translation: "Responsabilidade", example: "I had many responsibilities in my last job.", exampleTranslation: "Eu tinha muitas responsabilidades no meu último emprego." },
-        { word: "Deadline", phonetic: "/ˈdɛdlaɪn/", translation: "Prazo", example: "I always meet my deadlines.", exampleTranslation: "Eu sempre cumpro meus prazos." },
-        { word: "Team player", phonetic: "/tiːm ˈpleɪər/", translation: "Bom em trabalho de equipe", example: "I consider myself a team player.", exampleTranslation: "Eu me considero uma pessoa boa em trabalho de equipe." },
-        { word: "Available", phonetic: "/əˈveɪləbəl/", translation: "Disponível", example: "I am available to start immediately.", exampleTranslation: "Estou disponível para começar imediatamente." },
-        { word: "Challenge", phonetic: "/ˈtʃælɪndʒ/", translation: "Desafio", example: "I enjoy a good challenge.", exampleTranslation: "Eu gosto de um bom desafio." },
-        { word: "Expectations", phonetic: "/ˌɛkspɛkˈteɪʃənz/", translation: "Expectativas", example: "What are your salary expectations?", exampleTranslation: "Quais são suas expectativas salariais?" },
-        { word: "Follow up", phonetic: "/ˈfɒloʊ ʌp/", translation: "Dar retorno/Fazer contato posterior", example: "I will follow up next week.", exampleTranslation: "Eu vou fazer contato de retorno semana que vem." }
+        { id: "interview-m1-strength", word: "Strength", phonetic: "/strɛŋkθ/", translation: "Ponto forte", example: "My biggest strength is teamwork.", exampleTranslation: "Meu maior ponto forte é trabalho em equipe." },
+        { id: "interview-m1-weakness", word: "Weakness", phonetic: "/ˈwiːknəs/", translation: "Ponto fraco", example: "My weakness is that I overthink.", exampleTranslation: "Meu ponto fraco é que eu penso demais." },
+        { id: "interview-m1-achievement", word: "Achievement", phonetic: "/əˈtʃiːvmənt/", translation: "Realização/Conquista", example: "My biggest achievement was leading a team of ten.", exampleTranslation: "Minha maior conquista foi liderar uma equipe de dez pessoas." },
+        { id: "interview-m1-responsibility", word: "Responsibility", phonetic: "/rɪˌspɒnsəˈbɪləti/", translation: "Responsabilidade", example: "I had many responsibilities in my last job.", exampleTranslation: "Eu tinha muitas responsabilidades no meu último emprego." },
+        { id: "interview-m1-deadline", word: "Deadline", phonetic: "/ˈdɛdlaɪn/", translation: "Prazo", example: "I always meet my deadlines.", exampleTranslation: "Eu sempre cumpro meus prazos." },
+        { id: "interview-m1-team-player", word: "Team player", phonetic: "/tiːm ˈpleɪər/", translation: "Bom em trabalho de equipe", example: "I consider myself a team player.", exampleTranslation: "Eu me considero uma pessoa boa em trabalho de equipe." },
+        { id: "interview-m1-available", word: "Available", phonetic: "/əˈveɪləbəl/", translation: "Disponível", example: "I am available to start immediately.", exampleTranslation: "Estou disponível para começar imediatamente." },
+        { id: "interview-m1-challenge", word: "Challenge", phonetic: "/ˈtʃælɪndʒ/", translation: "Desafio", example: "I enjoy a good challenge.", exampleTranslation: "Eu gosto de um bom desafio." },
+        { id: "interview-m1-expectations", word: "Expectations", phonetic: "/ˌɛkspɛkˈteɪʃənz/", translation: "Expectativas", example: "What are your salary expectations?", exampleTranslation: "Quais são suas expectativas salariais?" },
+        { id: "interview-m1-follow-up", word: "Follow up", phonetic: "/ˈfɒloʊ ʌp/", translation: "Dar retorno/Fazer contato posterior", example: "I will follow up next week.", exampleTranslation: "Eu vou fazer contato de retorno semana que vem." }
       ],
       grammar: {
         title: "Present Perfect para Experiência Profissional",
@@ -255,6 +258,9 @@ APP_DATA.interview = {
         {
           title: "Interview Practice",
           accent: "american",
+          audioSrc: "assets/audio/interview-m1-listen-0.mp3",
+          audioSource: "tts-pregenerated",
+          speedLevels: [0.75, 1, 1.25],
           transcript: "Interviewer: Tell me about yourself. Candidate: I have worked in customer service for four years. I consider myself a team player, and my biggest strength is problem-solving. Interviewer: What is your biggest weakness? Candidate: I sometimes take on too many tasks, but I've learned to prioritize better.",
           questions: [
             { q: "How long has the candidate worked in customer service?", options: ["Two years", "Three years", "Four years", "Five years"], answer: 2 },
@@ -335,18 +341,18 @@ APP_DATA.interview = {
         ]
       },
       quiz: [
-        { q: "'Strength' means:", options: ["Ponto fraco", "Ponto forte", "Desafio", "Prazo"], answer: 1 },
-        { q: "Choose the correct present perfect sentence.", options: ["I have work here for three years.", "I have worked here for three years.", "I has worked here for three years.", "I working here for three years."], answer: 1 },
+        { q: "'Strength' means:", options: ["Ponto fraco", "Ponto forte", "Desafio", "Prazo"], answer: 1, explanation: "'Strength' significa 'ponto forte', uma qualidade que você destaca ao falar de si na entrevista." },
+        { q: "Choose the correct present perfect sentence.", options: ["I have work here for three years.", "I have worked here for three years.", "I has worked here for three years.", "I working here for three years."], answer: 1, explanation: "O present perfect correto é 'have' + particípio passado ('worked'); 'has' não combina com o sujeito 'I' e o verbo precisa da forma correta, não do infinitivo ou gerúndio." },
         { type: "tf", q: "'Weakness' means 'ponto forte'.", answer: false, explanation: "'Weakness' significa 'ponto fraco'; 'ponto forte' é 'strength'." },
-        { q: "'Team player' means:", options: ["Chefe", "Pessoa boa em trabalho de equipe", "Cliente", "Candidato"], answer: 1 },
-        { type: "short", q: "Complete: 'I am ___ to start immediately.' (disponível)", answer: ["available"] },
-        { q: "'Deadline' means:", options: ["Prazo", "Salário", "Entrevista", "Currículo"], answer: 0 },
+        { q: "'Team player' means:", options: ["Chefe", "Pessoa boa em trabalho de equipe", "Cliente", "Candidato"], answer: 1, explanation: "'Team player' descreve alguém que colabora bem em equipe, uma qualidade muito valorizada em entrevistas." },
+        { type: "short", q: "Complete: 'I am ___ to start immediately.' (disponível)", answer: ["available"], explanation: "'Available' significa 'disponível', usado para indicar quando você pode começar a trabalhar." },
+        { q: "'Deadline' means:", options: ["Prazo", "Salário", "Entrevista", "Currículo"], answer: 0, explanation: "'Deadline' é o 'prazo' final para entregar uma tarefa ou projeto." },
         { type: "tf", q: "Asking questions at the end of an interview shows disinterest.", answer: false, explanation: "Pelo contrário — mostra interesse genuíno pela vaga." },
-        { q: "Choose the correct sentence.", options: ["I have never had a complaint.", "I never have had a complaint.", "I have never has a complaint.", "I never had have a complaint."], answer: 0 },
-        { q: "'Achievement' means:", options: ["Erro", "Realização/Conquista", "Desafio", "Fraqueza"], answer: 1 },
-        { type: "short", q: "Complete: 'What are your salary ___?' (expectativas)", answer: ["expectations"] },
-        { q: "'Follow up' means:", options: ["Ignorar", "Fazer contato posterior", "Desistir", "Recusar"], answer: 1 },
-        { type: "tf", q: "It's a good idea to research the company before an interview.", answer: true }
+        { q: "Choose the correct sentence.", options: ["I have never had a complaint.", "I never have had a complaint.", "I have never has a complaint.", "I never had have a complaint."], answer: 0, explanation: "A ordem correta é sujeito + 'have' + 'never' + particípio passado: 'I have never had a complaint.'" },
+        { q: "'Achievement' means:", options: ["Erro", "Realização/Conquista", "Desafio", "Fraqueza"], answer: 1, explanation: "'Achievement' significa 'realização' ou 'conquista', algo alcançado com esforço na carreira." },
+        { type: "short", q: "Complete: 'What are your salary ___?' (expectativas)", answer: ["expectations"], explanation: "'Expectations' significa 'expectativas', usada em 'salary expectations' para perguntar sobre pretensão salarial." },
+        { q: "'Follow up' means:", options: ["Ignorar", "Fazer contato posterior", "Desistir", "Recusar"], answer: 1, explanation: "'Follow up' significa retomar o contato depois de um evento, como enviar um e-mail de agradecimento após a entrevista." },
+        { type: "tf", q: "It's a good idea to research the company before an interview.", answer: true, explanation: "Pesquisar a empresa antes da entrevista mostra preparo e interesse genuíno pela vaga." }
       ]
     }
   ],
@@ -389,16 +395,16 @@ APP_DATA.business = {
         ]
       },
       vocabulary: [
-        { word: "Revenue", phonetic: "/ˈrɛvənjuː/", translation: "Receita", example: "Revenue increased by ten percent.", exampleTranslation: "A receita aumentou dez por cento." },
-        { word: "Deadline", phonetic: "/ˈdɛdlaɪn/", translation: "Prazo", example: "The deadline for this project is Friday.", exampleTranslation: "O prazo para este projeto é sexta-feira." },
-        { word: "Agenda", phonetic: "/əˈdʒɛndə/", translation: "Pauta/Agenda", example: "Let's go over the agenda first.", exampleTranslation: "Vamos revisar a pauta primeiro." },
-        { word: "Stakeholder", phonetic: "/ˈsteɪkhoʊldər/", translation: "Parte interessada", example: "We need approval from all stakeholders.", exampleTranslation: "Precisamos da aprovação de todas as partes interessadas." },
-        { word: "Budget", phonetic: "/ˈbʌdʒɪt/", translation: "Orçamento", example: "The budget was approved yesterday.", exampleTranslation: "O orçamento foi aprovado ontem." },
-        { word: "Client", phonetic: "/ˈklaɪənt/", translation: "Cliente", example: "Our client requested a change.", exampleTranslation: "Nosso cliente solicitou uma mudança." },
-        { word: "Negotiate", phonetic: "/nɪˈɡoʊʃieɪt/", translation: "Negociar", example: "We need to negotiate the terms.", exampleTranslation: "Precisamos negociar os termos." },
-        { word: "Attachment", phonetic: "/əˈtætʃmənt/", translation: "Anexo", example: "Please see the attachment for details.", exampleTranslation: "Por favor, veja o anexo para mais detalhes." },
-        { word: "Follow-up", phonetic: "/ˈfɒloʊ ʌp/", translation: "Acompanhamento", example: "Let's schedule a follow-up meeting.", exampleTranslation: "Vamos agendar uma reunião de acompanhamento." },
-        { word: "Quarter", phonetic: "/ˈkwɔːrtər/", translation: "Trimestre", example: "Sales grew this quarter.", exampleTranslation: "As vendas cresceram neste trimestre." }
+        { id: "business-m1-revenue", word: "Revenue", phonetic: "/ˈrɛvənjuː/", translation: "Receita", example: "Revenue increased by ten percent.", exampleTranslation: "A receita aumentou dez por cento." },
+        { id: "business-m1-deadline", word: "Deadline", phonetic: "/ˈdɛdlaɪn/", translation: "Prazo", example: "The deadline for this project is Friday.", exampleTranslation: "O prazo para este projeto é sexta-feira." },
+        { id: "business-m1-agenda", word: "Agenda", phonetic: "/əˈdʒɛndə/", translation: "Pauta/Agenda", example: "Let's go over the agenda first.", exampleTranslation: "Vamos revisar a pauta primeiro." },
+        { id: "business-m1-stakeholder", word: "Stakeholder", phonetic: "/ˈsteɪkhoʊldər/", translation: "Parte interessada", example: "We need approval from all stakeholders.", exampleTranslation: "Precisamos da aprovação de todas as partes interessadas." },
+        { id: "business-m1-budget", word: "Budget", phonetic: "/ˈbʌdʒɪt/", translation: "Orçamento", example: "The budget was approved yesterday.", exampleTranslation: "O orçamento foi aprovado ontem." },
+        { id: "business-m1-client", word: "Client", phonetic: "/ˈklaɪənt/", translation: "Cliente", example: "Our client requested a change.", exampleTranslation: "Nosso cliente solicitou uma mudança." },
+        { id: "business-m1-negotiate", word: "Negotiate", phonetic: "/nɪˈɡoʊʃieɪt/", translation: "Negociar", example: "We need to negotiate the terms.", exampleTranslation: "Precisamos negociar os termos." },
+        { id: "business-m1-attachment", word: "Attachment", phonetic: "/əˈtætʃmənt/", translation: "Anexo", example: "Please see the attachment for details.", exampleTranslation: "Por favor, veja o anexo para mais detalhes." },
+        { id: "business-m1-follow-up", word: "Follow-up", phonetic: "/ˈfɒloʊ ʌp/", translation: "Acompanhamento", example: "Let's schedule a follow-up meeting.", exampleTranslation: "Vamos agendar uma reunião de acompanhamento." },
+        { id: "business-m1-quarter", word: "Quarter", phonetic: "/ˈkwɔːrtər/", translation: "Trimestre", example: "Sales grew this quarter.", exampleTranslation: "As vendas cresceram neste trimestre." }
       ],
       grammar: {
         title: "Linguagem Formal em E-mails",
@@ -418,6 +424,9 @@ APP_DATA.business = {
         {
           title: "A Business Meeting",
           accent: "british",
+          audioSrc: "assets/audio/business-m1-listen-0.mp3",
+          audioSource: "tts-pregenerated",
+          speedLevels: [0.75, 1, 1.25],
           transcript: "Manager: Let's go over the agenda. First, the budget for this quarter. Employee: I'd like to add something here — our revenue increased by ten percent. Manager: Great news! Could you clarify how that happened? Employee: Mainly through better client negotiations.",
           questions: [
             { q: "What is the first item on the agenda?", options: ["Client complaints", "The budget", "A new hire", "The deadline"], answer: 1 },
@@ -439,7 +448,7 @@ APP_DATA.business = {
       ],
       writing: [
         { prompt: "Escreva um e-mail profissional curto pedindo uma reunião de acompanhamento, usando saudação e encerramento formais.", minWords: 30, modelAnswer: "Dear Ms. Alves, I hope this email finds you well. I would like to schedule a follow-up meeting to discuss the budget. Please let me know your availability. Best regards, Carlos." },
-        { prompt: "Escreva 3 frases usando vocabulário corporativo (revenue, budget, stakeholder, deadline, client).", minWords: 20, modelAnswer: "Revenue increased this quarter. The budget needs approval from all stakeholders. Our client requested an earlier deadline." }
+        { prompt: "Escreva 3 frases usando vocabulário corporativo (revenue, budget, stakeholder, deadline, client).", minWords: 20, modelAnswer: "Our revenue increased significantly this quarter, so the budget needs approval from all stakeholders as soon as possible. Our biggest client also requested an earlier deadline for the project." }
       ],
       speaking: [
         { phrase: "Could you clarify that point?", tip: "Frase educada e útil em qualquer reunião." },
@@ -498,17 +507,17 @@ APP_DATA.business = {
         ]
       },
       quiz: [
-        { q: "'Revenue' means:", options: ["Despesa", "Receita", "Prazo", "Reunião"], answer: 1 },
-        { q: "'Stakeholder' means:", options: ["Concorrente", "Parte interessada", "Funcionário novo", "Cliente insatisfeito"], answer: 1 },
+        { q: "'Revenue' means:", options: ["Despesa", "Receita", "Prazo", "Reunião"], answer: 1, explanation: "'Revenue' significa 'receita', o dinheiro que uma empresa recebe com suas vendas." },
+        { q: "'Stakeholder' means:", options: ["Concorrente", "Parte interessada", "Funcionário novo", "Cliente insatisfeito"], answer: 1, explanation: "'Stakeholder' é qualquer parte interessada ou afetada pelo negócio, como investidores, clientes ou funcionários." },
         { type: "tf", q: "Professional emails should use contractions like 'can't' and 'won't'.", answer: false, explanation: "E-mails profissionais geralmente evitam contrações, preferindo formas completas." },
-        { q: "'Attachment' means:", options: ["Anexo", "Assunto", "Remetente", "Cópia"], answer: 0 },
-        { type: "short", q: "Complete: 'Let's go over the ___.' (pauta)", answer: ["agenda"] },
-        { q: "'Negotiate' means:", options: ["Ignorar", "Negociar", "Cancelar", "Aprovar"], answer: 1 },
-        { type: "tf", q: "'Kind regards' is a common formal email closing.", answer: true },
-        { q: "Choose the correct formal sentence.", options: ["I would appreciate your feedback.", "I would appreciate you feedback.", "I would appreciated your feedback.", "I would appreciate for your feedback."], answer: 0 },
-        { q: "'Budget' means:", options: ["Orçamento", "Receita", "Cliente", "Pauta"], answer: 0 },
-        { type: "short", q: "Complete: 'Could you ___ that point?' (esclarecer)", answer: ["clarify"] },
-        { q: "'Quarter' in business means:", options: ["Um quarto da empresa", "Um trimestre", "Um tipo de reunião", "Um cliente"], answer: 1 },
+        { q: "'Attachment' means:", options: ["Anexo", "Assunto", "Remetente", "Cópia"], answer: 0, explanation: "'Attachment' é o arquivo anexado a um e-mail, o 'anexo'." },
+        { type: "short", q: "Complete: 'Let's go over the ___.' (pauta)", answer: ["agenda"], explanation: "'Agenda' é a lista de tópicos a serem discutidos em uma reunião, a 'pauta'." },
+        { q: "'Negotiate' means:", options: ["Ignorar", "Negociar", "Cancelar", "Aprovar"], answer: 1, explanation: "'Negotiate' significa 'negociar', chegar a um acordo sobre termos ou condições." },
+        { type: "tf", q: "'Kind regards' is a common formal email closing.", answer: true, explanation: "'Kind regards' é uma forma educada e comum de encerrar e-mails profissionais, equivalente a 'atenciosamente'." },
+        { q: "Choose the correct formal sentence.", options: ["I would appreciate your feedback.", "I would appreciate you feedback.", "I would appreciated your feedback.", "I would appreciate for your feedback."], answer: 0, explanation: "A forma correta é 'appreciate' seguido diretamente do objeto ('your feedback'), sem 'for' e sem flexionar 'appreciate' no passado." },
+        { q: "'Budget' means:", options: ["Orçamento", "Receita", "Cliente", "Pauta"], answer: 0, explanation: "'Budget' significa 'orçamento', o valor planejado para um projeto ou despesa." },
+        { type: "short", q: "Complete: 'Could you ___ that point?' (esclarecer)", answer: ["clarify"], explanation: "'Clarify' significa 'esclarecer', usado para pedir mais detalhes sobre um ponto em uma reunião." },
+        { q: "'Quarter' in business means:", options: ["Um quarto da empresa", "Um trimestre", "Um tipo de reunião", "Um cliente"], answer: 1, explanation: "Em contextos de negócios, 'quarter' se refere a um 'trimestre' do ano fiscal, não a uma fração literal." },
         { type: "tf", q: "'Follow-up' means a first, initial meeting.", answer: false, explanation: "'Follow-up' significa uma reunião de acompanhamento, não a primeira reunião." }
       ]
     }

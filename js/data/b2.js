@@ -36,16 +36,16 @@ APP_DATA.b2 = {
         ]
       },
       vocabulary: [
-        { word: "Built", phonetic: "/bɪlt/", translation: "Construído(a)", example: "This building was built in 2005.", exampleTranslation: "Este prédio foi construído em 2005." },
-        { word: "Discovered", phonetic: "/dɪˈskʌvərd/", translation: "Descoberto(a)", example: "Penicillin was discovered by accident.", exampleTranslation: "A penicilina foi descoberta por acidente." },
-        { word: "Damaged", phonetic: "/ˈdæmɪdʒd/", translation: "Danificado(a)", example: "The car was damaged in the accident.", exampleTranslation: "O carro foi danificado no acidente." },
-        { word: "Produced", phonetic: "/prəˈdjuːst/", translation: "Produzido(a)", example: "This wine is produced in France.", exampleTranslation: "Este vinho é produzido na França." },
-        { word: "Delivered", phonetic: "/dɪˈlɪvərd/", translation: "Entregue", example: "The package was delivered yesterday.", exampleTranslation: "O pacote foi entregue ontem." },
-        { word: "Invented", phonetic: "/ɪnˈvɛntɪd/", translation: "Inventado(a)", example: "The telephone was invented by Bell.", exampleTranslation: "O telefone foi inventado por Bell." },
-        { word: "Announced", phonetic: "/əˈnaʊnst/", translation: "Anunciado(a)", example: "The winner was announced last night.", exampleTranslation: "O vencedor foi anunciado ontem à noite." },
-        { word: "Published", phonetic: "/ˈpʌblɪʃt/", translation: "Publicado(a)", example: "The book was published last year.", exampleTranslation: "O livro foi publicado no ano passado." },
-        { word: "Elected", phonetic: "/ɪˈlɛktɪd/", translation: "Eleito(a)", example: "She was elected president.", exampleTranslation: "Ela foi eleita presidente." },
-        { word: "Cancelled", phonetic: "/ˈkænsəld/", translation: "Cancelado(a)", example: "The flight was cancelled due to weather.", exampleTranslation: "O voo foi cancelado por causa do tempo." }
+        { id: "b2-m1-built", word: "Built", phonetic: "/bɪlt/", translation: "Construído(a)", example: "This building was built in 2005.", exampleTranslation: "Este prédio foi construído em 2005." },
+        { id: "b2-m1-discovered", word: "Discovered", phonetic: "/dɪˈskʌvərd/", translation: "Descoberto(a)", example: "Penicillin was discovered by accident.", exampleTranslation: "A penicilina foi descoberta por acidente." },
+        { id: "b2-m1-damaged", word: "Damaged", phonetic: "/ˈdæmɪdʒd/", translation: "Danificado(a)", example: "The car was damaged in the accident.", exampleTranslation: "O carro foi danificado no acidente." },
+        { id: "b2-m1-produced", word: "Produced", phonetic: "/prəˈdjuːst/", translation: "Produzido(a)", example: "This wine is produced in France.", exampleTranslation: "Este vinho é produzido na França." },
+        { id: "b2-m1-delivered", word: "Delivered", phonetic: "/dɪˈlɪvərd/", translation: "Entregue", example: "The package was delivered yesterday.", exampleTranslation: "O pacote foi entregue ontem." },
+        { id: "b2-m1-invented", word: "Invented", phonetic: "/ɪnˈvɛntɪd/", translation: "Inventado(a)", example: "The telephone was invented by Bell.", exampleTranslation: "O telefone foi inventado por Bell." },
+        { id: "b2-m1-announced", word: "Announced", phonetic: "/əˈnaʊnst/", translation: "Anunciado(a)", example: "The winner was announced last night.", exampleTranslation: "O vencedor foi anunciado ontem à noite." },
+        { id: "b2-m1-published", word: "Published", phonetic: "/ˈpʌblɪʃt/", translation: "Publicado(a)", example: "The book was published last year.", exampleTranslation: "O livro foi publicado no ano passado." },
+        { id: "b2-m1-elected", word: "Elected", phonetic: "/ɪˈlɛktɪd/", translation: "Eleito(a)", example: "She was elected president.", exampleTranslation: "Ela foi eleita presidente." },
+        { id: "b2-m1-cancelled", word: "Cancelled", phonetic: "/ˈkænsəld/", translation: "Cancelado(a)", example: "The flight was cancelled due to weather.", exampleTranslation: "O voo foi cancelado por causa do tempo." }
       ],
       grammar: {
         title: "Voz Ativa vs. Voz Passiva",
@@ -65,6 +65,9 @@ APP_DATA.b2 = {
         {
           title: "How Chocolate Is Made",
           accent: "british",
+          audioSrc: "assets/audio/b2-m1-listen-0.mp3",
+          audioSource: "tts-pregenerated",
+          speedLevels: [0.75, 1, 1.25],
           transcript: "Chocolate is made from cocoa beans. First, the beans are harvested and dried. Then, they are roasted and ground into a paste. Sugar and milk are added to the paste, and finally, the chocolate is shaped and packaged. It's a fascinating process!",
           questions: [
             { q: "What is chocolate made from?", options: ["Sugar cane", "Cocoa beans", "Milk", "Wheat"], answer: 1 },
@@ -145,18 +148,18 @@ APP_DATA.b2 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct passive sentence.", options: ["This house built in 1990.", "This house was built in 1990.", "This house is building in 1990.", "This house has build in 1990."], answer: 1 },
-        { q: "Choose the passive form of 'They speak English here.'", options: ["English speaks here.", "English is spoken here.", "English was spoken here.", "English speaking here."], answer: 1 },
-        { type: "tf", q: "In the passive voice, the object of the active sentence becomes the subject.", answer: true },
-        { q: "Complete: 'The book ___ (publish) last year.'", options: ["publishes", "was published", "is published", "published"], answer: 1 },
-        { type: "short", q: "Write the past participle of 'build'.", answer: ["built", "Built"] },
-        { q: "'Discovered' means:", options: ["Inventado", "Descoberto", "Construído", "Publicado"], answer: 1 },
+        { q: "Choose the correct passive sentence.", options: ["This house built in 1990.", "This house was built in 1990.", "This house is building in 1990.", "This house has build in 1990."], answer: 1, explanation: "A passiva no passado usa 'was/were + particípio passado': 'was built', não o verbo sozinho." },
+        { q: "Choose the passive form of 'They speak English here.'", options: ["English speaks here.", "English is spoken here.", "English was spoken here.", "English speaking here."], answer: 1, explanation: "Como a frase original está no presente simples, a passiva usa 'is/are + particípio': 'is spoken'." },
+        { type: "tf", q: "In the passive voice, the object of the active sentence becomes the subject.", answer: true, explanation: "Na transformação para a passiva, o objeto da ativa ('this house', 'the telephone') passa a ocupar a posição de sujeito." },
+        { q: "Complete: 'The book ___ (publish) last year.'", options: ["publishes", "was published", "is published", "published"], answer: 1, explanation: "Como a ação ocorreu no passado ('last year'), a passiva correta é 'was published'." },
+        { type: "short", q: "Write the past participle of 'build'.", answer: ["built", "Built"], explanation: "'Build' é um verbo irregular; seu particípio passado é 'built', igual ao passado simples." },
+        { q: "'Discovered' means:", options: ["Inventado", "Descoberto", "Construído", "Publicado"], answer: 1, explanation: "'Discovered' é o particípio de 'discover', que significa 'descobrir'." },
         { type: "tf", q: "We always need to mention who did the action in a passive sentence.", answer: false, explanation: "O agente ('by...') é opcional na voz passiva — usamos apenas quando é relevante." },
-        { q: "Choose the correct sentence.", options: ["The window was broken by the storm.", "The window broken was by the storm.", "The window was break by the storm.", "The window is broken by the storm yesterday."], answer: 0 },
-        { q: "'Cancelled' means:", options: ["Confirmado", "Cancelado", "Entregue", "Anunciado"], answer: 1 },
-        { type: "short", q: "Complete: 'The winner ___ (announce) last night.'", answer: ["was announced"] },
-        { q: "Choose the correct sentence.", options: ["This wine produced in France.", "This wine is produced in France.", "This wine produces in France.", "This wine was produce in France."], answer: 1 },
-        { type: "tf", q: "The passive voice is common in news and formal texts when the action is more important than who did it.", answer: true }
+        { q: "Choose the correct sentence.", options: ["The window was broken by the storm.", "The window broken was by the storm.", "The window was break by the storm.", "The window is broken by the storm yesterday."], answer: 0, explanation: "A ordem correta na passiva é 'sujeito + was/were + particípio + by + agente': 'was broken by the storm'." },
+        { q: "'Cancelled' means:", options: ["Confirmado", "Cancelado", "Entregue", "Anunciado"], answer: 1, explanation: "'Cancelled' é o particípio de 'cancel', que significa 'cancelar'." },
+        { type: "short", q: "Complete: 'The winner ___ (announce) last night.'", answer: ["was announced"], explanation: "Ação pontual no passado com foco no resultado: passiva no passado é 'was announced'." },
+        { q: "Choose the correct sentence.", options: ["This wine produced in France.", "This wine is produced in France.", "This wine produces in France.", "This wine was produce in France."], answer: 1, explanation: "Fato geral no presente exige 'is produced', com o auxiliar 'is' e o particípio 'produced'." },
+        { type: "tf", q: "The passive voice is common in news and formal texts when the action is more important than who did it.", answer: true, explanation: "Notícias e textos formais frequentemente priorizam a ação ou o resultado, por isso preferem a voz passiva." }
       ]
     },
     {
@@ -193,16 +196,16 @@ APP_DATA.b2 = {
         ]
       },
       vocabulary: [
-        { word: "Said", phonetic: "/sɛd/", translation: "Disse (say)", example: "He said he was busy.", exampleTranslation: "Ele disse que estava ocupado." },
-        { word: "Told", phonetic: "/toʊld/", translation: "Contou (tell)", example: "She told me she was leaving.", exampleTranslation: "Ela me contou que estava indo embora." },
-        { word: "Asked", phonetic: "/æskt/", translation: "Perguntou", example: "He asked if I was okay.", exampleTranslation: "Ele perguntou se eu estava bem." },
-        { word: "Explained", phonetic: "/ɪkˈspleɪnd/", translation: "Explicou", example: "She explained that she was late because of traffic.", exampleTranslation: "Ela explicou que estava atrasada por causa do trânsito." },
-        { word: "Mentioned", phonetic: "/ˈmɛnʃənd/", translation: "Mencionou", example: "He mentioned that he would come.", exampleTranslation: "Ele mencionou que viria." },
-        { word: "Claimed", phonetic: "/kleɪmd/", translation: "Alegou", example: "She claimed she didn't know.", exampleTranslation: "Ela alegou que não sabia." },
-        { word: "Admitted", phonetic: "/ədˈmɪtɪd/", translation: "Admitiu", example: "He admitted that he was wrong.", exampleTranslation: "Ele admitiu que estava errado." },
-        { word: "Denied", phonetic: "/dɪˈnaɪd/", translation: "Negou", example: "She denied breaking the vase.", exampleTranslation: "Ela negou ter quebrado o vaso." },
-        { word: "Wondered", phonetic: "/ˈwʌndərd/", translation: "Ficou imaginando", example: "I wondered if she would come.", exampleTranslation: "Eu fiquei imaginando se ela viria." },
-        { word: "Reported", phonetic: "/rɪˈpɔːrtɪd/", translation: "Relatou", example: "The witness reported what she saw.", exampleTranslation: "A testemunha relatou o que viu." }
+        { id: "b2-m2-said", word: "Said", phonetic: "/sɛd/", translation: "Disse (say)", example: "He said he was busy.", exampleTranslation: "Ele disse que estava ocupado." },
+        { id: "b2-m2-told", word: "Told", phonetic: "/toʊld/", translation: "Contou (tell)", example: "She told me she was leaving.", exampleTranslation: "Ela me contou que estava indo embora." },
+        { id: "b2-m2-asked", word: "Asked", phonetic: "/æskt/", translation: "Perguntou", example: "He asked if I was okay.", exampleTranslation: "Ele perguntou se eu estava bem." },
+        { id: "b2-m2-explained", word: "Explained", phonetic: "/ɪkˈspleɪnd/", translation: "Explicou", example: "She explained that she was late because of traffic.", exampleTranslation: "Ela explicou que estava atrasada por causa do trânsito." },
+        { id: "b2-m2-mentioned", word: "Mentioned", phonetic: "/ˈmɛnʃənd/", translation: "Mencionou", example: "He mentioned that he would come.", exampleTranslation: "Ele mencionou que viria." },
+        { id: "b2-m2-claimed", word: "Claimed", phonetic: "/kleɪmd/", translation: "Alegou", example: "She claimed she didn't know.", exampleTranslation: "Ela alegou que não sabia." },
+        { id: "b2-m2-admitted", word: "Admitted", phonetic: "/ədˈmɪtɪd/", translation: "Admitiu", example: "He admitted that he was wrong.", exampleTranslation: "Ele admitiu que estava errado." },
+        { id: "b2-m2-denied", word: "Denied", phonetic: "/dɪˈnaɪd/", translation: "Negou", example: "She denied breaking the vase.", exampleTranslation: "Ela negou ter quebrado o vaso." },
+        { id: "b2-m2-wondered", word: "Wondered", phonetic: "/ˈwʌndərd/", translation: "Ficou imaginando", example: "I wondered if she would come.", exampleTranslation: "Eu fiquei imaginando se ela viria." },
+        { id: "b2-m2-reported", word: "Reported", phonetic: "/rɪˈpɔːrtɪd/", translation: "Relatou", example: "The witness reported what she saw.", exampleTranslation: "A testemunha relatou o que viu." }
       ],
       grammar: {
         title: "Discurso Indireto: Mudança de Tempo Verbal",
@@ -303,17 +306,17 @@ APP_DATA.b2 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct reported speech for: 'I am tired.'", options: ["She said she is tired.", "She said she was tired.", "She said she tired.", "She says she was tired."], answer: 1 },
-        { q: "Choose the correct reported question for: 'Where do you live?'", options: ["He asked where do I live.", "He asked where I lived.", "He asked where I live.", "He asked me where did I live."], answer: 1 },
-        { type: "tf", q: "In reported speech, verb tenses usually move back one step.", answer: true },
-        { q: "Complete: 'They said they ___ come.' (discurso indireto de 'will come')", options: ["will", "would", "are", "were"], answer: 1 },
-        { type: "short", q: "Complete: 'She told ___ she was leaving.' (para mim)", answer: ["me"] },
-        { q: "'Admitted' means:", options: ["Negou", "Admitiu", "Perguntou", "Explicou"], answer: 1 },
+        { q: "Choose the correct reported speech for: 'I am tired.'", options: ["She said she is tired.", "She said she was tired.", "She said she tired.", "She says she was tired."], answer: 1, explanation: "No discurso indireto, o presente ('am') recua para o passado ('was')." },
+        { q: "Choose the correct reported question for: 'Where do you live?'", options: ["He asked where do I live.", "He asked where I lived.", "He asked where I live.", "He asked me where did I live."], answer: 1, explanation: "Perguntas indiretas não têm inversão sujeito-verbo e o tempo verbal recua: 'where I lived'." },
+        { type: "tf", q: "In reported speech, verb tenses usually move back one step.", answer: true, explanation: "É a regra geral do 'backshift': presente vira passado, passado vira past perfect, e assim por diante." },
+        { q: "Complete: 'They said they ___ come.' (discurso indireto de 'will come')", options: ["will", "would", "are", "were"], answer: 1, explanation: "No discurso indireto, 'will' vira 'would' quando o verbo introdutório está no passado." },
+        { type: "short", q: "Complete: 'She told ___ she was leaving.' (para mim)", answer: ["me"], explanation: "'Tell' exige um objeto direto para a pessoa ouvinte: 'told me', diferente de 'said to me'." },
+        { q: "'Admitted' means:", options: ["Negou", "Admitiu", "Perguntou", "Explicou"], answer: 1, explanation: "'Admitted' é o passado de 'admit', que significa 'admitir' ou 'reconhecer'." },
         { type: "tf", q: "'Denied' means 'admitiu'.", answer: false, explanation: "'Denied' significa 'negou'; 'admitiu' é 'admitted'." },
-        { q: "Choose the correct sentence.", options: ["He asked if I was okay.", "He asked if was I okay.", "He asked I was okay.", "He asked if I am okay."], answer: 0 },
-        { q: "'Mentioned' means:", options: ["Escondeu", "Mencionou", "Negou", "Gritou"], answer: 1 },
-        { type: "short", q: "Complete: 'He ___ (say) he worked here.' (passado)", answer: ["said"] },
-        { q: "Choose the correct sentence.", options: ["She told me she was leaving.", "She told to me she was leaving.", "She said me she was leaving.", "She tell me she was leaving."], answer: 0 },
+        { q: "Choose the correct sentence.", options: ["He asked if I was okay.", "He asked if was I okay.", "He asked I was okay.", "He asked if I am okay."], answer: 0, explanation: "Perguntas indiretas de sim/não usam 'if' e mantêm a ordem normal sujeito-verbo: 'if I was okay'." },
+        { q: "'Mentioned' means:", options: ["Escondeu", "Mencionou", "Negou", "Gritou"], answer: 1, explanation: "'Mentioned' é o passado de 'mention', que significa 'mencionar' ou 'citar de passagem'." },
+        { type: "short", q: "Complete: 'He ___ (say) he worked here.' (passado)", answer: ["said"], explanation: "'Say' no passado é 'said' — irregular, pronunciado /sɛd/." },
+        { q: "Choose the correct sentence.", options: ["She told me she was leaving.", "She told to me she was leaving.", "She said me she was leaving.", "She tell me she was leaving."], answer: 0, explanation: "'Tell' é seguido diretamente pelo objeto ('told me'), sem preposição 'to'." },
         { type: "tf", q: "Reported questions keep the question mark and subject-verb inversion.", answer: false, explanation: "Perguntas no discurso indireto perdem a inversão e o ponto de interrogação." }
       ]
     },
@@ -351,16 +354,16 @@ APP_DATA.b2 = {
         ]
       },
       vocabulary: [
-        { word: "Regret", phonetic: "/rɪˈɡrɛt/", translation: "Arrependimento/Arrepender-se", example: "I regret not studying more.", exampleTranslation: "Eu me arrependo de não ter estudado mais." },
-        { word: "Deadline", phonetic: "/ˈdɛdlaɪn/", translation: "Prazo", example: "She missed the deadline.", exampleTranslation: "Ela perdeu o prazo." },
-        { word: "Opportunity", phonetic: "/ˌɒpərˈtjuːnəti/", translation: "Oportunidade", example: "I missed a great opportunity.", exampleTranslation: "Eu perdi uma ótima oportunidade." },
-        { word: "Would have", phonetic: "/wʊd hæv/", translation: "Teria (feito algo)", example: "I would have helped you.", exampleTranslation: "Eu teria te ajudado." },
-        { word: "Had known", phonetic: "/hæd noʊn/", translation: "Tivesse sabido", example: "If I had known, I would have come.", exampleTranslation: "Se eu tivesse sabido, eu teria vindo." },
-        { word: "Mistake", phonetic: "/mɪˈsteɪk/", translation: "Erro", example: "It was a big mistake.", exampleTranslation: "Foi um grande erro." },
-        { word: "Consequence", phonetic: "/ˈkɒnsɪkwəns/", translation: "Consequência", example: "There are consequences for our choices.", exampleTranslation: "Há consequências para nossas escolhas." },
-        { word: "Prevent", phonetic: "/prɪˈvɛnt/", translation: "Prevenir/Evitar", example: "We could have prevented this.", exampleTranslation: "Nós poderíamos ter evitado isso." },
-        { word: "Realize", phonetic: "/ˈriːəlaɪz/", translation: "Perceber/Dar-se conta", example: "I didn't realize it was so late.", exampleTranslation: "Eu não percebi que já era tão tarde." },
-        { word: "Organized", phonetic: "/ˈɔːrɡənaɪzd/", translation: "Organizado(a)", example: "If she were more organized, this wouldn't have happened.", exampleTranslation: "Se ela fosse mais organizada, isso não teria acontecido." }
+        { id: "b2-m3-regret", word: "Regret", phonetic: "/rɪˈɡrɛt/", translation: "Arrependimento/Arrepender-se", example: "I regret not studying more.", exampleTranslation: "Eu me arrependo de não ter estudado mais." },
+        { id: "b2-m3-deadline", word: "Deadline", phonetic: "/ˈdɛdlaɪn/", translation: "Prazo", example: "She missed the deadline.", exampleTranslation: "Ela perdeu o prazo." },
+        { id: "b2-m3-opportunity", word: "Opportunity", phonetic: "/ˌɒpərˈtjuːnəti/", translation: "Oportunidade", example: "I missed a great opportunity.", exampleTranslation: "Eu perdi uma ótima oportunidade." },
+        { id: "b2-m3-would-have", word: "Would have", phonetic: "/wʊd hæv/", translation: "Teria (feito algo)", example: "I would have helped you.", exampleTranslation: "Eu teria te ajudado." },
+        { id: "b2-m3-had-known", word: "Had known", phonetic: "/hæd noʊn/", translation: "Tivesse sabido", example: "If I had known, I would have come.", exampleTranslation: "Se eu tivesse sabido, eu teria vindo." },
+        { id: "b2-m3-mistake", word: "Mistake", phonetic: "/mɪˈsteɪk/", translation: "Erro", example: "It was a big mistake.", exampleTranslation: "Foi um grande erro." },
+        { id: "b2-m3-consequence", word: "Consequence", phonetic: "/ˈkɒnsɪkwəns/", translation: "Consequência", example: "There are consequences for our choices.", exampleTranslation: "Há consequências para nossas escolhas." },
+        { id: "b2-m3-prevent", word: "Prevent", phonetic: "/prɪˈvɛnt/", translation: "Prevenir/Evitar", example: "We could have prevented this.", exampleTranslation: "Nós poderíamos ter evitado isso." },
+        { id: "b2-m3-realize", word: "Realize", phonetic: "/ˈriːəlaɪz/", translation: "Perceber/Dar-se conta", example: "I didn't realize it was so late.", exampleTranslation: "Eu não percebi que já era tão tarde." },
+        { id: "b2-m3-organized", word: "Organized", phonetic: "/ˈɔːrɡənaɪzd/", translation: "Organizado(a)", example: "If she were more organized, this wouldn't have happened.", exampleTranslation: "Se ela fosse mais organizada, isso não teria acontecido." }
       ],
       grammar: {
         title: "Terceiro Condicional (If + Past Perfect, Would Have + Particípio)",
@@ -460,17 +463,17 @@ APP_DATA.b2 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct third conditional sentence.", options: ["If I studied, I would have passed.", "If I had studied, I would have passed.", "If I had studied, I would pass.", "If I have studied, I would have passed."], answer: 1 },
-        { q: "Complete: 'If she had known, she ___ have come.'", options: ["will", "would", "was", "is"], answer: 1 },
-        { type: "tf", q: "The third conditional talks about hypothetical situations in the past.", answer: true },
-        { q: "Complete: 'We ___ (could/prevent) this if we had tried.'", options: ["could prevent", "could have prevented", "can prevent", "could preventing"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ studying more.' (arrependo-me de)", answer: ["regret"] },
-        { q: "'Deadline' means:", options: ["Prazo", "Oportunidade", "Erro", "Consequência"], answer: 0 },
-        { type: "tf", q: "Mixed conditionals can combine a past condition with a present result.", answer: true },
-        { q: "Choose the correct sentence.", options: ["If I hadn't moved, my life would be different.", "If I didn't move, my life would be different.", "If I hadn't moved, my life will be different.", "If I haven't moved, my life would be different."], answer: 0 },
-        { q: "'Opportunity' means:", options: ["Erro", "Oportunidade", "Prazo", "Consequência"], answer: 1 },
-        { type: "short", q: "Complete: 'I didn't ___ it was so late.' (perceber)", answer: ["realize"] },
-        { q: "Choose the correct sentence.", options: ["We could have prevented this.", "We could prevented this.", "We could have prevent this.", "We could having prevented this."], answer: 0 },
+        { q: "Choose the correct third conditional sentence.", options: ["If I studied, I would have passed.", "If I had studied, I would have passed.", "If I had studied, I would pass.", "If I have studied, I would have passed."], answer: 1, explanation: "A estrutura correta é 'If + past perfect, would have + particípio': 'If I had studied, I would have passed.'" },
+        { q: "Complete: 'If she had known, she ___ have come.'", options: ["will", "would", "was", "is"], answer: 1, explanation: "O resultado do terceiro condicional usa 'would have + particípio', por isso 'would'." },
+        { type: "tf", q: "The third conditional talks about hypothetical situations in the past.", answer: true, explanation: "O terceiro condicional descreve situações imaginárias que não aconteceram no passado, muitas vezes com arrependimento." },
+        { q: "Complete: 'We ___ (could/prevent) this if we had tried.'", options: ["could prevent", "could have prevented", "can prevent", "could preventing"], answer: 1, explanation: "Com uma condição no past perfect ('had tried'), o resultado usa 'could have + particípio'." },
+        { type: "short", q: "Complete: 'I ___ studying more.' (arrependo-me de)", answer: ["regret"], explanation: "'Regret' significa 'arrepender-se de' e é seguido de gerúndio quando fala de algo já feito ou não feito." },
+        { q: "'Deadline' means:", options: ["Prazo", "Oportunidade", "Erro", "Consequência"], answer: 0, explanation: "'Deadline' é o prazo final para entregar ou concluir algo." },
+        { type: "tf", q: "Mixed conditionals can combine a past condition with a present result.", answer: true, explanation: "Condicionais mistos misturam tempos, como uma condição no passado ('If I had studied medicine') com um resultado no presente ('I would be a doctor now')." },
+        { q: "Choose the correct sentence.", options: ["If I hadn't moved, my life would be different.", "If I didn't move, my life would be different.", "If I hadn't moved, my life will be different.", "If I haven't moved, my life would be different."], answer: 0, explanation: "Esse é um condicional misto: condição no passado ('hadn't moved') com resultado no presente ('would be different')." },
+        { q: "'Opportunity' means:", options: ["Erro", "Oportunidade", "Prazo", "Consequência"], answer: 1, explanation: "'Opportunity' significa 'oportunidade', uma chance favorável de fazer algo." },
+        { type: "short", q: "Complete: 'I didn't ___ it was so late.' (perceber)", answer: ["realize"], explanation: "'Realize' significa 'perceber' ou 'dar-se conta de algo'." },
+        { q: "Choose the correct sentence.", options: ["We could have prevented this.", "We could prevented this.", "We could have prevent this.", "We could having prevented this."], answer: 0, explanation: "'Could have + particípio' expressa uma possibilidade não realizada no passado: 'could have prevented'." },
         { type: "tf", q: "The third conditional uses 'will' in the main clause.", answer: false, explanation: "O terceiro condicional usa 'would have + particípio', não 'will'." }
       ]
     },
@@ -508,16 +511,16 @@ APP_DATA.b2 = {
         ]
       },
       vocabulary: [
-        { word: "Résumé", phonetic: "/ˈrɛzʊmeɪ/", translation: "Currículo", example: "Please send me your résumé.", exampleTranslation: "Por favor, me envie seu currículo." },
-        { word: "Interview", phonetic: "/ˈɪntərvjuː/", translation: "Entrevista", example: "I have a job interview tomorrow.", exampleTranslation: "Eu tenho uma entrevista de emprego amanhã." },
-        { word: "Skill", phonetic: "/skɪl/", translation: "Habilidade", example: "Communication is an important skill.", exampleTranslation: "Comunicação é uma habilidade importante." },
-        { word: "Deadline", phonetic: "/ˈdɛdlaɪn/", translation: "Prazo", example: "We must meet the deadline.", exampleTranslation: "Nós precisamos cumprir o prazo." },
-        { word: "Colleague", phonetic: "/ˈkɒliːɡ/", translation: "Colega de trabalho", example: "My colleague helped me with the project.", exampleTranslation: "Meu colega me ajudou com o projeto." },
-        { word: "Salary", phonetic: "/ˈsæləri/", translation: "Salário", example: "The salary is negotiable.", exampleTranslation: "O salário é negociável." },
-        { word: "Promotion", phonetic: "/prəˈmoʊʃən/", translation: "Promoção", example: "She got a promotion last month.", exampleTranslation: "Ela conseguiu uma promoção mês passado." },
-        { word: "Apply", phonetic: "/əˈplaɪ/", translation: "Candidatar-se", example: "I applied for the job online.", exampleTranslation: "Eu me candidatei para a vaga online." },
-        { word: "Hire", phonetic: "/ˈhaɪər/", translation: "Contratar", example: "The company decided to hire her.", exampleTranslation: "A empresa decidiu contratá-la." },
-        { word: "Strength", phonetic: "/strɛŋkθ/", translation: "Ponto forte", example: "My biggest strength is teamwork.", exampleTranslation: "Meu maior ponto forte é trabalho em equipe." }
+        { id: "b2-m4-resume", word: "Résumé", phonetic: "/ˈrɛzʊmeɪ/", translation: "Currículo", example: "Please send me your résumé.", exampleTranslation: "Por favor, me envie seu currículo." },
+        { id: "b2-m4-interview", word: "Interview", phonetic: "/ˈɪntərvjuː/", translation: "Entrevista", example: "I have a job interview tomorrow.", exampleTranslation: "Eu tenho uma entrevista de emprego amanhã." },
+        { id: "b2-m4-skill", word: "Skill", phonetic: "/skɪl/", translation: "Habilidade", example: "Communication is an important skill.", exampleTranslation: "Comunicação é uma habilidade importante." },
+        { id: "b2-m4-deadline", word: "Deadline", phonetic: "/ˈdɛdlaɪn/", translation: "Prazo", example: "We must meet the deadline.", exampleTranslation: "Nós precisamos cumprir o prazo." },
+        { id: "b2-m4-colleague", word: "Colleague", phonetic: "/ˈkɒliːɡ/", translation: "Colega de trabalho", example: "My colleague helped me with the project.", exampleTranslation: "Meu colega me ajudou com o projeto." },
+        { id: "b2-m4-salary", word: "Salary", phonetic: "/ˈsæləri/", translation: "Salário", example: "The salary is negotiable.", exampleTranslation: "O salário é negociável." },
+        { id: "b2-m4-promotion", word: "Promotion", phonetic: "/prəˈmoʊʃən/", translation: "Promoção", example: "She got a promotion last month.", exampleTranslation: "Ela conseguiu uma promoção mês passado." },
+        { id: "b2-m4-apply", word: "Apply", phonetic: "/əˈplaɪ/", translation: "Candidatar-se", example: "I applied for the job online.", exampleTranslation: "Eu me candidatei para a vaga online." },
+        { id: "b2-m4-hire", word: "Hire", phonetic: "/ˈhaɪər/", translation: "Contratar", example: "The company decided to hire her.", exampleTranslation: "A empresa decidiu contratá-la." },
+        { id: "b2-m4-strength", word: "Strength", phonetic: "/strɛŋkθ/", translation: "Ponto forte", example: "My biggest strength is teamwork.", exampleTranslation: "Meu maior ponto forte é trabalho em equipe." }
       ],
       grammar: {
         title: "Must, Have to e Should",
@@ -558,7 +561,7 @@ APP_DATA.b2 = {
         }
       ],
       writing: [
-        { prompt: "Escreva 3 conselhos para alguém se preparar para uma entrevista de emprego usando 'should'.", minWords: 20, modelAnswer: "You should research the company. You should practice common questions. You should arrive on time." },
+        { prompt: "Escreva 3 conselhos para alguém se preparar para uma entrevista de emprego usando 'should'.", minWords: 20, modelAnswer: "You should research the company thoroughly before the interview. You should also practice answering common questions with a friend. Finally, you should arrive at least ten minutes early to make a good impression." },
         { prompt: "Descreva suas próprias habilidades e experiência profissional (reais ou imaginárias).", minWords: 20, modelAnswer: "I have three years of experience in marketing. My biggest strength is teamwork. I always meet deadlines and communicate clearly with my colleagues." }
       ],
       speaking: [
@@ -618,17 +621,17 @@ APP_DATA.b2 = {
         ]
       },
       quiz: [
-        { q: "Choose the sentence that expresses advice, not obligation.", options: ["You must arrive on time.", "You have to arrive on time.", "You should arrive on time.", "You had to arrive on time."], answer: 2 },
-        { q: "Complete: 'You ___ wear a uniform at this job.' (regra da empresa)", options: ["should", "must", "have to", "would"], answer: 2 },
+        { q: "Choose the sentence that expresses advice, not obligation.", options: ["You must arrive on time.", "You have to arrive on time.", "You should arrive on time.", "You had to arrive on time."], answer: 2, explanation: "'Should' expressa conselho ou recomendação, enquanto 'must' e 'have to' expressam obrigação." },
+        { q: "Complete: 'You ___ wear a uniform at this job.' (regra da empresa)", options: ["should", "must", "have to", "would"], answer: 2, explanation: "'Have to' expressa uma obrigação externa, imposta por uma regra da empresa, não uma opinião pessoal." },
         { type: "tf", q: "'Should' expresses strong obligation, like a law.", answer: false, explanation: "'Should' expressa conselho ou recomendação, não obrigação forte." },
-        { q: "'Résumé' means:", options: ["Entrevista", "Currículo", "Salário", "Promoção"], answer: 1 },
-        { type: "short", q: "Complete: 'My biggest ___ is teamwork.' (ponto forte)", answer: ["strength"] },
-        { q: "'Colleague' means:", options: ["Chefe", "Colega de trabalho", "Cliente", "Candidato"], answer: 1 },
+        { q: "'Résumé' means:", options: ["Entrevista", "Currículo", "Salário", "Promoção"], answer: 1, explanation: "'Résumé' significa 'currículo', o documento com o histórico profissional de alguém." },
+        { type: "short", q: "Complete: 'My biggest ___ is teamwork.' (ponto forte)", answer: ["strength"], explanation: "'Strength' significa 'ponto forte' ou 'força', usado em entrevistas para falar de qualidades." },
+        { q: "'Colleague' means:", options: ["Chefe", "Colega de trabalho", "Cliente", "Candidato"], answer: 1, explanation: "'Colleague' significa 'colega de trabalho', alguém que trabalha na mesma empresa." },
         { type: "tf", q: "'Don't have to' means the same as 'must not'.", answer: false, explanation: "'Don't have to' significa que não há obrigação (é opcional); 'must not' significa proibição." },
-        { q: "Choose the correct sentence.", options: ["You have finish the report.", "You have to finish the report.", "You has to finish the report.", "You having to finish the report."], answer: 1 },
-        { q: "'Promotion' means:", options: ["Demissão", "Promoção", "Entrevista", "Currículo"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ for the job online.' (candidatei-me)", answer: ["applied"] },
-        { q: "Choose the correct sentence.", options: ["She should to practice more.", "She should practices more.", "She should practice more.", "She shoulds practice more."], answer: 2 },
+        { q: "Choose the correct sentence.", options: ["You have finish the report.", "You have to finish the report.", "You has to finish the report.", "You having to finish the report."], answer: 1, explanation: "A forma correta do modal é 'have to + verbo no infinitivo sem to': 'have to finish'." },
+        { q: "'Promotion' means:", options: ["Demissão", "Promoção", "Entrevista", "Currículo"], answer: 1, explanation: "'Promotion' significa 'promoção', uma subida de cargo ou responsabilidade no trabalho." },
+        { type: "short", q: "Complete: 'I ___ for the job online.' (candidatei-me)", answer: ["applied"], explanation: "'Apply' no passado é 'applied', usado com a preposição 'for' para indicar a vaga." },
+        { q: "Choose the correct sentence.", options: ["She should to practice more.", "She should practices more.", "She should practice more.", "She shoulds practice more."], answer: 2, explanation: "Modais como 'should' são seguidos de verbo no infinitivo sem 'to' e sem flexão: 'should practice'." },
         { type: "tf", q: "'Salary' means 'entrevista'.", answer: false, explanation: "'Salary' significa 'salário'; 'entrevista' é 'interview'." }
       ]
     },
@@ -666,16 +669,16 @@ APP_DATA.b2 = {
         ]
       },
       vocabulary: [
-        { word: "Symptom", phonetic: "/ˈsɪmptəm/", translation: "Sintoma", example: "Fever is a common symptom.", exampleTranslation: "Febre é um sintoma comum." },
-        { word: "Treatment", phonetic: "/ˈtriːtmənt/", translation: "Tratamento", example: "The treatment lasted two weeks.", exampleTranslation: "O tratamento durou duas semanas." },
-        { word: "Prescribe", phonetic: "/prɪˈskraɪb/", translation: "Prescrever", example: "The doctor prescribed antibiotics.", exampleTranslation: "O médico prescreveu antibióticos." },
-        { word: "Recover", phonetic: "/rɪˈkʌvər/", translation: "Recuperar-se", example: "She recovered quickly from the flu.", exampleTranslation: "Ela se recuperou rapidamente da gripe." },
-        { word: "Well-being", phonetic: "/wɛl ˈbiːɪŋ/", translation: "Bem-estar", example: "Exercise improves mental well-being.", exampleTranslation: "Exercício melhora o bem-estar mental." },
-        { word: "Device", phonetic: "/dɪˈvaɪs/", translation: "Dispositivo", example: "This device connects to your phone.", exampleTranslation: "Este dispositivo se conecta ao seu celular." },
-        { word: "Artificial intelligence", phonetic: "/ˌɑːrtɪˈfɪʃəl ɪnˈtɛlɪdʒəns/", translation: "Inteligência artificial", example: "Artificial intelligence is everywhere now.", exampleTranslation: "A inteligência artificial está em todo lugar agora." },
-        { word: "Update", phonetic: "/ʌpˈdeɪt/", translation: "Atualizar/Atualização", example: "I need to update my phone.", exampleTranslation: "Eu preciso atualizar meu telefone." },
-        { word: "Innovation", phonetic: "/ˌɪnəˈveɪʃən/", translation: "Inovação", example: "This company is known for innovation.", exampleTranslation: "Esta empresa é conhecida por inovação." },
-        { word: "Researcher", phonetic: "/rɪˈsɜːrtʃər/", translation: "Pesquisador(a)", example: "Researchers developed a new vaccine.", exampleTranslation: "Pesquisadores desenvolveram uma nova vacina." }
+        { id: "b2-m5-symptom", word: "Symptom", phonetic: "/ˈsɪmptəm/", translation: "Sintoma", example: "Fever is a common symptom.", exampleTranslation: "Febre é um sintoma comum." },
+        { id: "b2-m5-treatment", word: "Treatment", phonetic: "/ˈtriːtmənt/", translation: "Tratamento", example: "The treatment lasted two weeks.", exampleTranslation: "O tratamento durou duas semanas." },
+        { id: "b2-m5-prescribe", word: "Prescribe", phonetic: "/prɪˈskraɪb/", translation: "Prescrever", example: "The doctor prescribed antibiotics.", exampleTranslation: "O médico prescreveu antibióticos." },
+        { id: "b2-m5-recover", word: "Recover", phonetic: "/rɪˈkʌvər/", translation: "Recuperar-se", example: "She recovered quickly from the flu.", exampleTranslation: "Ela se recuperou rapidamente da gripe." },
+        { id: "b2-m5-well-being", word: "Well-being", phonetic: "/wɛl ˈbiːɪŋ/", translation: "Bem-estar", example: "Exercise improves mental well-being.", exampleTranslation: "Exercício melhora o bem-estar mental." },
+        { id: "b2-m5-device", word: "Device", phonetic: "/dɪˈvaɪs/", translation: "Dispositivo", example: "This device connects to your phone.", exampleTranslation: "Este dispositivo se conecta ao seu celular." },
+        { id: "b2-m5-artificial-intelligence", word: "Artificial intelligence", phonetic: "/ˌɑːrtɪˈfɪʃəl ɪnˈtɛlɪdʒəns/", translation: "Inteligência artificial", example: "Artificial intelligence is everywhere now.", exampleTranslation: "A inteligência artificial está em todo lugar agora." },
+        { id: "b2-m5-update", word: "Update", phonetic: "/ʌpˈdeɪt/", translation: "Atualizar/Atualização", example: "I need to update my phone.", exampleTranslation: "Eu preciso atualizar meu telefone." },
+        { id: "b2-m5-innovation", word: "Innovation", phonetic: "/ˌɪnəˈveɪʃən/", translation: "Inovação", example: "This company is known for innovation.", exampleTranslation: "Esta empresa é conhecida por inovação." },
+        { id: "b2-m5-researcher", word: "Researcher", phonetic: "/rɪˈsɜːrtʃər/", translation: "Pesquisador(a)", example: "Researchers developed a new vaccine.", exampleTranslation: "Pesquisadores desenvolveram uma nova vacina." }
       ],
       grammar: {
         title: "Revisão: Passiva + Discurso Indireto em Textos Formais",
@@ -775,17 +778,17 @@ APP_DATA.b2 = {
         ]
       },
       quiz: [
-        { q: "'Symptom' means:", options: ["Tratamento", "Sintoma", "Dispositivo", "Pesquisador"], answer: 1 },
-        { q: "Choose the correct sentence.", options: ["The doctor prescribe medication.", "The doctor prescribed medication.", "The doctor prescribing medication.", "The doctor prescribes medication yesterday."], answer: 1 },
+        { q: "'Symptom' means:", options: ["Tratamento", "Sintoma", "Dispositivo", "Pesquisador"], answer: 1, explanation: "'Symptom' significa 'sintoma', um sinal de que algo está errado com a saúde." },
+        { q: "Choose the correct sentence.", options: ["The doctor prescribe medication.", "The doctor prescribed medication.", "The doctor prescribing medication.", "The doctor prescribes medication yesterday."], answer: 1, explanation: "A ação já aconteceu, então o verbo fica no passado simples: 'prescribed'." },
         { type: "tf", q: "'Recover' means 'adoecer'.", answer: false, explanation: "'Recover' significa 'recuperar-se'; 'adoecer' é 'get sick'." },
-        { q: "'Device' means:", options: ["Doença", "Dispositivo", "Tratamento", "Sintoma"], answer: 1 },
-        { type: "short", q: "Complete: 'I need to ___ my software.' (atualizar)", answer: ["update"] },
-        { q: "Choose the correct passive sentence for a news report.", options: ["Researchers develop a new vaccine.", "A new vaccine has been developed by researchers.", "A new vaccine develop by researchers.", "Researchers has developed a new vaccine."], answer: 1 },
-        { type: "tf", q: "News articles often use passive voice and formal vocabulary.", answer: true },
-        { q: "'Innovation' means:", options: ["Doença", "Inovação", "Tratamento", "Sintoma"], answer: 1 },
-        { q: "Choose the correct sentence.", options: ["Experts recommend to take breaks.", "Experts recommend taking breaks.", "Experts recommends take breaks.", "Experts recommend takes breaks."], answer: 1 },
-        { type: "short", q: "Complete: 'Doctors said the results ___ (be) promising.' (discurso indireto)", answer: ["were"] },
-        { q: "'Well-being' means:", options: ["Doença", "Bem-estar", "Tratamento", "Sintoma"], answer: 1 },
+        { q: "'Device' means:", options: ["Doença", "Dispositivo", "Tratamento", "Sintoma"], answer: 1, explanation: "'Device' significa 'dispositivo', um aparelho ou equipamento eletrônico." },
+        { type: "short", q: "Complete: 'I need to ___ my software.' (atualizar)", answer: ["update"], explanation: "'Update' significa 'atualizar', comum no vocabulário de tecnologia." },
+        { q: "Choose the correct passive sentence for a news report.", options: ["Researchers develop a new vaccine.", "A new vaccine has been developed by researchers.", "A new vaccine develop by researchers.", "Researchers has developed a new vaccine."], answer: 1, explanation: "Notícias costumam usar a passiva no present perfect ('has been developed') para destacar o resultado, não quem fez." },
+        { type: "tf", q: "News articles often use passive voice and formal vocabulary.", answer: true, explanation: "Textos jornalísticos preferem a voz passiva e um registro mais formal para soar objetivos." },
+        { q: "'Innovation' means:", options: ["Doença", "Inovação", "Tratamento", "Sintoma"], answer: 1, explanation: "'Innovation' significa 'inovação', a criação de algo novo." },
+        { q: "Choose the correct sentence.", options: ["Experts recommend to take breaks.", "Experts recommend taking breaks.", "Experts recommends take breaks.", "Experts recommend takes breaks."], answer: 1, explanation: "'Recommend' é seguido por gerúndio, não infinitivo: 'recommend taking'." },
+        { type: "short", q: "Complete: 'Doctors said the results ___ (be) promising.' (discurso indireto)", answer: ["were"], explanation: "No discurso indireto, o presente ('are') recua para o passado ('were')." },
+        { q: "'Well-being' means:", options: ["Doença", "Bem-estar", "Tratamento", "Sintoma"], answer: 1, explanation: "'Well-being' significa 'bem-estar', o estado geral de saúde física e mental." },
         { type: "tf", q: "'Researcher' means 'paciente'.", answer: false, explanation: "'Researcher' significa 'pesquisador'; 'paciente' é 'patient'." }
       ]
     },
@@ -823,16 +826,16 @@ APP_DATA.b2 = {
         ]
       },
       vocabulary: [
-        { word: "Avoid", phonetic: "/əˈvɔɪd/", translation: "Evitar", example: "I avoid eating late at night.", exampleTranslation: "Eu evito comer tarde da noite." },
-        { word: "Suggest", phonetic: "/səˈdʒɛst/", translation: "Sugerir", example: "I suggest checking the schedule first.", exampleTranslation: "Eu sugiro verificar o horário primeiro." },
-        { word: "Decide", phonetic: "/dɪˈsaɪd/", translation: "Decidir", example: "We decided to move to another city.", exampleTranslation: "Nós decidimos nos mudar para outra cidade." },
-        { word: "Promise", phonetic: "/ˈprɒmɪs/", translation: "Prometer", example: "He promised to call me back.", exampleTranslation: "Ele prometeu me ligar de volta." },
-        { word: "Consider", phonetic: "/kənˈsɪdər/", translation: "Considerar", example: "I'm considering changing careers.", exampleTranslation: "Estou considerando mudar de carreira." },
-        { word: "Afford", phonetic: "/əˈfɔːrd/", translation: "Poder pagar/se dar ao luxo", example: "We can't afford to travel this year.", exampleTranslation: "Nós não podemos nos dar ao luxo de viajar este ano." },
-        { word: "Postpone", phonetic: "/poʊstˈpoʊn/", translation: "Adiar", example: "We postponed meeting until next week.", exampleTranslation: "Adiamos a reunião até a próxima semana." },
-        { word: "Manage", phonetic: "/ˈmænɪdʒ/", translation: "Conseguir/Administrar", example: "She managed to finish on time.", exampleTranslation: "Ela conseguiu terminar a tempo." },
-        { word: "Mind", phonetic: "/maɪnd/", translation: "Importar-se/Ter objeção", example: "Would you mind closing the door?", exampleTranslation: "Você se importaria de fechar a porta?" },
-        { word: "Regret", phonetic: "/rɪˈɡrɛt/", translation: "Arrepender-se", example: "I regret not studying more.", exampleTranslation: "Eu me arrependo de não ter estudado mais." }
+        { id: "b2-m6-avoid", word: "Avoid", phonetic: "/əˈvɔɪd/", translation: "Evitar", example: "I avoid eating late at night.", exampleTranslation: "Eu evito comer tarde da noite." },
+        { id: "b2-m6-suggest", word: "Suggest", phonetic: "/səˈdʒɛst/", translation: "Sugerir", example: "I suggest checking the schedule first.", exampleTranslation: "Eu sugiro verificar o horário primeiro." },
+        { id: "b2-m6-decide", word: "Decide", phonetic: "/dɪˈsaɪd/", translation: "Decidir", example: "We decided to move to another city.", exampleTranslation: "Nós decidimos nos mudar para outra cidade." },
+        { id: "b2-m6-promise", word: "Promise", phonetic: "/ˈprɒmɪs/", translation: "Prometer", example: "He promised to call me back.", exampleTranslation: "Ele prometeu me ligar de volta." },
+        { id: "b2-m6-consider", word: "Consider", phonetic: "/kənˈsɪdər/", translation: "Considerar", example: "I'm considering changing careers.", exampleTranslation: "Estou considerando mudar de carreira." },
+        { id: "b2-m6-afford", word: "Afford", phonetic: "/əˈfɔːrd/", translation: "Poder pagar/se dar ao luxo", example: "We can't afford to travel this year.", exampleTranslation: "Nós não podemos nos dar ao luxo de viajar este ano." },
+        { id: "b2-m6-postpone", word: "Postpone", phonetic: "/poʊstˈpoʊn/", translation: "Adiar", example: "We postponed meeting until next week.", exampleTranslation: "Adiamos a reunião até a próxima semana." },
+        { id: "b2-m6-manage", word: "Manage", phonetic: "/ˈmænɪdʒ/", translation: "Conseguir/Administrar", example: "She managed to finish on time.", exampleTranslation: "Ela conseguiu terminar a tempo." },
+        { id: "b2-m6-mind", word: "Mind", phonetic: "/maɪnd/", translation: "Importar-se/Ter objeção", example: "Would you mind closing the door?", exampleTranslation: "Você se importaria de fechar a porta?" },
+        { id: "b2-m6-regret", word: "Regret", phonetic: "/rɪˈɡrɛt/", translation: "Arrepender-se", example: "I regret not studying more.", exampleTranslation: "Eu me arrependo de não ter estudado mais." }
       ],
       grammar: {
         title: "Verbo + Gerúndio vs. Verbo + Infinitivo",
@@ -932,44 +935,44 @@ APP_DATA.b2 = {
         ]
       },
       quiz: [
-        { q: "Choose the correct sentence.", options: ["I enjoy to travel.", "I enjoy traveling.", "I enjoy travel.", "I enjoying travel."], answer: 1 },
-        { q: "Choose the correct sentence.", options: ["I want traveling.", "I want to travel.", "I want travel.", "I wanting to travel."], answer: 1 },
-        { type: "tf", q: "'Avoid' is followed by the gerund (-ing).", answer: true },
-        { q: "Choose the correct sentence.", options: ["She decided change jobs.", "She decided to change jobs.", "She decided changing jobs.", "She decided change to jobs."], answer: 1 },
-        { type: "short", q: "Complete: 'He promised ___ call me back.' (to)", answer: ["to"] },
-        { q: "'Postpone' means:", options: ["Cancelar", "Adiar", "Confirmar", "Lembrar"], answer: 1 },
+        { q: "Choose the correct sentence.", options: ["I enjoy to travel.", "I enjoy traveling.", "I enjoy travel.", "I enjoying travel."], answer: 1, explanation: "'Enjoy' é sempre seguido de gerúndio (-ing), nunca de infinitivo com 'to'." },
+        { q: "Choose the correct sentence.", options: ["I want traveling.", "I want to travel.", "I want travel.", "I wanting to travel."], answer: 1, explanation: "'Want' é sempre seguido de infinitivo ('to' + verbo), nunca de gerúndio." },
+        { type: "tf", q: "'Avoid' is followed by the gerund (-ing).", answer: true, explanation: "'Avoid' pertence ao grupo de verbos seguidos por gerúndio, como em 'avoid eating late'." },
+        { q: "Choose the correct sentence.", options: ["She decided change jobs.", "She decided to change jobs.", "She decided changing jobs.", "She decided change to jobs."], answer: 1, explanation: "'Decide' é seguido de infinitivo: 'decided to change'." },
+        { type: "short", q: "Complete: 'He promised ___ call me back.' (to)", answer: ["to"], explanation: "'Promise' é seguido de infinitivo: 'promised to call'." },
+        { q: "'Postpone' means:", options: ["Cancelar", "Adiar", "Confirmar", "Lembrar"], answer: 1, explanation: "'Postpone' significa 'adiar', deixar algo para depois." },
         { type: "tf", q: "'Mind' is followed by the infinitive (to + verb).", answer: false, explanation: "'Mind' é seguido por gerúndio (-ing), como em 'Would you mind closing the door?'." },
-        { q: "Choose the correct sentence.", options: ["We can't afford traveling this year.", "We can't afford to travel this year.", "We can't afford travel this year.", "We can't afford to traveling this year."], answer: 1 },
-        { q: "'Regret' means:", options: ["Comemorar", "Arrepender-se", "Esquecer", "Ignorar"], answer: 1 },
-        { type: "short", q: "Complete: 'I ___ (avoid) eating late.' (gerúndio)", answer: ["avoid eating"] },
-        { q: "Choose the sentence meaning 'parei de fumar' (abandoning a habit).", options: ["I stopped to smoke.", "I stopped smoking.", "I stop smoke.", "I stopping smoke."], answer: 1 },
-        { type: "tf", q: "Some verbs change meaning depending on whether they're followed by gerund or infinitive.", answer: true }
+        { q: "Choose the correct sentence.", options: ["We can't afford traveling this year.", "We can't afford to travel this year.", "We can't afford travel this year.", "We can't afford to traveling this year."], answer: 1, explanation: "'Afford' é seguido de infinitivo: 'afford to travel'." },
+        { q: "'Regret' means:", options: ["Comemorar", "Arrepender-se", "Esquecer", "Ignorar"], answer: 1, explanation: "'Regret' significa 'arrepender-se', sentir pesar por algo feito ou não feito." },
+        { type: "short", q: "Complete: 'I ___ (avoid) eating late.' (gerúndio)", answer: ["avoid eating"], explanation: "'Avoid' exige gerúndio logo em seguida: 'avoid eating'." },
+        { q: "Choose the sentence meaning 'parei de fumar' (abandoning a habit).", options: ["I stopped to smoke.", "I stopped smoking.", "I stop smoke.", "I stopping smoke."], answer: 1, explanation: "'Stop + gerúndio' indica abandonar um hábito: 'stopped smoking' = parei de fumar." },
+        { type: "tf", q: "Some verbs change meaning depending on whether they're followed by gerund or infinitive.", answer: true, explanation: "Verbos como 'stop', 'remember' e 'try' mudam de sentido conforme são seguidos de gerúndio ou infinitivo." }
       ]
     }
   ],
   finalTest: {
     description: "Prova final do nível B2 — 20 questões cobrindo voz passiva, discurso indireto, condicionais avançados, mundo do trabalho e saúde/tecnologia.",
     questions: [
-      { q: "Choose the correct passive sentence.", options: ["This house built in 1990.", "This house was built in 1990.", "This house is building in 1990.", "This house has build in 1990."], answer: 1 },
-      { q: "Choose the passive form of 'They speak English here.'", options: ["English speaks here.", "English is spoken here.", "English was spoken here.", "English speaking here."], answer: 1 },
-      { q: "Choose the correct reported speech for: 'I am tired.'", options: ["She said she is tired.", "She said she was tired.", "She said she tired.", "She says she was tired."], answer: 1 },
-      { q: "Choose the correct reported question for: 'Where do you live?'", options: ["He asked where do I live.", "He asked where I lived.", "He asked where I live.", "He asked me where did I live."], answer: 1 },
-      { q: "Choose the correct third conditional sentence.", options: ["If I studied, I would have passed.", "If I had studied, I would have passed.", "If I had studied, I would pass.", "If I have studied, I would have passed."], answer: 1 },
-      { type: "tf", q: "The third conditional talks about hypothetical situations in the past.", answer: true },
-      { q: "Choose the sentence that expresses advice, not obligation.", options: ["You must arrive on time.", "You have to arrive on time.", "You should arrive on time.", "You had to arrive on time."], answer: 2 },
-      { q: "'Résumé' means:", options: ["Entrevista", "Currículo", "Salário", "Promoção"], answer: 1 },
-      { q: "'Symptom' means:", options: ["Tratamento", "Sintoma", "Dispositivo", "Pesquisador"], answer: 1 },
-      { q: "Choose the correct passive sentence for a news report.", options: ["Researchers develop a new vaccine.", "A new vaccine has been developed by researchers.", "A new vaccine develop by researchers.", "Researchers has developed a new vaccine."], answer: 1 },
-      { type: "tf", q: "'Should' expresses strong obligation, like a law.", answer: false },
-      { type: "short", q: "Complete: 'She told ___ she was leaving.' (para mim)", answer: ["me"] },
-      { q: "'Admitted' means:", options: ["Negou", "Admitiu", "Perguntou", "Explicou"], answer: 1 },
-      { type: "short", q: "Complete: 'I ___ studying more.' (arrependo-me de)", answer: ["regret"] },
-      { q: "'Deadline' means:", options: ["Prazo", "Oportunidade", "Erro", "Consequência"], answer: 0 },
-      { type: "tf", q: "'Don't have to' means the same as 'must not'.", answer: false },
-      { q: "'Colleague' means:", options: ["Chefe", "Colega de trabalho", "Cliente", "Candidato"], answer: 1 },
-      { type: "short", q: "Complete: 'I need to ___ my software.' (atualizar)", answer: ["update"] },
-      { type: "tf", q: "News articles often use passive voice and formal vocabulary.", answer: true },
-      { q: "'Innovation' means:", options: ["Doença", "Inovação", "Tratamento", "Sintoma"], answer: 1 }
+      { q: "Choose the correct passive sentence.", options: ["This house built in 1990.", "This house was built in 1990.", "This house is building in 1990.", "This house has build in 1990."], answer: 1, explanation: "A passiva no passado usa 'was/were + particípio passado': 'was built'." },
+      { q: "Choose the passive form of 'They speak English here.'", options: ["English speaks here.", "English is spoken here.", "English was spoken here.", "English speaking here."], answer: 1, explanation: "Como a frase original está no presente simples, a passiva usa 'is/are + particípio': 'is spoken'." },
+      { q: "Choose the correct reported speech for: 'I am tired.'", options: ["She said she is tired.", "She said she was tired.", "She said she tired.", "She says she was tired."], answer: 1, explanation: "No discurso indireto, o presente ('am') recua para o passado ('was')." },
+      { q: "Choose the correct reported question for: 'Where do you live?'", options: ["He asked where do I live.", "He asked where I lived.", "He asked where I live.", "He asked me where did I live."], answer: 1, explanation: "Perguntas indiretas não têm inversão sujeito-verbo e o tempo verbal recua: 'where I lived'." },
+      { q: "Choose the correct third conditional sentence.", options: ["If I studied, I would have passed.", "If I had studied, I would have passed.", "If I had studied, I would pass.", "If I have studied, I would have passed."], answer: 1, explanation: "A estrutura correta é 'If + past perfect, would have + particípio': 'If I had studied, I would have passed.'" },
+      { type: "tf", q: "The third conditional talks about hypothetical situations in the past.", answer: true, explanation: "O terceiro condicional descreve situações imaginárias que não aconteceram no passado, muitas vezes com arrependimento." },
+      { q: "Choose the sentence that expresses advice, not obligation.", options: ["You must arrive on time.", "You have to arrive on time.", "You should arrive on time.", "You had to arrive on time."], answer: 2, explanation: "'Should' expressa conselho ou recomendação, enquanto 'must' e 'have to' expressam obrigação." },
+      { q: "'Résumé' means:", options: ["Entrevista", "Currículo", "Salário", "Promoção"], answer: 1, explanation: "'Résumé' significa 'currículo', o documento com o histórico profissional de alguém." },
+      { q: "'Symptom' means:", options: ["Tratamento", "Sintoma", "Dispositivo", "Pesquisador"], answer: 1, explanation: "'Symptom' significa 'sintoma', um sinal de que algo está errado com a saúde." },
+      { q: "Choose the correct passive sentence for a news report.", options: ["Researchers develop a new vaccine.", "A new vaccine has been developed by researchers.", "A new vaccine develop by researchers.", "Researchers has developed a new vaccine."], answer: 1, explanation: "Notícias costumam usar a passiva no present perfect ('has been developed') para destacar o resultado, não quem fez." },
+      { type: "tf", q: "'Should' expresses strong obligation, like a law.", answer: false, explanation: "'Should' expressa conselho ou recomendação, não obrigação forte." },
+      { type: "short", q: "Complete: 'She told ___ she was leaving.' (para mim)", answer: ["me"], explanation: "'Tell' exige um objeto direto para a pessoa ouvinte: 'told me', diferente de 'said to me'." },
+      { q: "'Admitted' means:", options: ["Negou", "Admitiu", "Perguntou", "Explicou"], answer: 1, explanation: "'Admitted' é o passado de 'admit', que significa 'admitir' ou 'reconhecer'." },
+      { type: "short", q: "Complete: 'I ___ studying more.' (arrependo-me de)", answer: ["regret"], explanation: "'Regret' significa 'arrepender-se de' e é seguido de gerúndio quando fala de algo já feito ou não feito." },
+      { q: "'Deadline' means:", options: ["Prazo", "Oportunidade", "Erro", "Consequência"], answer: 0, explanation: "'Deadline' é o prazo final para entregar ou concluir algo." },
+      { type: "tf", q: "'Don't have to' means the same as 'must not'.", answer: false, explanation: "'Don't have to' significa que não há obrigação (é opcional); 'must not' significa proibição." },
+      { q: "'Colleague' means:", options: ["Chefe", "Colega de trabalho", "Cliente", "Candidato"], answer: 1, explanation: "'Colleague' significa 'colega de trabalho', alguém que trabalha na mesma empresa." },
+      { type: "short", q: "Complete: 'I need to ___ my software.' (atualizar)", answer: ["update"], explanation: "'Update' significa 'atualizar', comum no vocabulário de tecnologia." },
+      { type: "tf", q: "News articles often use passive voice and formal vocabulary.", answer: true, explanation: "Textos jornalísticos preferem a voz passiva e um registro mais formal para soar objetivos." },
+      { q: "'Innovation' means:", options: ["Doença", "Inovação", "Tratamento", "Sintoma"], answer: 1, explanation: "'Innovation' significa 'inovação', a criação de algo novo." }
     ]
   }
 };
