@@ -87,6 +87,9 @@ Views.writing = (function () {
         var index = parseInt(btn.getAttribute('data-index'), 10);
         var area = root.querySelector('.writing-area[data-draft-key="' + key + '"]');
         var item = module.writing[index];
+        // WritingCorrectionAdapter fica desativado por padrão (ver js/writingCorrectionAdapter.js);
+        // quando/se um serviço externo for ligado, o feedback dele entraria aqui, ao lado
+        // do checklist local — sem substituir WritingReview.
         var checks = WritingReview.review(area ? area.value : '', item);
         var resultId = 'writing-review-' + key.replace(/[^a-z0-9]/gi, '-');
         renderReviewResult(root, resultId, checks);

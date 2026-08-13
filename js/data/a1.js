@@ -437,7 +437,7 @@ APP_DATA.a1 = {
       ],
       writing: [
         { prompt: "Descreva 3 objetos que você vê agora, incluindo a cor de cada um.", minWords: 12, modelAnswer: "This is my phone. It is black. That is my bag. It is red." },
-        { prompt: "Escreva sobre seu quarto ou sala usando 'there is/there are' pelo menos 3 vezes.", minWords: 20, modelAnswer: "There is a table in my room. There are two chairs near the window. There is a green lamp on the desk, and there are some books on the shelf." }
+        { prompt: "Escreva sobre seu quarto ou sala usando 'there is/there are' pelo menos 3 vezes.", minWords: 20, minSentences: 3, requiredStructures: ["there is", "there are"], modelAnswer: "There is a table in my room. There are two chairs near the window. There is a green lamp on the desk, and there are some books on the shelf." }
       ],
       speaking: [
         { phrase: "This is my book.", tip: "'This' tem o som 'th' com a língua entre os dentes." },

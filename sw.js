@@ -15,6 +15,7 @@ var ASSETS = [
   'js/player.js',
   'js/speaking.js',
   'js/writingReview.js',
+  'js/writingCorrectionAdapter.js',
   'js/app.js',
   'js/data/levels.js',
   'js/data/placementQuiz.js',
